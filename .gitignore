@@ -1,5 +1,5 @@
 node_modules
-./Config/.env
+Config/.env
 
 firebase.example.js
 survey.example.html
