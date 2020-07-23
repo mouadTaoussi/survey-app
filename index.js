@@ -16,12 +16,18 @@ const passport_linkedin               = require('passport-linkedin'); //
 const passport_google_oauth20         = require('passport-google-oauth20'); //
 const redis                           = require('redis');
 const RedisStore                      = require('connect-redis')(express_sessions);
-////////////////////////////////////// GRAB CONFIG STUFF
+/////////////////////////////////////// GRAB CONFIG STUFF
 const databaseConnection              = require('./Config/DatabaseConnection.js');
 const firebaseInitialized             = require('./Config/FirebaseConfig.js');
-////////////////////////////////////// GRAB MODELS
-////////////////////////////////////// GRAB CONTROLLERS
-////////////////////////////////////// GRAB MIDDLEWARES
+/////////////////////////////////////// GRAB AUTH STRATEGIES 
+const strategies                      = require('./Passport/PassportAuthentication.js');
+/////////////////////////////////////// GRAB MODELS
+/////////////////////////////////////// GRAB CONTROLLERS
+/////////////////////////////////////// GRAB MIDDLEWARES
+/////////////////////////////////////// GRAB ROUTES
+const authentication                 = require('./Routes/Authentication.js');
+const questions                 = require('./Routes/Questions.js');
+const responses                 = require('./Routes/Responses.js');
 
 
 // Load .env
@@ -29,8 +35,8 @@ dotenv.config({ path: './Config/.env' });
 
 // Init express && router
 const app = express();
-const router = express.Router();
-app.use(router);
+// const router = express.Router();
+// app.use(router);
 
 // Init View engine
 app.set('view engine','ejs');
@@ -44,28 +50,68 @@ const mongoDatabase = databaseConnection.mongodbConnection();
 // Init redis connection
 const redisDatabase = databaseConnection.redisConnection();
 
-// Init Passport
-app.use(passport.initialize());
-// Init graphql
-
 // Init sessions
 app.use(express_sessions({
 	secret : process.env.EXPRESS_SESSION_KEY,
-	// name : "session",
-	// signed : true,
-	// httpOnly : true,
 	resave : false,
-	saveUninitialized : false,
-	store: new RedisStore({ host: process.env.REDIS_LABS_HOST, port: process.env.REDIS_LABS_PORT, client: redisDatabase })
+	saveUninitialized : true,
+	store: new RedisStore({ host: process.env.REDIS_LABS_HOST, port: process.env.REDIS_LABS_PORT, client: redisDatabase }),
 }))
+
+// const cs = require('cookie-session');
+// app.use(cs({
+// 	keys : ["dfblndfblndfljb","sdvsdvsdvvsd"],
+// 	name : "session",
+// 	signed : true,
+// 	httpOnly : true,
+// }))
+
+// Init Passport
+app.use(passport.initialize());
+strategies.googleStrategy();
+strategies.githubStrategy();
+strategies.linkedInStrategy();
+strategies.serializeUser();
+// strategies.deserializeUser();
+// Init graphql
+
 
 // Init static folder to serve
 app.use(express.static('Public'));
 
 // Init body parser
 app.use(express.urlencoded({ extended: false }))
-app.use(express.json())
+app.use(express.json());
 
+// Routes
+// app.use('/');
+app.use('/auth',authentication);
+app.use('/question',questions);
+app.use('/response',responses);
+
+// INITiAL ROUTE
+app.get('/',(req,res)=>{
+	res.render('pages/index');
+	// redisDatabase.keys('*',  (err, keys)=>{
+	// 	console.log(keys);
+	// })
+	redisDatabase.get('sess:mk8xcUI4epdpI80EYxz8g1ZkWDw09Pqm',  (err, value)=>{
+		console.log(JSON.parse(value));
+	})
+	
+})
+app.get('/get',(req,res)=>{
+	console.log(req.session);
+	res.json(req.session);
+})
+app.get('/set',(req,res)=>{
+	const local = {
+		user : 225
+	}
+	req.session.userid=null;
+	req.session.user = local;
+	res.json(req.session)
+})
 // Init helmet
 app.use(helmet());
 
@@ -77,10 +123,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
 
-// INITiAL ROUTE
-router.get('/',(req,res)=>{
-	res.render('pages/index');
-})
+
 // Init port && Start the server
 const PORT = process.env.PORT || process.env.NODE_PORT;
 app.listen(PORT,()=>{
