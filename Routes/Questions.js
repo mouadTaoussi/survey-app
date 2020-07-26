@@ -8,12 +8,16 @@ const questionsController = new Questions();
 // Init router
 const router = express.Router();
 
-
-
-
-
-
-
+router.post('/:id',(req,res)=>{
+	// Add
+	questionsController.addSurvey();
+	// Update
+	questionsController.updateSurvey();
+})
+router.delete('/:id',(req,res)=>{
+ 	// Delete
+ 	questionsController.deleteSurvey('difbndib');
+})
 
 
 

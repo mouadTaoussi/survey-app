@@ -1,0 +1,15 @@
+@import url('./design.system.css');
+@import url('./colors.css');
+@import url('./fonts.css');
+@import url('./mediaqueries.css');
+
+
+body {
+	background-color: var(--light);
+	color: var(--dark);
+}
+h1,h2,h3,h5,h6 {
+	/*font-family: 'Cabin', sans-serif;*/
+	font-family: 'Poppins', sans-serif;
+	/*font-family: 'Ubuntu', sans-serif;*/
+}

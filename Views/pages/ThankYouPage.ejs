@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Thank You</title>
+	<%-   include('.././partials/HeadTags')   %>
+</head>
+<body class="body">
+<header class="local-navbar-2 local-navbar-primary"></header>
+<div  class="local-container-4">
+	<h1 class="local-mt-4 local-mb-4">Thank You</h1>
+	<div class='local-card local-mt-2 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+		<h4 class="">This is an example of a card!</h4>
+		<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+		<div style="width: 60%;height: 82%;margin: 0 auto;">
+			<canvas id="canvas"></canvas>
+		</div>
+	</div>
+	<div class='local-card local-mt-2 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+		<h4 class="">This is an example of a card!</h4>
+		<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+		<div style="width: 60%;height: 82%;margin: 0 auto;">
+			<canvas id="canvas"></canvas>
+		</div>
+	</div>
+	<button class="local-btn local-btn-primary local-mt-2 local-mb-2">Learn more</button>
+	<button class="local-btn local-btn-success local-mt-2 local-mb-2">Learn more</button>
+	<button class="local-btn local-btn-danger local-mt-2 local-mb-2">Learn more</button>
+	<button class="local-btn local-btn-info local-mt-2 local-mb-2">Learn more</button>
+	<button class="local-btn local-btn-warning local-mt-2 local-mb-2">Learn more</button><br>
+	<!-- <div class='local-card-success local-mt-4 local-mb-4 local-shadow'>
+		<h5 class="">This is an example of an card!</h5>
+		<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!his is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!his is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!his is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+	</div>
+	<div class='local-card-danger local-mt-2 local-mb-2 local-shadow'>
+		<h5 class="">This is an example of an card!</h5>
+		<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+	</div>
+	<div class='local-card-info local-mt-2 local-mb-2 local-shadow'>
+		<h5 class="">This is an example of an card!</h5>
+		<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+	</div>
+	<div class='local-card-warning local-mt-2 local-mb-2 local-shadow'>
+		<h5 class="">This is an example of an card!</h5>
+		<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+	</div>
+	<button class="local-btn local-btn-primary local-mt-2 local-mb-2">Learn more</button>
+	<button class="local-btn local-btn-success local-mt-2 local-mb-2">Learn more</button>
+	<button class="local-btn local-btn-danger local-mt-2 local-mb-2">Learn more</button>
+	<button class="local-btn local-btn-info local-mt-2 local-mb-2">Learn more</button>
+	<button class="local-btn local-btn-warning local-mt-2 local-mb-2">Learn more</button><br>
+	<button class="local-btn local-btn-border-primary local-mt-2 local-mb-2">Learn more</button>
+	<button class="local-btn local-btn-border-success local-mt-2 local-mb-2">Learn more</button>
+	<button class="local-btn local-btn-border-danger local-mt-2 local-mb-2">Learn more</button>
+	<button class="local-btn local-btn-border-info local-mt-2 local-mb-2">Learn more</button>
+	<button class="local-btn local-btn-border-warning local-mt-2 local-mb-2">Learn more</button>
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">First</th>
+	      <th scope="col">Last</th>
+	      <th scope="col">Handle</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <th scope="row">1</th>
+	      <td>Mark</td>
+	      <td>Otto</td>
+	      <td>@mdo</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">2</th>
+	      <td>Jacob</td>
+	      <td>Thornton</td>
+	      <td>@fat</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">3</th>
+	      <td>Larry</td>
+	      <td>the Bird</td>
+	      <td>@twitter</td>
+	    </tr>
+	  </tbody>
+	</table>
+	<div class="local-tab-menu">
+		<ul class=''>
+			<li class="">Surveys</li>
+			<li class="">Account Settings</li>
+			<li class="">Apps</li>
+			<li class="">Help</li>
+		</ul>
+	</div>
+	<div class="local-alert local-mt-2 local-mb-2 danger">
+		This is an example of an alert!
+	</div>
+	<div class="local-alert local-mt-2 local-mb-2 info">
+		This is an example of an alert!
+	</div>
+	<div class="local-alert local-mt-2 local-mb-2 success">
+		This is an example of an alert!
+	</div>
+	<div class="local-alert local-mt-2 local-mb-2 primary">
+		This is an example of an alert!
+	</div>
+	<div class="local-alert local-mt-2 local-mb-2 warning">
+		This is an example of an alert!
+	</div> -->
+</div>
+<script>
+	console.log('<%= message %>');
+	document.querySelector('.body').onload = ()=>{
+	var ctx = document.querySelectorAll("#canvas").forEach((canva)=>{
+		// ctx.canvas.width = 300;
+		// ctx.canvas.height = 300;
+		const ctx = canva.getContext("2d");
+
+		const data = {
+		    datasets: [{
+		        data: [10, 20, 30],
+		         backgroundColor: [
+		                "#2488d8"/*"#FF6384"*/,
+		                "#008272"/*"#36A2EB"*/,
+		                "#ff0000"/*"#FFCE56"*/
+		            ]
+		            // hoverBackgroundColor: [
+		            //     "#FF6384",
+		            //     "#36A2EB",
+		            //     "#FFCE56"
+		            // ]
+		    }],
+
+		    // These labels appear in the legend and in the tooltips when hovering different arcs
+		    labels: [
+		        'Red',
+		        'Yellow',
+		        'Blue'
+		    ]
+		};
+		// For a pie chart
+		var myPieChart = new Chart(ctx, {
+		    type: 'pie',
+		    data: data,
+		    options: {
+		        legend: {
+		            display: true,
+		            labels: {
+		                fontColor: 'rgba(0, 0, 0,.60)',
+		                position: 'right'
+		            }
+		        }
+		    }
+		});
+	});
+}
+
+</script>
+</body>
+<%-   include('.././partials/ScriptTags')   %>
+</html>

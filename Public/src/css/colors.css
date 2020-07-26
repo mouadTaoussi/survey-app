@@ -1,0 +1,9 @@
+:root{
+	--primary : #1554a7;
+	--dark :  #2b2b2b/*rgba(0,0,0,.85)*/;
+	--light : #ededed;
+	--success : #008272;
+	--danger : #ff0000/* #a4373a*/;
+	--info : #2488d8;
+	--warning : #c19c00;
+}

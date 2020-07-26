@@ -8,6 +8,10 @@ const responsesController = new Responses();
 // Init router
 const router = express.Router();
 
+router.get('/submitResponse',(req,res)=>{
+	res.json(responsesController.submitResponses());
+})
+
 
 
 

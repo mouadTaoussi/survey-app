@@ -25,9 +25,10 @@ const strategies                      = require('./Passport/PassportAuthenticati
 /////////////////////////////////////// GRAB CONTROLLERS
 /////////////////////////////////////// GRAB MIDDLEWARES
 /////////////////////////////////////// GRAB ROUTES
-const authentication                 = require('./Routes/Authentication.js');
-const questions                 = require('./Routes/Questions.js');
-const responses                 = require('./Routes/Responses.js');
+const authentication                  = require('./Routes/Authentication.js');
+const questions                       = require('./Routes/Questions.js');
+const responses                       = require('./Routes/Responses.js');
+const pageRendering                   = require('./Routes/PageRenderingRoutes.js');
 
 
 // Load .env
@@ -77,29 +78,28 @@ strategies.serializeUser();
 
 
 // Init static folder to serve
-app.use(express.static('Public'));
+app.use(express.static('Public/dist'));
 
 // Init body parser
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 
 // Routes
-// app.use('/');
+app.use('/',pageRendering);
 app.use('/auth',authentication);
 app.use('/question',questions);
 app.use('/response',responses);
 
 // INITiAL ROUTE
-app.get('/',(req,res)=>{
-	res.render('pages/index');
-	// redisDatabase.keys('*',  (err, keys)=>{
-	// 	console.log(keys);
-	// })
-	redisDatabase.get('sess:mk8xcUI4epdpI80EYxz8g1ZkWDw09Pqm',  (err, value)=>{
-		console.log(JSON.parse(value));
-	})
-	
-})
+// app.get('/',(req,res)=>{
+// 	res.render('pages/index');
+// 	// redisDatabase.keys('*',  (err, keys)=>{
+// 	// 	console.log(keys);
+// 	// })
+// 	redisDatabase.get('sess:mk8xcUI4epdpI80EYxz8g1ZkWDw09Pqm',  (err, value)=>{
+// 		console.log(JSON.parse(value));
+// 	})
+// })
 app.get('/get',(req,res)=>{
 	console.log(req.session);
 	res.json(req.session);
@@ -112,6 +112,7 @@ app.get('/set',(req,res)=>{
 	req.session.user = local;
 	res.json(req.session)
 })
+
 // Init helmet
 app.use(helmet());
 
