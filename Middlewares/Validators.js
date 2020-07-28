@@ -1,8 +1,8 @@
 module.exports = {
-	validateQuestions : (res,res,next)=>{
+	validateQuestions : (req,res,next)=>{
 
 	},
-	validateSubmittedResponse : (res,res,next)=>{
+	validateSubmittedResponse : (req,res,next)=>{
 
 	}
 }
