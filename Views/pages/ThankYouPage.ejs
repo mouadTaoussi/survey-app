@@ -5,7 +5,7 @@
 	<%-   include('.././partials/HeadTags')   %>
 </head>
 <body class="body">
-<header class="local-navbar-2 local-navbar-primary"></header>
+<%- include('.././partials/HeaderElement') %>
 <div  class="local-container-4">
 	<h1 class="local-mt-4 local-mb-4">Thank You</h1>
 	<div class='local-card local-mt-2 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
@@ -117,11 +117,13 @@
 
 		const data = {
 		    datasets: [{
-		        data: [10, 20, 30],
+		        data: [10, 20, 30,50,20],
 		         backgroundColor: [
-		                "#2488d8"/*"#FF6384"*/,
-		                "#008272"/*"#36A2EB"*/,
-		                "#ff0000"/*"#FFCE56"*/
+		                "#00b894"/*"#FF6384"*/,
+		                "#0984e3"/*"#36A2EB"*/,
+		                "#d63031"/*"#FFCE56"*/,
+		                "#f53b57",
+		                "#ffa801"
 		            ]
 		            // hoverBackgroundColor: [
 		            //     "#FF6384",
@@ -132,9 +134,11 @@
 
 		    // These labels appear in the legend and in the tooltips when hovering different arcs
 		    labels: [
-		        'Red',
-		        'Yellow',
-		        'Blue'
+		        'Other',
+		        'I dont think',
+		        'Yep',
+		        'Nope',
+		        'Not sure',
 		    ]
 		};
 		// For a pie chart

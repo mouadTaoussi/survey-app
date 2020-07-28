@@ -1,0 +1,47 @@
+<header class="local-navbar-2 local-navbar-primary">
+	<div class="local-container-4 header-grid">
+		<h5 class="text-white brand">Hello World</h5>
+		<ul class="list-menu">
+			<li class="local-pr-2 local-pl-2 avatar-and-btn-item">
+				<img class="avatar" src='./mouadTaoussi.jpg'>
+			</li>
+			<li class="local-pr-2 local-pl-2 list-item">Log out</li>
+			<li class="local-pr-2 local-pl-2 list-item">Dashboard</li>
+			<li class="local-pr-2 local-pl-2 avatar-and-btn-item">
+				<button class="local-btn header-btn">Create one</button>
+			</li>
+		</ul>	
+	</div>
+</header>
+<style>
+	.header-grid {
+		padding-top: .7%;display: grid;grid-template-columns: 1fr 1.8fr;
+	}
+	.header-btn {
+		color: var(--primary)
+	}
+	.avatar {
+		border-radius: 10%;
+		width: 35px;
+		height: 35px;
+	}
+	.brand {
+		margin:5px 0 0 0;
+	}
+	.list-menu {
+		color: white;list-style: none;margin:-.5px 0 0 0;
+	}
+	.list-item {
+		height:35px;display: inline;float: right;margin-top: 3px;
+	}
+	.avatar-and-btn-item {
+		height:35px;display: inline;float: right
+	}
+
+	/**********************************/
+	@media only screen and (max-width: 800px){
+		.list-menu {
+			display: none;
+		}
+	}
+</style>

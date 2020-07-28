@@ -192,32 +192,32 @@
 }
 .local-btn-border-dark {
 	border: 2px solid var(--dark);
-	background-color : inherit;
+	background-color : white;
 	color: var(--dark);
 }
 .local-btn-border-primary {
 	border: 2px solid var(--primary);
-	background-color : inherit;
+	background-color : white;
 	color: var(--primary);
 }
 .local-btn-border-success {
 	border: 2px solid var(--success);
-	background-color : inherit;
+	background-color : white;
 	color: var(--success);
 }
 .local-btn-border-danger {
 	border: 2px solid var(--danger);
-	background-color : inherit;
+	background-color : white;
 	color: var(--danger);
 }
 .local-btn-border-info {
 	border: 2px solid var(--info);
-	background-color : inherit;
+	background-color : white;
 	color: var(--info);
 }
 .local-btn-border-warning {
 	border: 2px solid var(--warning);
-	background-color : inherit;
+	background-color : white;
 	color: var(--warning);
 }
 /*  Alerts  */

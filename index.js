@@ -1,7 +1,6 @@
 const express                         = require('express');
 const graphql                         = require('graphql'); //
 const ejs                             = require('ejs'); 
-const firebase                        = require('firebase-admin');
 const jsonwebtoken                    = require('jsonwebtoken'); //
 const mongoose                        = require('mongoose'); 
 const passport                        = require('passport'); 
@@ -18,7 +17,6 @@ const redis                           = require('redis');
 const RedisStore                      = require('connect-redis')(express_sessions);
 /////////////////////////////////////// GRAB CONFIG STUFF
 const databaseConnection              = require('./Config/DatabaseConnection.js');
-const firebaseInitialized             = require('./Config/FirebaseConfig.js');
 /////////////////////////////////////// GRAB AUTH STRATEGIES 
 const strategies                      = require('./Passport/PassportAuthentication.js');
 /////////////////////////////////////// GRAB MODELS
@@ -36,14 +34,9 @@ dotenv.config({ path: './Config/.env' });
 
 // Init express && router
 const app = express();
-// const router = express.Router();
-// app.use(router);
 
 // Init View engine
 app.set('view engine','ejs');
-
-// Init firebase
-const firebaseDatabase = firebaseInitialized.firebaseConnection();
 
 // Init database connection
 const mongoDatabase = databaseConnection.mongodbConnection();
@@ -59,14 +52,6 @@ app.use(express_sessions({
 	store: new RedisStore({ host: process.env.REDIS_LABS_HOST, port: process.env.REDIS_LABS_PORT, client: redisDatabase }),
 }))
 
-// const cs = require('cookie-session');
-// app.use(cs({
-// 	keys : ["dfblndfblndfljb","sdvsdvsdvvsd"],
-// 	name : "session",
-// 	signed : true,
-// 	httpOnly : true,
-// }))
-
 // Init Passport
 app.use(passport.initialize());
 strategies.googleStrategy();
@@ -74,8 +59,8 @@ strategies.githubStrategy();
 strategies.linkedInStrategy();
 strategies.serializeUser();
 // strategies.deserializeUser();
-// Init graphql
 
+// Init graphql
 
 // Init static folder to serve
 app.use(express.static('Public/dist'));
@@ -84,11 +69,29 @@ app.use(express.static('Public/dist'));
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 
+
+const auth = require('./Middlewares/Authentication.js');
+
+app.get('/get', auth.isAuthenticated, auth.isCompletedCredentiels, (req,res)=>{
+
+	console.log(req.user);
+	console.log(req.info);
+	res.json(req.user);
+})
+app.get('/set',(req,res)=>{
+	const local = {
+		user : 225
+	}
+	req.session.userid=null;
+	req.session.user = local;
+	res.json(req.session)
+})
+
 // Routes
-app.use('/',pageRendering);
 app.use('/auth',authentication);
 app.use('/question',questions);
 app.use('/response',responses);
+app.use('/',pageRendering);
 
 // INITiAL ROUTE
 // app.get('/',(req,res)=>{
@@ -100,18 +103,6 @@ app.use('/response',responses);
 // 		console.log(JSON.parse(value));
 // 	})
 // })
-app.get('/get',(req,res)=>{
-	console.log(req.session);
-	res.json(req.session);
-})
-app.get('/set',(req,res)=>{
-	const local = {
-		user : 225
-	}
-	req.session.userid=null;
-	req.session.user = local;
-	res.json(req.session)
-})
 
 // Init helmet
 app.use(helmet());

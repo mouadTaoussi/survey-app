@@ -15,7 +15,7 @@ class Questions {
 	deleteSurvey(questions_id){
 		return 'question ' + questions_id + ' has been deleted!!!' ;
 	}
-	processSurveyResponses(questions,responses){
+	processSurveyResponses(questions/** Object **/,responses/** Array **/){
 		// const questions.options = responses.responses[0].options;
 		// const
 

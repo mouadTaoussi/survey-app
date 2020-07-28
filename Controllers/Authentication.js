@@ -1,5 +1,4 @@
 const nodemailer                      = require('nodemailer');
-const firebase                        = require('firebase-admin');
 // Users modelresetPasswordToken
 const User                            = require('.././Models/UserModel.js');
 const ResetPasswordTokenModel         = require('.././Models/ResetPasswordToken.js');
@@ -22,15 +21,6 @@ class Authentication {
 	}
 	changePassword(token,new_password){
 		return 'Password changed brah!!!!!';
-	}
-	isAuthenticated(req,res,next){
-
-	}
-	isLoggedIn(req,res,next){
-
-	}
-	isProvidedAllCredentials(req,res,next){
-
 	}
 	trackResetPasswordTokens(){
 		console.log('[INFO]: Hello World');

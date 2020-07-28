@@ -2,6 +2,8 @@ const express                         = require('express');
 const passport                        = require('passport');
 /////////////////////////////////////// GRAB THE APPROPRIATE CONTROLLER CLASS
 const Authentication                  = require('.././Controllers/Authentication.js');
+/////////////////////////////////////// GRAB THE APPROPRIATE MIDDLEWARE
+const auth                            = require('.././Middlewares/Authentication.js');
 
 // Init appropriate controller
 const authController = new Authentication();

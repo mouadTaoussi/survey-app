@@ -3,6 +3,9 @@ const express                         = require('express');
 const Authentication                  = require('.././Controllers/Authentication.js');
 const Questions                       = require('.././Controllers/Questions.js');
 const Responses                       = require('.././Controllers/Responses.js');
+/////////////////////////////////////// GRAB THE APPROPRIATE MIDDLEWARE
+const auth                            = require('.././Middlewares/Authentication.js');
+const validators                      = require('.././Middlewares/Validators.js');
 
 // Init appropriate controller
 const authController = new Authentication();
