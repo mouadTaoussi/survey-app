@@ -6,9 +6,115 @@
 </head>
 <body>
 <%- include('.././partials/HeaderElement') %>
-<div class="local-container-4">
-	<h1>Survey Editor</h1>
+<div class="mt-4 mb-4 local-container-8">
+	<ul class="list-group list-group-horizontal-sm">
+	  <li style="cursor:pointer;" class="list-group-item edit-tab">Edit</li>
+	  <li style="cursor:pointer;" class="list-group-item responses-tab">Responses</li>
+	</ul>
+	<!-- <h1>Survey Editor</h1> -->
+	<!-- ---------------------------------------------------------- -->
+	<!-- ---------------------------------------------------------- -->
+	<!-- ---------------------------------------------------------- -->
+	<div class="survey-editor">
+		<div class="survey-editor-preview">
+			<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+				<h4 class="">This is an example of a card!</h4>
+				<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+				<div style="width: 50%;height: 72%;margin: 0 auto;">
+					<canvas id="canvas"></canvas>
+				</div>
+			</div>
+			<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+				<h4 class="">This is an example of a card!</h4>
+				<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+				<div style="width: 50%;height: 72%;margin: 0 auto;">
+					<canvas id="canvas"></canvas>
+				</div>
+			</div>
+			<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+				<h4 class="">This is an example of a card!</h4>
+				<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+				<div style="width: 50%;height: 72%;margin: 0 auto;">
+					<canvas id="canvas"></canvas>
+				</div>
+			</div>
+			<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+				<h4 class="">This is an example of a card!</h4>
+				<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+				<div style="width: 50%;height: 72%;margin: 0 auto;">
+					<canvas id="canvas"></canvas>
+				</div>
+			</div>
+			<button class="local-btn local-btn-primary local-mt-2 local-mb-2 float-right">Save Changes</button>
+		</div>
+		<div class="survey-editor-tools">
+			<div class="tools-panel local-mt-4 local-shadow"></div>
+		</div>
+	</div>
+	<!-- ---------------------------------------------------------- -->
+	<!-- ---------------------------------------------------------- -->
+	<!-- ---------------------------------------------------------- -->
+	<div class="responses">
+		<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+			<h4 class="">This is an example of a card!</h4>
+			<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+			<div style="width: 50%;height: 72%;margin: 0 auto;">
+				<canvas id="canvas"></canvas>
+			</div>
+		</div>
+		<div class='local-card local-mt-2 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+			<h4 class="">This is an example of a card!</h4>
+			<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+			<div style="width: 50%;height: 72%;margin: 0 auto;">
+				<canvas id="canvas"></canvas>
+			</div>
+		</div>
+		<div class='local-card local-mt-2 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+			<h4 class="">This is an example of a card!</h4>
+			<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+			<div style="width: 50%;height: 72%;margin: 0 auto;">
+				<canvas id="canvas"></canvas>
+			</div>
+		</div>
+		<div class='local-card local-mt-2 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+			<h4 class="">This is an example of a card!</h4>
+			<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+			<div style="width: 50%;height: 72%;margin: 0 auto;">
+				<canvas id="canvas"></canvas>
+			</div>
+		</div>
+	</div>
 </div>
 </body>
 <%-   include('.././partials/ScriptTags')   %>
 </html>
+<style>
+	.survey-editor {
+		display: grid;grid-template-columns: 11fr 1fr;grid-gap: 30px;display:  ;
+	}
+	.tools-panel {
+		width: 50px!important;
+		background-color: white;
+		height: 100px;
+		position: fixed;
+	}
+	.responses {
+		display: none;
+	}
+</style>
+<script>
+	const edit_tab = document.querySelector('.edit-tab')
+	const responses_tab = document.querySelector('.responses-tab')
+	 edit_tab.addEventListener('click',()=>{
+	 	document.querySelector('.survey-editor').style.display = '';
+	 	document.querySelector('.responses').style.display = 'none';
+	 	edit_tab.classList.add('active');
+	 	responses_tab.classList.remove('active');
+	 })
+	 responses_tab.addEventListener('click',()=>{
+	 	document.querySelector('.survey-editor').style.display = 'none';
+	 	document.querySelector('.responses').style.display = 'block';
+	 	responses_tab.classList.add('active');
+	 	edit_tab.classList.remove('active');
+	 })
+</script>

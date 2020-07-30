@@ -11,7 +11,9 @@ module.exports = {
 			next();
 		}
 		else if (req.session.user){
-			const user = await User.findOne({ id : req.session.localUser.id });
+			const user = await User.findOne({ 
+				id : req.session.localUser.id 
+			});
 			req.user = user;
 			next();	
 		}

@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path    = require('path');
 
 
 const config = {
@@ -16,7 +17,15 @@ const config = {
       // },
       {
         test: /\.css$/,
+        include: path.resolve(__dirname, 'src'),
         use: [ 'style-loader', 'css-loader' ]
+      },
+      {
+        test: /\.svg/,
+        use: {
+          loader: 'svg-url-loader',
+          options: {}
+        }
       }
     ]
   },

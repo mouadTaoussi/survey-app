@@ -6,9 +6,128 @@
 </head>
 <body>
 <%- include('.././partials/HeaderElement') %>
-<div class="local-container-4">
-	<h1>Dashboard</h1>
+<div class="local-container-8">
+	<!-- <h1 class="mt-4">Dashboard</h1> -->
+	<div class="row mt-4">
+	  <div class="col-3">
+	    <div class="list-group" id="list-tab" role="tablist">
+	      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Your Surveys</a>
+	      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Your Profile</a>
+	      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+	    </div>
+	  </div>
+	  <div class="col-9">
+	  	<!-- <div class="local-alert info local-mb-2">
+	  		Provide us your email ! ! !
+	  	</div> -->
+	    <div class="tab-content" id="nav-tabContent">
+	      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+	      	<h3 class="text-left local-mb-4">Your Surveys</h3>
+	      	<table class="table table-hover">
+			  <thead style="background-color:rgba(0,0,0,.1)">
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">First</th>
+			      <th scope="col">Last</th>
+			      <th scope="col">Handle</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>Mark</td>
+			      <td>Otto</td>
+			      <td>@mdo</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">2</th>
+			      <td>Jacob</td>
+			      <td>Thornton</td>
+			      <td>@fat</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">3</th>
+			      <td colspan="2">Larry the Bird</td>
+			      <td>@twitter</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">4</th>
+			      <td colspan="2">Larry the Bird</td>
+			      <td>@twitter</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">5</th>
+			      <td colspan="2">Larry the Bird</td>
+			      <td>@twitter</td>
+			    </tr>
+			    <tr style="background-color:rgba(0,0,0,.20);cursor: pointer">
+			      <td colspan="2">Create new survey +</td>
+			      <td></td>
+			      <td></td>
+			    </tr>
+			  </tbody>
+			</table>
+	      </div>
+	      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+	      	<h3 class="text-left local-mb-4">Your Account</h3>
+	      </div>
+	      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+	      	<h3 class="text-left local-mb-4">Settings</h3>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- <div class="mt-4 dashboard-content">
+		<div class="sidebar-area local-tab-menu">
+			<ul>
+				<li class="local-tab-menu-item">Your Surveys</li>
+				<li class="local-tab-menu-item">Your Account</li>
+				<li class="local-tab-menu-item">Settings</li>
+			</ul>
+		</div>		
+		<div class="table-area">
+			<table class="table table-hover">
+			  <thead>
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">First</th>
+			      <th scope="col">Last</th>
+			      <th scope="col">Handle</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>Mark</td>
+			      <td>Otto</td>
+			      <td>@mdo</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">2</th>
+			      <td>Jacob</td>
+			      <td>Thornton</td>
+			      <td>@fat</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">3</th>
+			      <td colspan="2">Larry the Bird</td>
+			      <td>@twitter</td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+		<div class="user-area">
+			<p>User</p>
+		</div>		
+	</div> -->
 </div>
 </body>
 <%-   include('.././partials/ScriptTags')   %>
 </html>
+<style>
+	.dashboard-content {
+		display: grid;
+		grid-template-columns: 1fr 3.5fr;
+		grid-gap: 20px;
+	}
+</style>

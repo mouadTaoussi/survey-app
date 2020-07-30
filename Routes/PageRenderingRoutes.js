@@ -33,7 +33,7 @@ router.get('/register',(req,res)=>{
 router.get('/resetPassword',(req,res)=>{
  	res.render('pages/ResetPassword');
 })
-router.get('/changePassword/:token',(req,res)=>{
+router.get('/changePassword',(req,res)=>{
  	res.render('pages/ChangePassword');
 })
 router.get('/dashboard',(req,res)=>{
@@ -42,7 +42,7 @@ router.get('/dashboard',(req,res)=>{
 router.get('/embedded',(req,res)=>{
  	res.render('pages/Embedded');
 })
-router.get('/surveyEditor/:survey_id',(req,res)=>{
+router.get('/surveyEditor',(req,res)=>{
  	res.render('pages/SurveyEditor');
 })
 router.get('/submitResponse',(req,res)=>{
