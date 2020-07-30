@@ -18,9 +18,12 @@ h1,h2,h3,h5,h6 {
 	background-image: url('.././assets/undraw_my_password_d6kg.svg');
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: contain; 
 }
 .svg-second {
 	background-image: url('.././assets/undraw_secure_login_pdn4.svg');
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: contain; 
+	
 }
