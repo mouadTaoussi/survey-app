@@ -24,6 +24,17 @@ h1,h2,h3,h5,h6 {
 	background-image: url('.././assets/undraw_secure_login_pdn4.svg');
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: contain; 	
+}
+.svg-error-for-o-for {
+	background-image: url('.././assets/undraw_page_not_found_su7k.svg');
+	background-repeat: no-repeat;
+	background-position: center;
 	background-size: contain; 
-	
+}
+.svg-error-five-o-o {
+	background-image: url('.././assets/undraw_server_down_s4lk.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain; 
 }

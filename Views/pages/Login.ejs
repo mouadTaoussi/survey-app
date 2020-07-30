@@ -7,12 +7,14 @@
 <body>
 <!-- <%- include('.././partials/HeaderElement') %> -->
 <div class="">
-	<h1 class="text-center m-4"><strong class="local-text-primary">HelloWorld</strong></h1>
+	<h1 class="brand-logo text-center m-4"><strong class="local-text-primary">HelloWorld</strong></h1>
 	<div class="login local-card shadow">
 		<h1 class='title local-mb-8'>Log in</h1>
-		<input type="email" name="email" class="form-control local-mt-2" placeholder="Enter your Email">
-		<input type="password" name="password" class="form-control local-mt-2" placeholder="Enter your Password">
-		<button class="local-btn login-btn local-mt-2 local-btn-primary">Log in</button>
+		<form action="/auth/login" method="POST">
+			<input type="email" name="email" class="form-control local-mt-2" placeholder="Enter your Email">
+			<input type="password" name="password" class="form-control local-mt-2" placeholder="Enter your Password">
+			<button class="local-btn login-btn local-mt-2 local-btn-primary">Log in</button>
+		</form>
 		<a href='/resetPassword' class="mt-2 links">forgot your password?</a>
 		<a href='/register' class="mt-2 links float-right">have no account?</a>
 		<p class="text-center">Or:</p>

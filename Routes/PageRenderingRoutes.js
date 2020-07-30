@@ -54,13 +54,13 @@ router.get('/thankYou',(req,res)=>{
 
 // route    GET
 // desc     render error pages if something wrong happened ! ! !
-router.get('*',(req,res)=>{
-	res.render('pages/forOFor');
-})
-router.get('/serverError/serviceUnAvaliable',(req,res)=>{
+router.get('/serverError',(req,res)=>{
  	res.render('pages/fiveOO');
 })
 
+router.get('*',(req,res)=>{
+	res.render('pages/forOFor');
+})
 
 
 
