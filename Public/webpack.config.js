@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path    = require('path');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   entry: './src/js/main.js',
@@ -18,8 +18,18 @@ const config = {
       {
         test: /\.css$/,
         include: path.resolve(__dirname, 'src'),
-        use: [ 'style-loader', 'css-loader' ]
+        use: [ MiniCssExtractPlugin.loader, 'css-loader' ]
       },
+      // {
+      //   test: /\.(jpg|jpeg|png|woff|woff2|eot|ttf)$/,
+      //   loader: 'url-loader?limit=100000'
+      // },
+      {
+         test: /\.(woff|woff2|eot|ttf|otf)$/,
+         use: [
+           'file-loader',
+         ],
+       },
       {
         test: /\.svg/,
         use: {
@@ -29,7 +39,10 @@ const config = {
       }
     ]
   },
-  watch : true
+  watch : true,
+  plugins: [
+    new MiniCssExtractPlugin(),
+  ],
 }
 
 module.exports = config;

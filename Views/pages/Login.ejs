@@ -7,7 +7,9 @@
 <body>
 <!-- <%- include('.././partials/HeaderElement') %> -->
 <div class="">
-	<h1 class="brand-logo text-center m-4"><strong class="local-text-primary">HelloWorld</strong></h1>
+
+	<div class='forms-logo'></div>
+
 	<div class="login local-card shadow">
 		<h1 class='title local-mb-8'>Log in</h1>
 		<form action="/auth/login" method="POST">
@@ -18,9 +20,15 @@
 		<a href='/resetPassword' class="mt-2 links">forgot your password?</a>
 		<a href='/register' class="mt-2 links float-right">have no account?</a>
 		<p class="text-center">Or:</p>
-		<button href="/" class="local-btn local-mt-2 google-btn">Log in with Google</button>
-		<button class="local-btn local-mt-2 github-btn">Log in with Github</button>
-		<button class="local-btn local-mt-2 linkedin-btn">Log in with Linkedin</button>
+		<a href='/auth/google'>
+			<button href="/" class="local-btn local-mt-2 google-btn"><i class="fab fa-google mr-2 text-white"></i>Log in with Google</button>
+		</a>
+		<a href="/auth/github">
+			<button class="local-btn local-mt-2 github-btn"><i class="fab fa-github mr-2 text-white"></i>Log in with Github</button>
+		</a>
+		<a href='/aith/linkedin'>
+			<button class="local-btn local-mt-2 linkedin-btn"><i class="fab fa-linkedin mr-2 text-white"></i>Log in with Linkedin</button>
+		</a>
 	</div>
 	<center>
 		<ul class="footer-list local-mt-4">
@@ -50,15 +58,15 @@
 		width: 100%;
 	}
 	.google-btn {
-		background-color: var(--danger);
+		background-color: #d74937;
 		color: white;
 	}
 	.github-btn {
-		background-color: var(--dark);
+		background-color: #24292e;
 		color: white;
 	}
 	.linkedin-btn {
-		background-color: var(--info);
+		background-color: #0074b0;
 		color: white;
 	}
 	.footer-list {
@@ -79,7 +87,7 @@
 		width: 100%;
 		height: 400px;
 		z-index: -1;
-		position: absolute;
+		/*position: absolute;*/
 		bottom : -80px;
 		display: grid;
 		grid-template-columns: 2fr 2fr;

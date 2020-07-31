@@ -1,6 +1,14 @@
 import '.././css/style.css';
+import './vendors/fontawesome/css/all.css';
 import axios from 'axios';
 
+
+// window.onload = ()=>{
+// 	alert('Hello World')
+// }
+// window.setTimeout(()=>{
+// 	alert('Hello World')
+// },2000)
 
 console.log('Hello World');
 
