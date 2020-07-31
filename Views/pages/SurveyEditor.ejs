@@ -20,28 +20,28 @@
 			<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
 				<h4 class="">This is an example of a card!</h4>
 				<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
-				<div style="width: 50%;height: 72%;margin: 0 auto;">
+				<div class="chart-area">
 					<canvas id="canvas"></canvas>
 				</div>
 			</div>
 			<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
 				<h4 class="">This is an example of a card!</h4>
 				<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
-				<div style="width: 50%;height: 72%;margin: 0 auto;">
+				<div class="chart-area">
 					<canvas id="canvas"></canvas>
 				</div>
 			</div>
 			<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
 				<h4 class="">This is an example of a card!</h4>
 				<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
-				<div style="width: 50%;height: 72%;margin: 0 auto;">
+				<div class="chart-area">
 					<canvas id="canvas"></canvas>
 				</div>
 			</div>
 			<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
 				<h4 class="">This is an example of a card!</h4>
 				<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
-				<div style="width: 50%;height: 72%;margin: 0 auto;">
+				<div class="chart-area">
 					<canvas id="canvas"></canvas>
 				</div>
 			</div>
@@ -58,28 +58,28 @@
 		<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
 			<h4 class="">This is an example of a card!</h4>
 			<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
-			<div style="width: 50%;height: 72%;margin: 0 auto;">
+			<div class="chart-area">
 				<canvas id="canvas"></canvas>
 			</div>
 		</div>
 		<div class='local-card local-mt-2 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
 			<h4 class="">This is an example of a card!</h4>
 			<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
-			<div style="width: 50%;height: 72%;margin: 0 auto;">
+			<div class="chart-area">
 				<canvas id="canvas"></canvas>
 			</div>
 		</div>
 		<div class='local-card local-mt-2 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
 			<h4 class="">This is an example of a card!</h4>
 			<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
-			<div style="width: 50%;height: 72%;margin: 0 auto;">
+			<div class="chart-area">
 				<canvas id="canvas"></canvas>
 			</div>
 		</div>
 		<div class='local-card local-mt-2 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
 			<h4 class="">This is an example of a card!</h4>
 			<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
-			<div style="width: 50%;height: 72%;margin: 0 auto;">
+			<div class="chart-area">
 				<canvas id="canvas"></canvas>
 			</div>
 		</div>
@@ -101,6 +101,15 @@
 	.responses {
 		display: none;
 	}
+	.chart-area {
+		width: 50%;height: 72%;margin: 0 auto;
+	}
+	/**********************************/
+	@media only screen and (max-width: 600px){
+		.chart-area {
+			width: 100%;height: 100%;margin: 0 auto;
+		}
+	}
 </style>
 <script>
 	const edit_tab = document.querySelector('.edit-tab')
@@ -118,3 +127,9 @@
 	 	edit_tab.classList.remove('active');
 	 })
 </script>
+
+important
+% if
+% 	guard ->
+% 		body
+% end

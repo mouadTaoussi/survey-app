@@ -12,6 +12,7 @@
 
 	<div class="login local-card shadow">
 		<h1 class='title local-mb-8'>Log in</h1>
+		<!-- <div class='local-alert danger'>Email already exists!!!</div> -->
 		<form action="/auth/login" method="POST">
 			<input type="email" name="email" class="form-control local-mt-2" placeholder="Enter your Email">
 			<input type="password" name="password" class="form-control local-mt-2" placeholder="Enter your Password">
@@ -51,7 +52,7 @@
 		width: 30%;
 		margin:0 auto;
 		padding: 35px;
-		height: 500px;
+		height: auto;
 		z-index: 999;
 	}
 	.login-btn, .google-btn, .github-btn, .linkedin-btn {
