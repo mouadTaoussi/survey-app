@@ -18,7 +18,7 @@ module.exports = {
 			next();	
 		}
 		else {
-			res.render("/login");
+			res.redirect("/login");
 		}
 	},
 	// This middleware check the user logged in for prevent him to access login page ! ! !

@@ -86,6 +86,13 @@ app.get('/set',(req,res)=>{
 	req.session.user = local;
 	res.json(req.session)
 })
+app.get('/del',(req,res)=>{
+	req.session.destroy(function(err) {
+	  // cannot access session here
+		res.json({'message':'session deleted'});
+	})
+
+})
 
 // Routes
 app.use('/auth',authentication);

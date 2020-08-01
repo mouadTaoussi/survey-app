@@ -34,5 +34,11 @@ router.get('/resetPassword',(req,res)=>{
 router.get('/changePassword',(req,res)=>{
 	res.json(authController.changePassword('544444444','helloworld'));
 })
+router.get('/logout',(req,res)=>{
+	req.session.destroy(function(err) {
+		// cannot access session here
+		res.redirect('/');
+	})
+})
 
 module.exports = router;

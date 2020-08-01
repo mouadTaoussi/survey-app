@@ -40,7 +40,7 @@ router.get('/dashboard',(req,res)=>{
  	res.render('pages/Dashboard');
 })
 router.get('/embedded',(req,res)=>{
- 	res.render('pages/Embedded');
+ 	res.render('pages/EmbeddedPage');
 })
 router.get('/surveyEditor',(req,res)=>{
  	res.render('pages/SurveyEditor');
