@@ -73,7 +73,7 @@ app.use(express.json());
 const auth = require('./Middlewares/Authentication.js');
 
 app.get('/get', auth.isAuthenticated, auth.isCompletedCredentiels, (req,res)=>{
-
+console.log(req.query.lang)
 	console.log(req.user);
 	console.log(req.info);
 	res.json(req.user);

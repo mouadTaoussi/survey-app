@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survey Editor</title>
+	<%-   include('.././partials/HeadTags')   %>
+</head>
+<body>
+<%- include('.././partials/HeaderElement') %>
+<div class="mt-4 mb-4 local-container-8">
+	<ul class="list-group list-group-horizontal-sm">
+	  <li style="cursor:pointer;" class="list-group-item edit-tab active">Edit</li>
+	  <li style="cursor:pointer;" class="list-group-item responses-tab">Responses</li>
+	</ul>
+	<!-- <h1>Survey Editor</h1> -->
+	<!-- ---------------------------------------------------------- -->
+	<!-- ---------------------------------------------------------- -->
+	<!-- ---------------------------------------------------------- -->
+	<div class="survey-editor">
+		<div class="survey-editor-preview">
+			<div class="desc local-card local-mt-4 local-p-2">
+				<h2 clas="text-left">A questions about programming!!!</h2>
+				<p clas="text-left">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				</p>
+			</div>
+			<div class="local-card local-mt-2 local-p-2">
+				<p>How many programming languages you know?</p>
+				<div class="options-area">
+					<select class="form-control question-inputs">
+						<option value='' default disabled >Select one</option>
+						<option value=''>1</option>
+						<option value=''>2</option>
+						<option value=''>3</option>
+						<option value=''>4</option>
+						<option value=''>5</option>
+					</select>
+				</div>
+			</div>
+			<div class="local-card local-mt-2 local-p-2">
+				<p>How many programming languages you know?</p>
+				<div class="options-area">
+					<select class="form-control question-inputs">
+						<option value='' default disabled >Select one</option>
+						<option value=''>1</option>
+						<option value=''>2</option>
+						<option value=''>3</option>
+						<option value=''>4</option>
+						<option value=''>5</option>
+					</select>
+				</div>
+			</div>
+			<div class="local-card local-mt-2 local-p-2">
+				<p>How many programming languages you know?</p>
+				<div class="options-area">
+					<select class="form-control question-inputs">
+						<option value='' default disabled >Select one</option>
+						<option value=''>1</option>
+						<option value=''>2</option>
+						<option value=''>3</option>
+						<option value=''>4</option>
+						<option value=''>5</option>
+					</select>
+				</div>
+			</div>
+			<div class="local-card local-mt-2 local-p-2">
+				<p>How many programming languages you know?</p>
+				<div class="options-area">
+					<select class="form-control question-inputs">
+						<option value='' default disabled >Select one</option>
+						<option value=''>1</option>
+						<option value=''>2</option>
+						<option value=''>3</option>
+						<option value=''>4</option>
+						<option value=''>5</option>
+					</select>
+				</div>
+			</div>
+			<div class="local-card local-mt-2 local-p-2">
+				<p>How many programming languages you know?</p>
+				<div class="options-area">
+					<select class="form-control question-inputs">
+						<option value='' default disabled >Select one</option>
+						<option value=''>1</option>
+						<option value=''>2</option>
+						<option value=''>3</option>
+						<option value=''>4</option>
+						<option value=''>5</option>
+					</select>
+				</div>
+			</div>
+			<button class="local-btn local-btn-primary local-mt-2 local-mb-2 float-right">Save Changes</button>
+		</div>
+		<div class="survey-editor-tools">
+			<div class="tools-panel local-mt-4 local-shadow local-p-2">
+				<ul class="tools-list">
+					<li ><i data-toggle="tooltip" data-placement="left" title="Add new field" class="fas fa-plus"></i></li>
+					<li  type="button" data-toggle="modal" data-target="#importModal"><i data-toggle="tooltip" data-placement="left" title="Import another survey questions" class="fas fa-file-import"></i></li>
+					<li  type="button" data-toggle="modal" data-target="#shareMethodsModal"><i data-toggle="tooltip" data-placement="left" title="Share this survey" class="fas fa-share-square"></i></li>
+				</ul>
+			</div>
+		</div>
+		<!-- Button trigger modal -->
+		<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#shareMethodsModal">
+		  Launch demo modal
+		</button> -->
+
+		<!-- shareMethodsModal -->
+		<div class="modal fade" id="shareMethodsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Share your survey</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        ...
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="local-btn local-btn-dark" data-dismiss="modal">Close</button>
+		        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- importModal -->
+		<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Import another questions</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        ...
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="local-btn local-btn-dark" data-dismiss="modal">Close</button>
+		        <button type="button" class="local-btn local-btn-primary">Import</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<!-- ---------------------------------------------------------- -->
+	<!-- ---------------------------------------------------------- -->
+	<!-- ---------------------------------------------------------- -->
+	<div class="responses">
+		<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+			<h4 class="">This is an example of a card!</h4>
+			<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+			<div class="chart-area">
+				<canvas id="canvas"></canvas>
+			</div>
+		</div>
+		<div class='local-card local-mt-2 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+			<h4 class="">This is an example of a card!</h4>
+			<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+			<div class="chart-area">
+				<canvas id="canvas"></canvas>
+			</div>
+		</div>
+		<div class='local-card local-mt-2 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+			<h4 class="">This is an example of a card!</h4>
+			<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+			<div class="chart-area">
+				<canvas id="canvas"></canvas>
+			</div>
+		</div>
+		<div class='local-card local-mt-2 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+			<h4 class="">This is an example of a card!</h4>
+			<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
+			<div class="chart-area">
+				<canvas id="canvas"></canvas>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<%-   include('.././partials/ScriptTags')   %>
+</html>
+<style>
+	.survey-editor {
+		display: grid;grid-template-columns: 11fr 1fr;grid-gap: 30px;display:  ;
+	}
+	.tools-panel {
+		width: 50px!important;
+		background-color: white;
+		height: auto;
+		position: fixed;
+	}
+	.tools-list {
+		padding-left: 0;
+		list-style: none;
+	}
+	.tools-list li {
+		margin: 3px 3px 3px 3px;
+		/*background-color: red;*/
+		border-radius: 43%;
+		padding: 5px;
+		width: 27px;
+		height: 27px;
+		transition: all .2s ease-out ; 
+	}
+	.tools-list li:hover {
+		background-color: rgba(0,0,0,.2)
+	}
+	.responses {
+		display: none;
+	}
+	.chart-area {
+		width: 50%;height: 72%;margin: 0 auto;
+	}
+	.modal {
+		border-radius: 0!important;
+	}
+	/**********************************/
+	@media only screen and (max-width: 600px){
+		.chart-area {
+			width: 100%;height: 100%;margin: 0 auto;
+		}
+	}
+</style>
+<script>
+	const edit_tab = document.querySelector('.edit-tab')
+	const responses_tab = document.querySelector('.responses-tab')
+	 edit_tab.addEventListener('click',()=>{
+	 	document.querySelector('.survey-editor').style.display = '';
+	 	document.querySelector('.responses').style.display = 'none';
+	 	edit_tab.classList.add('active');
+	 	responses_tab.classList.remove('active');
+	 })
+	 responses_tab.addEventListener('click',()=>{
+	 	document.querySelector('.survey-editor').style.display = 'none';
+	 	document.querySelector('.responses').style.display = 'block';
+	 	responses_tab.classList.add('active');
+	 	edit_tab.classList.remove('active');
+	 })
+</script>
+
+important
+% if
+% 	guard ->
+% 		body
+% end

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Thank you</title>
+	<%-   include('.././partials/HeadTags')   %>
+</head>
+<body>
+<div class="local-container-8">
+	<div class="thankyou-page-content">
+		<div class="text-area">
+			<h1 class="text-left"><strong>답장을 보내 주셔서 감사합니다 !!!</strong></h1>
+			<!-- <h5 class="text-left">Might be there is something happen in our server!!!</h5> -->
+		</div>
+		<div class="svg-thankyou"></div>
+	</div>
+</div>
+</body>
+<%-   include('.././partials/ScriptTags')   %>
+</html>
+<style>
+	.thankyou-page-content {
+		display: grid;
+		grid-template-columns: 5fr 5fr;
+		grid-gap: 50px;
+		height: 50%;
+		margin-top: 40px;
+	}
+	.text-area {
+		padding-top: 25%;
+		height: 400px;
+	}
+	/**********************************/
+	@media only screen and (max-width: 600px){
+		.thankyou-page-content {
+			grid-template-columns: 5fr;
+			grid-gap: 30px;
+		}
+	}
+</style>
+
