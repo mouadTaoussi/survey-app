@@ -5,16 +5,16 @@
 	<%-   include('.././partials/HeadTags')   %>
 </head>
 <body>
-<%- include('.././partials/HeaderElement') %>
+<%- include('.././partials/chineseHeaderElement') %>
 <div class="local-container-8">
 	<!-- <h1 class="mt-4">Dashboard</h1> -->
 	<div class="row mt-4">
 	<!-- Side bar -->
 	  <div class="col-3">
 	    <div class="list-group" id="list-tab" role="tablist">
-	      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Your Surveys</a>
-	      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Your Profile</a>
-	      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+	      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">您的调查</a>
+	      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">你的帐户</a>
+	      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">设定</a>
 	    </div>
 	  </div>
 	  <div class="col-9">
@@ -26,7 +26,7 @@
 	    <div class="tab-content" id="nav-tabContent">
 	    <!-- Surveys tab -->
 	      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-	      	<h3 class="text-left local-mb-4">Your Surveys</h3>
+	      	<h3 class="text-left local-mb-4">您的调查</h3>
 	      	<table class="table table-hover">
 			  <thead style="background-color:rgba(0,0,0,.1)">
 			    <tr>
@@ -65,7 +65,7 @@
 			      <td>@twitter</td>
 			    </tr> -->
 			    <tr style="background-color:rgba(0,0,0,.20);cursor: pointer">
-			      <td colspan="2">Create new survey +</td>
+			      <td colspan="2">建立新的问卷调查+</td>
 			      <td></td>
 			      <td></td>
 			    </tr>
@@ -74,7 +74,7 @@
 	      </div>
 	      <!-- user account -->
 	      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-	      	<h3 class="text-left local-mb-4">Your Account</h3>
+	      	<h3 class="text-left local-mb-4">你的帐户</h3>
 	      	<img src="https://avatars3.githubusercontent.com/u/50294614?v=4" class="logo-of-user local-mb-4" width="200" height="200">
 	      	<input type="text" name="name" class='form-control user-profile-inputs local-mb-2' value="mouadTaoussi">
 	      	<input type="text" name="name" class='form-control user-profile-inputs local-mb-2' value="mouadTaoussi">
@@ -94,17 +94,3 @@
 </body>
 <%-   include('.././partials/ScriptTags')   %>
 </html>
-<style>
-	.dashboard-content {
-		display: grid;
-		grid-template-columns: 1fr 3.5fr;
-		grid-gap: 20px;
-	}
-	.user-profile-inputs {
-		background-color: inherit;
-	}
-	.options-area {
-		width: 20%;
-	}
-
-</style>

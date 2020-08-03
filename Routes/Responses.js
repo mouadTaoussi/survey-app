@@ -12,6 +12,8 @@ const responsesController = new Responses();
 const router = express.Router();
 
 router.get('/submitResponse',(req,res)=>{
+	// Use the appropriate controller
+	// Logic
 	res.json(responsesController.submitResponses());
 })
 

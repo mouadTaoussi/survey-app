@@ -182,48 +182,6 @@
 </body>
 <%-   include('.././partials/ScriptTags')   %>
 </html>
-<style>
-	.survey-editor {
-		display: grid;grid-template-columns: 11fr 1fr;grid-gap: 30px;display:  ;
-	}
-	.tools-panel {
-		width: 50px!important;
-		background-color: white;
-		height: auto;
-		position: fixed;
-	}
-	.tools-list {
-		padding-left: 0;
-		list-style: none;
-	}
-	.tools-list li {
-		margin: 3px 3px 3px 3px;
-		/*background-color: red;*/
-		border-radius: 43%;
-		padding: 5px;
-		width: 27px;
-		height: 27px;
-		transition: all .2s ease-out ; 
-	}
-	.tools-list li:hover {
-		background-color: rgba(0,0,0,.2)
-	}
-	.responses {
-		display: none;
-	}
-	.chart-area {
-		width: 50%;height: 72%;margin: 0 auto;
-	}
-	.modal {
-		border-radius: 0!important;
-	}
-	/**********************************/
-	@media only screen and (max-width: 600px){
-		.chart-area {
-			width: 100%;height: 100%;margin: 0 auto;
-		}
-	}
-</style>
 <script>
 	const edit_tab = document.querySelector('.edit-tab')
 	const responses_tab = document.querySelector('.responses-tab')

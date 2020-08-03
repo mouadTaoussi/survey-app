@@ -23,15 +23,23 @@ router.get('/linkedin/callback',passport.authenticate('linkedin',{failureRedirec
 
 // Local Authentication Strategy
 router.get('/login',(req,res)=>{
+	// Use the appropriate controller
+	// Logic
 	res.json(authController.login());
 });
 router.get('/register',(req,res)=>{
+	// Use the appropriate controller
+	// Logic
 	res.json(authController.register());
 })
 router.get('/resetPassword',(req,res)=>{
+	// Use the appropriate controller
+	// Logic
 	res.json(authController.resetPassword('muoadtaoussi0@mail.com'));
 })
 router.get('/changePassword',(req,res)=>{
+	// Use the appropriate controller
+	// Logic
 	res.json(authController.changePassword('544444444','helloworld'));
 })
 router.get('/logout',(req,res)=>{

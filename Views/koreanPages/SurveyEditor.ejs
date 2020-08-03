@@ -5,7 +5,7 @@
 	<%-   include('.././partials/HeadTags')   %>
 </head>
 <body>
-<%- include('.././partials/HeaderElement') %>
+<%- include('.././partials/koreanHeaderElement') %>
 <div class="mt-4 mb-4 local-container-8">
 	<ul class="list-group list-group-horizontal-sm">
 	  <li style="cursor:pointer;" class="list-group-item edit-tab active">편집하다</li>
@@ -129,8 +129,7 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">다른 질문 가져 오기
-</h5>
+		        <h5 class="modal-title" id="exampleModalLabel">다른 질문 가져 오기</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
@@ -183,48 +182,6 @@
 </body>
 <%-   include('.././partials/ScriptTags')   %>
 </html>
-<style>
-	.survey-editor {
-		display: grid;grid-template-columns: 11fr 1fr;grid-gap: 30px;display:  ;
-	}
-	.tools-panel {
-		width: 50px!important;
-		background-color: white;
-		height: auto;
-		position: fixed;
-	}
-	.tools-list {
-		padding-left: 0;
-		list-style: none;
-	}
-	.tools-list li {
-		margin: 3px 3px 3px 3px;
-		/*background-color: red;*/
-		border-radius: 43%;
-		padding: 5px;
-		width: 27px;
-		height: 27px;
-		transition: all .2s ease-out ; 
-	}
-	.tools-list li:hover {
-		background-color: rgba(0,0,0,.2)
-	}
-	.responses {
-		display: none;
-	}
-	.chart-area {
-		width: 50%;height: 72%;margin: 0 auto;
-	}
-	.modal {
-		border-radius: 0!important;
-	}
-	/**********************************/
-	@media only screen and (max-width: 600px){
-		.chart-area {
-			width: 100%;height: 100%;margin: 0 auto;
-		}
-	}
-</style>
 <script>
 	const edit_tab = document.querySelector('.edit-tab')
 	const responses_tab = document.querySelector('.responses-tab')

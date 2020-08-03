@@ -10,7 +10,7 @@ module.exports = {
 			req.user = user;
 			next();
 		}
-		else if (req.session.user){
+		else if (req.session.local){
 			const user = await User.findOne({ 
 				id : req.session.localUser.id 
 			});
@@ -26,7 +26,7 @@ module.exports = {
 		if (req.session.passport){
 			res.redirect('/dashboard');
 		}
-		else if (req.session.user){
+		else if (req.session.local){
 			res.redirect('/dashboard');	
 		}
 		else {

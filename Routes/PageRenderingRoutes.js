@@ -29,7 +29,7 @@ router.get('/',(req,res)=>{
 	}else if (query.lang === 'kr'){
 		res.render('koreanPages/index')
 	}
-	else if (res.lang === 'cn'){
+	else if (query.lang === 'cn'){
 		res.render('chinesePages/index')
 	}
 	else {
@@ -44,7 +44,7 @@ router.get('/login',(req,res)=>{
 	}else if (query.lang === 'kr'){
 		res.render('koreanPages/Login')
 	}
-	else if (res.lang === 'cn'){
+	else if (query.lang === 'cn'){
 		res.render('chinesePages/Login')
 	}
 	else {
@@ -59,7 +59,7 @@ router.get('/register',(req,res)=>{
 	}else if (query.lang === 'kr'){
 		res.render('koreanPages/Register')
 	}
-	else if (res.lang === 'cn'){
+	else if (query.lang === 'cn'){
 		res.render('chinesePages/Register')
 	}
 	else {
@@ -74,7 +74,7 @@ router.get('/resetPassword',(req,res)=>{
 	}else if (query.lang === 'kr'){
 		res.render('koreanPages/ResetPassword')
 	}
-	else if (res.lang === 'cn'){
+	else if (query.lang === 'cn'){
 		res.render('chinesePages/ResetPassword')
 	}
 	else {
@@ -89,7 +89,7 @@ router.get('/changePassword',(req,res)=>{
 	}else if (query.lang === 'kr'){
 		res.render('koreanPages/ChangePassword')
 	}
-	else if (res.lang === 'cn'){
+	else if (query.lang === 'cn'){
 		res.render('chinesePages/ChangePassword')
 	}
 	else {
@@ -98,13 +98,15 @@ router.get('/changePassword',(req,res)=>{
 })
 router.get('/dashboard',(req,res)=>{
 	const query = req.query;
+	// Use the appropriate controller
+	// Logic
 	// render the pages by language specefied
 	if (query.lang === 'en'){
 		res.render('pages/Dashboard')
 	}else if (query.lang === 'kr'){
 		res.render('koreanPages/Dashboard')
 	}
-	else if (res.lang === 'cn'){
+	else if (query.lang === 'cn'){
 		res.render('chinesePages/Dashboard')
 	}
 	else {
@@ -113,13 +115,15 @@ router.get('/dashboard',(req,res)=>{
 })
 router.get('/embedded',(req,res)=>{
 	const query = req.query;
+	// Use the appropriate controller
+	// Logic
 	// render the pages by language specefied
 	if (query.lang === 'en'){
 		res.render('pages/EmbeddedPage')
 	}else if (query.lang === 'kr'){
 		res.render('koreanPages/EmbeddedPage')
 	}
-	else if (res.lang === 'cn'){
+	else if (query.lang === 'cn'){
 		res.render('chinesePages/EmbeddedPage')
 	}
 	else {
@@ -128,13 +132,15 @@ router.get('/embedded',(req,res)=>{
 })
 router.get('/surveyEditor',(req,res)=>{
 	const query = req.query;
+	// Use the appropriate controller
+	// Logic
 	// render the pages by language specefied
 	if (query.lang === 'en'){
 		res.render('pages/SurveyEditor')
 	}else if (query.lang === 'kr'){
 		res.render('koreanPages/SurveyEditor')
 	}
-	else if (res.lang === 'cn'){
+	else if (query.lang === 'cn'){
 		res.render('chinesePages/SurveyEditor')
 	}
 	else {
@@ -149,7 +155,7 @@ router.get('/submitResponse',(req,res)=>{
 	}else if (query.lang === 'kr'){
 		res.render('koreanPages/SubmitSurveyResponse')
 	}
-	else if (res.lang === 'cn'){
+	else if (query.lang === 'cn'){
 		res.render('chinesePages/SubmitSurveyResponse')
 	}
 	else {
@@ -164,7 +170,7 @@ router.get('/thankYou',(req,res)=>{
 	}else if (query.lang === 'kr'){
 		res.render('koreanPages/ThankYouPage')
 	}
-	else if (res.lang === 'cn'){
+	else if (query.lang === 'cn'){
 		res.render('chinesePages/ThankYouPage')
 	}
 	else {
@@ -182,7 +188,7 @@ router.get('/serverError',(req,res)=>{
 	}else if (query.lang === 'kr'){
 		res.render('koreanPages/fiveOO')
 	}
-	else if (res.lang === 'cn'){
+	else if (query.lang === 'cn'){
 		res.render('chinesePages/fiveOO')
 	}
 	else {

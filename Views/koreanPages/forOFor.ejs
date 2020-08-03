@@ -5,7 +5,7 @@
 	<%-   include('.././partials/HeadTags')   %>
 </head>
 <body>
-<%- include('.././partials/HeaderElement') %>
+<%- include('.././partials/koreanHeaderElement') %>
 <div class="local-container-8">
 	<div class="error-page-content">
 		<div class="text-area">
@@ -18,23 +18,3 @@
 </body>
 <%-   include('.././partials/ScriptTags')   %>
 </html>
-<style>
-	.error-page-content {
-		display: grid;
-		grid-template-columns: 5fr 5fr;
-		grid-gap: 50px;
-		height: 50%;
-		margin-top: 40px;
-	}
-	.text-area {
-		padding-top: 30%;
-		height: 400px;
-	}
-	/**********************************/
-	@media only screen and (max-width: 600px){
-		.error-page-content {
-			grid-template-columns: 5fr;
-			grid-gap: 30px;
-		}
-	}
-</style>

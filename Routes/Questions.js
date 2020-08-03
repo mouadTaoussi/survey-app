@@ -12,12 +12,16 @@ const questionsController = new Questions();
 const router = express.Router();
 
 router.post('/:id',(req,res)=>{
+	// Use the appropriate controller
+	// Logic
 	// Add
 	questionsController.addSurvey();
 	// Update
 	questionsController.updateSurvey();
 })
 router.delete('/:id',(req,res)=>{
+	// Use the appropriate controller
+	// Logic
  	// Delete
  	questionsController.deleteSurvey('difbndib');
 })

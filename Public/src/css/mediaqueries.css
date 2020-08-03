@@ -1,0 +1,151 @@
+/**
+*
+*
+* Change password
+*
+*
+**/
+@media only screen and (max-width: 600px){
+	.changePassword {
+		width: 70%;
+	}
+	.svgs {
+		display: none;
+	}
+}
+@media only screen and (max-width: 800px){
+	.changePassword {
+		width: 90%;
+	}
+}
+/**
+*
+*
+* Dashboard
+*
+*
+**/
+/**
+*
+*
+* Embedded page
+*
+*
+**/
+/**
+*
+*
+* FiveOO && ForOFor
+*
+*
+**/
+@media only screen and (max-width: 600px){
+	.error-page-content {
+		grid-template-columns: 5fr;
+		grid-gap: 30px;
+	}
+}
+/**
+*
+*
+* Index
+*
+*
+**/
+/**
+*
+*
+* Login
+*
+*
+**/
+@media only screen and (max-width: 600px){
+	.login {
+		width: 70%;
+	}
+	.svgs {
+		display: none;
+	}
+}
+@media only screen and (max-width: 800px){
+	.login {
+		width: 90%;
+	}
+}
+/**
+*
+*
+* Register
+*
+*
+**/
+@media only screen and (max-width: 600px){
+	.register {
+		width: 70%;
+	}
+	.svgs {
+		display: none;
+	}
+}
+@media only screen and (max-width: 800px){
+	.register {
+		width: 90%;
+	}
+}
+/**
+*
+*
+* Reset Password
+*
+*
+**/
+@media only screen and (max-width: 600px){
+	.resetPassword {
+		width: 70%;
+	}
+	.svgs {
+		display: none;
+	}
+}
+@media only screen and (max-width: 800px){
+	.resetPassword {
+		width: 90%;
+	}
+}
+/**
+*
+*
+* Submit Survey Response
+*
+*
+**/
+@media only screen and (max-width: 600px){
+	.local-container-4 {
+		width: 95%;
+	}
+}
+/**
+*
+*
+* Survey Editor
+*
+*
+**/
+@media only screen and (max-width: 600px){
+	.chart-area {
+		width: 100%;height: 100%;margin: 0 auto;
+	}
+}
+/**
+*
+*
+* Thank you
+*
+*
+**/
+@media only screen and (max-width: 600px){
+	.thankyou-page-content {
+		grid-template-columns: 5fr;
+		grid-gap: 30px;
+	}
+}

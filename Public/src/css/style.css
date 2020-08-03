@@ -62,3 +62,364 @@ h1,h2,h3,h5,h6 {
 	height: 60px;
 	margin: 50px auto;
 }
+/**
+*
+*
+* Change password
+*
+*
+**/
+.changePassword {
+	margin-top: 40px;
+	width: 30%;
+	margin:0 auto;
+	padding: 35px;
+	height: auto;
+	z-index: 999;
+}
+.changePassword-btn, .google-btn, .github-btn, .linkedin-btn {
+	width: 100%;
+}
+.google-btn {
+	background-color: #d74937;
+	color: white;
+}
+.github-btn {
+	background-color: #24292e;
+	color: white;
+}
+.linkedin-btn {
+	background-color: #0074b0;
+	color: white;
+}
+.footer-list {
+	list-style: none;
+}
+.footer-list-item {
+	display: inline;
+	color: var(--dark);
+	padding: 8px;
+}
+.links {
+	font-size: 12px;
+}
+.form-control {
+	border-radius: 0;
+}
+.svgs {
+	width: 100%;
+	height: 400px;
+	z-index: -1;
+	/*position: absolute;*/
+	bottom : -80px;
+	display: grid;
+	grid-template-columns: 2fr 2fr;
+	grid-column-gap: 120px;
+	position: fixed;
+}
+.svg {
+}
+/**
+*
+*
+* Dashboard
+*
+*
+**/
+.dashboard-content {
+	display: grid;
+	grid-template-columns: 1fr 3.5fr;
+	grid-gap: 20px;
+}
+.user-profile-inputs {
+	background-color: inherit;
+}
+.options-area {
+	width: 20%;
+}
+
+/**
+*
+*
+* Embedded page
+*
+*
+**/
+.embedded-content {
+	/*width:*/
+
+}
+.footer-list {
+	list-style: none;
+	padding-left: 0;
+}
+.footer-list-item {
+	display: inline;
+	color: var(--dark);
+	padding-right: 8px;
+}
+/**
+*
+*
+* FiveOO && ForOFor
+*
+*
+**/
+.error-page-content {
+	display: grid;
+	grid-template-columns: 5fr 5fr;
+	grid-gap: 50px;
+	height: 50%;
+	margin-top: 40px;
+}
+.text-area {
+	padding-top: 30%;
+	height: 400px;
+}
+/**
+*
+*
+* Index
+*
+*
+**/
+/**
+*
+*
+* Login
+*
+*
+**/
+.login {
+	margin-top: 40px;
+	width: 30%;
+	margin:0 auto;
+	padding: 35px;
+	height: auto;
+	z-index: 999;
+}
+.login-btn, .google-btn, .github-btn, .linkedin-btn {
+	width: 100%;
+}
+.google-btn {
+	background-color: #d74937;
+	color: white;
+}
+.github-btn {
+	background-color: #24292e;
+	color: white;
+}
+.linkedin-btn {
+	background-color: #0074b0;
+	color: white;
+}
+.footer-list {
+	list-style: none;
+}
+.footer-list-item {
+	display: inline;
+	color: var(--dark);
+	padding: 8px;
+}
+.links {
+	font-size: 12px;
+}
+.form-control {
+	border-radius: 0;
+}
+.svgs {
+	width: 100%;
+	height: 400px;
+	z-index: -1;
+	/*position: absolute;*/
+	bottom : -80px;
+	display: grid;
+	grid-template-columns: 2fr 2fr;
+	grid-column-gap: 120px;
+	position: fixed;
+}
+.svg {
+}
+/**
+*
+*
+* Register
+*
+*
+**/
+.register {
+	margin-top: 40px;
+	width: 30%;
+	margin:0 auto;
+	padding: 35px;
+	height: auto;
+	z-index: 999;
+}
+.register-btn, .google-btn, .github-btn, .linkedin-btn {
+	width: 100%;
+}
+.google-btn {
+	background-color: #d74937;
+	color: white;
+}
+.github-btn {
+	background-color: #24292e;
+	color: white;
+}
+.linkedin-btn {
+	background-color: #0074b0;
+	color: white;
+}
+.footer-list {
+	list-style: none;
+}
+.footer-list-item {
+	display: inline;
+	color: var(--dark);
+	padding: 8px;
+}
+.links {
+	font-size: 12px;
+}
+.form-control {
+	border-radius: 0;
+}
+.svgs {
+	width: 100%;
+	height: 400px;
+	z-index: -1;
+	position: absolute;
+	bottom : -80px;
+	display: grid;
+	grid-template-columns: 2fr 2fr;
+	grid-column-gap: 120px;
+	position: fixed;
+}
+.svg {
+}
+/**
+*
+*
+* Reset Password
+*
+*
+**/
+.resetPassword {
+	margin-top: 40px;
+	width: 30%;
+	margin:0 auto;
+	padding: 35px;
+	height: auto;
+	z-index: 999;
+}
+.resetPassword-btn, .google-btn, .github-btn, .linkedin-btn {
+	width: 100%;
+}
+.google-btn {
+	background-color: #d74937;
+	color: white;
+}
+.github-btn {
+	background-color: #24292e;
+	color: white;
+}
+.linkedin-btn {
+	background-color: #0074b0;
+	color: white;
+}
+.footer-list {
+	list-style: none;
+}
+.footer-list-item {
+	display: inline;
+	color: var(--dark);
+	padding: 8px;
+}
+.links {
+	font-size: 12px;
+}
+.form-control {
+	border-radius: 0;
+}
+.svgs {
+	width: 100%;
+	height: 400px;
+	z-index: -1;
+	/*position: absolute;*/
+	bottom : -80px;
+	display: grid;
+	grid-template-columns: 2fr 2fr;
+	grid-column-gap: 120px;
+	position: fixed;
+}
+.svg {
+}
+/**
+*
+*
+* Submit Survey Response
+*
+*
+**/
+.options-area {
+	width: 20%;
+}
+/**
+*
+*
+* Survey Editor
+*
+*
+**/
+.survey-editor {
+	display: grid;grid-template-columns: 11fr 1fr;grid-gap: 30px;display:  ;
+}
+.tools-panel {
+	width: 50px!important;
+	background-color: white;
+	height: auto;
+	position: fixed;
+}
+.tools-list {
+	padding-left: 0;
+	list-style: none;
+}
+.tools-list li {
+	margin: 3px 3px 3px 3px;
+	/*background-color: red;*/
+	border-radius: 43%;
+	padding: 5px;
+	width: 27px;
+	height: 27px;
+	transition: all .2s ease-out ; 
+}
+.tools-list li:hover {
+	background-color: rgba(0,0,0,.2)
+}
+.responses {
+	display: none;
+}
+.chart-area {
+	width: 50%;height: 72%;margin: 0 auto;
+}
+.modal {
+	border-radius: 0!important;
+}
+/**
+*
+*
+* Thank you
+*
+*
+**/
+.thankyou-page-content {
+	display: grid;
+	grid-template-columns: 5fr 5fr;
+	grid-gap: 50px;
+	height: 50%;
+	margin-top: 40px;
+}
+.text-area {
+	padding-top: 25%;
+	height: 400px;
+}
