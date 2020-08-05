@@ -13,14 +13,15 @@
 	<div class="register local-card shadow">
 		<h1 class='title local-mb-8'>寄存器</h1>
 		<!-- <div class='local-alert danger'>Email already exists!!!</div> -->
-		<form action="/auth/register" method="POST">
-			<input type="text" name="firstName" class="form-control local-mt-2" placeholder="输入您的名字">
-			<input type="text" name="givenName" class="form-control local-mt-2" placeholder="输入您的姓氏">
-			<input type="text" name="username" class="form-control local-mt-2" placeholder="输入你的用户名">
-			<input type="email" name="email" class="form-control local-mt-2" placeholder="“输入您的电子邮件">
-			<input type="password" name="password" class="form-control local-mt-2" placeholder="输入密码">
-			<input type="password" name="password2" class="form-control local-mt-2" placeholder="确认你的密码">
-			<button class="local-btn register-btn local-mt-2 local-btn-primary">寄存器</button>
+		<form action="/auth/register?lang=cn" method="POST">
+			<input type="text" name="firstName" class="form-control local-mt-2" placeholder="输入您的名字" required>
+			<input type="text" name="givenName" class="form-control local-mt-2" placeholder="输入您的姓氏" required>
+			<input type="text" name="username" class="form-control local-mt-2" placeholder="输入你的用户名" required>
+			<input type="email" name="email" class="form-control local-mt-2" placeholder="“输入您的电子邮件" required>
+			<input type="password" name="password" class="form-control local-mt-2" placeholder="输入密码" required>
+			<input type="password" name="password2" class="form-control local-mt-2" placeholder="确认你的密码" required>
+			<!-- <button class="local-btn register-btn local-mt-2 local-btn-primary">寄存器</button> -->
+			<input type="submit" value="寄存器" class="local-btn register-btn local-mt-2 local-btn-primary">
 		</form>
 		<a href='/login?lang=cn' class="mt-2 links">已经有一个帐户？</a>
 		<p class="text-center">要么：</p>

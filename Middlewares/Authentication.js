@@ -11,14 +11,17 @@ module.exports = {
 			next();
 		}
 		else if (req.session.local){
-			const user = await User.findOne({ 
-				id : req.session.localUser.id 
-			});
-			req.user = user;
-			next();	
+			try {
+				const user = await User.findById( req.session.local.id );
+				req.user = user;
+				next();	
+			}
+			catch (err){
+				// Render server error
+			}
 		}
 		else {
-			res.redirect("/login");
+			res.redirect(`/login?lang=${req.lang.langShortcut}`); // Error ! ! ! 
 		}
 	},
 	// This middleware check the user logged in for prevent him to access login page ! ! !
@@ -47,7 +50,6 @@ module.exports = {
 		else if (!req.user.fullName){
 			info.push('Provide us your full name!')
 		}
-
 		req.info = info;
 		next();
 	}

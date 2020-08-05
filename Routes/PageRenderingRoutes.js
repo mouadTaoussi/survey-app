@@ -21,179 +21,80 @@ const router = express.Router();
 
 // route    GET
 // desc     render default pages or redirected to it ! ! !
-router.get('/',(req,res)=>{
-	const query = req.query;
+router.get('/',validators.checkLanguage,(req,res)=>{
+
 	// render the pages by language specefied
-	if (query.lang === 'en'){
-		res.render('pages/index')
-	}else if (query.lang === 'kr'){
-		res.render('koreanPages/index')
-	}
-	else if (query.lang === 'cn'){
-		res.render('chinesePages/index')
-	}
-	else {
-		res.render('pages/index')
-	}
+	res.render(`${req.lang.langPages}/`);
+	
 })
-router.get('/login',(req,res)=>{
-	const query = req.query;
+router.get('/login',validators.checkLanguage,(req,res)=>{
+	
 	// render the pages by language specefied
-	if (query.lang === 'en'){
-		res.render('pages/Login')
-	}else if (query.lang === 'kr'){
-		res.render('koreanPages/Login')
-	}
-	else if (query.lang === 'cn'){
-		res.render('chinesePages/Login')
-	}
-	else {
-		res.render('pages/Login')
-	}
+	res.render(`${req.lang.langPages}/login`);
+	
 })
-router.get('/register',(req,res)=>{
-	const query = req.query;
+router.get('/register',validators.checkLanguage,(req,res)=>{
+	
 	// render the pages by language specefied
-	if (query.lang === 'en'){
-		res.render('pages/Register')
-	}else if (query.lang === 'kr'){
-		res.render('koreanPages/Register')
-	}
-	else if (query.lang === 'cn'){
-		res.render('chinesePages/Register')
-	}
-	else {
-		res.render('pages/Register')
-	}
+	res.render(`${req.lang.langPages}/register`);
+
 })
-router.get('/resetPassword',(req,res)=>{
-	const query = req.query;
+router.get('/resetPassword',validators.checkLanguage,(req,res)=>{
+	
 	// render the pages by language specefied
-	if (query.lang === 'en'){
-		res.render('pages/ResetPassword')
-	}else if (query.lang === 'kr'){
-		res.render('koreanPages/ResetPassword')
-	}
-	else if (query.lang === 'cn'){
-		res.render('chinesePages/ResetPassword')
-	}
-	else {
-		res.render('pages/ResetPassword')
-	}
+	res.render(`${req.lang.langPages}/resetPassword`);
+	
 })
-router.get('/changePassword',(req,res)=>{
-	const query = req.query;
+router.get('/changePassword',validators.checkLanguage,(req,res)=>{
+	
 	// render the pages by language specefied
-	if (query.lang === 'en'){
-		res.render('pages/ChangePassword')
-	}else if (query.lang === 'kr'){
-		res.render('koreanPages/ChangePassword')
-	}
-	else if (query.lang === 'cn'){
-		res.render('chinesePages/ChangePassword')
-	}
-	else {
-		res.render('pages/ChangePassword')
-	}
+	res.render(`${req.lang.langPages}/changePassword`);
+	
 })
-router.get('/dashboard',(req,res)=>{
-	const query = req.query;
+router.get('/dashboard',validators.checkLanguage,auth.isAuthenticated,(req,res)=>{
+	
 	// Use the appropriate controller
 	// Logic
 	// render the pages by language specefied
-	if (query.lang === 'en'){
-		res.render('pages/Dashboard')
-	}else if (query.lang === 'kr'){
-		res.render('koreanPages/Dashboard')
-	}
-	else if (query.lang === 'cn'){
-		res.render('chinesePages/Dashboard')
-	}
-	else {
-		res.render('pages/Dashboard')
-	}
+	res.render(`${req.lang.langPages}/dashboard`);
+	
 })
-router.get('/embedded',(req,res)=>{
-	const query = req.query;
+router.get('/embedded',validators.checkLanguage,(req,res)=>{
+	
 	// Use the appropriate controller
 	// Logic
 	// render the pages by language specefied
-	if (query.lang === 'en'){
-		res.render('pages/EmbeddedPage')
-	}else if (query.lang === 'kr'){
-		res.render('koreanPages/EmbeddedPage')
-	}
-	else if (query.lang === 'cn'){
-		res.render('chinesePages/EmbeddedPage')
-	}
-	else {
-		res.render('pages/EmbeddedPage')
-	}
+	res.render(`${req.lang.langPages}/embedded`);
+
 })
-router.get('/surveyEditor',(req,res)=>{
-	const query = req.query;
+router.get('/surveyEditor',validators.checkLanguage,auth.isAuthenticated,(req,res)=>{
+	
 	// Use the appropriate controller
 	// Logic
 	// render the pages by language specefied
-	if (query.lang === 'en'){
-		res.render('pages/SurveyEditor')
-	}else if (query.lang === 'kr'){
-		res.render('koreanPages/SurveyEditor')
-	}
-	else if (query.lang === 'cn'){
-		res.render('chinesePages/SurveyEditor')
-	}
-	else {
-		res.render('pages/SurveyEditor')
-	}
+	res.render(`${req.lang.langPages}/surveyEditor`);
+
 })
-router.get('/submitResponse',(req,res)=>{
-	const query = req.query;
+router.get('/submitResponse',validators.checkLanguage,(req,res)=>{
+	
 	// render the pages by language specefied
-	if (query.lang === 'en'){
-		res.render('pages/SubmitSurveyResponse')
-	}else if (query.lang === 'kr'){
-		res.render('koreanPages/SubmitSurveyResponse')
-	}
-	else if (query.lang === 'cn'){
-		res.render('chinesePages/SubmitSurveyResponse')
-	}
-	else {
-		res.render('pages/SubmitSurveyResponse')
-	}
+	res.render(`${req.lang.langPages}/submitResponse`);
+
 })
-router.get('/thankYou',(req,res)=>{
-	const query = req.query;
+router.get('/thankYou',validators.checkLanguage,(req,res)=>{
+	
 	// render the pages by language specefied
-	if (query.lang === 'en'){
-		res.render('pages/ThankYouPage')
-	}else if (query.lang === 'kr'){
-		res.render('koreanPages/ThankYouPage')
-	}
-	else if (query.lang === 'cn'){
-		res.render('chinesePages/ThankYouPage')
-	}
-	else {
-		res.render('pages/ThankYouPage')
-	}
+	res.render(`${req.lang.langPages}/thankYou`);
+
 })
 
 // route    GET
 // desc     render error pages if something wrong happened ! ! !
-router.get('/serverError',(req,res)=>{
-	const query = req.query;
+router.get('/serverError',validators.checkLanguage,(req,res)=>{
+	
 	// render the pages by language specefied
-	if (query.lang === 'en'){
-		res.render('pages/fiveOO')
-	}else if (query.lang === 'kr'){
-		res.render('koreanPages/fiveOO')
-	}
-	else if (query.lang === 'cn'){
-		res.render('chinesePages/fiveOO')
-	}
-	else {
-		res.render('pages/fiveOO')
-	}
+	res.render(`${req.lang.langPages}/serverError`);
+	
 })
 
 router.get('*',(req,res)=>{

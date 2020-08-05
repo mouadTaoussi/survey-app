@@ -71,12 +71,11 @@ app.use(express.json());
 
 
 const auth = require('./Middlewares/Authentication.js');
+const validators = require('./Middlewares/Validators.js');
 
-app.get('/get', auth.isAuthenticated, auth.isCompletedCredentiels, (req,res)=>{
-console.log(req.query.lang)
-	console.log(req.user);
-	console.log(req.info);
-	res.json(req.user);
+app.get('/get',validators.checkLanguage, auth.isAuthenticated, auth.isCompletedCredentiels, (req,res)=>{
+
+	res.json(req.session);
 })
 app.get('/set',(req,res)=>{
 	const local = {

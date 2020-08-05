@@ -13,14 +13,14 @@
 	<div class="register local-card shadow">
 		<h1 class='title local-mb-8'>레지스터</h1>
 		<!-- <div class='local-alert danger'>Email already exists!!!</div> -->
-		<form action="/auth/register" method="POST">
-			<input type="text" name="firstName" class="form-control local-mt-2" placeholder="이름을 입력하세요">
-			<input type="text" name="givenName" class="form-control local-mt-2" placeholder="가족 이름을 입력하십시오">
-			<input type="text" name="username" class="form-control local-mt-2" placeholder="사용자 이름을 입력하십시오">
-			<input type="email" name="email" class="form-control local-mt-2" placeholder="이메일을 입력하십시오">
-			<input type="password" name="password" class="form-control local-mt-2" placeholder="비밀번호를 입력하십시오">
-			<input type="password" name="password2" class="form-control local-mt-2" placeholder="암호를 확인">
-			<button class="local-btn register-btn local-mt-2 local-btn-primary">레지스터</button>
+		<form action="/auth/register?lang=kr" method="POST">
+			<input type="text" name="firstName" class="form-control local-mt-2" placeholder="이름을 입력하세요" required>
+			<input type="text" name="givenName" class="form-control local-mt-2" placeholder="가족 이름을 입력하십시오" required>
+			<input type="text" name="username" class="form-control local-mt-2" placeholder="사용자 이름을 입력하십시오" required>
+			<input type="email" name="email" class="form-control local-mt-2" placeholder="이메일을 입력하십시오" required>
+			<input type="password" name="password" class="form-control local-mt-2" placeholder="비밀번호를 입력하십시오" required>
+			<input type="password" name="password2" class="form-control local-mt-2" placeholder="암호를 확인" required>
+			<input type="submit" value="레지스터" class="local-btn register-btn local-mt-2 local-btn-primary">
 		</form>
 		<a href='/login?lang=kr' class="mt-2 links">이미 계정이 있습니까?</a>
 		<p class="text-center">또는:</p>

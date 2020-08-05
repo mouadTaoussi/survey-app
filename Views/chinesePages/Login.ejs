@@ -13,10 +13,11 @@
 	<div class="login local-card shadow">
 		<h1 class='title local-mb-8'>登录</h1>
 		<!-- <div class='local-alert danger'>Email already exists!!!</div> -->
-		<form action="/auth/login" method="POST">
-			<input type="email" name="email" class="form-control local-mt-2" placeholder="输入你的电子邮箱">
-			<input type="password" name="password" class="form-control local-mt-2" placeholder="输入密码">
-			<button class="local-btn login-btn local-mt-2 local-btn-primary">登录</button>
+		<form action="/auth/login?lang=cn" method="POST">
+			<input type="email" name="email" class="form-control local-mt-2" placeholder="输入你的电子邮箱" required>
+			<input type="password" name="password" class="form-control local-mt-2" placeholder="输入密码" required>
+			<!-- <button class="local-btn login-btn local-mt-2 local-btn-primary">登录</button> -->
+			<input type="submit" value='登录' class="local-btn login-btn local-mt-2 local-btn-primary">
 		</form>
 		<a href='/resetPassword?lang=cn' class="mt-2 links">f忘记密码了吗？</a>
 		<a href='/register?lang=cn' class="mt-2 links float-right">没有帐号？</a>

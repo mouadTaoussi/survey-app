@@ -13,10 +13,10 @@
 	<div class="login local-card shadow">
 		<h1 class='title local-mb-8'>로그인</h1>
 		<!-- <div class='local-alert danger'>Email already exists!!!</div> -->
-		<form action="/auth/login" method="POST">
-			<input type="email" name="email" class="form-control local-mt-2" placeholder="이메일을 입력하십시오">
-			<input type="password" name="password" class="form-control local-mt-2" placeholder="비밀번호를 입력하십시오">
-			<button class="local-btn login-btn local-mt-2 local-btn-primary">로그인</button>
+		<form action="/auth/login?lang=kr" method="POST">
+			<input type="email" name="email" class="form-control local-mt-2" placeholder="이메일을 입력하십시오" required>
+			<input type="password" name="password" class="form-control local-mt-2" placeholder="비밀번호를 입력하십시오" required>
+			<input type="submit" value="로그인" class="local-btn register-btn local-mt-2 local-btn-primary">
 		</form>
 		<a href='/resetPassword?lang=kr' class="mt-2 links">비밀번호를 잊어 버렸습니까?</a>
 		<a href='/register?lang=kr' class="mt-2 links float-right">계정이 없습니까?</a>
