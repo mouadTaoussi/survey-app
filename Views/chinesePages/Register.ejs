@@ -12,7 +12,9 @@
 
 	<div class="register local-card shadow">
 		<h1 class='title local-mb-8'>寄存器</h1>
-		<!-- <div class='local-alert danger'>Email already exists!!!</div> -->
+		<% if(errMessage != null) { %>
+			<div class='local-alert danger'><%= errMessage %></div>
+		<% } %>
 		<form action="/auth/register?lang=cn" method="POST">
 			<input type="text" name="firstName" class="form-control local-mt-2" placeholder="输入您的名字" required>
 			<input type="text" name="givenName" class="form-control local-mt-2" placeholder="输入您的姓氏" required>

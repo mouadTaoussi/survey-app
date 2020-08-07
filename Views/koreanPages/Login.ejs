@@ -12,7 +12,9 @@
 
 	<div class="login local-card shadow">
 		<h1 class='title local-mb-8'>로그인</h1>
-		<!-- <div class='local-alert danger'>Email already exists!!!</div> -->
+		<% if(errMessage != null) { %>
+			<div class='local-alert danger'><%= errMessage %></div>
+		<% } %>
 		<form action="/auth/login?lang=kr" method="POST">
 			<input type="email" name="email" class="form-control local-mt-2" placeholder="이메일을 입력하십시오" required>
 			<input type="password" name="password" class="form-control local-mt-2" placeholder="비밀번호를 입력하십시오" required>

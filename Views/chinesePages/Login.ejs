@@ -12,7 +12,9 @@
 
 	<div class="login local-card shadow">
 		<h1 class='title local-mb-8'>登录</h1>
-		<!-- <div class='local-alert danger'>Email already exists!!!</div> -->
+		<% if(errMessage != null) { %>
+			<div class='local-alert danger'><%= errMessage %></div>
+		<% } %>
 		<form action="/auth/login?lang=cn" method="POST">
 			<input type="email" name="email" class="form-control local-mt-2" placeholder="输入你的电子邮箱" required>
 			<input type="password" name="password" class="form-control local-mt-2" placeholder="输入密码" required>

@@ -28,22 +28,55 @@ router.get('/',validators.checkLanguage,(req,res)=>{
 	
 })
 router.get('/login',validators.checkLanguage,(req,res)=>{
+	// Check for error messages if exists
+	const { loggedIn, message } = req.query;
 	
-	// render the pages by language specefied
-	res.render(`${req.lang.langPages}/login`);
-	
+	if (loggedIn == undefined) {
+		// render the pages by language specefied
+		res.render(`${req.lang.langPages}/login`,{ errMessage: null });
+	}
+	else if(loggedIn == 'false'){
+		// render the pages by language specefied
+		res.render(`${req.lang.langPages}/login`,{ errMessage: message });
+	}
+	else {
+		// render the pages by language specefied
+		res.render(`${req.lang.langPages}/login`,{ errMessage: null });
+	}
 })
 router.get('/register',validators.checkLanguage,(req,res)=>{
-	
-	// render the pages by language specefied
-	res.render(`${req.lang.langPages}/register`);
+	// Check for error messages if exists
+	const { registered, message } = req.query;
 
+	if (registered == undefined) {
+		// render the pages by language specefied
+		res.render(`${req.lang.langPages}/register`,{ errMessage: null });
+	}
+	else if (registered == 'false'){
+		// render the pages by language specefied
+		res.render(`${req.lang.langPages}/register`,{ errMessage: message });
+	}
+	else {
+		// render the pages by language specefied
+		res.render(`${req.lang.langPages}/register`,{ errMessage: null });
+	}
 })
 router.get('/resetPassword',validators.checkLanguage,(req,res)=>{
-	
-	// render the pages by language specefied
-	res.render(`${req.lang.langPages}/resetPassword`);
-	
+	// Check for error messages if exists
+	const { sent, message } = req.query;
+
+	if (sent == undefined) {
+		// render the pages by language specefied
+		res.render(`${req.lang.langPages}/resetPassword`,{ errMessage: null });
+	}
+	else if (sent == 'false'){
+		// render the pages by language specefied
+		res.render(`${req.lang.langPages}/resetPassword`,{ errMessage: message });
+	}
+	else {
+		// render the pages by language specefied
+		res.render(`${req.lang.langPages}/resetPassword`,{ errMessage: null });
+	}
 })
 router.get('/changePassword',validators.checkLanguage,(req,res)=>{
 	

@@ -12,7 +12,9 @@
 
 	<div class="login local-card shadow">
 		<h1 class='title local-mb-8'>Log in</h1>
-		<!-- <div class='local-alert danger'>Email already exists!!!</div> -->
+		<% if(errMessage != null) { %>
+			<div class='local-alert danger'><%= errMessage %></div>
+		<% } %>
 		<form action="/auth/login?lang=en" method="POST">
 			<input type="email" name="email" class="form-control local-mt-2" placeholder="Enter your Email" required>
 			<input type="password" name="password" class="form-control local-mt-2" placeholder="Enter your Password" required>

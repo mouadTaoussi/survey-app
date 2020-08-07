@@ -12,7 +12,9 @@
 
 	<div class="register local-card shadow">
 		<h1 class='title local-mb-8'>레지스터</h1>
-		<!-- <div class='local-alert danger'>Email already exists!!!</div> -->
+		<% if(errMessage != null) { %>
+			<div class='local-alert danger'><%= errMessage %></div>
+		<% } %>
 		<form action="/auth/register?lang=kr" method="POST">
 			<input type="text" name="firstName" class="form-control local-mt-2" placeholder="이름을 입력하세요" required>
 			<input type="text" name="givenName" class="form-control local-mt-2" placeholder="가족 이름을 입력하십시오" required>

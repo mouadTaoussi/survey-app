@@ -1,5 +1,6 @@
 const express                         = require('express');
 const passport                        = require('passport');
+const nodemailer                      = require('nodemailer');
 /////////////////////////////////////// GRAB THE APPROPRIATE CONTROLLER CLASS
 const Authentication                  = require('.././Controllers/Authentication.js');
 /////////////////////////////////////// GRAB THE APPROPRIATE MIDDLEWARE
@@ -18,9 +19,9 @@ router.get('/github', auth.isLoggedin, passport.authenticate('github',{scope:['p
 router.get('/linkedin', auth.isLoggedin, passport.authenticate('linkedin'));
 
 // Callbacks or Oauth services to get user redirected to!
-router.get('/google/callback',passport.authenticate('google',{failureRedirect : '/',successRedirect : '/'}));
-router.get('/github/callback',passport.authenticate('github',{failureRedirect : '/',successRedirect : '/'}));
-router.get('/linkedin/callback',passport.authenticate('linkedin',{failureRedirect : '/',successRedirect : '/'}));
+router.get('/google/callback',passport.authenticate('google',{failureRedirect : '/',successRedirect : '/dashboard'}));
+router.get('/github/callback',passport.authenticate('github',{failureRedirect : '/',successRedirect : '/dashboard'}));
+router.get('/linkedin/callback',passport.authenticate('linkedin',{failureRedirect : '/',successRedirect : '/dashboard'}));
 
 // Local Authentication Strategy
 router.post('/login', validators.checkLanguage, auth.isLoggedin, async(req,res)=>{
@@ -54,7 +55,7 @@ router.post('/login', validators.checkLanguage, auth.isLoggedin, async(req,res)=
 	}
 
 });
-router.post('/register', validators.checkLanguage, /*auth.isLoggedin,*/ async(req,res)=>{
+router.post('/register', validators.checkLanguage, auth.isLoggedin, async(req,res)=>{
 	// Get  the body data
 	const { firstName,givenName,username,email,password,password2 } = req.body;
 
@@ -77,12 +78,26 @@ router.post('/register', validators.checkLanguage, /*auth.isLoggedin,*/ async(re
 		// render the pages by language specefied
 		res.redirect(`/dashboard?lang=${req.lang.langShortcut}`);
 	}
-	
+	else {
+		res.redirect(`/register?lang=${req.lang.langShortcut}&registered=${registerProcess.registered}&message=${registerProcess.message}`);
+	}
 })
 router.post('/resetPassword', validators.checkLanguage, auth.isLoggedin, (req,res)=>{
+	// Grab body data
+	const { email } = req.body;
+	const lang = req.lang.langShortcut
 	// Use the appropriate controller
-	// Logic
-	res.json(authController.resetPassword('muoadtaoussi0@mail.com'));
+	const sendingEmailProccess = authController.resetPassword(email,lang);
+	// Check if email was sent
+	if(sendingEmailProccess.sent){
+
+	}
+	else {
+		// Check the language
+		// Redirect th user to the dashboard
+		// render the pages by language specefied
+		res.redirect(`/resetPassword?lang=${req.lang.langShortcut}?sent=${sendingEmailProccess.sent}&message=${sendingEmailProccess.message}`);
+	}
 })
 router.post('/changePassword', validators.checkLanguage, auth.isLoggedin, (req,res)=>{
 	// Use the appropriate controller

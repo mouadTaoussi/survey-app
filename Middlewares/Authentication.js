@@ -21,16 +21,16 @@ module.exports = {
 			}
 		}
 		else {
-			res.redirect(`/login?lang=${req.lang.langShortcut}`); // Error ! ! ! 
+			res.redirect(`/login?lang=${req.lang.langShortcut}`);
 		}
 	},
 	// This middleware check the user logged in for prevent him to access login page ! ! !
 	isLoggedin : (req,res,next)=>{
 		if (req.session.passport){
-			res.redirect('/dashboard');
+			res.redirect(`/dashboard${req.lang.langShortcut}`);
 		}
 		else if (req.session.local){
-			res.redirect('/dashboard');	
+			res.redirect(`/dashboard${req.lang.langShortcut}`);	
 		}
 		else {
 			next();
@@ -43,12 +43,15 @@ module.exports = {
 		// Validate thier credentiels
 		if (!req.user.email){
 			info.push('Provide us your email!')
+			console.log(1)
 		}
 		else if (!req.user.username){
 			info.push('Provide us your username!')
+			console.log(2)
 		}
 		else if (!req.user.fullName){
 			info.push('Provide us your full name!')
+			console.log(3)
 		}
 		req.info = info;
 		next();
