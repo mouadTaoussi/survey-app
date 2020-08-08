@@ -16,7 +16,7 @@
 			<div class='local-alert danger'><%= errMessage %></div>
 		<% } %>
 		<form action="/auth/register?lang=kr" method="POST">
-			<input type="text" name="firstName" class="form-control local-mt-2" placeholder="이름을 입력하세요" required>
+			<input type="text" name="firstName" class="form-control local-mt-2" placeholder="이름을 입력하세요" required autofocus>
 			<input type="text" name="givenName" class="form-control local-mt-2" placeholder="가족 이름을 입력하십시오" required>
 			<input type="text" name="username" class="form-control local-mt-2" placeholder="사용자 이름을 입력하십시오" required>
 			<input type="email" name="email" class="form-control local-mt-2" placeholder="이메일을 입력하십시오" required>

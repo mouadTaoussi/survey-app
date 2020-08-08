@@ -82,27 +82,47 @@ router.post('/register', validators.checkLanguage, auth.isLoggedin, async(req,re
 		res.redirect(`/register?lang=${req.lang.langShortcut}&registered=${registerProcess.registered}&message=${registerProcess.message}`);
 	}
 })
-router.post('/resetPassword', validators.checkLanguage, auth.isLoggedin, (req,res)=>{
+router.post('/resetPassword', validators.checkLanguage, auth.isLoggedin, async(req,res)=>{
 	// Grab body data
 	const { email } = req.body;
 	const lang = req.lang.langShortcut
 	// Use the appropriate controller
-	const sendingEmailProccess = authController.resetPassword(email,lang);
+	const sendingEmailProccess = await authController.resetPassword(email,lang);
+	
 	// Check if email was sent
 	if(sendingEmailProccess.sent){
+		// Redirect to sent email view
+		res.redirect(`/emailSent?lang=${req.lang.langShortcut}&to=${email}`);
+	}
+	else {
+		// Check the language
+		// Redirect th user to the dashboard
+		// render the pages by language specefied
+		res.redirect(`/resetPassword?lang=${req.lang.langShortcut}&sent=${sendingEmailProccess.sent}&message=${sendingEmailProccess.message}`);
+	}
+})
+router.post('/changePassword', validators.checkLanguage, auth.isLoggedin, /*auth.isTokenValid*/ async(req,res)=>{
+	// Get the token in the query
+	const { token,email } = req.query;
+	const { new_password,password2 } = req.body;
+	
+	// Use the appropriate controller // Logic
+	const changingPasswordProcess = await authController.changePassword(email,token,new_password,password2);
+	// Check if the password was changed
+	console.log(changingPasswordProcess)
+	if (changingPasswordProcess.changed){
+		// Sign a cookie session and send it to the browser
+		// Redirect to the dashboard by language specified here
+		console.log(1)
 
 	}
 	else {
 		// Check the language
 		// Redirect th user to the dashboard
 		// render the pages by language specefied
-		res.redirect(`/resetPassword?lang=${req.lang.langShortcut}?sent=${sendingEmailProccess.sent}&message=${sendingEmailProccess.message}`);
+		console.log(2)
+		res.redirect(`/changePassword?lang=${req.lang.langShortcut}&token=${token}&email=${email}&changed=${changingPasswordProcess.changed}&message=${changingPasswordProcess.message}`)
 	}
-})
-router.post('/changePassword', validators.checkLanguage, auth.isLoggedin, (req,res)=>{
-	// Use the appropriate controller
-	// Logic
-	res.json(authController.changePassword('544444444','helloworld'));
 })
 router.get('/logout', (req,res)=>{
 	req.session.destroy(function(err) {

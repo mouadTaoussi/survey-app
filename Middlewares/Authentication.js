@@ -1,4 +1,5 @@
 const User                             = require('.././Models/UserModel.js');
+const ResetPasswordToken               = require('.././Models/ResetPasswordToken.js');
 
 module.exports = {
 	// You know this middleware what could do, so no explanation required !! !! !! 
@@ -27,10 +28,10 @@ module.exports = {
 	// This middleware check the user logged in for prevent him to access login page ! ! !
 	isLoggedin : (req,res,next)=>{
 		if (req.session.passport){
-			res.redirect(`/dashboard${req.lang.langShortcut}`);
+			res.redirect(`/dashboard?lang=${req.lang.langShortcut}`);
 		}
 		else if (req.session.local){
-			res.redirect(`/dashboard${req.lang.langShortcut}`);	
+			res.redirect(`/dashboard?lang=${req.lang.langShortcut}`);	
 		}
 		else {
 			next();
@@ -43,18 +44,45 @@ module.exports = {
 		// Validate thier credentiels
 		if (!req.user.email){
 			info.push('Provide us your email!')
-			console.log(1)
 		}
 		else if (!req.user.username){
 			info.push('Provide us your username!')
-			console.log(2)
 		}
 		else if (!req.user.fullName){
 			info.push('Provide us your full name!')
-			console.log(3)
 		}
 		req.info = info;
 		next();
+	},
+	// This middleware checks if a forgotten password token provided is valid or exists ! ! !
+	isTokenValid : async (req,res,next)=>{
+		// Get the token in the query
+		const { token, email } = req.query;
+		
+		try {
+			// Grab that token in the database
+			const getToken = await ResetPasswordToken.findOne({token:token});
+			
+			// Check if token exists
+			if (!getToken){
+				res.redirect(`/resetPassword?lang=${req.lang.langShortcut}`);
+			}
+			else {
+				// Get the user related to this token and compare it with the email provided
+				const getUser = await User.findById(getToken.user_id);
+
+				if (email === getUser.email){
+					req.nextStep = { email : getUser.email, token : token };
+					next()
+				}
+				else {
+					res.redirect(`/resetPassword?lang=${req.lang.langShortcut}`);
+				}
+			}
+		}
+		catch(err){
+			// Render err page
+		}
 	}
 }
 

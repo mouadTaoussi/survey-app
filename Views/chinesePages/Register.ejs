@@ -16,7 +16,7 @@
 			<div class='local-alert danger'><%= errMessage %></div>
 		<% } %>
 		<form action="/auth/register?lang=cn" method="POST">
-			<input type="text" name="firstName" class="form-control local-mt-2" placeholder="输入您的名字" required>
+			<input type="text" name="firstName" class="form-control local-mt-2" placeholder="输入您的名字" required autofocus>
 			<input type="text" name="givenName" class="form-control local-mt-2" placeholder="输入您的姓氏" required>
 			<input type="text" name="username" class="form-control local-mt-2" placeholder="输入你的用户名" required>
 			<input type="email" name="email" class="form-control local-mt-2" placeholder="“输入您的电子邮件" required>

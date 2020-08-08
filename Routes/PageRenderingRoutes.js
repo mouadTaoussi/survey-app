@@ -19,6 +19,7 @@ const responsesController = new Responses();
 // Init router
 const router = express.Router();
 
+
 // route    GET
 // desc     render default pages or redirected to it ! ! !
 router.get('/',validators.checkLanguage,(req,res)=>{
@@ -27,6 +28,8 @@ router.get('/',validators.checkLanguage,(req,res)=>{
 	res.render(`${req.lang.langPages}/`);
 	
 })
+
+
 router.get('/login',validators.checkLanguage,(req,res)=>{
 	// Check for error messages if exists
 	const { loggedIn, message } = req.query;
@@ -44,6 +47,8 @@ router.get('/login',validators.checkLanguage,(req,res)=>{
 		res.render(`${req.lang.langPages}/login`,{ errMessage: null });
 	}
 })
+
+
 router.get('/register',validators.checkLanguage,(req,res)=>{
 	// Check for error messages if exists
 	const { registered, message } = req.query;
@@ -61,6 +66,8 @@ router.get('/register',validators.checkLanguage,(req,res)=>{
 		res.render(`${req.lang.langPages}/register`,{ errMessage: null });
 	}
 })
+
+
 router.get('/resetPassword',validators.checkLanguage,(req,res)=>{
 	// Check for error messages if exists
 	const { sent, message } = req.query;
@@ -78,12 +85,40 @@ router.get('/resetPassword',validators.checkLanguage,(req,res)=>{
 		res.render(`${req.lang.langPages}/resetPassword`,{ errMessage: null });
 	}
 })
-router.get('/changePassword',validators.checkLanguage,(req,res)=>{
-	
-	// render the pages by language specefied
-	res.render(`${req.lang.langPages}/changePassword`);
+
+
+router.get('/emailSent',validators.checkLanguage,(req,res)=>{
+	// Get the email
+	const { to } = req.query;
+	// Check the provided language
+	res.render(`${req.lang.langPages}/emailSent`,{email:to});
+})
+
+
+router.get('/changePassword',validators.checkLanguage, auth.isLoggedin, auth.isTokenValid, (req,res)=>{
+	// Check for error messages if exists
+	const { changed, message } = req.query;
+	// Validation results of isTokenValid
+	const { email, token } = req.nextStep;
+	console.log(email+token)
+	// http://localhost:8080/changePassword?lang=cn&token=73e24f6b-124b-4142-aa90-80e703c8bf41&email=mouadtaoussi0@gmail.com
+	// Check if errors  happen
+	if (changed == undefined) {
+		// render the pages by language specefied
+		res.render(`${req.lang.langPages}/changePassword`,{ errMessage: null,email:email,token:token });
+	}
+	else if (changed == 'false'){
+		// render the pages by language specefied
+		res.render(`${req.lang.langPages}/changePassword`,{ errMessage: message,email:email,token:token });
+	}
+	else {
+		// render the pages by language specefied
+		res.render(`${req.lang.langPages}/changePassword`,{ errMessage: null,email:email,token:token });
+	}
 	
 })
+
+
 router.get('/dashboard',validators.checkLanguage,auth.isAuthenticated,(req,res)=>{
 	
 	// Use the appropriate controller
@@ -92,6 +127,8 @@ router.get('/dashboard',validators.checkLanguage,auth.isAuthenticated,(req,res)=
 	res.render(`${req.lang.langPages}/dashboard`);
 	
 })
+
+
 router.get('/embedded',validators.checkLanguage,(req,res)=>{
 	
 	// Use the appropriate controller
@@ -100,6 +137,8 @@ router.get('/embedded',validators.checkLanguage,(req,res)=>{
 	res.render(`${req.lang.langPages}/embedded`);
 
 })
+
+
 router.get('/surveyEditor',validators.checkLanguage,auth.isAuthenticated,(req,res)=>{
 	
 	// Use the appropriate controller
@@ -108,18 +147,23 @@ router.get('/surveyEditor',validators.checkLanguage,auth.isAuthenticated,(req,re
 	res.render(`${req.lang.langPages}/surveyEditor`);
 
 })
+
+
 router.get('/submitResponse',validators.checkLanguage,(req,res)=>{
 	
 	// render the pages by language specefied
 	res.render(`${req.lang.langPages}/submitResponse`);
 
 })
+
+
 router.get('/thankYou',validators.checkLanguage,(req,res)=>{
 	
 	// render the pages by language specefied
 	res.render(`${req.lang.langPages}/thankYou`);
 
 })
+
 
 // route    GET
 // desc     render error pages if something wrong happened ! ! !
@@ -129,6 +173,7 @@ router.get('/serverError',validators.checkLanguage,(req,res)=>{
 	res.render(`${req.lang.langPages}/serverError`);
 	
 })
+
 
 router.get('*',(req,res)=>{
 	res.render('pages/forOFor');
