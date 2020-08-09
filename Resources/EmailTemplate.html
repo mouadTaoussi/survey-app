@@ -10,20 +10,24 @@
 	<title>Email template</title>
 </head>
 <body style='background-color: rgba(0,0,0,.1);padding:20px;' >
-	<center></center>
-	<div style="width: 70%;margin: 20px auto;background: white;height: auto;color: rgba(0,0,0,.89);padding:20px;">Hello World<br>
-	<a href='~'>
-		<button style="border: 0;padding: 5px 30px 5px 30px;margin:20px 00px 0px 0px;font-family: 'Cabin', sans-serif;background-color: #1554a7;color: white;">Change Password</button>
-	</a>
-	</div>
-	
-	<center>
-		<ul style="list-style: none;margin: 10px 10px 10px 10px;" class="footer-list local-mt-4">
-			<li style='display: inline;padding:8px;' class='footer-list-item'>Terms of service</li>
-			<li style='display: inline;padding:8px;' class='footer-list-item'>Privacy & policy</li>
-			<li style='display: inline;padding:8px;' class='footer-list-item'>How it works?</li>
-		</ul>
-	</center>
+<center></center>
+<div style="width: 70%;margin: 20px auto;background: white;height: auto;color: rgba(0,0,0,.89);padding:20px;">
+<h1>Hello ${user.name}</h1>
+<h5>Please click on the button below for get redirected to the page where you can change the password from it!</h5>
+<i>NB: your request will be expired after 20 minutes from now</i>
+<p><strong>Thank you!</strong></p>
+<a href='${process.env.HOST_NAME}/changePassword?lang=${lang}&token=${generatedUD}&email=${email}'>
+	<button style="border: 0;padding: 5px 30px 5px 30px;margin:20px 00px 0px 0px;font-family: 'Cabin', sans-serif;background-color: #1554a7;color: white;">Change Password</button>
+</a>
+<p>${process.env.HOST_NAME}/changePassword?lang=${lang}&token=${generatedUD}&email=${email}</p>
+</div>
+<center>
+<ul style="list-style: none;margin: 10px 10px 10px 10px;" class="footer-list local-mt-4">
+	<li style='display: inline;padding:8px;' class='footer-list-item'>Terms of service</li>
+	<li style='display: inline;padding:8px;' class='footer-list-item'>Privacy & policy</li>
+	<li style='display: inline;padding:8px;' class='footer-list-item'>How it works?</li>
+</ul>
+</center>
 </body>
 </html>
 
@@ -33,20 +37,24 @@
 	<title>Email template</title>
 </head>
 <body style='background-color: rgba(0,0,0,.1);padding:20px;' >
-	<center></center>
-	<div style="width: 70%;margin: 20px auto;background: white;height: auto;color: rgba(0,0,0,.89);padding:20px;">Hello World<br>
-	<a href='~'>
-		<button style="border: 0;padding: 5px 30px 5px 30px;margin:20px 00px 0px 0px;font-family: 'Cabin', sans-serif;background-color: #1554a7;color: white;">비밀번호 변경</button>
-	</a>
-	</div>
-	
-	<center>
-		<ul style="list-style: none;margin: 10px 10px 10px 10px;" class="footer-list local-mt-4">
-			<li style='display: inline;padding:8px;' class='footer-list-item'>서비스 약관</li>
-			<li style='display: inline;padding:8px;' class='footer-list-item'>개인 정보 정책</li>
-			<li style='display: inline;padding:8px;' class='footer-list-item'>어떻게 작동합니까?</li>
-		</ul>
-	</center>
+<center></center>
+<div style="width: 70%;margin: 20px auto;background: white;height: auto;color: rgba(0,0,0,.89);padding:20px;">
+<h1>안녕 ${user.name}</h1>
+<h5>비밀번호를 변경할 수있는 페이지로 이동하려면 아래 버튼을 클릭하십시오!</h5>
+<i>주의 : 귀하의 요청은 지금부터 20 분 후에 만료됩니다.</i>
+<p><strong>감사합니다!</strong></p>
+<a href='${process.env.HOST_NAME}/changePassword?lang=${lang}&token=${generatedUD}&email=${email}'>
+	<button style="border: 0;padding: 5px 30px 5px 30px;margin:20px 00px 0px 0px;font-family: 'Cabin', sans-serif;background-color: #1554a7;color: white;">비밀번호 변경</button>
+</a>
+<p>${process.env.HOST_NAME}/changePassword?lang=${lang}&token=${generatedUD}&email=${email}</p>
+</div>
+<center>
+<ul style="list-style: none;margin: 10px 10px 10px 10px;" class="footer-list local-mt-4">
+	<li style='display: inline;padding:8px;' class='footer-list-item'>서비스 약관</li>
+	<li style='display: inline;padding:8px;' class='footer-list-item'>개인 정보 정책</li>
+	<li style='display: inline;padding:8px;' class='footer-list-item'>어떻게 작동합니까?</li>
+</ul>
+</center>
 </body>
 </html>
 
@@ -56,19 +64,23 @@
 	<title>Email template</title>
 </head>
 <body style='background-color: rgba(0,0,0,.1);padding:20px;' >
-	<center></center>
-	<div style="width: 70%;margin: 20px auto;background: white;height: auto;color: rgba(0,0,0,.89);padding:20px;">Hello World<br>
-	<a href='~'>
-		<button style="border: 0;padding: 5px 30px 5px 30px;margin:20px 00px 0px 0px;font-family: 'Cabin', sans-serif;background-color: #1554a7;color: white;">更改密码</button>
-	</a>
-	</div>
-	
-	<center>
-		<ul style="list-style: none;margin: 10px 10px 10px 10px;" class="footer-list local-mt-4">
-			<li style='display: inline;padding:8px;' class='footer-list-item'>服务条款</li>
-			<li style='display: inline;padding:8px;' class='footer-list-item'>隐私政策</li>
-			<li style='display: inline;padding:8px;' class='footer-list-item'>这个怎么运作？</li>
-		</ul>
-	</center>
+<center></center>
+<div style="width: 70%;margin: 20px auto;background: white;height: auto;color: rgba(0,0,0,.89);padding:20px;">
+<h1>你好 ${user.name}</h1>
+<h5>请单击下面的按钮以重定向到页面，您可以在其中更改密码！</h5>
+<i>注意：您的要求将在20分钟后过期</i>
+<p><strong>谢谢!</strong></p>
+<a href='${process.env.HOST_NAME}/changePassword?lang=${lang}&token=${generatedUD}&email=${email}'>
+	<button style="border: 0;padding: 5px 30px 5px 30px;margin:20px 00px 0px 0px;font-family: 'Cabin', sans-serif;background-color: #1554a7;color: white;">更改密码</button>
+</a>
+<p>${process.env.HOST_NAME}/changePassword?lang=${lang}&token=${generatedUD}&email=${email}</p>
+</div>
+<center>
+<ul style="list-style: none;margin: 10px 10px 10px 10px;" class="footer-list local-mt-4">
+	<li style='display: inline;padding:8px;' class='footer-list-item'>服务条款</li>
+	<li style='display: inline;padding:8px;' class='footer-list-item'>隐私政策</li>
+	<li style='display: inline;padding:8px;' class='footer-list-item'>这个怎么运作？</li>
+</ul>
+</center>
 </body>
 </html>

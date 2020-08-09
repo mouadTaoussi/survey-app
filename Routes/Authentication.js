@@ -101,26 +101,34 @@ router.post('/resetPassword', validators.checkLanguage, auth.isLoggedin, async(r
 		res.redirect(`/resetPassword?lang=${req.lang.langShortcut}&sent=${sendingEmailProccess.sent}&message=${sendingEmailProccess.message}`);
 	}
 })
-router.post('/changePassword', validators.checkLanguage, auth.isLoggedin, /*auth.isTokenValid*/ async(req,res)=>{
-	// Get the token in the query
-	const { token,email } = req.query;
+router.post('/changePassword', validators.checkLanguage, auth.isLoggedin, auth.isTokenValid, async(req,res)=>{
+	// Get the token and email in the middleware 
+	const { token,email } = req.nextStep;
 	const { new_password,password2 } = req.body;
-	
+
 	// Use the appropriate controller // Logic
 	const changingPasswordProcess = await authController.changePassword(email,token,new_password,password2);
 	// Check if the password was changed
-	console.log(changingPasswordProcess)
 	if (changingPasswordProcess.changed){
-		// Sign a cookie session and send it to the browser
-		// Redirect to the dashboard by language specified here
-		console.log(1)
-
+		// Create a session
+		const user_session = {
+			id : registerProcess.user.id,
+			email : registerProcess.user.email,
+			name : registerProcess.user.name,
+			avatar : registerProcess.user.avatar
+		}
+		// Send the session back to the browser
+		req.session.local = user_session;
+		
+		// Check the language
+		// Redirect th user to the dashboard
+		// render the pages by language specefied
+		res.redirect(`/dashboard?lang=${req.lang.langShortcut}`);
 	}
 	else {
 		// Check the language
 		// Redirect th user to the dashboard
 		// render the pages by language specefied
-		console.log(2)
 		res.redirect(`/changePassword?lang=${req.lang.langShortcut}&token=${token}&email=${email}&changed=${changingPasswordProcess.changed}&message=${changingPasswordProcess.message}`)
 	}
 })

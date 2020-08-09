@@ -100,7 +100,6 @@ router.get('/changePassword',validators.checkLanguage, auth.isLoggedin, auth.isT
 	const { changed, message } = req.query;
 	// Validation results of isTokenValid
 	const { email, token } = req.nextStep;
-	console.log(email+token)
 	// http://localhost:8080/changePassword?lang=cn&token=73e24f6b-124b-4142-aa90-80e703c8bf41&email=mouadtaoussi0@gmail.com
 	// Check if errors  happen
 	if (changed == undefined) {

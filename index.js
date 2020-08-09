@@ -78,10 +78,10 @@ const User = require('./Models/UserModel.js')
 app.get('/get',validators.checkLanguage,/* auth.isAuthenticated,auth.isCompletedCredentiels, */ async(req,res)=>{
 	
 	// Grab that token in the database
-	const getToken = await ResetPasswordToken.findOne({token:'73e24f6b-124b-4142-aa90-80e703c8bf41'});
-	console.log(getToken)
-	const getUser = await User.findById(getToken.user_id);
-	console.log(getUser)
+	// const getToken = await ResetPasswordToken.findOne({token:'73e24f6b-124b-4142-aa90-80e703c8bf41'});
+	// console.log(getToken)
+	// const getUser = await User.findById(getToken.user_id);
+	// console.log(getUser)
 	
 	res.json(req.session);
 })
