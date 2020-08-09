@@ -273,7 +273,8 @@ class Authentication {
 			currentToken.remove();
 			return {
 				changed : true,
-				message : 'Password changed successfully!'
+				message : 'Password changed successfully!',
+				user : user
 			}
 		}
 		catch(err){

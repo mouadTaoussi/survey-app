@@ -112,10 +112,10 @@ router.post('/changePassword', validators.checkLanguage, auth.isLoggedin, auth.i
 	if (changingPasswordProcess.changed){
 		// Create a session
 		const user_session = {
-			id : registerProcess.user.id,
-			email : registerProcess.user.email,
-			name : registerProcess.user.name,
-			avatar : registerProcess.user.avatar
+			id : changingPasswordProcess.user.id,
+			email : changingPasswordProcess.user.email,
+			name : changingPasswordProcess.user.name,
+			avatar : changingPasswordProcess.user.avatar
 		}
 		// Send the session back to the browser
 		req.session.local = user_session;
