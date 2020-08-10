@@ -23,70 +23,85 @@
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 				</p>
 			</div>
-			<div class="local-card local-mt-2 local-p-2">
-				<p>How many programming languages you know?</p>
+			<div class="single-question local-card local-mt-2 local-p-2">
+				<!-- Quetsion or title -->
+				<input class="form-control" value='How many programminG languages you know?'>
+				<!-- Files inputs -->
+				<div class="custom-file files-attachment">
+					<input type="file" class="custom-file-input" id="validatedCustomFile" required>
+					<label class="custom-file-label" for="validatedCustomFile" multiple>Choose files...</label>
+					<div class="invalid-feedback">Example invalid custom file feedback</div>
+				</div>
+
+				<!-- Options -->
 				<div class="options-area">
-					<select class="form-control question-inputs">
+					<!-- <select class="form-control question-inputs">
 						<option value='' default disabled >Select one</option>
 						<option value=''>1</option>
 						<option value=''>2</option>
 						<option value=''>3</option>
 						<option value=''>4</option>
 						<option value=''>5</option>
-					</select>
+					</select> -->
+					<ul class="options-list">
+						<li class="option-item"><input type="text" value="Option" class="form-control"></li>
+						<li class="option-item"><input type="text" value="Option" class="form-control"></li>
+					</ul>
 				</div>
+				<!-- Settings -->
 			</div>
-			<div class="local-card local-mt-2 local-p-2">
-				<p>How many programming languages you know?</p>
+			<div class="single-question local-card local-mt-2 local-p-2">
+				<!-- Quetsion or title -->
+				<input class="form-control" value='How many programminG languages you know?'>
+				<!-- Files inputs -->
+				<div class="custom-file files-attachment">
+					<input type="file" class="custom-file-input" id="validatedCustomFile" required>
+					<label class="custom-file-label" for="validatedCustomFile" multiple>Choose files...</label>
+					<div class="invalid-feedback">Example invalid custom file feedback</div>
+				</div>
+
+				<!-- Options -->
 				<div class="options-area">
-					<select class="form-control question-inputs">
+					<!-- <select class="form-control question-inputs">
 						<option value='' default disabled >Select one</option>
 						<option value=''>1</option>
 						<option value=''>2</option>
 						<option value=''>3</option>
 						<option value=''>4</option>
 						<option value=''>5</option>
-					</select>
+					</select> -->
+					<ul class="options-list">
+						<li class="option-item"><input type="text" value="Option" class="form-control"></li>
+					</ul>
 				</div>
+				<!-- Settings -->
 			</div>
-			<div class="local-card local-mt-2 local-p-2">
-				<p>How many programming languages you know?</p>
+			<div class="single-question local-card local-mt-2 local-p-2">
+				<!-- Quetsion or title -->
+				<input class="form-control" value='How many programminG languages you know?'>
+				<!-- Files inputs -->
+				<div class="custom-file files-attachment">
+					<input type="file" class="custom-file-input" id="validatedCustomFile" required>
+					<label class="custom-file-label" for="validatedCustomFile" multiple>Choose files...</label>
+					<div class="invalid-feedback">Example invalid custom file feedback</div>
+				</div>
+
+				<!-- Options -->
 				<div class="options-area">
-					<select class="form-control question-inputs">
+					<!-- <select class="form-control question-inputs">
 						<option value='' default disabled >Select one</option>
 						<option value=''>1</option>
 						<option value=''>2</option>
 						<option value=''>3</option>
 						<option value=''>4</option>
 						<option value=''>5</option>
-					</select>
+					</select> -->
+					<ul class="options-list">
+						<li class="option-item"><input type="text" value="Option" class="form-control"></li>
+						<li class="option-item"><input type="text" value="Option" class="form-control"></li>
+					</ul>
 				</div>
-			</div>
-			<div class="local-card local-mt-2 local-p-2">
-				<p>How many programming languages you know?</p>
-				<div class="options-area">
-					<select class="form-control question-inputs">
-						<option value='' default disabled >Select one</option>
-						<option value=''>1</option>
-						<option value=''>2</option>
-						<option value=''>3</option>
-						<option value=''>4</option>
-						<option value=''>5</option>
-					</select>
-				</div>
-			</div>
-			<div class="local-card local-mt-2 local-p-2">
-				<p>How many programming languages you know?</p>
-				<div class="options-area">
-					<select class="form-control question-inputs">
-						<option value='' default disabled >Select one</option>
-						<option value=''>1</option>
-						<option value=''>2</option>
-						<option value=''>3</option>
-						<option value=''>4</option>
-						<option value=''>5</option>
-					</select>
-				</div>
+				<!-- Settings -->
 			</div>
 			<button class="local-btn local-btn-primary local-mt-2 local-mb-2 float-right">保存更改</button>
 		</div>
@@ -182,6 +197,15 @@
 </body>
 <%-   include('.././partials/ScriptTags')   %>
 </html>
+<style>
+	.options-list {
+		list-style: none;
+		padding-left: 0!important;
+	}
+	.option-item, .files-attachment {
+		margin-top:5px;
+	}
+</style>
 <script>
 	const edit_tab = document.querySelector('.edit-tab')
 	const responses_tab = document.querySelector('.responses-tab')
