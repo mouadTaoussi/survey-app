@@ -11,7 +11,7 @@ const resetPasswordToken = new mongoose.Schema({
 		required : true
 	},
 	expires_in : {
-		type : String,
+		type : Number,
 		required : true,
 		default : 20
 	}

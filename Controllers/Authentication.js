@@ -120,6 +120,12 @@ class Authentication {
 					sent : false,
 					message : 'you cannot change the password because you have logged in via a service like google'
 				}
+				// Check if the user already requested to change thier password ! ! !
+				const isAlreadyRequestedAToken = await ResetPasswordTokenModel.findOne({user_id: user.id});
+				if (isAlreadyRequestedAToken) return {
+					sent : false,
+					message : "We've already sent an link to your inbox to change your password"
+				}
 				// Generate en id 
 				const generatedUD = uuid.v4();
 				const token = new ResetPasswordTokenModel({
@@ -290,12 +296,16 @@ class Authentication {
 			const tokens = await ResetPasswordTokenModel.find();
 			// Ileterate over them to check the time rest for decide wheater reduce it or drop!!!
 			for (var i = 0; i < tokens.length; i++) {
+
 				// Get the id of the token provided by mongoose ! sorry if i mixed the identifiers that made you confused XD !!!
 				const token_id = tokens[i].id;
+
 				// Checking ...
-				if ( tokens[i].expires_in < 0 ){
+				if ( tokens[i].expires_in !== 0 ){
+
 					// Decrease the minutes to reach to zero and drop the token below
-					tokens[i].expires_in--;
+					tokens[i].expires_in = tokens[i].expires_in-1;
+
 					// Update
 					await tokens[i].save();
 				}
@@ -313,10 +323,7 @@ class Authentication {
 
 // Run track reset password tokens process every minute ! ! !
 const authentication = new Authentication();
-const tokens = ResetPasswordTokenModel.find();
-if (tokens.length >= 0) {
-	setInterval(authentication.trackResetPasswordTokens,1000);
-}
+setInterval(authentication.trackResetPasswordTokens,60000);
 
 module.exports = Authentication;
 
