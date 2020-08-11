@@ -1,8 +1,5 @@
 const express                         = require('express');
-const graphql                         = require('graphql'); //
 const ejs                             = require('ejs'); 
-const jsonwebtoken                    = require('jsonwebtoken'); //
-const mongoose                        = require('mongoose'); 
 const passport                        = require('passport'); 
 const express_graphql                 = require('express-graphql');
 const express_sessions                = require('express-session');
@@ -11,23 +8,17 @@ const helmet                          = require('helmet');
 const xss                             = require('xss');
 const dotenv                          = require('dotenv');
 const morgan                          = require('morgan');
-const passport_linkedin               = require('passport-linkedin'); // 
-const passport_google_oauth20         = require('passport-google-oauth20'); //
 const redis                           = require('redis');
 const RedisStore                      = require('connect-redis')(express_sessions);
 /////////////////////////////////////// GRAB CONFIG STUFF
 const databaseConnection              = require('./Config/DatabaseConnection.js');
 /////////////////////////////////////// GRAB AUTH STRATEGIES 
 const strategies                      = require('./Passport/PassportAuthentication.js');
-/////////////////////////////////////// GRAB MODELS
-/////////////////////////////////////// GRAB CONTROLLERS
-/////////////////////////////////////// GRAB MIDDLEWARES
 /////////////////////////////////////// GRAB ROUTES
 const authentication                  = require('./Routes/Authentication.js');
 const questions                       = require('./Routes/Questions.js');
 const responses                       = require('./Routes/Responses.js');
 const pageRendering                   = require('./Routes/PageRenderingRoutes.js');
-
 
 // Load .env
 dotenv.config({ path: './Config/.env' });
@@ -69,36 +60,8 @@ app.use(express.static('Public/dist'));
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 
-
-const auth = require('./Middlewares/Authentication.js');
-const validators = require('./Middlewares/Validators.js');
-const nodemailer = require('nodemailer');
-const ResetPasswordToken = require('./Models/ResetPasswordToken.js')
-const User = require('./Models/UserModel.js')
-app.get('/get',validators.checkLanguage,/* auth.isAuthenticated,auth.isCompletedCredentiels, */ async(req,res)=>{
-	
-	// Grab that token in the database
-	// const getToken = await ResetPasswordToken.findOne({token:'73e24f6b-124b-4142-aa90-80e703c8bf41'});
-	// console.log(getToken)
-	// const getUser = await User.findById(getToken.user_id);
-	// console.log(getUser)
-	
+app.get('/get', async(req,res)=>{
 	res.json(req.session);
-})
-app.get('/set',(req,res)=>{
-	const local = {
-		user : 225
-	}
-	req.session.userid=null;
-	req.session.user = local;
-	res.json(req.session)
-})
-app.get('/del',(req,res)=>{
-	req.session.destroy(function(err) {
-	  // cannot access session here
-		res.json({'message':'session deleted'});
-	})
-
 })
 
 // Routes
@@ -106,17 +69,6 @@ app.use('/auth',authentication);
 app.use('/question',questions);
 app.use('/response',responses);
 app.use('/',pageRendering);
-
-// INITiAL ROUTE
-// app.get('/',(req,res)=>{
-// 	res.render('pages/index');
-// 	// redisDatabase.keys('*',  (err, keys)=>{
-// 	// 	console.log(keys);
-// 	// })
-// 	redisDatabase.get('sess:mk8xcUI4epdpI80EYxz8g1ZkWDw09Pqm',  (err, value)=>{
-// 		console.log(JSON.parse(value));
-// 	})
-// })
 
 // Init helmet
 app.use(helmet());
@@ -129,9 +81,23 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
 
-
 // Init port && Start the server
 const PORT = process.env.PORT || process.env.NODE_PORT;
 app.listen(PORT,()=>{
 	console.log("[INFO]: Server up and running!")
 });
+
+// location / {
+//    root   html;
+//    index  index.html index.htm;
+// }
+// INITiAL ROUTE
+// app.get('/',(req,res)=>{
+// 	res.render('pages/index');
+// 	// redisDatabase.keys('*',  (err, keys)=>{
+// 	// 	console.log(keys);
+// 	// })
+// 	redisDatabase.get('sess:mk8xcUI4epdpI80EYxz8g1ZkWDw09Pqm',  (err, value)=>{
+// 		console.log(JSON.parse(value));
+// 	})
+// })
