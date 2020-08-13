@@ -11,7 +11,11 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.5.2",
+    "chart.js": "^2.9.3",
+    "firebase": "^7.17.2",
+    "jquery": "^3.5.1",
+    "sortablejs": "^1.10.2",
     "webpack": "^4.44.1"
   },
   "devDependencies": {

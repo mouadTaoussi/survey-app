@@ -44,12 +44,8 @@ app.use(express_sessions({
 }))
 
 // Init Passport
-app.use(passport.initialize());
-strategies.googleStrategy();
-strategies.githubStrategy();
-strategies.linkedInStrategy();
-strategies.serializeUser();
-// strategies.deserializeUser();
+app.use(passport.initialize()); strategies.googleStrategy();  strategies.githubStrategy();
+strategies.linkedInStrategy();  strategies.serializeUser();   // strategies.deserializeUser();
 
 // Init graphql
 
@@ -65,10 +61,8 @@ app.get('/get', async(req,res)=>{
 })
 
 // Routes
-app.use('/auth',authentication);
-app.use('/question',questions);
-app.use('/response',responses);
-app.use('/',pageRendering);
+app.use('/auth',authentication);   app.use('/question',questions);
+app.use('/response',responses);    app.use('/',pageRendering);
 
 // Init helmet
 app.use(helmet());
