@@ -19,17 +19,17 @@
 *
 *
 **/
+@media only screen and (max-width: 800px){
+	.changePassword {
+		width: 90%;
+	}
+}
 @media only screen and (max-width: 600px){
 	.changePassword {
 		width: 70%;
 	}
 	.svgs {
 		display: none;
-	}
-}
-@media only screen and (max-width: 800px){
-	.changePassword {
-		width: 90%;
 	}
 }
 /**
@@ -73,17 +73,17 @@
 *
 *
 **/
+@media only screen and (max-width: 800px){
+	.login {
+		width: 90%;
+	}
+}
 @media only screen and (max-width: 600px){
 	.login {
 		width: 70%;
 	}
 	.svgs {
 		display: none;
-	}
-}
-@media only screen and (max-width: 800px){
-	.login {
-		width: 90%;
 	}
 }
 /**
@@ -93,17 +93,17 @@
 *
 *
 **/
+@media only screen and (max-width: 800px){
+	.register {
+		width: 90%;
+	}
+}
 @media only screen and (max-width: 600px){
 	.register {
 		width: 70%;
 	}
 	.svgs {
 		display: none;
-	}
-}
-@media only screen and (max-width: 800px){
-	.register {
-		width: 90%;
 	}
 }
 /**
@@ -113,17 +113,17 @@
 *
 *
 **/
+@media only screen and (max-width: 800px){
+	.resetPassword {
+		width: 90%;
+	}
+}
 @media only screen and (max-width: 600px){
 	.resetPassword {
 		width: 70%;
 	}
 	.svgs {
 		display: none;
-	}
-}
-@media only screen and (max-width: 800px){
-	.resetPassword {
-		width: 90%;
 	}
 }
 /**
@@ -478,17 +478,17 @@
 *
 *
 **/
+@media only screen and (max-width: 800px){
+	.changePassword {
+		width: 90%;
+	}
+}
 @media only screen and (max-width: 600px){
 	.changePassword {
 		width: 70%;
 	}
 	.svgs {
 		display: none;
-	}
-}
-@media only screen and (max-width: 800px){
-	.changePassword {
-		width: 90%;
 	}
 }
 /**
@@ -532,17 +532,17 @@
 *
 *
 **/
+@media only screen and (max-width: 800px){
+	.login {
+		width: 90%;
+	}
+}
 @media only screen and (max-width: 600px){
 	.login {
 		width: 70%;
 	}
 	.svgs {
 		display: none;
-	}
-}
-@media only screen and (max-width: 800px){
-	.login {
-		width: 90%;
 	}
 }
 /**
@@ -552,17 +552,17 @@
 *
 *
 **/
+@media only screen and (max-width: 800px){
+	.register {
+		width: 90%;
+	}
+}
 @media only screen and (max-width: 600px){
 	.register {
 		width: 70%;
 	}
 	.svgs {
 		display: none;
-	}
-}
-@media only screen and (max-width: 800px){
-	.register {
-		width: 90%;
 	}
 }
 /**
@@ -572,17 +572,17 @@
 *
 *
 **/
+@media only screen and (max-width: 800px){
+	.resetPassword {
+		width: 90%;
+	}
+}
 @media only screen and (max-width: 600px){
 	.resetPassword {
 		width: 70%;
 	}
 	.svgs {
 		display: none;
-	}
-}
-@media only screen and (max-width: 800px){
-	.resetPassword {
-		width: 90%;
 	}
 }
 /**
@@ -1022,6 +1022,64 @@ h1,h2,h3,h5,h6 {
 }
 .modal {
 	border-radius: 0!important;
+}
+.options-list {
+	list-style: none;
+	padding-left: 0!important;
+}
+.option-item, .files-attachment {
+	margin-top:5px;
+}
+.option-item {
+	display: inline-flex!important;
+}
+.question_settings {
+	width: 300px;
+	height: 50px;
+	background-color: rgba(0,0,0,.1);
+}
+.add-new-option {
+	font-size:13px;
+	width: 50%;
+	cursor: pointer;
+	transition: all .2 ease-out;
+}
+.add-new-option:hover {
+	background-color: rgba(0,0,0,.1);
+}
+.delete-option, delete-field {
+	transition: all .2 ease-out;
+	border-radius: 40%;	
+	cursor: pointer;
+	padding: 8px;
+}
+.delete-option:hover,delete-field:hover {
+	background-color: rgba(0,0,0,.1);
+}
+.dragable {
+	display: grid;
+	grid-gap: 2px;
+	grid-template-columns: 3px 3px 3px;
+	width: 30px;
+	height: 10px;
+	margin: 0 auto;
+	cursor: move;
+}
+.dragable div {
+	background-color: rgba(0,0,0,.3);
+}
+.single-question {
+	border: 2px solid rgba(0,0,0,0);
+}
+.hovered {
+	border: 2px solid rgba(0,0,0,.9);
+}
+.replace {
+	border: 2px solid rgba(0,0,0,.7);
+	/*background-color: rgba(0,0,0,.1);		*/
+}
+.dragging {
+	
 }
 /**
 *

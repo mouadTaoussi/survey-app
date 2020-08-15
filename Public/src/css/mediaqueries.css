@@ -5,17 +5,17 @@
 *
 *
 **/
+@media only screen and (max-width: 800px){
+	.changePassword {
+		width: 90%;
+	}
+}
 @media only screen and (max-width: 600px){
 	.changePassword {
 		width: 70%;
 	}
 	.svgs {
 		display: none;
-	}
-}
-@media only screen and (max-width: 800px){
-	.changePassword {
-		width: 90%;
 	}
 }
 /**
@@ -59,17 +59,17 @@
 *
 *
 **/
+@media only screen and (max-width: 800px){
+	.login {
+		width: 90%;
+	}
+}
 @media only screen and (max-width: 600px){
 	.login {
 		width: 70%;
 	}
 	.svgs {
 		display: none;
-	}
-}
-@media only screen and (max-width: 800px){
-	.login {
-		width: 90%;
 	}
 }
 /**
@@ -79,17 +79,17 @@
 *
 *
 **/
+@media only screen and (max-width: 800px){
+	.register {
+		width: 90%;
+	}
+}
 @media only screen and (max-width: 600px){
 	.register {
 		width: 70%;
 	}
 	.svgs {
 		display: none;
-	}
-}
-@media only screen and (max-width: 800px){
-	.register {
-		width: 90%;
 	}
 }
 /**
@@ -99,17 +99,17 @@
 *
 *
 **/
+@media only screen and (max-width: 800px){
+	.resetPassword {
+		width: 90%;
+	}
+}
 @media only screen and (max-width: 600px){
 	.resetPassword {
 		width: 70%;
 	}
 	.svgs {
 		display: none;
-	}
-}
-@media only screen and (max-width: 800px){
-	.resetPassword {
-		width: 90%;
 	}
 }
 /**

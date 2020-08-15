@@ -35,7 +35,7 @@
 						<div></div><div></div><div></div>
 					</div>
 					<!-- Quetsion or title -->
-					<input class="form-control mt-2" value='How many programmingg languages you know?'>
+					<input class="form-control mt-2" value='Which question you wanna write here?'>
 					<!-- Files inputs -->
 					<div class="custom-file files-attachment">
 						<input type="file" class="custom-file-input" id="validatedCustomFile" required>
@@ -47,88 +47,32 @@
 						<ul class="options-list">
 							<li class="option-item">
 								<input type="text" placeholder="Option" class="form-control">
-								<i class="delete-option fas fa-times"></i>
+								<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
 							</li>
 							<li class="option-item">
 								<input type="text" placeholder="Option" class="form-control">
-								<i class="delete-option fas fa-times"></i>
+								<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
 							</li>
 						</ul>
 						<p class="add-new-option p-2">Add new one +</p>
 					</div>
 					<!-- Settings -->
-				</div>
-				<!-- Single Question -->
-				<!-- Single Question -->
-				<div class="single-question local-card local-mt-2 local-p-2 shadow" draggable='true'>
-					<!-- Dragable section -->
-					<div class="dragable">
-						<div></div><div></div><div></div>
-						<div></div><div></div><div></div>
+					<div class="question_settings p-2">
+						<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
+						<select style="display: inline;width: 180px;" class='mx-2 form-control'>
+							<option>Multipe Choice</option>
+							<option>One Choice</option>
+							<option>Short paragraph</option>
+						</select>
 					</div>
-					<!-- Quetsion or title -->
-					<input class="form-control mt-2" value='How many programmingg languages you know?'>
-					<!-- Files inputs -->
-					<div class="custom-file files-attachment">
-						<input type="file" class="custom-file-input" id="validatedCustomFile" required>
-						<label class="custom-file-label" for="validatedCustomFile" multiple>Choose files...</label>
-						<div class="invalid-feedback">Example invalid custom file feedback</div>
-					</div>
-					<!-- Options -->
-					<div class="options-area">
-						<ul class="options-list">
-							<li class="option-item">
-								<input type="text" placeholder="Option" class="form-control">
-								<i class="delete-option fas fa-times"></i>
-							</li>
-							<li class="option-item">
-								<input type="text" placeholder="Option" class="form-control">
-								<i class="delete-option fas fa-times"></i>
-							</li>
-						</ul>
-						<p class="add-new-option p-2">Add new one +</p>
-					</div>
-					<!-- Settings -->
-				</div>
-				<!-- Single Question -->
-				<!-- Single Question -->
-				<div class="single-question local-card local-mt-2 local-p-2 shadow" draggable='true'>
-					<!-- Dragable section -->
-					<div class="dragable">
-						<div></div><div></div><div></div>
-						<div></div><div></div><div></div>
-					</div>
-					<!-- Quetsion or title -->
-					<input class="form-control mt-2" value='How many programmingg languages you know?'>
-					<!-- Files inputs -->
-					<div class="custom-file files-attachment">
-						<input type="file" class="custom-file-input" id="validatedCustomFile" required>
-						<label class="custom-file-label" for="validatedCustomFile" multiple>Choose files...</label>
-						<div class="invalid-feedback">Example invalid custom file feedback</div>
-					</div>
-					<!-- Options -->
-					<div class="options-area">
-						<ul class="options-list">
-							<li class="option-item">
-								<input type="text" placeholder="Option" class="form-control">
-								<i class="delete-option fas fa-times"></i>
-							</li>
-							<li class="option-item">
-								<input type="text" placeholder="Option" class="form-control">
-								<i class="delete-option fas fa-times"></i>
-							</li>
-						</ul>
-						<p class="add-new-option p-2">Add new one +</p>
-					</div>
-					<!-- Settings -->
 				</div>
 			</div>
 			<button class="local-btn local-btn-primary local-mt-2 local-mb-2 float-right">Save Changes</button>
 		</div>
 		<div class="survey-editor-tools">
-			<div class="tools-panel local-mt-4 local-shadow local-p-2">
+			<div class="tools-panel local-mt-4  local-shadow local-p-2">
 				<ul class="tools-list">
-					<li>
+					<li class="add_new_field">
 						<i data-toggle="tooltip" data-placement="left" title="Add new field" class="fas fa-plus"></i>
 					</li>
 					<li type="button" data-toggle="modal" data-target="#importModal">
@@ -218,160 +162,21 @@
 		</div>
 	</div>
 </div>
-<style>
-	.options-list {
-		list-style: none;
-		padding-left: 0!important;
-	}
-	.option-item, .files-attachment {
-		margin-top:5px;
-	}
-	.option-item {
-		display: inline-flex!important;
-	}
-	.add-new-option {
-		font-size:13px;
-		width: 50%;
-		cursor: pointer;
-		transition: all .2 ease-out;
-	}
-	.add-new-option:hover {
-		background-color: rgba(0,0,0,.1);
-	}
-	.delete-option {
-		transition: all .2 ease-out;
-		border-radius: 40%;	
-		cursor: pointer;
-		padding: 8px;
-	}
-	.delete-option:hover {
-		background-color: rgba(0,0,0,.1);
-	}
-	.dragable {
-		display: grid;
-		grid-gap: 2px;
-		grid-template-columns: 3px 3px 3px;
-		width: 30px;
-		height: 10px;
-		margin: 0 auto;
-		cursor: move;
-	}
-	.dragable div {
-		background-color: rgba(0,0,0,.3);
-	}
-	.single-question {
-		border: 2px solid rgba(0,0,0,0);
-	}
-	.hovered {
-		border: 2px solid rgba(0,0,0,.9);
-	}
-	.replace {
-		border: 2px solid rgba(0,0,0,.7);
-		/*background-color: rgba(0,0,0,.1);		*/
-	}
-	.dragging {
-		
-	}
-</style>
 </body>
 <%-   include('.././partials/ScriptTags')   %>
 </html>
 <script>
-	// Tabs feature !!
-	const edit_tab = document.querySelector('.edit-tab')
-	const responses_tab = document.querySelector('.responses-tab')
-	 edit_tab.addEventListener('click',()=>{
-	 	document.querySelector('.survey-editor').style.display = '';
-	 	document.querySelector('.responses').style.display = 'none';
-	 	edit_tab.classList.add('active');
-	 	responses_tab.classList.remove('active');
-	 })
-	 responses_tab.addEventListener('click',()=>{
-	 	document.querySelector('.survey-editor').style.display = 'none';
-	 	document.querySelector('.responses').style.display = 'block';
-	 	responses_tab.classList.add('active');
-	 	edit_tab.classList.remove('active');
-	 })
 
-	 // Sortable list feature !!
-	 const single_question = document.querySelectorAll('.single-question');
-	 single_question.forEach((single)=>{
-	 	single.addEventListener('dragstart',(e)=>{
-		 	single.classList.add('hovered');
-		})
-		single.addEventListener('dragend',(e)=>{
-		 	single.classList.remove('hovered');
-		})
-		single.addEventListener('dragover',(e)=>{
-		 	single.classList.add('replace');
-		})
-		single.addEventListener('dragleave',(e)=>{
-		 	single.classList.remove('replace');
-		})
-	 })
+//  Delete option 
+function deleteOption(event){
+	event.path[1]/*.parentNode*/.remove();
+}
 
-	// Add new option 
-	// document.querySelectorAll('.add-new-option').forEach((add_new)=>{
-	// 	add_new.addEventListener('click',()=>{
-	// 	 	// Grab the Container of the list
-	// 	 	const list = document.querySelector('.options-list');
-	// 	 	// const current_options = document.querySelector('.single-question').children[3].children;
-	// 	 	// Create new option
-	// 	 	const li = document.createElement('li');
-	// 	 	const input = document.createElement('input');
-	// 	 	const i = document.createElement('i');
-	// 	 	// Put styles and attributes to them
-	// 	 	li.classList.add("option-item");
-	// 	 	input.classList.add('form-control');
-	// 	 	input.type = "text";
-	// 	 	input.placeholder = "Option";
-	// 	 	i.classList.add('delete-option');
-	// 	 	i.classList.add('fas');
-	// 	 	i.classList.add('fa-times');
-	// 	 	// Append option elements to the option
-	// 	 	li.appendChild(input);
-	// 	 	li.appendChild(i);
-	// 	 	// Append option to the options list
-	// 	 	list.appendChild(li);
-	// 	})
-	// })
-	const addoption = document.querySelectorAll('.add-new-option');
-	const list = document.querySelectorAll('.options-list');
-
-	for (let i = 0; i < addoption.length; i++) {
-		addoption[i].addEventListener('click',()=>{
-			// Create new option
-		 	const li = document.createElement('li');
-		 	const input = document.createElement('input');
-		 	const delete_icon = document.createElement('i');
-		 	// Put styles and attributes to them
-		 	li.classList.add("option-item");
-		 	input.classList.add('form-control');
-		 	input.type = "text";
-		 	input.placeholder = "Option";
-		 	delete_icon.classList.add('delete-option');
-		 	delete_icon.classList.add('fas');
-		 	delete_icon.classList.add('fa-times');
-		 	// Append option elements to the option
-		 	li.appendChild(input);
-		 	li.appendChild(delete_icon);
-		 	// Append option to the options list
-		 	list[i].appendChild(li);
-		 
-		})
-	}
+// Delete field
+function deleteField(event){
+	event.path[2]/*.parentNode*/.remove();
+}
 	
-
-	 // Delete option
-	 window.setInterval(()=>{
-	 	// Delete current option
-		 document.querySelectorAll('.delete-option').forEach((delete_option)=>{
-		 	delete_option.addEventListener('click',()=>{
-		 		alert('Hello')	
-		 	})
-		 })
-	 },1000)
-	 
 </script>
 
 <!-- important

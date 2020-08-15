@@ -1,12 +1,17 @@
-import axios     from 'axios';
-import Chart     from 'chart.js';
-import Sortable  from 'sortablejs';
+import axios     from 'axios'; // Import just the required packages
+import Chart     from 'chart.js'; // Import just the required packages
+import Sortable  from 'sortablejs'; // Import just the required packages
 // import jquery    from 'jquery';
-import firebase  from 'firebase';
+import firebase  from 'firebase'; // Import just the required packages
 // import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import '../../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import '.././css/style.css';
 import './vendors/fontawesome/css/all.css';
+// Grab local files
+import './Authentication.js';
+import './DomManupilation.js';
+import './Questions.js';
+import './Responses.js';
 
 // Init Chart.js
 var ctx = document.querySelectorAll("#canvas").forEach((canva)=>{
