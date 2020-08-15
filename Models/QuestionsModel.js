@@ -15,7 +15,7 @@ const Questions = new mongoose.Schema({
 	active : Boolean,
 	title : String,
 	description : String,
-	question : [Question]
+	questions : [Question]
 });
 
 module.exports = mongoose.model('questions',Questions);

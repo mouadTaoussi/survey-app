@@ -35,7 +35,7 @@
 						<div></div><div></div><div></div>
 					</div>
 					<!-- Quetsion or title -->
-					<input class="form-control mt-2" value='Which question you wanna write here?'>
+					<input class="form-control mt-2" placeholder='Which question you wanna write here?' required>
 					<!-- Files inputs -->
 					<div class="custom-file files-attachment">
 						<input type="file" class="custom-file-input" id="validatedCustomFile" required>
@@ -46,11 +46,11 @@
 					<div class="options-area">
 						<ul class="options-list">
 							<li class="option-item">
-								<input type="text" placeholder="Option" class="form-control">
+								<input type="text" placeholder="Option" class="form-control" required>
 								<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
 							</li>
 							<li class="option-item">
-								<input type="text" placeholder="Option" class="form-control">
+								<input type="text" placeholder="Option" class="form-control" required>
 								<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
 							</li>
 						</ul>
@@ -67,7 +67,7 @@
 					</div>
 				</div>
 			</div>
-			<button class="local-btn local-btn-primary local-mt-2 local-mb-2 float-right">Save Changes</button>
+			<button class="local-btn local-btn-primary local-mt-2 local-mb-2 float-right btn-save-changes">Save Changes</button>
 		</div>
 		<div class="survey-editor-tools">
 			<div class="tools-panel local-mt-4  local-shadow local-p-2">
