@@ -1,7 +1,8 @@
+@import url('./mediaqueries.css');
 @import url('./design.system.css');
 @import url('./colors.css');
 @import url('./fonts.css');
-@import url('./mediaqueries.css');
+
 
 
 body {
@@ -52,6 +53,14 @@ h1,h2,h3,h5,h6 {
 	width: 190px;
 	height: 30px;
 	margin-top: 2px;
+}
+.header-brand {
+	background-image: url('.././assets/logoLightBg.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain; 
+	width: 180px;
+	height: 30px;
 }
 .forms-logo {
 	background-image: url('.././assets/logoLightBg.svg');

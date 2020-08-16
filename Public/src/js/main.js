@@ -5,7 +5,6 @@ import Sortable  from 'sortablejs';
 // import '../../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import '.././css/style.css';
 import './vendors/fontawesome/css/all.css';
-// Grab local files
 import './Authentication.js';
 import './DomManupilation.js';
 import './Questions.js';
