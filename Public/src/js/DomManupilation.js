@@ -43,7 +43,7 @@ const add_new_field = document.querySelector('.add_new_field').addEventListener(
 
 	// Create container
 	const container = document.createElement('div');
-	container.classList.add("single-question", "local-card", "local-mt-2", "local-p-2", "shadow");
+	container.classList.add("single-question", "local-card", "local-mt-2", "local-p-2", "local-shadow");
 
 	// Create draggbale button
 	const draggable = document.createElement('div');

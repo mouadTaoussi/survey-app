@@ -28,28 +28,42 @@
 		<div class="content local-container-8">
 			<div class="text-area">
 				<h1 class="title-area" style='font-size: 65px;transition: all .2s ease-out;'>
-					<strong class="title">
+					<strong class="main-title">
 						Discover what's your clients think about!
  					</strong>
 				</h1>
 				<p class="description">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				</p>
-				<a href="~"><button class='local-btn cta-btn local-btn-primary'>Get Started</button></a>
-				<a href="~"><button class='local-btn cta-btn local-btn-dark'>Learn more</button></a>
+				<div class="landing-page-btns">
+					<a href="~"><button class='local-btn cta-btn local-btn-primary'>Get Started</button></a>
+					<a href="~"><button class='local-btn cta-btn local-btn-dark'>Learn more</button></a>
+				</div>
 			</div>
 			<div class="show-app"></div>
 		</div>
 	</div>
 	<div class="second-landing-page local-container-8">
-		<h1 style='font-size: 65px;margin-top: 150px;'>
+		<h1 class="title-area" style='font-size: 65px;margin-top: 150px;'>
 			<strong style="color: black;">
 				Get to know your client's well!
 			</strong>
 		</h1>
 	</div>
-	<div class="third-landing-page"></div>
-	<div class="tourth-landing-page"></div>
+	<div class="third-landing-page local-container-8">
+		<h1 class="title-area" style='font-size: 65px;margin-top: 150px;'>
+			<strong style="color: black;">
+				Get to know your client's well!
+			</strong>
+		</h1>
+	</div>
+	<div class="tourth-landing-page local-container-8">
+		<h1 class="title-area" style='font-size: 65px;margin-top: 150px;'>
+			<strong style="color: black;">
+				Get to know your client's well!
+			</strong>
+		</h1>
+	</div>
 	<footer class="landing-page-footer">
 		<div class="local-container-8"></div>
 	</footer>
@@ -57,36 +71,99 @@
 <%-   include('.././partials/ScriptTags')   %>
 </html>
 <style>
-	.second-landing-page {
+/*	.second-landing-page,
+	.third-landing-page,
+	.landing-page-footer 
+	{
+		height: 80vh;
+	}
+*/
+
+	.landing-page-header {
+		height: 70px;
+		/*padding-top: 25px;*/
+		background-color: #1554a7;
+		position: fixed;
+		width: 100%;
+
+	}.header-list {
+		list-style: none;
+	}
+	.header-list-item {
+		display: inline;
+		float: right;
+		font-weight: 500;
+	}
+	.header-grid {
+		display: grid;
+		height: 100%;
+		padding-top: 20px;
+		grid-template-columns: 1.8fr 2.2fr;
+		grid-gap: 20px;
+	}
+	 
+	.content {
+		display: grid;
+		grid-template-columns: 2.5fr 1.5fr;
+		grid-gap: 30px;
+	}
+	.text-area, .show-app {
 		height: 100vh;
 	}
+
+	.main-title {
+		color: white;
+		animation-name: title;
+		animation-duration: 1.5s;
+		animation-delay: 0s;
+		animation-iteration-count: 1;
+		animation-timing-function: ease-in-out;
+		transition: all .2s ease-out;
+	}
+	.description {
+		color: white;
+	}
+	@keyframes title {
+		0% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 5;
+		}
+		100% {
+			opacity: 100;
+		}
+	}
+	
+	@media only screen and (max-width: 600px){
+/*		.landing-page,
+		.second-landing-page,
+		.third-landing-page,
+		.landing-page-footer 
+		{
+			height: 700px;
+		}*/
+		.header-list {
+			display: none;
+		}
+		.content {
+			display: grid;
+			grid-template-columns: 2fr;
+			grid-gap: 10px;
+		}
+		.text-area, .show-app {
+			height: 300px;
+		}
+		.title-area {
+			text-align: center;
+			font-size: 30px!important;
+		}
+		.description {
+			font-size: 12px;
+			text-align: center;
+		}
+		.landing-page-btns {
+			margin: 0 auto;
+		}
+	}
 </style>
-<script>
-	/*window.setInterval(()=>{
-		const title = document.querySelector('.title-area');
-
-		if(title.innerText === "Get to know well your costumers!"){
-
-			title.innerText = ""; 
-			title.children[0].remove();
-			const new_title = document.createElement('strong');
-			new_title.classList.add('title');
-			new_title.innerText = "Discover what's your clients think about!"; 
-			title.appendChild(new_title);
-
-		}
-		else if ( title.innerText === "Discover what's your clients think about!" ){
-
-			title.innerText = ""; 
-			title.children[0].remove();
-			const new_title = document.createElement('strong');
-			new_title.classList.add('title');
-			new_title.innerText = "Get to know well your costumers!"; 
-			title.appendChild(new_title);
-
-		}/*else {
-
-		}
-		
-	},4000)*/
-</script>

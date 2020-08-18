@@ -138,5 +138,15 @@ router.get('/logout', (req,res)=>{
 		res.redirect('/');
 	})
 })
+router.get('/getFirebaseConfig',auth.isAuthenticated,(req,res)=>{
+	// send the firebase config to the client 
+	res.json({
+		apiKey : process.env.FIREBASE_API_KEY,
+	 	authDomain : process.env.FIREBASE_AUTH_DOMAIN,
+	 	databaseURL : process.env.FIREBASE_DATABASE_URL,
+	 	storageBucket : process.env.FIREBASE_STORAGE_BUCKET,
+	 	projectId : process.env.FIREBASE_PROJECT_ID
+	})
+})
 
 module.exports = router;

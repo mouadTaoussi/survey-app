@@ -1,9 +1,11 @@
-import axios     from 'axios';
-import Chart     from 'chart.js';
+import { Chart } from 'chart.js';
+import axios from 'axios';
+
 
 // Submit response
 // Get the responses and display them
 var ctx = document.querySelectorAll("#canvas").forEach((canva)=>{
+	
 	const ctx = canva.getContext("2d");
 	const data = {
 	    datasets: [{
@@ -21,4 +23,4 @@ var ctx = document.querySelectorAll("#canvas").forEach((canva)=>{
 	        legend: { display: true,labels: {fontColor: 'rgba(0, 0, 0,.60)', position: 'right'}}
 	    }
 	});
-});
+});	

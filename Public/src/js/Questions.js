@@ -1,28 +1,11 @@
 import axios from 'axios';
-import * as firebase from 'firebase/app'; 
-import 'firebase/auth';
-import 'firebase/storage';
+import { connection } from './firebaseConnection';
 
-// Init Firebase config
-var firebaseConfig = {
-	apiKey: 'AIzaSyCZOF-uWWTdgLws_q5alpSpTKwtm39ptOM',
-	authDomain: 'survey-app-storage.firebaseapp.com',
-	databaseURL: 'https://survey-app-storage.firebaseio.com',
-	storageBucket: 'survey-app-storage.appspot.com'
-};
-
-// Init app and authenticate
-firebase.initializeApp(firebaseConfig);
-
-// Get a reference to the storage service, which is used to create references in your storage bucket
-var storage = firebase.storage();
-var surveyFilesRef = storage.ref('/survey');
-var avatarsRef = storage.ref('/avatars');
 
 // Save questions (survey) // Update questions (survey)
 document.querySelector('.btn-save-changes')
  .addEventListener('click',()=>{
-
+ 	connection();
 	// Init survey output
 	let survey = {};
 
