@@ -16,6 +16,7 @@
     "firebase": "^7.17.2",
     "jquery": "^3.5.1",
     "sortablejs": "^1.10.2",
+    "uuid": "^8.3.0",
     "webpack": "^4.44.1"
   },
   "devDependencies": {

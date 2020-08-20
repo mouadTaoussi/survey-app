@@ -38,8 +38,8 @@
 					<input class="form-control mt-2" placeholder='Which question you wanna write here?' required>
 					<!-- Files inputs -->
 					<div class="custom-file files-attachment">
-						<input type="file" class="custom-file-input" id="validatedCustomFile" required>
-						<label class="custom-file-label" for="validatedCustomFile" multiple>Choose files...</label>
+						<input type="file" class="custom-file-input" id="validatedCustomFile" onchange='getFile(event)'>
+						<label class="custom-file-label" for="validatedCustomFile">Choose files...</label>
 						<div class="invalid-feedback">Example invalid custom file feedback</div>
 					</div>
 					<!-- Options -->
@@ -165,19 +165,6 @@
 </body>
 <%-   include('.././partials/ScriptTags')   %>
 </html>
-<script>
-
-//  Delete option 
-function deleteOption(event){
-	event.path[1]/*.parentNode*/.remove();
-}
-
-// Delete field
-function deleteField(event){
-	event.path[2]/*.parentNode*/.remove();
-}
-	
-</script>
 
 <!-- important
 % if

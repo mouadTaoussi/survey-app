@@ -65,7 +65,9 @@ if (window.location.pathname === "/surveyEditor" ) {
 		input.classList.add('custom-file-input');
 		input.id = "validatedCustomFile";
 		input.type = "file";
+		input.onchange = getFile;
 		label.classList.add('custom-file-label');
+
 		label.for = "validatedCustomFile";
 		label.innerHTML = "Choose files...";
 		files_input.appendChild(input);
@@ -151,5 +153,20 @@ if (window.location.pathname === "/surveyEditor" ) {
 		 	list[i].appendChild(li);
 		})
 		}		
+	}
+	/*
+		When you run the file over webpack, webpack will try not to litter the global scope 
+		and so the function will not be made available globally by default.
+		If you want the function to be accessible outside the scope of he JS file,
+		you should put it in the global scope.
+	*/
+	//  Delete option 
+	window.deleteOption = (event)=>{
+		event.path[1]/*.parentNode*/.remove();
+	}
+
+	// Delete field
+	window.deleteField = (event)=>{
+		event.path[2]/*.parentNode*/.remove();
 	}
 }
