@@ -13,6 +13,7 @@ if (window.location.pathname === "/surveyEditor" ){
 		you should put it in the global scope (window).
 	*/
 	// Get the files and init them
+	// Upload the files to firebase
 	window.getFile = (event) => {
 		const file = event.target.files[0];
 		// Check the file type
@@ -41,28 +42,18 @@ if (window.location.pathname === "/surveyEditor" ){
 				const uploadTask = surveyFiles.child(uuid).put(file,{filename:'PDF'})
 				.then((snapshot)=>{
 
-					// Run a task to get the progression
-					// uploadTask.on('state_changed').then((state)=>{
-					// 	console.log(state)
-					// })
-					// 	// Run a task to get the progression
-					// 	// Run a task to let user stop or cancel the upload process
-					// Run a task to let user stop or cancel the upload process
 					// Get the download url and pass it to the Dom for use it below if the user hits save
 					surveyFiles.child(uuid).getDownloadURL()
 					.then((url)=>{
-						console.log(url);
+
+						alert('This file uploaded successfully')
 						// Include the download url into the input for use it in the function below
-						// For save it and thier approprite question in database 
-					})
-					.catch((err)=>{
-						alert('Something sent wrong! Try again1');
-					})
+						// For save it and thier approprite question in database
+						event.path[0].placeholder = url;
+
+					}).catch((err)=>{ alert('Something sent wrong! Try again1'); });
 					
-				})
-				.catch((err)=>{
-					alert('Something went wrong! Try again2');
-				})
+				}).catch((err)=>{ alert('Something went wrong! Try again2'); });
 				
 				// Found one
 				foundOne = true;
@@ -72,11 +63,9 @@ if (window.location.pathname === "/surveyEditor" ){
 			}
 		}
 		// Check the foundOne if true or false
-		if(!foundOne){
-			alert('This file type is not allowed!');
-		}
+		if(!foundOne){ alert('This file type is not allowed!'); }
 	}
-	
+
 	// Save questions (survey) // Update questions (survey)
 	document.querySelector('.btn-save-changes')
 	 .addEventListener('click',()=>{
@@ -112,6 +101,7 @@ if (window.location.pathname === "/surveyEditor" ){
 
 			single_question.required = true;
 			single_question.options  = options;
+			single_question.file     = questions_list[i].children[2].children[0].placeholder || null;
 			single_question.title    = questions_list[i].children[1].value;
 			single_question.type     = questions_list[i].children[4].children[1].value;
 		
@@ -120,7 +110,7 @@ if (window.location.pathname === "/surveyEditor" ){
 		}
 		console.log(survey);
 		
-		// Upload the files to firebase
+	
 		// Upload the questions to the database
 	})
 	// Receive questions (survey)

@@ -6,7 +6,7 @@
 
 
 body {
-	background-color: white/**var(--light)**/;
+	background-color: /*white,*/var(--light);
 	color: var(--dark);
 }
 h1,h2,h3,h5,h6 {

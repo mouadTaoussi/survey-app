@@ -151,7 +151,7 @@ router.get('/surveyEditor',validators.checkLanguage,auth.isAuthenticated,(req,re
 router.get('/submitResponse',validators.checkLanguage,(req,res)=>{
 	
 	// render the pages by language specefied
-	res.render(`${req.lang.langPages}/submitResponse`);
+	res.render(`${req.lang.langPages}/SubmitSurveyResponse`);
 
 })
 
