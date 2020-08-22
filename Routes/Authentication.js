@@ -24,9 +24,9 @@ router.get('/github/callback',passport.authenticate('github',{failureRedirect : 
 router.get('/linkedin/callback',passport.authenticate('linkedin',{failureRedirect : '/',successRedirect : '/dashboard'}));
 
 // Local Authentication Strategy
-router.post('/login', validators.checkLanguage, auth.isLoggedin, async(req,res)=>{
+router.post('/login', validators.checkLanguage, auth.isLoggedin, async(request,response)=>{
 	// Get the body data
-	const { email, password } = req.body;
+	const { email, password } = request.body;
 	
 	// Use the appropriate controller
 	const loginProcess = await authController.login(email,password);
@@ -40,24 +40,24 @@ router.post('/login', validators.checkLanguage, auth.isLoggedin, async(req,res)=
 			avatar : loginProcess.user.avatar
 		}
 		// Send the session back to the browser
-		req.session.local = user_session;
+		request.session.local = user_session;
 		
 		// Check the language
 		// Redirect th user to the dashboard
 		// render the pages by language specefied
-		res.redirect(`/dashboard?lang=${req.lang.langShortcut}`);
+		response.redirect(`/dashboard?lang=${request.lang.langShortcut}`);
 	}
 	else {
 		// Check the language
 		// render the pages by language specefied
 		// Send error message
-		res.redirect(`/login?lang=${req.lang.langShortcut}&loggedIn=${loginProcess.loggedIn}&message=${loginProcess.message}`)
+		response.redirect(`/login?lang=${request.lang.langShortcut}&loggedIn=${loginProcess.loggedIn}&message=${loginProcess.message}`)
 	}
 
 });
-router.post('/register', validators.checkLanguage, auth.isLoggedin, async(req,res)=>{
+router.post('/register', validators.checkLanguage, auth.isLoggedin, async(request,response)=>{
 	// Get  the body data
-	const { firstName,givenName,username,email,password,password2 } = req.body;
+	const { firstName,givenName,username,email,password,password2 } = request.body;
 
 	// Use the appropriate controller
 	const registerProcess = await authController.register(firstName,givenName,username,email,password,password2);
@@ -71,40 +71,40 @@ router.post('/register', validators.checkLanguage, auth.isLoggedin, async(req,re
 			avatar : registerProcess.user.avatar
 		}
 		// Send the session back to the browser
-		req.session.local = user_session;
+		request.session.local = user_session;
 		
 		// Check the language
 		// Redirect th user to the dashboard
 		// render the pages by language specefied
-		res.redirect(`/dashboard?lang=${req.lang.langShortcut}`);
+		response.redirect(`/dashboard?lang=${request.lang.langShortcut}`);
 	}
 	else {
-		res.redirect(`/register?lang=${req.lang.langShortcut}&registered=${registerProcess.registered}&message=${registerProcess.message}`);
+		response.redirect(`/register?lang=${request.lang.langShortcut}&registered=${registerProcess.registered}&message=${registerProcess.message}`);
 	}
 })
-router.post('/resetPassword', validators.checkLanguage, auth.isLoggedin, async(req,res)=>{
+router.post('/resetPassword', validators.checkLanguage, auth.isLoggedin, async(request,response)=>{
 	// Grab body data
-	const { email } = req.body;
-	const lang = req.lang.langShortcut
+	const { email } = request.body;
+	const lang = request.lang.langShortcut
 	// Use the appropriate controller
 	const sendingEmailProccess = await authController.resetPassword(email,lang);
 	
 	// Check if email was sent
 	if(sendingEmailProccess.sent){
 		// Redirect to sent email view
-		res.redirect(`/emailSent?lang=${req.lang.langShortcut}&to=${email}`);
+		response.redirect(`/emailSent?lang=${request.lang.langShortcut}&to=${email}`);
 	}
 	else {
 		// Check the language
 		// Redirect th user to the dashboard
 		// render the pages by language specefied
-		res.redirect(`/resetPassword?lang=${req.lang.langShortcut}&sent=${sendingEmailProccess.sent}&message=${sendingEmailProccess.message}`);
+		response.redirect(`/resetPassword?lang=${request.lang.langShortcut}&sent=${sendingEmailProccess.sent}&message=${sendingEmailProccess.message}`);
 	}
 })
-router.post('/changePassword', validators.checkLanguage, auth.isLoggedin, auth.isTokenValid, async(req,res)=>{
+router.post('/changePassword', validators.checkLanguage, auth.isLoggedin, auth.isTokenValid, async(request,response)=>{
 	// Get the token and email in the middleware 
-	const { token,email } = req.nextStep;
-	const { new_password,password2 } = req.body;
+	const { token,email } = request.nextStep;
+	const { new_password,password2 } = request.body;
 
 	// Use the appropriate controller // Logic
 	const changingPasswordProcess = await authController.changePassword(email,token,new_password,password2);
@@ -118,29 +118,42 @@ router.post('/changePassword', validators.checkLanguage, auth.isLoggedin, auth.i
 			avatar : changingPasswordProcess.user.avatar
 		}
 		// Send the session back to the browser
-		req.session.local = user_session;
+		request.session.local = user_session;
 		
 		// Check the language
 		// Redirect th user to the dashboard
 		// render the pages by language specefied
-		res.redirect(`/dashboard?lang=${req.lang.langShortcut}`);
+		response.redirect(`/dashboard?lang=${request.lang.langShortcut}`);
 	}
 	else {
 		// Check the language
 		// Redirect th user to the dashboard
 		// render the pages by language specefied
-		res.redirect(`/changePassword?lang=${req.lang.langShortcut}&token=${token}&email=${email}&changed=${changingPasswordProcess.changed}&message=${changingPasswordProcess.message}`)
+		response.redirect(`/changePassword?lang=${request.lang.langShortcut}&token=${token}&email=${email}&changed=${changingPasswordProcess.changed}&message=${changingPasswordProcess.message}`)
 	}
 })
-router.get('/logout', (req,res)=>{
-	req.session.destroy(function(err) {
-		// cannot access session here
-		res.redirect('/');
+router.post('/updateUser', auth.isAuthenticated, async (request,response)=>{
+	// Get body data
+	const bodyData = request.body;
+	// Get the user id based on session
+	const user_id = request.user.id;
+	// Procce the request within the appropriate controller
+	const updatingUserProcess = await authController.updateUser(user_id,bodyData); 
+	// Send the proccess result
+	response.json({
+		message : updatingUserProcess.message,
+		updated : updatingUserProcess.updated 
 	})
 })
-router.get('/getFirebaseConfig',auth.isAuthenticated,(req,res)=>{
+router.get('/logout', (request,response)=>{
+	request.session.destroy(function(err) {
+		// cannot access session here
+		response.redirect('/');
+	})
+})
+router.get('/getFirebaseConfig',auth.isAuthenticated,(request,response)=>{
 	// send the firebase config to the client 
-	res.json({
+	response.json({
 		apiKey : process.env.FIREBASE_API_KEY,
 	 	authDomain : process.env.FIREBASE_AUTH_DOMAIN,
 	 	databaseURL : process.env.FIREBASE_DATABASE_URL,

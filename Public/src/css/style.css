@@ -143,6 +143,16 @@ h1,h2,h3,h5,h6 {
 .user-profile-inputs {
 	background-color: inherit;
 }
+.avatar-input {
+	background-color: white;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: .4px solid rgba(0,0,0,.20);
+	position: absolute;
+	top: 230px;
+	left: 190px;
+}
 .options-area {
 	width: 20%;
 }

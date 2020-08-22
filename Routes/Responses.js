@@ -11,10 +11,10 @@ const responsesController = new Responses();
 // Init router
 const router = express.Router();
 
-router.get('/submitResponse',(req,res)=>{
+router.get('/submitResponse',(requset,response)=>{
 	// Use the appropriate controller
 	// Logic
-	res.json(responsesController.submitResponses());
+	response.json(responsesController.submitResponses());
 })
 
 

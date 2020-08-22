@@ -11,7 +11,7 @@ const questionsController = new Questions();
 // Init router
 const router = express.Router();
 
-router.post('/:id',(req,res)=>{
+router.post('/:id',(request,response)=>{
 	// Use the appropriate controller
 	// Logic
 	// Add
@@ -19,7 +19,7 @@ router.post('/:id',(req,res)=>{
 	// Update
 	questionsController.updateSurvey();
 })
-router.delete('/:id',(req,res)=>{
+router.delete('/:id',(request,response)=>{
 	// Use the appropriate controller
 	// Logic
  	// Delete
