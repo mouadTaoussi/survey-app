@@ -1,4 +1,3 @@
-// Users model
 const Response                             = require('.././Models/ResponsesModel.js');
 
 class Responses {

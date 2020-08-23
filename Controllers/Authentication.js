@@ -1,7 +1,6 @@
 const nodemailer                      = require('nodemailer');
 const bcrypt                          = require('bcrypt');
 const uuid                            = require('uuid');
-// Users modelresetPasswordToken
 const User                            = require('.././Models/UserModel.js');
 const ResetPasswordTokenModel         = require('.././Models/ResetPasswordToken.js');
 

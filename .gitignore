@@ -1,5 +1,6 @@
 node_modules
 Public/node_modules
+Desktop/node_modules
 Config/.env
 
 firebase.example.js

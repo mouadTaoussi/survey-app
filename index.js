@@ -10,11 +10,8 @@ const dotenv                          = require('dotenv');
 const morgan                          = require('morgan');
 const redis                           = require('redis');
 const RedisStore                      = require('connect-redis')(express_sessions);
-/////////////////////////////////////// GRAB CONFIG STUFF
 const databaseConnection              = require('./Config/DatabaseConnection.js');
-/////////////////////////////////////// GRAB AUTH STRATEGIES 
 const strategies                      = require('./Passport/PassportAuthentication.js');
-/////////////////////////////////////// GRAB ROUTES
 const authentication                  = require('./Routes/Authentication.js');
 const questions                       = require('./Routes/Questions.js');
 const responses                       = require('./Routes/Responses.js');

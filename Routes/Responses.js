@@ -1,7 +1,5 @@
 const express                         = require('express');
-/////////////////////////////////////// GRAB THE APPROPRIATE CONTROLLER CLASS
 const Responses                       = require('.././Controllers/Responses.js');
-/////////////////////////////////////// GRAB THE APPROPRIATE MIDDLEWARE
 const auth                            = require('.././Middlewares/Authentication.js');
 const validators                      = require('.././Middlewares/Validators.js');
 

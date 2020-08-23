@@ -1,9 +1,7 @@
 const express                         = require('express');
-/////////////////////////////////////// GRAB THE APPROPRIATE CONTROLLER CLASS
 const Authentication                  = require('.././Controllers/Authentication.js');
 const Questions                       = require('.././Controllers/Questions.js');
 const Responses                       = require('.././Controllers/Responses.js');
-/////////////////////////////////////// GRAB THE APPROPRIATE MIDDLEWARE
 const auth                            = require('.././Middlewares/Authentication.js');
 const validators                      = require('.././Middlewares/Validators.js');
 
@@ -30,7 +28,7 @@ router.get('/',validators.checkLanguage,(request,response)=>{
 })
 
 
-router.get('/login',validators.checkLanguage,(request,response)=>{
+router.get('/login',validators.checkLanguage,auth.isLoggedin,(request,response)=>{
 	// Check for error messages if exists
 	const { loggedIn, message } = request.query;
 	
@@ -49,7 +47,7 @@ router.get('/login',validators.checkLanguage,(request,response)=>{
 })
 
 
-router.get('/register',validators.checkLanguage,(request,response)=>{
+router.get('/register',validators.checkLanguage,auth.isLoggedin,(request,response)=>{
 	// Check for error messages if exists
 	const { registered, message } = request.query;
 
@@ -68,7 +66,7 @@ router.get('/register',validators.checkLanguage,(request,response)=>{
 })
 
 
-router.get('/resetPassword',validators.checkLanguage,(request,response)=>{
+router.get('/resetPassword',validators.checkLanguage,auth.isLoggedin,(request,response)=>{
 	// Check for error messages if exists
 	const { sent, message } = request.query;
 
@@ -87,7 +85,7 @@ router.get('/resetPassword',validators.checkLanguage,(request,response)=>{
 })
 
 
-router.get('/emailSent',validators.checkLanguage,(request,response)=>{
+router.get('/emailSent',validators.checkLanguage,auth.isLoggedin,(request,response)=>{
 	// Get the email
 	const { to } = request.query;
 	// Check the provided language

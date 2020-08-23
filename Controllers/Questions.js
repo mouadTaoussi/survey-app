@@ -1,4 +1,3 @@
-// Users model
 const Question                             = require('.././Models/QuestionsModel.js');
 
 class Questions {

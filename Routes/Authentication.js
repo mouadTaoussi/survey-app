@@ -1,9 +1,7 @@
 const express                         = require('express');
 const passport                        = require('passport');
 const nodemailer                      = require('nodemailer');
-/////////////////////////////////////// GRAB THE APPROPRIATE CONTROLLER CLASS
 const Authentication                  = require('.././Controllers/Authentication.js');
-/////////////////////////////////////// GRAB THE APPROPRIATE MIDDLEWARE
 const auth                            = require('.././Middlewares/Authentication.js');
 const validators                      = require('.././Middlewares/Validators.js');
 

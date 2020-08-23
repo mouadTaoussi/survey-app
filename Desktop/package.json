@@ -1,0 +1,31 @@
+{
+  "name": "survey-app-desktop",
+  "version": "1.0.0",
+  "description": "This is the desktop version on the survey app",
+  "main": "./src/Main.js",
+  "scripts": {
+    "start": "electron ./src/Main.js",
+    "package-mac": "electron-packager ./src/main.js --overwrite --platform=darwin --arch=x64 --icon=src/resources/iconmac.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager ./src/main.js --overwrite --asar=true --platform=win32 --arch=ia32 --icon=src/resources/iconwin.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"SurveyApp\"",
+    "package-linux": "electron-packager ./src/main.js --overwrite --platform=linux --arch=x64 --icon=src/resources/iconlinux.png --prune=true --out=release-builds"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mouadTaoussi/survey-app.git"
+  },
+  "keywords": [
+    "desktop",
+    "SurveyApp"
+  ],
+  "author": "MouadTaoussi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mouadTaoussi/survey-app/issues"
+  },
+  "homepage": "https://github.com/mouadTaoussi/survey-app#readme",
+  "dependencies": {
+    "electron": "^9.2.1",
+    "electron-is-dev": "^1.2.0",
+    "electron-packager": "^15.1.0"
+  }
+}
