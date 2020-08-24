@@ -67,8 +67,7 @@ if (window.location.pathname === "/surveyEditor" ){
 	}
 
 	// Save questions (survey) // Update questions (survey)
-	document.querySelector('.btn-save-changes')
-	 .addEventListener('click',()=>{
+	document.querySelector('.btn-save-changes').addEventListener('click',()=>{
 	 	
 		// Init survey output
 		let survey = {};
@@ -80,17 +79,17 @@ if (window.location.pathname === "/surveyEditor" ){
 		const questions_list = document.querySelectorAll('.single-question');
 
 		// Insert questions (survey) info
-		survey.questions = [];
-		survey.user_id = null;
-		survey.description = survey_info.children[1].innerHTML;
-		survey.title = survey_info.children[0].innerHTML;
-		survey.active = true; 
+		survey.questions   = [];
+		survey.user_id     = null;
+		survey.description = document.querySelector('.survey-title').value;/*survey_info.children[0].value;*/
+		survey.title       = document.querySelector('.survey-description').value;/*survey_info.children[1].value;*/
+		survey.active      = true; 
 
 		// Format the questions and convert them to JSON
 		for (var i = 0; i < questions_list.length; i++) {
 
-			let single_question = {};
-			let options = [];
+			let single_question     = {};
+			let options             = [];
 			single_question.options = [];
 
 			for (var o = 0; o < questions_list[i].children[3].children[0].children.length; o++) {
@@ -112,6 +111,21 @@ if (window.location.pathname === "/surveyEditor" ){
 		
 	
 		// Upload the questions to the database
+		axios({
+			url : "/questions/"/*+id*/,
+			method : 'POST',
+			data : survey
+		})
+		.then((response)=>{
+			// if(response.data) {
+			// 	alert('')
+			// }
+
+			alert('Saved your work!');
+		})
+		.catch((err)=>{
+			alert('Something went wrong! Try again.');
+		})
 	})
 	// Receive questions (survey)
 	// Delete questions (survey)

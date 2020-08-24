@@ -5,9 +5,10 @@
   "main": "./src/Main.js",
   "scripts": {
     "start": "electron ./src/Main.js",
-    "package-mac": "electron-packager ./src/main.js --overwrite --platform=darwin --arch=x64 --icon=src/resources/iconmac.icns --prune=true --out=release-builds",
-    "package-win": "electron-packager ./src/main.js --overwrite --asar=true --platform=win32 --arch=ia32 --icon=src/resources/iconwin.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"SurveyApp\"",
-    "package-linux": "electron-packager ./src/main.js --overwrite --platform=linux --arch=x64 --icon=src/resources/iconlinux.png --prune=true --out=release-builds"
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=src/resources/icons/logo.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=src/resources/icons/logo.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"SurveyApp\"",
+    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=src/resources/icons/logo.png --prune=true --out=release-builds",
+    "package-all": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=src/resources/icons/logo.icns --prune=true --out=release-builds && electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=src/resources/icons/logo.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"SurveyApp\" && electron-packager . --overwrite --platform=linux --arch=x64 --icon=src/resources/icons/logo.png --prune=true --out=release-builds"
   },
   "repository": {
     "type": "git",

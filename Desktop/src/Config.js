@@ -11,7 +11,7 @@ module.exports = {
   APP_VERSION: app.getVersion(),
   APP_REMOTE_URL: '/login',
   APP_DEV_URL: 'http://localhost:5000/login',
-  APP_REMOTE_HOME_URL: '',
+  APP_REMOTE_HOME_URL: '/',
   APP_DEV_HOME_URL: 'http://localhost:5000',
 
   GITHUB_URL: 'https://github.com/mouadTaoussi/survey-app',
@@ -20,9 +20,9 @@ module.exports = {
 
   WINDOW_DEFAULT_HEIGHT: 700,
   WINDOW_DEFAULT_WIDTH: 1300,
-  WINDOW_MIN_HEIGHT: 500,
-  WINDOW_MIN_WIDTH: 320,
+  WINDOW_MIN_HEIGHT: 420,
+  WINDOW_MIN_WIDTH: 720,
   WINDOW_BG_COLOR: '#FAFAFA',
 
-  ICON: resolve(__dirname, './resources/icon-512x512.png'),
+  ICON: resolve(__dirname, './resources/icons/logo.png'),
 };

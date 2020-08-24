@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="art-grid">
+	<div class="left-side">
+		<div class="brand"></div>
+		<p class="text-white text">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</div>
+	<div class="right-side">
+		<div class="svg-area"></div>
+	</div>
+</div>
+</body>
+</html>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Ubuntu:wght@400;500&display=swap');
+
+	body {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Poppins',sans-serif;
+	}
+	.art-grid {
+		display: grid;
+		grid-template-columns: 2fr 3fr;
+		
+	}
+	.left-side {
+		background-color: #1554a7;
+		color: white;
+		height: 420px;
+		padding-top: 20px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.right-side {
+		color: rgba(0,0,0,.9);
+		height: 420px;
+		padding-top: 20px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.brand {
+		background-image: url('../asstes/logoPrimaryBg.svg');
+		/*background-position: center;*/
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 200px;
+		height: 60px;
+	}
+	.text {
+		font-size: 12px;
+		margin-top: 30px;
+	}
+	.svg-area {
+		background-image: url('../asstes/ViewAppInBrowser.svg');
+		/*background-position: center;*/
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
