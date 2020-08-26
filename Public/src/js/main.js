@@ -5,10 +5,63 @@ import Sortable  from 'sortablejs';
 // import '../../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import '.././css/style.css';
 import './vendors/fontawesome/css/all.css';
-import './Authentication.js';
-import './DomManupilation.js';
 import './Questions.js';
+import './Authentication.js';
 import './Responses.js';
+import './DomManupilation.js';
+
+
+// Dynamic alert message
+window.displayAlertMessage = (messageType,message)=>{
+	/**
+	 *
+	 * Message type: bloean type: if (false) message is for something has failed
+	 * and the reverse is correct
+	 *
+	 **/
+	if (messageType){
+		// Play the success ringtone
+		document.querySelector("#ringtone-message-success").play(); 
+		// Display message alert after one second because the sound starts a bit slowly
+		window.setTimeout(()=>{
+			// Set the message color
+			document.querySelector('.side-alert-message').classList.add('success');
+			// Set the message content
+			document.querySelector('.side-alert-message').innerHTML = message;
+			// Display the dynamic success message
+			document.querySelector('.side-alert-message').style.right = '20px';
+		},800)
+		window.setTimeout(()=>{
+			// unDisplay the dynamic success message
+			document.querySelector('.side-alert-message').style.right = '-320px';
+			// Remove the message
+			// document.querySelector('.side-alert-message').innerHTML = null;
+			// Remove the class
+			document.querySelector('.side-alert-message').classList.remove('success');
+		},8000)
+	}else {
+		// Play the success ringtone
+		document.querySelector("#ringtone-message-danger").play(); 
+		// Display message alert after one second because the sound starts a bit slowly
+		window.setTimeout(()=>{
+			// Set the message color
+			document.querySelector('.side-alert-message').classList.add('danger');
+			// Set the message content
+			document.querySelector('.side-alert-message').innerHTML = message;
+			// Display the dynamic success message
+			document.querySelector('.side-alert-message').style.right = '20px';
+		},800)
+		window.setTimeout(()=>{
+			// unDisplay the dynamic success message
+			document.querySelector('.side-alert-message').style.right = '-320px';
+			// Remove the message
+			// document.querySelector('.side-alert-message').innerHTML = null;
+			// Remove the class
+			document.querySelector('.side-alert-message').classList.remove('danger');
+
+		},8000)
+	}
+}
 
 
 // Grab Questions list

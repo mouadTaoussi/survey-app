@@ -52,10 +52,9 @@ if (window.location.pathname === "/dashboard" ) {
 						axios({ url: '/auth/updateUser', method : 'POST', data : { avatar : url }
 						})
 						.then((response)=>{
-							// Check if there is an error
-							if (response.data.updated === true) { alert(response.data.message); } 
+							window.displayAlertMessage(response.data.saved,response.data.message);
 						})
-						.catch((err)=>{ alert(errorMessage); })
+						.catch((err)=>{ alert(err); })
 					})
 					.catch((err)=>{ alert(errorMessage) })
 				})

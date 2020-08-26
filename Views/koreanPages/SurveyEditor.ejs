@@ -4,9 +4,11 @@
 	<title>Survey Editor</title>
 	<%-   include('.././partials/HeadTags')   %>
 </head>
-<body>
+<body style="">
 <%- include('.././partials/koreanHeaderElement') %>
 <div class="mt-4 mb-4 local-container-8">
+	<!-- Dynamic alert message -->
+	<%- include('.././partials/alertMessage') %>
 	<ul class="list-group list-group-horizontal-sm">
 	  <li style="cursor:pointer;" class="list-group-item edit-tab active">편집하다</li>
 	  <li style="cursor:pointer;" class="list-group-item responses-tab">응답</li>
@@ -17,116 +19,72 @@
 	<!-- ---------------------------------------------------------- -->
 	<div class="survey-editor">
 		<div class="survey-editor-preview">
-			<div class="desc local-card local-mt-4 local-p-2 shadow">
 			<!-- Description Place -->
 			<!-- Description Place -->
-				<h2 clas="text-left">A questions about programming!!!</h2>
-				<p clas="text-left">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-				</p>
+			<div class="desc local-card local-mt-4 local-p-2 local-shadow">
+			
+				<input 
+				    type="text" 
+				    name="survey-title" 
+				    class="form-control survey-title local-mt-2" 
+				    placeholder="Title of this survey">
+				<textarea  
+				    type="text" 
+				    name="survey-description" 
+				    class="form-control survey-description local-mt-2"
+				    placeholder="A Description of this survey"
+				 ></textarea>
+				 <p class="text-left local-mt-2">Survey ID: <strong class="survey_id">---</strong></p>
+				
 			</div>
-			<!-- Single Question -->
-			<!-- Single Question -->
-			<div class="single-question local-card local-mt-2 local-p-2 shadow">
-				<!-- Dragable section -->
-				<div class="dragable">
-					<div></div><div></div><div></div>
-					<div></div><div></div><div></div>
-				</div>
-				<!-- Quetsion or title -->
-				<input class="form-control mt-2" value='How many programminG languages you know?'>
-				<!-- Files inputs -->
-				<div class="custom-file files-attachment">
-					<input type="file" class="custom-file-input" id="validatedCustomFile" required>
-					<label class="custom-file-label" for="validatedCustomFile" multiple>Choose files...</label>
-					<div class="invalid-feedback">Example invalid custom file feedback</div>
-				</div>
-				<!-- Options -->
-				<div class="options-area">
-					<ul class="options-list">
-						<li class="option-item">
-							<input type="text" placeholder="Option" class="form-control">
-							<i class="delete-option fas fa-times"></i>
-						</li>
-						<li class="option-item">
-							<input type="text" placeholder="Option" class="form-control">
-							<i class="delete-option fas fa-times"></i>
-						</li>
+			<div class="questions_list">
+				<!-- Single Question -->
+				<!-- Single Question -->
+				<div class="single-question local-card local-mt-2 local-p-2 local-shadow" draggable='true'>
+					<!-- Dragable section -->
+					<div class="dragable">
+						<div></div><div></div><div></div>
+						<div></div><div></div><div></div>
+					</div>
+					<!-- Quetsion or title -->
+					<input class="form-control mt-2" placeholder='Which question you wanna write here?' required>
+					<!-- Files inputs -->
+					<div class="custom-file files-attachment">
+						<input type="file" class="custom-file-input" id="validatedCustomFile" onchange='getFile(event)'>
+						<label class="custom-file-label" for="validatedCustomFile">Choose files...</label>
+						<div class="invalid-feedback">Example invalid custom file feedback</div>
+					</div>
+					<!-- Options -->
+					<div class="options-area">
+						<ul class="options-list">
+							<li class="option-item">
+								<input type="text" placeholder="Option" class="form-control" required>
+								<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
+							</li>
+							<li class="option-item">
+								<input type="text" placeholder="Option" class="form-control" required>
+								<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
+							</li>
+						</ul>
 						<p class="add-new-option p-2">Add new one +</p>
-					</ul>
+					</div>
+					<!-- Settings -->
+					<div class="question_settings p-2">
+						<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
+						<select style="display: inline;width: 180px;" class='mx-2 form-control'>
+							<option>Multipe Choice</option>
+							<option>One Choice</option>
+							<option>Short paragraph</option>
+						</select>
+					</div>
 				</div>
-				<!-- Settings -->
 			</div>
-			<!-- Single Question -->
-			<!-- Single Question -->
-			<div class="single-question local-card local-mt-2 local-p-2 shadow">
-				<!-- Dragable section -->
-				<div class="dragable">
-					<div></div><div></div><div></div>
-					<div></div><div></div><div></div>
-				</div>
-				<!-- Quetsion or title -->
-				<input class="form-control mt-2" value='How many programminG languages you know?'>
-				<!-- Files inputs -->
-				<div class="custom-file files-attachment">
-					<input type="file" class="custom-file-input" id="validatedCustomFile" required>
-					<label class="custom-file-label" for="validatedCustomFile" multiple>Choose files...</label>
-					<div class="invalid-feedback">Example invalid custom file feedback</div>
-				</div>
-				<!-- Options -->
-				<div class="options-area">
-					<ul class="options-list">
-						<li class="option-item">
-							<input type="text" placeholder="Option" class="form-control">
-							<i class="delete-option fas fa-times"></i>
-						</li>
-						<li class="option-item">
-							<input type="text" placeholder="Option" class="form-control">
-							<i class="delete-option fas fa-times"></i>
-						</li>
-						<p class="add-new-option p-2">Add new one +</p>
-					</ul>
-				</div>
-				<!-- Settings -->
-			</div>
-			<!-- Single Question -->
-			<!-- Single Question -->
-			<div class="single-question local-card local-mt-2 local-p-2 shadow">
-				<!-- Dragable section -->
-				<div class="dragable">
-					<div></div><div></div><div></div>
-					<div></div><div></div><div></div>
-				</div>
-				<!-- Quetsion or title -->
-				<input class="form-control mt-2" value='How many programminG languages you know?'>
-				<!-- Files inputs -->
-				<div class="custom-file files-attachment">
-					<input type="file" class="custom-file-input" id="validatedCustomFile" required>
-					<label class="custom-file-label" for="validatedCustomFile" multiple>Choose files...</label>
-					<div class="invalid-feedback">Example invalid custom file feedback</div>
-				</div>
-				<!-- Options -->
-				<div class="options-area">
-					<ul class="options-list">
-						<li class="option-item">
-							<input type="text" placeholder="Option" class="form-control">
-							<i class="delete-option fas fa-times"></i>
-						</li>
-						<li class="option-item">
-							<input type="text" placeholder="Option" class="form-control">
-							<i class="delete-option fas fa-times"></i>
-						</li>
-						<p class="add-new-option p-2">Add new one +</p>
-					</ul>
-				</div>
-				<!-- Settings -->
-			</div>
-			<button class="local-btn local-btn-primary local-mt-2 local-mb-2 float-right">Save Changes</button>
+			<button class="local-btn local-btn-primary local-mt-2 local-mb-2 float-right btn-save-changes">Save Changes</button>
 		</div>
 		<div class="survey-editor-tools">
-			<div class="tools-panel local-mt-4 local-shadow local-p-2">
+			<div class="tools-panel local-mt-4  local-shadow local-p-2">
 				<ul class="tools-list">
-					<li>
+					<li class="add_new_field">
 						<i data-toggle="tooltip" data-placement="left" title="Add new field" class="fas fa-plus"></i>
 					</li>
 					<li type="button" data-toggle="modal" data-target="#importModal">
@@ -219,31 +177,6 @@
 </body>
 <%-   include('.././partials/ScriptTags')   %>
 </html>
-<style>
-	.options-list {
-		list-style: none;
-		padding-left: 0!important;
-	}
-	.option-item, .files-attachment {
-		margin-top:5px;
-	}
-</style>
-<script>
-	const edit_tab = document.querySelector('.edit-tab')
-	const responses_tab = document.querySelector('.responses-tab')
-	 edit_tab.addEventListener('click',()=>{
-	 	document.querySelector('.survey-editor').style.display = '';
-	 	document.querySelector('.responses').style.display = 'none';
-	 	edit_tab.classList.add('active');
-	 	responses_tab.classList.remove('active');
-	 })
-	 responses_tab.addEventListener('click',()=>{
-	 	document.querySelector('.survey-editor').style.display = 'none';
-	 	document.querySelector('.responses').style.display = 'block';
-	 	responses_tab.classList.add('active');
-	 	edit_tab.classList.remove('active');
-	 })
-</script>
 
 <!-- important
 % if

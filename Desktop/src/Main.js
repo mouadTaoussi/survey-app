@@ -24,6 +24,7 @@ app.on('ready', function(){
       icon : config.ICON,
       frame: false,
       title : "Hello Back!",
+      resizable : false,
       // transprent: true,
       minimizable: false,
       maximizable: false,

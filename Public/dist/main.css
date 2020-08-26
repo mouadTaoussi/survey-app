@@ -622,6 +622,20 @@
 	--warning : #c19c00;
 }
 
+/* dynamic alert message */
+.side-alert-message {
+	position: absolute;
+	color: white;
+	font-family: 'Cabin';
+	z-index: 999;
+	border-radius: 3px;
+	width: 300px;
+	position: fixed;
+	right: -320px;
+	padding: 10px;
+	transition: all .4s ease-out;
+}
+
 body {
 	background-color: /*white,*/var(--light);
 	color: var(--dark);

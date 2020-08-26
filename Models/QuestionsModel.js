@@ -4,7 +4,7 @@ const Question = new mongoose.Schema({
 	// Something goes here ...
 	type : String,
 	title : String,
-	files : [{type : String}],
+	file : {type : String},
 	options : mongoose.Schema.Types.Mixed,
 	required : Boolean
 });

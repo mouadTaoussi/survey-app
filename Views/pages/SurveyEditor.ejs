@@ -7,10 +7,13 @@
 <body style="">
 <%- include('.././partials/HeaderElement') %>
 <div class="mt-4 mb-4 local-container-8">
+	<!-- Dynamic alert message -->
+	<%- include('.././partials/alertMessage') %>
 	<ul class="list-group list-group-horizontal-sm">
 	  <li style="cursor:pointer;" class="list-group-item edit-tab active">Edit</li>
 	  <li style="cursor:pointer;" class="list-group-item responses-tab">Responses</li>
 	</ul>
+
 	<!-- <h1>Survey Editor</h1> -->
 	<!-- ---------------------------------------------------------- -->
 	<!-- ---------------------------------------------------------- -->
@@ -32,6 +35,7 @@
 				    class="form-control survey-description local-mt-2"
 				    placeholder="A Description of this survey"
 				 ></textarea>
+				 <p class="text-left local-mt-2">Survey ID: <strong class="survey_id">---</strong></p>
 				
 			</div>
 			<div class="questions_list">

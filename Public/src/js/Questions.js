@@ -6,6 +6,8 @@ import { connection } from './firebaseConnection';
 if (window.location.pathname === "/surveyEditor" ){
 	// Firebase connection
 	const surveyFiles = connection().ref('/surveyFiles');
+	// ERROR MESSAGE
+	const errorMessage  = "Something went wrong! Try again." 
 	/*
 		When you run the file over webpack, webpack will try not to litter the global scope 
 		and so the function will not be made available globally by default.
@@ -45,15 +47,15 @@ if (window.location.pathname === "/surveyEditor" ){
 					// Get the download url and pass it to the Dom for use it below if the user hits save
 					surveyFiles.child(uuid).getDownloadURL()
 					.then((url)=>{
-
+						
 						alert('This file uploaded successfully')
 						// Include the download url into the input for use it in the function below
 						// For save it and thier approprite question in database
 						event.path[0].placeholder = url;
 
-					}).catch((err)=>{ alert('Something sent wrong! Try again1'); });
+					}).catch((err)=>{ alert(errorMessage); });
 					
-				}).catch((err)=>{ alert('Something went wrong! Try again2'); });
+				}).catch((err)=>{ alert(errorMessage); });
 				
 				// Found one
 				foundOne = true;
@@ -109,22 +111,20 @@ if (window.location.pathname === "/surveyEditor" ){
 		}
 		console.log(survey);
 		
-	
-		// Upload the questions to the database
+		
+		// Save the questions to the database
 		axios({
-			url : "/questions/"/*+id*/,
+			url : "/question",
 			method : 'POST',
 			data : survey
 		})
 		.then((response)=>{
-			// if(response.data) {
-			// 	alert('')
-			// }
-
-			alert('Saved your work!');
+			window.displayAlertMessage(response.data.saved,response.data.message);
+			// Attach that id in the the html element to use it whenever user hit save
+			document.querySelector('.survey_id').innerText = response.data.survey_id;
 		})
 		.catch((err)=>{
-			alert('Something went wrong! Try again.');
+			alert(err);
 		})
 	})
 	// Receive questions (survey)

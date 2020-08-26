@@ -140,7 +140,7 @@ router.post('/updateUser', auth.isAuthenticated, async (request,response)=>{
 	// Send the proccess result
 	response.json({
 		message : updatingUserProcess.message,
-		updated : updatingUserProcess.updated 
+		saved : updatingUserProcess.saved 
 	})
 })
 router.get('/logout', (request,response)=>{

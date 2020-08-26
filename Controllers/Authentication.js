@@ -103,11 +103,10 @@ class Authentication {
 		}
 	}
 	updateUser(user_id,bodyData){
-		console.log(user_id);
-		console.log(bodyData);
+		
 		return {
-			message : "User Updated Successfully",
-			updated : true
+			saved : true,
+			message : "Saved your changes!",
 		}
 	}
 	async resetPassword(email,lang){

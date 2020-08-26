@@ -1,15 +1,35 @@
 const Question                             = require('.././Models/QuestionsModel.js');
 
 class Questions {
-	addSurvey(questions){
-		return 'Questions added'
+	async addSurvey(questions){
+		try {
+			const saving = await Question(questions).save();
+
+			return {
+				saved : true,
+				message : 'Saved your work!',
+				survey_id : saving.id
+			}
+		}catch(err){
+			return {
+				saved : false,
+				message : 'Something went wrong! Try again.'
+			}
+		}
 	}
 	findSurvey(options){
 		const user_id = options.user_id || null;
 		const survey_id = options.survey_id || null;
 	}
 	updateSurvey(questions_id,questions){
-		return 'question ' + questions_id + ' has been updated!!!' ;
+
+		console.log(questions_id);
+		console.log(questions);
+
+		return {
+			saved : true,
+			message : 'Saved your work!!!!'
+		}
 	}
 	deleteSurvey(questions_id){
 		return 'question ' + questions_id + ' has been deleted!!!' ;
