@@ -17,9 +17,36 @@ class Questions {
 			}
 		}
 	}
-	findSurvey(options){
-		const user_id = options.user_id || null;
-		const survey_id = options.survey_id || null;
+	async findSurvey(options/*Object of options*/){
+		const user_id    = options.user_id === null  || options.user_id === undefined  ? null : options.user_id;
+		const survey_id  = options.survey_id === null  || options.survey_id === undefined  ? null : options.survey_id;
+
+		try {
+			if (user_id !== null || survey_id === null){
+
+				const surveys = await Question.find({user_id});
+
+				return {
+					found : true,
+					survey : surveys
+				}
+			}
+			else if (survey_id !== null || user_id === null) {
+
+				const survey = await Question.findOne({user_id});
+
+				return {
+					found : true,
+					survey : survey
+				}
+			}
+		}
+		catch (err){
+			return {
+				found : true,
+				message : "Something went wrong!"
+			}
+		}
 	}
 	async updateSurvey(questions_id,questions){
 

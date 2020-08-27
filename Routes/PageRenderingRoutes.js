@@ -116,13 +116,19 @@ router.get('/changePassword',validators.checkLanguage, auth.isLoggedin, auth.isT
 })
 
 
-router.get('/dashboard',validators.checkLanguage,auth.isAuthenticated,(request,response)=>{
-	
+router.get('/dashboard',validators.checkLanguage,auth.isAuthenticated, async(request,response)=>{
+	// Get authenticated user
+	const user = request.user;
 	// Use the appropriate controller
-	// Logic
-	// render the pages by language specefied
-	response.render(`${request.lang.langPages}/dashboard`);
-	
+	const surveys = await questionsController.findSurvey({user_id:user.id});
+	// Checking ...
+	if (surveys.found){
+		// render the pages by language specefied
+		response.render(`${request.lang.langPages}/dashboard` , { surveys, user });
+	}
+	else {
+		response.redirect(`/serverError?lang=${request.lang.langShortcut}`)
+	}	
 })
 
 

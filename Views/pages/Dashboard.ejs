@@ -5,8 +5,9 @@
 	<%-   include('.././partials/HeadTags')   %>
 </head>
 <body>
-<%- include('.././partials/HeaderElement') %>
+<%- include('.././partials/HeaderElement', {avatar:user.avatar}) %>
 <div class="local-container-8">
+	<!-- <p><%= surveys %></p> -->
 	<!-- <h1 class="mt-4">Dashboard</h1> -->
 	<!-- Dynamic alert message -->
 	<%- include('.././partials/alertMessage') %>
@@ -77,7 +78,7 @@
 	      <!-- user account -->
 	      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
 	      	<h3 class="text-left local-mb-4">Your Account</h3>
-	      	<img src="https://avatars3.githubusercontent.com/u/50294614?v=4" class="logo-of-user local-mb-4" width="200" height="200">
+	      	<img src="<%= user.avatar %>" class="logo-of-user local-mb-4" width="200" height="200">
 	      	<div class="avatar-input">
 	
 			    <label for="avatar" class="btn"><i class="far fa-edit"></i></label>
@@ -86,47 +87,61 @@
 		    </div>
 		    <br>
 		    <br>
-		    <label for="firstName">First Name</label>
-		    <input 
-			    type="text"
-			    id="firstName"
-			    name="firstName" 
-			    class="form-control user-profile-inputs local-mb-2" 
-			    placeholder="Enter your First Name" 
-			    value="Mouad" 
-			    required
-		    >
-		    <label for="givenName">Given Name</label>
-			<input 
-				type="text" 
-				id="givenName"
-				name="givenName" 
-				class="form-control user-profile-inputs local-mb-2" 
-				placeholder="Enter your Family Name" 
-				value="Taoussi" 
-				required
-			>
-			<label for="username">User Name</label>
-			<input 
-				type="text" 
-				id="username"
-				name="username" 
-				class="form-control user-profile-inputs local-mb-2" 
-				placeholder="Enter your username" 
-				value="mouadtaoussi" 
-				required
-			>
-			<label for="email">Email</label>
-			<input 
-				type="email"
-				id="email" 
-				name="email" 
-				class="form-control user-profile-inputs local-mb-2 local-mb-4" 
-				placeholder="Enter your email" 
-				value="mouadtaoussi0@gmail.com"
-				required
-			>
-	      	<button class="local-btn local-btn-success local-mb-4">Update</button>
+		    <div style='background-color: white;' class="user_form local-p-4 local-mb-4">
+			    <label for="user_id">Your ID:</label>
+			    <input 
+				    type="text"
+				    id="user_id"
+				    name="user_id" 
+				    class="form-control user-profile-inputs local-mb-2" 
+				    value="<%= user.id %>" 
+				    disabled
+			    >
+			    <label for="firstName">First Name</label>
+			    <input 
+				    type="text"
+				    id="firstName"
+				    name="firstName" 
+				    class="form-control user-profile-inputs local-mb-2" 
+				    placeholder="Enter your First Name" 
+				    value="<%= user.fullName.familyName %>" 
+				    required
+			    >
+			    <label for="givenName">Given Name</label>
+				<input 
+					type="text" 
+					id="givenName"
+					name="givenName" 
+					class="form-control user-profile-inputs local-mb-2" 
+					placeholder="Enter your Family Name" 
+					value="<%= user.fullName.givenName %>" 
+					required
+				>
+				<label for="username">User Name</label>
+				<input 
+					type="text" 
+					id="username"
+					name="username" 
+					class="form-control user-profile-inputs local-mb-2" 
+					placeholder="Enter your username" 
+					value="<%= user.username %>" 
+					required
+				>
+				<label for="email">Email</label>
+				<input 
+					type="email"
+					id="email" 
+					name="email" 
+					class="form-control user-profile-inputs local-mb-2 local-mb-4" 
+					placeholder="Enter your email" 
+					value="<%= user.email %>"
+					required
+				>
+		      	<button class="local-btn local-btn-success local-mb-4">Save Changes</button>
+		      	<a href="/auth/logout">
+		      		<button class="local-btn local-btn-danger local-mb-4">Log out</button>
+		      	</a>
+		    </div>
 	      </div>
 	      <!-- settings  -->
 	      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
