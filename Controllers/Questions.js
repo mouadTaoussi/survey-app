@@ -21,15 +21,27 @@ class Questions {
 		const user_id = options.user_id || null;
 		const survey_id = options.survey_id || null;
 	}
-	updateSurvey(questions_id,questions){
+	async updateSurvey(questions_id,questions){
 
-		console.log(questions_id);
-		console.log(questions);
-
-		return {
-			saved : true,
-			message : 'Saved your work!!!!'
+		try {
+			// Update or save changes
+			const saving = await Question.findByIdAndUpdate(questions_id,questions);
+			
+			// return
+			return {
+				saved : true,
+				message : 'Saved your work!',
+				survey_id : questions_id
+			}
 		}
+		catch (err){
+			// return
+			return {
+				saved : false,
+				message : 'Something went wrong! Try again.',
+			}
+		}
+		
 	}
 	deleteSurvey(questions_id){
 		return 'question ' + questions_id + ' has been deleted!!!' ;

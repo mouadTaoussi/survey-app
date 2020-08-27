@@ -86,6 +86,7 @@ if (window.location.pathname === "/surveyEditor" ){
 		survey.description = document.querySelector('.survey-title').value;/*survey_info.children[0].value;*/
 		survey.title       = document.querySelector('.survey-description').value;/*survey_info.children[1].value;*/
 		survey.active      = true; 
+		survey.id          = document.querySelector('.survey_id').innerText !== "---" ? document.querySelector('.survey_id').innerText : null; 
 
 		// Format the questions and convert them to JSON
 		for (var i = 0; i < questions_list.length; i++) {
@@ -119,9 +120,20 @@ if (window.location.pathname === "/surveyEditor" ){
 			data : survey
 		})
 		.then((response)=>{
-			window.displayAlertMessage(response.data.saved,response.data.message);
-			// Attach that id in the the html element to use it whenever user hit save
-			document.querySelector('.survey_id').innerText = response.data.survey_id;
+			
+			if (response.data.saved == false) {
+				window.displayAlertMessage(response.data.saved,response.data.message);
+			}
+			else {
+
+				window.displayAlertMessage(response.data.saved,response.data.message);
+				// Attach that id in the the html element to use it whenever user hit save 
+				// to prevent adding one more survey and just update it instead
+				// Check : Controllers/Questions.js
+				// 	     : Routes/Questions.js
+				document.querySelector('.survey_id').innerText = response.data.survey_id;
+			}
+			
 		})
 		.catch((err)=>{
 			alert(err);

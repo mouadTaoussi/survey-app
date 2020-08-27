@@ -16,7 +16,7 @@ module.exports = {
 		}
 	},
 	mongodbConnection: ()=>{
-		return mongoose.connect(process.env.DATABASE_CONNECTION,{ useNewUrlParser: true,useUnifiedTopology: true },(err)=>{
+		return mongoose.connect(process.env.DATABASE_CONNECTION,{ useNewUrlParser: true,useUnifiedTopology: true, useFindAndModify: false },(err)=>{
 			if(err){
 				console.log("[ERROR]: Database isn't and running!");
 				throw new Error(err);

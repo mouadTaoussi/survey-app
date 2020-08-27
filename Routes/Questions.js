@@ -42,7 +42,8 @@ router.post('/', auth.isAuthenticated, async (request,response)=>{
 		// Response
 		response.json({
 			saved : savingSurveyProcess.saved,
-			message : savingSurveyProcess.message
+			message : savingSurveyProcess.message,
+			survey_id : savingSurveyProcess.survey_id
 		})
 	}
 	

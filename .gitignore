@@ -1,7 +1,7 @@
 node_modules
 Public/node_modules
 Desktop/node_modules
-Desktop/release-builds ## development:noted  => production:removed
+Desktop/release_builds ## development:noted  => production:removed
 Config/.env
 
 firebase.example.js
