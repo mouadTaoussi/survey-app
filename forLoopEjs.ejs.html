@@ -1,0 +1,8 @@
+ <%- for(var = 0; i < surveys.length ; i++){ %>
+  <tr>
+    <th scope="row"><%= i %></th>
+    <td><%= surveys[i].id %></td>
+    <td><a href="/surveyEditor?survey_id=<%= surveys[i].title %>"><%= surveys[i].title %></a></td>
+    <td><%= surveys[i].active %></td>
+   </tr>
+<%- } %>

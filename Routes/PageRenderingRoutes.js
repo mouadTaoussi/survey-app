@@ -143,11 +143,12 @@ router.get('/embedded',validators.checkLanguage,(request,response)=>{
 
 
 router.get('/surveyEditor',validators.checkLanguage,auth.isAuthenticated,(request,response)=>{
-	
+	// Get authenticated user
+	const user = request.user;
 	// Use the appropriate controller
 	// Logic
 	// render the pages by language specefied
-	response.render(`${request.lang.langPages}/surveyEditor`);
+	response.render(`${request.lang.langPages}/surveyEditor`,{user:user});
 
 })
 
@@ -170,16 +171,20 @@ router.get('/thankYou',validators.checkLanguage,(request,response)=>{
 
 // route    GET
 // desc     render error pages if something wrong happened ! ! !
-router.get('/serverError',validators.checkLanguage,(request,response)=>{
-	
+router.get('/serverError',validators.checkLanguage,auth.isAuthenticated,(request,response)=>{
+	// Get authenticated user
+	const user = request.user;
 	// render the pages by language specefied
-	response.render(`${request.lang.langPages}/serverError`);
+	response.render(`${request.lang.langPages}/serverError`,{user:user});
 	
 })
 
 
-router.get('*',(request,response)=>{
-	response.render('pages/forOFor');
+router.get('*',validators.checkLanguage,auth.isAuthenticated,(request,response)=>{
+	// Get authenticated user
+	const user = request.user;
+
+	response.render('pages/forOFor',{user:user});
 })
 
 

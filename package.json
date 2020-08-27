@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
+    "ejs-lint": "^1.1.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4"
   }

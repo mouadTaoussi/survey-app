@@ -102,12 +102,25 @@ class Authentication {
 			}
 		}
 	}
-	updateUser(user_id,bodyData){
-		
-		return {
-			saved : true,
-			message : "Saved your changes!",
+	async updateUser(user_id,bodyData){
+		try {
+			// Update or save changes
+			const saving = await User.findByIdAndUpdate(user_id,bodyData);
+			
+			// return
+			return {
+				saved : true,
+				message : 'Saved your changes!',
+				
+			}
 		}
+		catch (err){
+			return {
+				saved : false,
+				message : "Something went wrong!"
+			}
+		}
+		
 	}
 	async resetPassword(email,lang){
 		// return 'we sent something to ur inbox at ' + email + ' !! go check it out ASAP!!!!!';
