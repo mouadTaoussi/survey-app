@@ -2,13 +2,13 @@
 <html>
 <head>
 	<title>Dashboard</title>
-	<%-include('.././partials/HeadTags')%>
+	<%-include(".././partials/HeadTags")%>
 </head>
 <body>
-<%-include('.././partials/HeaderElement', {avatar:user.avatar})%>
+<%-include(".././partials/HeaderElement", {avatar:user.avatar})%>
 <div class="local-container-8">
 	<!-- Dynamic alert message -->
-	<%-include('.././partials/alertMessage')%>
+	<%-include(".././partials/alertMessage")%>
 	<div class="row mt-4">
 	<!-- Side bar -->
 	  <div class="col-3">
@@ -25,18 +25,27 @@
 	      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
 	      	<h3 class="text-left local-mb-4">Your Surveys</h3>
 	      	<table class="table table-hover">
-			  <thead style="background-color:rgba(0,0,0,.1)">
+			  <thead style="background-color:rgba(0,0,0,.1); font-family: 'Poppins';">
 			    <tr>
-			      <th scope="col">#</th>
 			      <th scope="col">Survey ID</th>
 			      <th scope="col">Survey Title</th>
 			      <th scope="col">Active</th>
 			    </tr>
 			  </thead>
 			  <tbody>
-			   
+
+			  	<% if (surveys) { %>
+					<% surveys.survey.forEach((survey)=>{%> 
+					  <tr>
+					    <td><a href="/surveyEditor?survey_id=<%= survey.id %>"><%= survey.id %></a></td>
+					    <td><%= survey.title %></td>
+					    <td><%= survey.active %></td>
+					  </tr>
+					<% }) %>
+				<% } %>
+				
 			    <tr style="background-color:rgba(0,0,0,.20);cursor: pointer">
-			      <td colspan="2"><a class="text-dark" href='/surveyEditor'>Create new survey +</a></td>
+			      <td><a class="text-dark" href='/surveyEditor'>Create new survey +</a></td>
 			      <td></td>
 			      <td></td>
 			    </tr>
@@ -106,7 +115,7 @@
 					value="<%= user.email %>"
 					required
 				>
-		      	<button class="local-btn local-btn-success local-mb-4">Save Changes</button>
+		      	<button onclick="updateUser()" class="local-btn local-btn-success local-mb-4">Save Changes</button>
 		      	<a href="/auth/logout">
 		      		<button class="local-btn local-btn-danger local-mb-4">Log out</button>
 		      	</a>

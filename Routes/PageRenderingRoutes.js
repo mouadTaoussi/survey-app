@@ -123,6 +123,7 @@ router.get('/dashboard',validators.checkLanguage,auth.isAuthenticated, async(req
 	const surveys = await questionsController.findSurvey({user_id:user.id});
 	// Checking ...
 	if (surveys.found){
+		console.log(surveys)
 		// render the pages by language specefied
 		response.render(`${request.lang.langPages}/dashboard` , { surveys, user });
 	}
@@ -175,7 +176,7 @@ router.get('/serverError',validators.checkLanguage,auth.isAuthenticated,(request
 	// Get authenticated user
 	const user = request.user;
 	// render the pages by language specefied
-	response.render(`${request.lang.langPages}/serverError`,{user:user});
+	response.render(`${request.lang.langPages}/FiveOO`,{user:user});
 	
 })
 

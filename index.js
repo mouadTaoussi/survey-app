@@ -1,5 +1,5 @@
 const express                         = require('express');
-const ejs                             = require('ejs'); 
+// const ejs                             = require('ejs'); 
 const passport                        = require('passport'); 
 const express_graphql                 = require('express-graphql');
 const express_sessions                = require('express-session');
@@ -55,6 +55,7 @@ app.use(express.json());
 
 app.get('/get', async(req,res)=>{
 	res.json(req.session);
+
 })
 
 // Routes

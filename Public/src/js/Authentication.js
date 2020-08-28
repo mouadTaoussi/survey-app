@@ -76,13 +76,13 @@ if (window.location.pathname === "/dashboard" ) {
 	}
 
 	// Update user
-	function updateUser (){
+	window.updateUser = ()=>{
 		// Get the user inputs 
 		const bodyData = {
-			firstName : document.querySelector('#firstName'),
-			givenName : document.querySelector('#givenName'),
-			username  : document.querySelector('#username'),
-			email     : document.querySelector('#email') 
+			firstName : document.querySelector('#firstName').value,
+			givenName : document.querySelector('#givenName').value,
+			username  : document.querySelector('#username').value,
+			email     : document.querySelector('#email').value 
 		}
 		// ERROR MESSAGE
 		const errorMessage  = "Something went wrong! Try again." 
@@ -92,8 +92,8 @@ if (window.location.pathname === "/dashboard" ) {
 		axios({ url: '/auth/updateUser', method : 'POST', data : bodyData
 		})
 		.then((response)=>{
-			// Check if there is an error
-			if (response.data.updated === true) { alert(response.data.message); } 
+			// Display alert message
+			window.displayAlertMessage(response.data.saved,response.data.message);
 		})
 		.catch((err)=>{ alert(errorMessage); })
 	}
