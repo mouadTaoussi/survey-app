@@ -3,33 +3,39 @@ const mongoose                        = require('mongoose');
 const User = new mongoose.Schema({
 	atProviderId : {
 		type : String,
-		required : false
+		required : false,
+		default : null
 	},
 	name : {
 		type : String,
-		required : false
+		required : false,
 	},
 	fullName : new mongoose.Schema({
 		familyName : {
 			type : String,
-			required : false
+			required : false,
+			default : null
 		},
 		givenName : {
 			type : String,
-			required : false
+			required : false,
+			default : null
 		}
 	}),
 	username : {
 		type : String,
-		required : false
+		required : false,
+		default : null
 	},
 	email : {
 		type : String,
-		required : false
+		required : false,
+		default : null
 	},
 	avatar : {
 		type : String,
-		required : false
+		required : false,
+		default : null
 	},
 	provider : {
 		type : String,

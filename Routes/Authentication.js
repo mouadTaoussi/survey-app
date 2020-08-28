@@ -12,9 +12,9 @@ const authController = new Authentication();
 const router = express.Router();
 
 // Oauth routes to get user logged in!
-router.get('/google', auth.isLoggedin, passport.authenticate('google',{scope:['profile','email']}));
-router.get('/github', auth.isLoggedin, passport.authenticate('github',{scope:['profile','email']}));
-router.get('/linkedin', auth.isLoggedin, passport.authenticate('linkedin'));
+router.get('/google', validators.checkLanguage ,auth.isLoggedin, passport.authenticate('google',{scope:['profile','email']}));
+router.get('/github', validators.checkLanguage ,auth.isLoggedin, passport.authenticate('github',{scope:['profile','email']}));
+router.get('/linkedin', validators.checkLanguage ,auth.isLoggedin, passport.authenticate('linkedin'));
 
 // Callbacks or Oauth services to get user redirected to!
 router.get('/google/callback',passport.authenticate('google',{failureRedirect : '/',successRedirect : '/dashboard'}));
@@ -135,7 +135,8 @@ router.post('/updateUser', auth.isAuthenticated, async (request,response)=>{
 	const bodyData = request.body;
 	// Get the user id based on session
 	const user_id = request.user.id;
-	// Procce the request within the appropriate controller
+	// Check if the user owns the data and authorized to make changes on it!!!
+	// Process the request within the appropriate controller
 	const updatingUserProcess = await authController.updateUser(user_id,bodyData); 
 	// Send the proccess result
 	response.json({

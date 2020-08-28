@@ -6,45 +6,42 @@ class Questions {
 			const saving = await Question(questions).save();
 
 			return {
-				saved : true,
-				message : 'Saved your work!',
-				survey_id : saving.id
+				saved : true, message : 'Saved your work!', survey_id : saving.id
 			}
 		}catch(err){
 			return {
-				saved : false,
-				message : 'Something went wrong! Try again.'
+				saved : false, message : 'Something went wrong! Try again.'
 			}
 		}
 	}
-	async findSurvey(options/*Object of options*/){
-		const user_id    = options.user_id === null  || options.user_id === undefined  ? null : options.user_id;
-		const survey_id  = options.survey_id === null  || options.survey_id === undefined  ? null : options.survey_id;
+	async findSurvey(user_id,survey_id){
 
 		try {
-			if (user_id !== null || survey_id === null){
-
-				const surveys = await Question.find({user_id});
-
+			// To get list of user surveys
+			if ( user_id !== null && survey_id === null ){
+				
+				const surveys = await Question.find({ user_id: user_id });
+				
 				return {
-					found : true,
-					survey : surveys
+					found : true, data : surveys
 				}
 			}
-			else if (survey_id !== null || user_id === null) {
+			// To get the survey for edit 
+			else if ( user_id !== null && survey_id !== null ) {
 
-				const survey = await Question.findOne({user_id});
+				const survey = await Question.findOne({ _id: survey_id, user_id: user_id });
 
-				return {
-					found : true,
-					survey : survey
+				if ( survey !== null ) {
+					return { found : true, data : survey }	
+				}
+				else {
+					return { found : false, data : null }
 				}
 			}
 		}
 		catch (err){
 			return {
-				found : true,
-				message : "Something went wrong!"
+				found : false, message : "Something went wrong!"
 			}
 		}
 	}
@@ -56,16 +53,13 @@ class Questions {
 			
 			// return
 			return {
-				saved : true,
-				message : 'Saved your work!',
-				survey_id : questions_id
+				saved : true, message : 'Saved your work!', survey_id : questions_id
 			}
 		}
 		catch (err){
 			// return
 			return {
-				saved : false,
-				message : 'Something went wrong! Try again.',
+				saved : false, message : 'Something went wrong! Try again.',
 			}
 		}
 		

@@ -52,9 +52,11 @@ app.use(express.static('Public/dist'));
 // Init body parser
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
-
+const Question  = require('./Models/QuestionsModel.js')
 app.get('/get', async(req,res)=>{
 	res.json(req.session);
+	// const survey = await Question.find({ _id: "5f47c5059af74c6b50918af4", user_id: "5f3043e1a02f0368dcc46125" })
+	// res.json(survey)
 
 })
 

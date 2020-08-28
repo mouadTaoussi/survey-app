@@ -35,7 +35,7 @@
 			  <tbody>
 
 			  	<% if (surveys) { %>
-					<% surveys.survey.forEach((survey)=>{%> 
+					<% surveys.forEach((survey)=>{%> 
 					  <tr>
 					    <td><a href="/surveyEditor?survey_id=<%= survey.id %>"><%= survey.id %></a></td>
 					    <td><%= survey.title %></td>

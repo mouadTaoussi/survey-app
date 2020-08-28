@@ -98,7 +98,7 @@ router.get('/changePassword',validators.checkLanguage, auth.isLoggedin, auth.isT
 	const { changed, message } = request.query;
 	// Validation results of isTokenValid
 	const { email, token } = request.nextStep;
-	// http://localhost:8080/changePassword?lang=cn&token=73e24f6b-124b-4142-aa90-80e703c8bf41&email=mouadtaoussi0@gmail.com
+	
 	// Check if errors  happen
 	if (changed == undefined) {
 		// render the pages by language specefied
@@ -116,16 +116,17 @@ router.get('/changePassword',validators.checkLanguage, auth.isLoggedin, auth.isT
 })
 
 
-router.get('/dashboard',validators.checkLanguage,auth.isAuthenticated, async(request,response)=>{
+router.get('/dashboard', validators.checkLanguage, auth.isAuthenticated, async(request,response)=>{
 	// Get authenticated user
 	const user = request.user;
+
 	// Use the appropriate controller
-	const surveys = await questionsController.findSurvey({user_id:user.id});
+	const surveys = await questionsController.findSurvey( user.id, null );
+
 	// Checking ...
 	if (surveys.found){
-		console.log(surveys)
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/dashboard` , { surveys, user });
+		response.render(`${request.lang.langPages}/dashboard` , { surveys : surveys.data, user });
 	}
 	else {
 		response.redirect(`/serverError?lang=${request.lang.langShortcut}`)
@@ -143,14 +144,27 @@ router.get('/embedded',validators.checkLanguage,(request,response)=>{
 })
 
 
-router.get('/surveyEditor',validators.checkLanguage,auth.isAuthenticated,(request,response)=>{
+router.get('/surveyEditor', validators.checkLanguage, auth.isAuthenticated, async(request,response)=>{
 	// Get authenticated user
 	const user = request.user;
-	// Use the appropriate controller
-	// Logic
-	// render the pages by language specefied
-	response.render(`${request.lang.langPages}/surveyEditor`,{user:user});
+		
+	// Checking ...
+	if ( request.query.survey_id == undefined ){
+		// render the pages by language specefied
+		response.render(`${request.lang.langPages}/surveyEditor`,{survey:null, user});
+	}
+	else {  
+		// Use the appropriate controller
+		const survey = await questionsController.findSurvey( user.id, request.query.survey_id );
 
+		if ( !survey.found ) {
+			response.redirect(`/notFound?lang=${request.lang.langShortcut}`);
+		}
+		else {
+			// render the pages by language specefied
+			response.render(`${request.lang.langPages}/surveyEditor`,{survey:survey.data, user});
+		}
+	}
 })
 
 

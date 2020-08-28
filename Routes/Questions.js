@@ -19,7 +19,9 @@ router.post('/', auth.isAuthenticated, async (request,response)=>{
 
 	// Check if the survey already exists in the database 
 	const isAlreadyExists = await Question.findById(survey.id) !== null ? true : false;
-
+ 	
+ 	// Check if the user owns the data and authorized to make changes on it!!!
+ 	//////////////////////////////////////////////////////////////////////////
 	// Attach the user id to the survey
 	survey.user_id = user.id; 
 
@@ -50,6 +52,8 @@ router.post('/', auth.isAuthenticated, async (request,response)=>{
 })
 
 router.delete('/:id',(request,response)=>{
+	// Check if the user owns the data and authorized to make changes on it!!!
+	//////////////////////////////////////////////////////////////////////////
 	// Use the appropriate controller
 	// Logic
  	// Delete

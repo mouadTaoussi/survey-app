@@ -104,6 +104,8 @@ class Authentication {
 	}
 	async updateUser(user_id,bodyData){
 		try {
+			// Check if email was taken by another user
+			///////////////////////////////////////////
 			// Update or save changes
 			const saving = await User.findByIdAndUpdate(user_id,bodyData);
 			

@@ -30,11 +30,14 @@ googleStrategy : ()=>{
 		// check user in database
 		const UserInDb = User.findOne({atProviderId : user.atProviderId})
 		.then((data)=>{
+
 			// user exists
 			if (data) {done(null,user)}
 			// user doesn't exits
 			else {
 				try {
+					// Check if email was taken by another user
+					///////////////////////////////////////////
 					new User(user).save();
 					done(null,user);
 				}
@@ -62,6 +65,10 @@ githubStrategy : ()=>{
 		const user = {
 			atProviderId : profile.id,
 			name : profile.displayName,
+			fullName : {
+				familyName : profile.name.familyName || null,
+				givenName : profile.name.givenName || null
+			},
 			userName : profile.username,
 			email : profile.email,
 			avatar : profile.photos[0].value,
@@ -75,6 +82,8 @@ githubStrategy : ()=>{
 			// user doesn't exits
 			else {
 				try {
+					// Check if email was taken by another user
+					///////////////////////////////////////////
 					new User(user).save();
 					done(null,user);
 				}
@@ -121,6 +130,8 @@ linkedInStrategy : ()=>{
 			// user doesn't exits
 			else {
 				try {
+					// Check if email was taken by another user
+					///////////////////////////////////////////
 					new User(user).save();
 					done(null,user);
 				}
