@@ -19,14 +19,13 @@ router.post('/', auth.isAuthenticated, async (request,response)=>{
 
 	// Check if the survey already exists in the database 
 	const isAlreadyExists = await Question.findById(survey.id) !== null ? true : false;
- 	
- 	// Check if the user owns the data and authorized to make changes on it!!!
- 	//////////////////////////////////////////////////////////////////////////
+
 	// Attach the user id to the survey
 	survey.user_id = user.id; 
 
 	// Use the appropriate controller
 	if ( isAlreadyExists === false ) {
+
 		// Add new survey
 		const savingSurveyProcess = await questionsController.addSurvey(survey);
 
@@ -38,26 +37,45 @@ router.post('/', auth.isAuthenticated, async (request,response)=>{
 		})
 	}
 	else {
-		// Save current survey
-		const savingSurveyProcess = await questionsController.updateSurvey(survey.id,survey);
+		// Check if the user owns the data and authorized to make changes on it!!!
+ 		const isOwnIt = await Question.findOne({ _id: survey.id, user_id: user.id }) !== null ? true : false;
 
-		// Response
-		response.json({
-			saved : savingSurveyProcess.saved,
-			message : savingSurveyProcess.message,
-			survey_id : savingSurveyProcess.survey_id
-		})
+ 		if (isOwnIt == true){
+
+ 			// Save current survey
+			const savingSurveyProcess = await questionsController.updateSurvey(survey.id,survey);
+
+			// Response
+			response.json({
+				saved : savingSurveyProcess.saved,
+				message : savingSurveyProcess.message,
+				survey_id : savingSurveyProcess.survey_id
+			})	
+ 		}
+ 		else {
+
+ 			response.json({
+ 				saved : false,
+ 				message : "Your not authorized to make changes in this survey!"
+ 			})
+ 		}
 	}
-	
 })
 
-router.delete('/:id',(request,response)=>{
+router.delete('/:id',auth.isAuthenticated , async(request,response)=>{
+
+	// Get the authenticated user
+	const user = request.user;
+
 	// Check if the user owns the data and authorized to make changes on it!!!
-	//////////////////////////////////////////////////////////////////////////
-	// Use the appropriate controller
-	// Logic
- 	// Delete
- 	questionsController.deleteSurvey('difbndib');
+	const isOwnIt = await Question.findOne({ _id: survey.id, user_id: user.id }) !== null ? true : false;
+
+	if (isOwnIt == true){
+
+	}
+	else {
+		
+	}
 })
 
 

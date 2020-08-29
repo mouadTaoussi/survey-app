@@ -13,75 +13,151 @@
 	  <li style="cursor:pointer;" class="list-group-item edit-tab active">Edit</li>
 	  <li style="cursor:pointer;" class="list-group-item responses-tab">Responses</li>
 	</ul>
-	<p><%= survey %></p>
 	<!-- <h1>Survey Editor</h1> -->
 	<!-- ---------------------------------------------------------- -->
 	<!-- ---------------------------------------------------------- -->
 	<!-- ---------------------------------------------------------- -->
 	<div class="survey-editor">
+
 		<div class="survey-editor-preview">
-			<!-- Description Place -->
-			<!-- Description Place -->
-			<div class="desc local-card local-mt-4 local-p-2 local-shadow">
+			<% if ( survey !== null ) { %>
+				<div class="desc local-card local-mt-4 local-p-2 local-shadow">
 			
-				<input 
-				    type="text" 
-				    name="survey-title" 
-				    class="form-control survey-title local-mt-2" 
-				    placeholder="Title of this survey">
-				<textarea  
-				    type="text" 
-				    name="survey-description" 
-				    class="form-control survey-description local-mt-2"
-				    placeholder="A Description of this survey"
-				 ></textarea>
-				 <p class="text-left local-mt-2">Survey ID: <strong class="survey_id">---</strong></p>
-				
-			</div>
-			<div class="questions_list">
-				<!-- Single Question -->
-				<!-- Single Question -->
-				<div class="single-question local-card local-mt-2 local-p-2 local-shadow" draggable='true'>
-					<!-- Dragable section -->
-					<div class="dragable">
-						<div></div><div></div><div></div>
-						<div></div><div></div><div></div>
-					</div>
-					<!-- Quetsion or title -->
-					<input class="form-control mt-2" placeholder='Which question you wanna write here?' required>
-					<!-- Files inputs -->
-					<div class="custom-file files-attachment">
-						<input type="file" class="custom-file-input" id="validatedCustomFile" onchange='getFile(event)'>
-						<label class="custom-file-label" for="validatedCustomFile">Choose files...</label>
-						<div class="invalid-feedback">Example invalid custom file feedback</div>
-					</div>
-					<!-- Options -->
-					<div class="options-area">
-						<ul class="options-list">
-							<li class="option-item">
-								<input type="text" placeholder="Option" class="form-control" required>
-								<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
-							</li>
-							<li class="option-item">
-								<input type="text" placeholder="Option" class="form-control" required>
-								<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
-							</li>
-						</ul>
-						<p class="add-new-option p-2">Add new one +</p>
-					</div>
-					<!-- Settings -->
-					<div class="question_settings p-2">
-						<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
-						<select style="display: inline;width: 180px;" class='mx-2 form-control'>
-							<option>Multipe Choice</option>
-							<option>One Choice</option>
-							<option>Short paragraph</option>
-						</select>
+					<input 
+					    type="text" 
+					    name="survey-title" 
+					    class="form-control survey-title local-mt-2" 
+					    placeholder="Title of this survey"
+					    value="<%= survey.title %>">
+					<textarea  
+					    type="text" 
+					    name="survey-description" 
+					    class="form-control survey-description local-mt-2"
+					    placeholder="A Description of this survey"
+					 ><%= survey.description %></textarea>
+					 <p class="text-left local-mt-2">Survey ID: <strong class="survey_id"><%= survey.id %></strong></p>
+					
+				</div>
+				<div class="questions_list">
+					<!-- Single Question -->
+					<!-- Single Question -->
+					<% survey.questions.forEach((question)=>{ %>				
+						<div class="single-question local-card local-mt-2 local-p-2 local-shadow" draggable='true'>
+							<!-- Dragable section -->
+							<div class="dragable">
+								<div></div><div></div><div></div>
+								<div></div><div></div><div></div>
+							</div>
+							<!-- Quetsion or title -->
+							<input 
+								class="form-control mt-2" 
+								placeholder='Which question you wanna write here?'
+								value="<%= question.title %>" 
+								required
+							>
+							<!-- Files inputs -->
+							<div class="custom-file files-attachment">
+								<input type="file" class="custom-file-input" id="validatedCustomFile" onchange='getFile(event)'>
+								<label class="custom-file-label" for="validatedCustomFile">Choose files...</label>
+								<div class="invalid-feedback">Example invalid custom file feedback</div>
+							</div>
+							<!-- Options -->
+							<div class="options-area">
+								<ul class="options-list">
+									<% question.options.forEach((option)=>{ %>
+									<li class="option-item">
+										<input 
+											type="text" 
+											placeholder="Option" 
+											class="form-control" 
+											required 
+											value="<%= option %>"
+										>
+										<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
+									</li>
+									<% }) %>
+								</ul>
+								<p class="add-new-option p-2">Add new one +</p>
+							</div>
+							<!-- Settings -->
+							<div class="question_settings p-2">
+								<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
+								<select style="display: inline;width: 180px;" class='mx-2 form-control'>
+									<option>Multipe Choice</option>
+									<option>One Choice</option>
+									<option>Short paragraph</option>
+								</select>
+							</div>
+						</div>
+					<% }) %>
+				</div>
+			<% } else { %>
+				<div class="desc local-card local-mt-4 local-p-2 local-shadow">
+			
+					<input 
+					    type="text" 
+					    name="survey-title" 
+					    class="form-control survey-title local-mt-2" 
+					    placeholder="Title of this survey">
+					<textarea  
+					    type="text" 
+					    name="survey-description" 
+					    class="form-control survey-description local-mt-2"
+					    placeholder="A Description of this survey"
+					 ></textarea>
+					 <p class="text-left local-mt-2">Survey ID: <strong class="survey_id">---</strong></p>
+					
+				</div>
+				<div class="questions_list">
+					<!-- Single Question -->
+					<!-- Single Question -->
+					<div class="single-question local-card local-mt-2 local-p-2 local-shadow" draggable='true'>
+						<!-- Dragable section -->
+						<div class="dragable">
+							<div></div><div></div><div></div>
+							<div></div><div></div><div></div>
+						</div>
+						<!-- Quetsion or title -->
+						<input class="form-control mt-2" placeholder='Which question you wanna write here?' required>
+						<!-- Files inputs -->
+						<div class="custom-file files-attachment">
+							<input type="file" class="custom-file-input" id="validatedCustomFile" onchange='getFile(event)'>
+							<label class="custom-file-label" for="validatedCustomFile">Choose files...</label>
+							<div class="invalid-feedback">Example invalid custom file feedback</div>
+						</div>
+						<!-- Options -->
+						<div class="options-area">
+							<ul class="options-list">
+								<li class="option-item">
+									<input type="text" placeholder="Option" class="form-control" required>
+									<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
+								</li>
+								<li class="option-item">
+									<input type="text" placeholder="Option" class="form-control" required>
+									<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
+								</li>
+							</ul>
+							<p class="add-new-option p-2">Add new one +</p>
+						</div>
+						<!-- Settings -->
+						<div class="question_settings p-2">
+							<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
+							<select style="display: inline;width: 180px;" class='mx-2 form-control'>
+								<option>Multipe Choice</option>
+								<option>One Choice</option>
+								<option>Short paragraph</option>
+							</select>
+						</div>
 					</div>
 				</div>
-			</div>
+			<% } %>
+			<!-- Description Place -->
+			<!-- Description Place -->
 			<button class="local-btn local-btn-primary local-mt-2 local-mb-2 float-right btn-save-changes">Save Changes</button>
 		</div>
+		<!-------------------- Tools ----------------------->
+		<!-------------------- Tools ----------------------->
+		<!-------------------- Tools ----------------------->
 		<div class="survey-editor-tools">
 			<div class="tools-panel local-mt-4  local-shadow local-p-2">
 				<ul class="tools-list">

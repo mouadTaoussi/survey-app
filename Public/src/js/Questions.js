@@ -83,8 +83,8 @@ if (window.location.pathname === "/surveyEditor" ){
 		// Insert questions (survey) info
 		survey.questions   = [];
 		survey.user_id     = null;
-		survey.description = document.querySelector('.survey-title').value;/*survey_info.children[0].value;*/
-		survey.title       = document.querySelector('.survey-description').value;/*survey_info.children[1].value;*/
+		survey.description = document.querySelector('.survey-description').value;/*survey_info.children[0].value;*/
+		survey.title       = document.querySelector('.survey-title').value;/*survey_info.children[1].value;*/
 		survey.active      = true; 
 		survey.id          = document.querySelector('.survey_id').innerText !== "---" ? document.querySelector('.survey_id').innerText : null; 
 
