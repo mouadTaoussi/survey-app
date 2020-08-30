@@ -38,12 +38,30 @@ class Questions {
 					return { found : false, data : null }
 				}
 			}
+			// To get a survey by its id 
+			else if ( user_id == null && survey_id !== null ){
+				
+				const survey = await Question.findOne({ _id: survey_id });
+
+				if ( survey !== null ) {
+					return { found : true, data : survey }	
+				}
+				else {
+					return { found : false, data : null }
+				}
+			}
+			else {
+				return {
+					found : false
+				}
+			}
 		}
 		catch (err){
 			return {
 				found : false, message : "Something went wrong!"
 			}
 		}
+
 	}
 	async updateSurvey(questions_id,questions){
 

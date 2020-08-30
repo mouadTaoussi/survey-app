@@ -171,11 +171,21 @@ router.get('/surveyEditor', validators.checkLanguage, auth.isAuthenticated, asyn
 })
 
 
-router.get('/submitResponse',validators.checkLanguage,(request,response)=>{
-	
-	// render the pages by language specefied
-	response.render(`${request.lang.langPages}/SubmitSurveyResponse`);
+router.get('/submitResponse', validators.checkLanguage, async(request,response)=>{
+	// Survey ID
+	const survey_id = request.query.survey_id;
 
+	// Get the survey
+	const getSurvey = await questionsController.findSurvey( null, survey_id );
+
+	// Checking ...
+	if ( getSurvey.found ){
+		// render the pages by language specefied
+		response.render(`${request.lang.langPages}/SubmitSurveyResponse`, { survey: getSurvey.data });
+	}
+	else {
+		response.redirect(`/notFound?lang=${request.lang.langShortcut}`);
+	}
 })
 
 

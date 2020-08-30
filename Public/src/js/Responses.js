@@ -24,3 +24,8 @@ var ctx = document.querySelectorAll("#canvas").forEach((canva)=>{
 	    }
 	});
 });	
+
+// Submit response 
+window.submitSurveyResponse = ()=>{
+	alert('Submited');
+}
