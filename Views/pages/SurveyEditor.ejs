@@ -81,11 +81,25 @@
 							</div>
 							<!-- Settings -->
 							<div class="question_settings p-2">
-								<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
+								<i 
+								onclick="deleteField(event)" 
+								style="display: inline" 
+								class="delete-field mx-2 far fa-trash-alt"></i>
 								<select style="display: inline;width: 180px;" class='mx-2 form-control'>
-									<option>Multipe Choice</option>
-									<option>One Choice</option>
-									<option>Short paragraph</option>
+
+									<% if (question.type === "MultipleChoice") { %>
+									<%- "<option selected>MultipleChoice</option><option>OneChoice</option><option>ShortParagraph</option>" %>
+									
+									<% } else if (question.type === "OneChoice") { %>
+									<%- "<option>MultipleChoice</option><option selected>OneChoice</option><option>ShortParagraph</option>" %>
+									
+									<% } else if (question.type === "ShortParagraph") { %>
+									<%- "<option>MultipleChoice</option><option>OneChoice</option><option selected>ShortParagraph</option>" %>
+
+									<% } else { %>
+									<%- "<option>MultipleChoice</option><option>OneChoice</option><option>ShortParagraph</option>" %>
+									<% } %>
+
 								</select>
 							</div>
 						</div>
@@ -143,9 +157,9 @@
 						<div class="question_settings p-2">
 							<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
 							<select style="display: inline;width: 180px;" class='mx-2 form-control'>
-								<option>Multipe Choice</option>
-								<option>One Choice</option>
-								<option>Short paragraph</option>
+								<option>MultipleChoice</option>
+								<option>OneChoice</option>
+								<option>ShortParagraph</option>
 							</select>
 						</div>
 					</div>
@@ -221,7 +235,7 @@
 	<!-- ---------------------------------------------------------- -->
 	<!-- ---------------------------------------------------------- -->
 	<div class="responses">
-		<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+		<!-- <div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
 			<h4 class="">This is an example of a card!</h4>
 			<p class="">This is an example of an card! This is an example of an card! This is an example of an card! This is an example of an card!</p>
 			<div class="chart-area">
@@ -248,7 +262,7 @@
 			<div class="chart-area">
 				<canvas id="canvas"></canvas>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </div>
 </body>

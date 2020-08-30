@@ -147,7 +147,7 @@ router.post('/updateUser', auth.isAuthenticated, async (request,response)=>{
 router.get('/logout', (request,response)=>{
 	request.session.destroy(function(err) {
 		// cannot access session here
-		response.redirect('/');
+		response.redirect('/login');
 	})
 })
 router.get('/getFirebaseConfig',auth.isAuthenticated,(request,response)=>{

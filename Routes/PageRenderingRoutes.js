@@ -20,7 +20,7 @@ const router = express.Router();
 
 // route    GET
 // desc     render default pages or redirected to it ! ! !
-router.get('/',validators.checkLanguage,(request,response)=>{
+router.get('/',validators.checkLanguage, auth.isLoggedin, (request,response)=>{
 
 	// render the pages by language specefied
 	response.render(`${request.lang.langPages}/`);
@@ -157,6 +157,9 @@ router.get('/surveyEditor', validators.checkLanguage, auth.isAuthenticated, asyn
 		// Use the appropriate controller
 		const survey = await questionsController.findSurvey( user.id, request.query.survey_id );
 
+		// Find responses
+		// Proccess responses to get the answers results to display them in chart
+		
 		if ( !survey.found ) {
 			response.redirect(`/notFound?lang=${request.lang.langShortcut}`);
 		}

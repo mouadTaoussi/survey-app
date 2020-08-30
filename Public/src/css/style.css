@@ -18,7 +18,7 @@
 }
 
 body {
-	background-color: white,var(--light);/**/
+	background-color: /*white,/*/var(--light);/**/
 	color: var(--dark);
 }
 h1,h2,h3,h5,h6 {
@@ -219,6 +219,7 @@ h1,h2,h3,h5,h6 {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover; 
+	/*background-attachment: fixed;*/
 }
 .show-app {
 	background-image: url('.././assets/AppViewInBrowser.svg');

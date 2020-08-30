@@ -112,13 +112,10 @@ class Questions {
 						// console.log(responses[o].response[i]);
 						if (options[k] === responses[o].response[i].result[0]){
 
-							// result.push(options[k]);
-							resultOfQuestion[k]++;
+						// result.push(options[k]);
+						resultOfQuestion[k]++;
 
-						}
-						else {
-							continue;
-						}
+						} else { continue; }
 					}			
 				}
 
@@ -150,13 +147,10 @@ class Questions {
 							// console.log(responses[o].response[i]);
 							if (options[k] === responses[o].response[i].result[x]){
 
-								// result.push(options[k]);
-								resultOfQuestion[k]++;
+							// result.push(options[k]);
+							resultOfQuestion[k]++;
 
-							}
-							else {
-								continue;
-							}
+							} else { continue; }
 						}
 					}			
 				}
