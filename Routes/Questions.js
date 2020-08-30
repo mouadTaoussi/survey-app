@@ -10,7 +10,7 @@ const questionsController = new Questions();
 // Init router
 const router = express.Router();
 
-router.post('/', auth.isAuthenticated, async (request,response)=>{
+router.post('/',validators.checkLanguage, auth.isAuthenticated, async (request,response)=>{
 	// Get the survey body
 	const survey = request.body; 
 
@@ -56,25 +56,34 @@ router.post('/', auth.isAuthenticated, async (request,response)=>{
 
  			response.json({
  				saved : false,
- 				message : "Your not authorized to make changes in this survey!"
+ 				message : "You're not authorized to make changes in this survey!"
  			})
  		}
 	}
 })
 
-router.delete('/:id',auth.isAuthenticated , async(request,response)=>{
+router.delete('/:id',validators.checkLanguage, auth.isAuthenticated , async(request,response)=>{
 
 	// Get the authenticated user
 	const user = request.user;
 
 	// Check if the user owns the data and authorized to make changes on it!!!
-	const isOwnIt = await Question.findOne({ _id: survey.id, user_id: user.id }) !== null ? true : false;
+	const isOwnIt = await Question.findOne({ _id: request.params.id, user_id: user.id }) !== null ? true : false;
 
 	if (isOwnIt == true){
-
+		const deletingSurveyProcess = await questionsController.deleteSurvey(request.params.id);
+		// Return
+		response.json({
+			deleted : deletingSurveyProcess.deleted,
+			message : deletingSurveyProcess.message
+		})
 	}
 	else {
-		
+		// Return
+		response.json({
+			deleted : false,
+			message : "You're not authorized to delete this survey!"
+		})	
 	}
 })
 

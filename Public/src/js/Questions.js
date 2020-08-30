@@ -136,10 +136,43 @@ if (window.location.pathname === "/surveyEditor" ){
 			
 		})
 		.catch((err)=>{
-			alert(err);
+			window.displayAlertMessage( false,"Something went wrong!" );
 		})
 	})
 	// Receive questions (survey)
-	// Delete questions (survey)
 	// Disable questions (survey)
+}
+
+// Delete questions (survey)
+window.deleteSurvey = function(event,survey_id){
+	// Makeing sure that the user wants t delete the current survey
+	const confirmation = window.confirm('Are you really want to delete this survey?');
+
+	if (confirmation == false) return 'Canelled';
+
+	// Axios request
+	axios({
+		url : '/question/'+ survey_id,
+		method : "DELETE",
+	})
+	.then((response)=>{
+		console.log(response)
+		if ( response.data.deleted ) {
+
+			// Remove the current survey
+			event.path[2].remove();
+
+			// Display dynamic message
+			window.displayAlertMessage(response.data.deleted, response.data.message);
+		}
+		else {
+			// Display dynamic message
+			window.displayAlertMessage(response.data.deleted, response.data.message);
+		}
+		
+	})
+	.catch((err)=>{
+		// Display dynamic message
+		window.displayAlertMessage( false,"Something went wrong!" );
+	})
 }

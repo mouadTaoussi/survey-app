@@ -64,7 +64,21 @@ class Questions {
 		}
 		
 	}
-	deleteSurvey(questions_id){
+	async deleteSurvey(questions_id){
+		try {
+			const survey = await Question.findById(questions_id).remove();
+
+			return {
+				deleted : true,
+				message : "Survey deleted successfully!"
+			}
+		}
+		catch(err){
+			return {
+				deleted : false,
+				message : "Something went wrong!"
+			}
+		}
 		return 'question ' + questions_id + ' has been deleted!!!' ;
 	}
 	processSurveyResponses(questions/** Object **/,responses/** Array **/){
