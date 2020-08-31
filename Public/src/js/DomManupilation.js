@@ -102,9 +102,9 @@ if (window.location.pathname === "/surveyEditor" ) {
 		question_settings.innerHTML  = `
 		<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
 		<select style="display: inline;width: 180px;" class='mx-2 form-control'>
-			<option>Multipe Choice</option>
-			<option>One Choice</option>
-			<option>Short paragraph</option>
+			<option>MultipeChoice</option>
+			<option>OneChoice</option>
+			<option>ShortParagraph</option>
 		</select>
 		`;
 

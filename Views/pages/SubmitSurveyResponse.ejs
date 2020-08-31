@@ -6,36 +6,41 @@
 </head>
 <body>
 <div class="local-container-4">
-	<div class="desc local-card local-mt-2 local-p-2">
+	<div class="desc local-card local-mt-2 local-p-2 shadow">
 		<h2 clas="text-left"><%= survey.title %></h2>
 		<p clas="text-left">
 			<%= survey.description %>
 		</p>
 	</div>
 	<% survey.questions.forEach((question)=>{ %>
-	<div class="local-card local-mt-2 local-p-2">
-		<p><%= question.title %></p>
-		<div class="options-area">
+	<div class="single-response local-card local-mt-2 local-p-2 shadow">
+		<p><strong><%= question.title %></strong></p>
+		<!-- Check if any files provided -->
+		<% if (question.file !== null) {%>
+			<a href="<%= question.file %>" class='' target='_blank'>Check file attachment</a>
+		<% } %>
+		<div class="mt-2">
 			<% if (question.type === "OneChoice") {%>
+				<p class="question-type"><%= question.type %></p>
 				<select class="form-control question-inputs">
 					<% question.options.forEach((option)=>{ %>
-					<option><%= option %></option>
+  						<option><%= option %></option>
 					<% }) %>
 				</select>
 			<% } else if (question.type === "MultipleChoice") {%>
-				<select class="form-control question-inputs">
+					<p class="question-type"><%= question.type %></p>
 					<% question.options.forEach((option)=>{ %>
-					<option><%= option %></option>
+					<input type="checkbox" id="<%= option %>" name="option" value="<%= option %>">
+	  				<label for="<%= option %>"><%= option %></label><br>
 					<% }) %>
-				</select>
 			<% } else if (question.type === "ShortParagraph") {%>
-				<%-'<input type="text" class="form-control" id="ShortParagraph">'-%>
+				<p class="question-type"><%= question.type %></p>
+				<%-'<input type="text" class="form-control" id="ShortParagraph" placeholder="Write a short paragraph">'-%>
 			<% } %>
 		</div>
 	</div>
 	<% }) %>
 	<button class='float-right local-btn local-mt-2 local-mb-2 local-btn-primary' onclick='submitSurveyResponse()'>Submit</button>
-
 </div>
 </body>
 <%-   include('.././partials/ScriptTags')   %>

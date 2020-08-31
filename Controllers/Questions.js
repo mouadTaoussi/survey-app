@@ -128,7 +128,7 @@ class Questions {
 					for (var o = 0; o < responses.length; o++) {
 
 						// console.log(responses[o].response[i]);
-						if (options[k] === responses[o].response[i].result[0]){
+						if (options[k] === responses[o].responses[i].result[0]){
 
 						// result.push(options[k]);
 						resultOfQuestion[k]++;
@@ -160,10 +160,10 @@ class Questions {
 					// Loop over responses in the database ! ! !
 					for (var o = 0; o < responses.length; o++) {
 						// Loop over result of single respone to compare them within options
-						for (var x = 0; x < responses[o].response[i].result.length; x++) {
+						for (var x = 0; x < responses[o].responses[i].result.length; x++) {
 							
 							// console.log(responses[o].response[i]);
-							if (options[k] === responses[o].response[i].result[x]){
+							if (options[k] === responses[o].responses[i].result[x]){
 
 							// result.push(options[k]);
 							resultOfQuestion[k]++;
