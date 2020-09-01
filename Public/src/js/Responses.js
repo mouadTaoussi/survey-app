@@ -47,18 +47,18 @@ window.submitSurveyResponse = ()=>{
 		const response = {};
 
 		// Fill that object to the response object
-		response.type = single_responses[i].children[1].children[0].innerText;
-		response.title = single_responses[i].children[0].children[0].innerText 
+		response.title = single_responses[i].children[0].innerText;
+		response.type = single_responses[i].children[1].innerText;
 
 		// Get the answer 
 		if ( response.type === "OneChoice" ){
-			response.result = [single_responses[i].children[1].children[1].value];
+			response.result = [single_responses[i].children[2].children[0].value];
 		}
 		else if ( response.type === "MultipleChoice" ) {
-			response.result = [0,1,2,3,4];
+			response.result = single_responses[i].children[2].children;	
 		}
 		else if ( response.type === "ShortParagraph" ){
-			response.result = [single_responses[i].children[1].children[1].value];	
+			response.result = [single_responses[i].children[2].children[0].value];	
 		}
 
 

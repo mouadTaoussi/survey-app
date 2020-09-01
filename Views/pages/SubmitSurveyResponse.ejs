@@ -15,29 +15,27 @@
 	<% survey.questions.forEach((question)=>{ %>
 	<div class="single-response local-card local-mt-2 local-p-2 shadow">
 		<p><strong><%= question.title %></strong></p>
-		<!-- Check if any files provided -->
-		<% if (question.file !== null) {%>
-			<a href="<%= question.file %>" class='' target='_blank'>Check file attachment</a>
-		<% } %>
-		<div class="mt-2">
+		<p class="question-type"><%= question.type %></p>
+		<div class="options">
 			<% if (question.type === "OneChoice") {%>
-				<p class="question-type"><%= question.type %></p>
 				<select class="form-control question-inputs">
 					<% question.options.forEach((option)=>{ %>
   						<option><%= option %></option>
 					<% }) %>
 				</select>
 			<% } else if (question.type === "MultipleChoice") {%>
-					<p class="question-type"><%= question.type %></p>
 					<% question.options.forEach((option)=>{ %>
 					<input type="checkbox" id="<%= option %>" name="option" value="<%= option %>">
 	  				<label for="<%= option %>"><%= option %></label><br>
 					<% }) %>
 			<% } else if (question.type === "ShortParagraph") {%>
-				<p class="question-type"><%= question.type %></p>
 				<%-'<input type="text" class="form-control" id="ShortParagraph" placeholder="Write a short paragraph">'-%>
 			<% } %>
 		</div>
+		<!-- Check if any files provided -->
+		<% if (question.file !== null) {%>
+			<a href="<%= question.file %>" class='' target='_blank'>Check file attachment</a>
+		<% } %>
 	</div>
 	<% }) %>
 	<button class='float-right local-btn local-mt-2 local-mb-2 local-btn-primary' onclick='submitSurveyResponse()'>Submit</button>
