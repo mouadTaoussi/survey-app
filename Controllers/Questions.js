@@ -102,18 +102,17 @@ class Questions {
 	processSurveyResponses(questions/** Object **/,responses/** Array **/){
 		// const questions.options = responses.responses[0].options;
 		// const
-
-		for (var i = 0; i < questions.question.length; i++) {
+		for (var i = 0; i < questions.questions.length; i++) {
 
 			// Result of an individual question ! ! !
-			const resultOfQuestion = []; 
-			
+			const resultOfQuestion = [];
+
 			// Check if question type wheather if multiple choice or one choice or short paragraph
-			if ( questions.question[i].type === 'OneChoice' ){
+			if ( questions.questions[i].type === 'OneChoice' ){
 				console.log("oneChoice");
 				// console.log(questions.question[i]);
 				// Get all options of an individual question ! ! !
-				const options = questions.question[i].options;
+				const options = questions.questions[i].options;
 
 				// console.log(options)
 
@@ -138,15 +137,15 @@ class Questions {
 				}
 
 				// Push resultOfQuestion to the individual quetion 
-				questions.question[i].result = resultOfQuestion;
-				
+				questions.questions[i].result = resultOfQuestion;
+				console.log("result: "+questions.questions[i].result)
 
 			}
-			else if ( questions.question[i].type === 'MultipleChoice' ){
+			else if ( questions.questions[i].type === 'MultipleChoice' ){
 				console.log("MultipleChoice");
 				// console.log(questions.question[i]);
 				// Get all options of an individual question ! ! !
-				const options = questions.question[i].options;
+				const options = questions.questions[i].options;
 
 				// console.log(options)
 
@@ -174,13 +173,15 @@ class Questions {
 				}
 
 				// Push resultOfQuestion to the individual quetion 
-				questions.question[i].result = resultOfQuestion;
+				questions.questions[i].result = resultOfQuestion;
 			}
-			else if ( questions.question[i].type === 'ShortParagraph' ){
+			else if ( questions.questions[i].type === 'ShortParagraph' ){
 				console.log("ShortParagraph");
 				continue;
 			}
+			console.log("before loop: " + questions)
 		}
+		console.log("After loop: " + questions)
 		// Output the the result attached in questions
 		return questions;
 

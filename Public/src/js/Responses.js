@@ -46,7 +46,7 @@ window.submitSurveyResponse = ()=>{
 		// Init the response
 		const response = {};
 
-		// Fill that object to the response object
+		// Init that response object
 		response.title = single_responses[i].children[0].innerText;
 		response.type = single_responses[i].children[1].innerText;
 
@@ -55,7 +55,36 @@ window.submitSurveyResponse = ()=>{
 			response.result = [single_responses[i].children[2].children[0].value];
 		}
 		else if ( response.type === "MultipleChoice" ) {
-			response.result = single_responses[i].children[2].children;	
+
+			// Init an array to push checkboxes to it!
+			const checkboxs = [];
+			const checkeds = [];
+
+			//Loop over Options to get the checkoxes inputs
+			for (var o = 0; o < single_responses[i].children[2].children.length; o++) {
+
+				// Get checkbox inputs
+				// We get just checkboxes rather than thier labels and br tags
+				// For get the checked checkboxes
+				if (single_responses[i].children[2].children[o].type === "checkbox" && single_responses[i].children[2].children[o].name === "option") {
+
+					checkboxs.push(single_responses[i].children[2].children[o]);
+
+				}
+				else { continue }
+			}
+
+			// get the checked checkboxes and put thier values in the single response
+			for (var io = 0; io < checkboxs.length; io++) {
+				
+				if (checkboxs[io].checked == true) {
+					checkeds.push(checkboxs[io].value);
+				}
+				else { continue; }
+			}
+			// Push the checked options to the result array
+			response.result = checkeds;
+
 		}
 		else if ( response.type === "ShortParagraph" ){
 			response.result = [single_responses[i].children[2].children[0].value];	
@@ -65,7 +94,22 @@ window.submitSurveyResponse = ()=>{
 		// Push response to the object 
 		survey_responses.responses.push(response);
 	}
-	console.log(survey_responses)
+
+	// Send the response to the back-end for save it !!!
+	axios({
+		url : "/response/submitResponse",
+		method : "POST",
+		data : survey_responses
+	})
+	.then((response)=>{
+		// window.displayAlertMessage( response.data.saved, response.data.message );
+		console.log(response.data)
+		alert("Thank you for giving us your time!!")
+	})
+	.catch((error)=>{
+		// window.displayAlertMessage( false,"Something went wrong!" );
+		alert('Something went wrong! Try again.')
+	})
 }
 
 // {
