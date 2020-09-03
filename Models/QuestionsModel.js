@@ -6,7 +6,8 @@ const Question = new mongoose.Schema({
 	title : String,
 	file : {type : String},
 	options : mongoose.Schema.Types.Mixed,
-	required : Boolean
+	required : Boolean,
+	result : [{type:Number,default : []}]
 });
 
 const Questions = new mongoose.Schema({

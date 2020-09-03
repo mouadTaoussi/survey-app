@@ -109,12 +109,10 @@ class Questions {
 
 			// Check if question type wheather if multiple choice or one choice or short paragraph
 			if ( questions.questions[i].type === 'OneChoice' ){
-				console.log("oneChoice");
-				// console.log(questions.question[i]);
+				// console.log("oneChoice");
+
 				// Get all options of an individual question ! ! !
 				const options = questions.questions[i].options;
-
-				// console.log(options)
 
 				// Loop over options to compare them within response results
 				for (var k = 0; k < options.length; k++) {
@@ -122,14 +120,11 @@ class Questions {
 					// increment some of them if possible 
 					resultOfQuestion.push(0);
 
-					// console.log(options[k])
 					// Loop over responses in the database ! ! !
 					for (var o = 0; o < responses.length; o++) {
 
-						// console.log(responses[o].response[i]);
-						if (options[k] === responses[o].responses[i].result[0]){
+						if (options[k] === responses[o].responses[i].result[0]){/***************************/
 
-						// result.push(options[k]);
 						resultOfQuestion[k]++;
 
 						} else { continue; }
@@ -138,16 +133,13 @@ class Questions {
 
 				// Push resultOfQuestion to the individual quetion 
 				questions.questions[i].result = resultOfQuestion;
-				console.log("result: "+questions.questions[i].result)
 
 			}
 			else if ( questions.questions[i].type === 'MultipleChoice' ){
-				console.log("MultipleChoice");
-				// console.log(questions.question[i]);
+				// console.log("MultipleChoice");
+
 				// Get all options of an individual question ! ! !
 				const options = questions.questions[i].options;
-
-				// console.log(options)
 
 				// Loop over options to compare them within response results
 				for (var k = 0; k < options.length; k++) {
@@ -155,16 +147,13 @@ class Questions {
 					// increment some of them if possible 
 					resultOfQuestion.push(0);
 
-					// console.log(options[k])
 					// Loop over responses in the database ! ! !
 					for (var o = 0; o < responses.length; o++) {
 						// Loop over result of single respone to compare them within options
 						for (var x = 0; x < responses[o].responses[i].result.length; x++) {
 							
-							// console.log(responses[o].response[i]);
-							if (options[k] === responses[o].responses[i].result[x]){
+							if (options[k] === responses[o].responses[i].result[x]){/***********************/
 
-							// result.push(options[k]);
 							resultOfQuestion[k]++;
 
 							} else { continue; }
@@ -176,14 +165,16 @@ class Questions {
 				questions.questions[i].result = resultOfQuestion;
 			}
 			else if ( questions.questions[i].type === 'ShortParagraph' ){
-				console.log("ShortParagraph");
+				// console.log("ShortParagraph");
 				continue;
 			}
-			console.log("before loop: " + questions)
 		}
-		console.log("After loop: " + questions)
+
 		// Output the the result attached in questions
-		return questions;
+		return { 
+			processed: true,
+		 	data : questions
+		};
 
 	}
 	validateSurvey(){

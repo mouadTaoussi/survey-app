@@ -14,7 +14,7 @@ googleStrategy : ()=>{
 		clientSecret: process.env.GOOGLE_SECRET,
 		callbackURL: "/auth/google/callback"
 	},
-	(accessToken,refreshToken,profile,done)=>{
+	async (accessToken,refreshToken,profile,done)=>{
 		// initialize user
 		const user = {
 			atProviderId : profile.id,
@@ -27,29 +27,29 @@ googleStrategy : ()=>{
 			avatar : profile.photos[0].value,
 			provider : profile.provider
 		}
+		
 		// check user in database
-		const UserInDb = User.findOne({atProviderId : user.atProviderId})
-		.then((data)=>{
+		const UserInDb = await User.findOne({atProviderId : user.atProviderId});
 
-			// user exists
-			if (data) {done(null,user)}
-			// user doesn't exits
-			else {
-				try {
-					// Check if email was taken by another user
-					///////////////////////////////////////////
-					new User(user).save();
-					done(null,user);
+		// user exists
+		if (UserInDb) { done(null,user); }
+		// user doesn't exits
+		else {
+			try {
+				// Check if email was taken by another user
+				///////////////////////////////////////////
+				const isEmailExists = await UserModel.find({ email: data.email });
+
+				if ( isEmailExists ) {
+					done("Email already exists!");
 				}
-				catch (err){
-					done(err);
+				else {
+					new User(user).save(); done(null,user);	
 				}
+				
 			}
-			
-		})
-		.catch((err)=>{
-			done(err);
-		});
+			catch (err){ done(err); }
+		}
 	}))
 },
 
@@ -60,43 +60,43 @@ githubStrategy : ()=>{
 		clientSecret: process.env.GITHUB_SECRET,
 		callbackURL: "/auth/github/callback"
 	},
-	(accessToken,refreshToken,profile,done)=>{
+	async (accessToken,refreshToken,profile,done)=>{
+
 		// initialize user
 		const user = {
 			atProviderId : profile.id,
 			name : profile.displayName,
 			fullName : {
-				familyName : profile.name.familyName || null,
-				givenName : profile.name.givenName || null
+				familyName : profile.displayName.split(' ')[1] || null,
+				givenName : profile.displayName.split(' ')[0] || null
 			},
 			userName : profile.username,
 			email : profile.email,
 			avatar : profile.photos[0].value,
 			provider : profile.provider
 		}
+
 		// check user in database
-		const UserInDb = User.findOne({atProviderId : user.atProviderId})
-		.then((data)=>{
-			// user exists
-			if (data) {done(null,user)}
-			// user doesn't exits
-			else {
-				try {
-					// Check if email was taken by another user
-					///////////////////////////////////////////
-					new User(user).save();
-					done(null,user);
+		const UserInDb = await User.findOne({atProviderId : user.atProviderId});
+
+		// user exists
+		if (UserInDb) { done(null,user); }
+		// user doesn't exits
+		else {
+			try {
+				// Check if email was taken by another user
+				///////////////////////////////////////////
+				const isEmailExists = await UserModel.find({ email: data.email });
+
+				if ( isEmailExists ) {
+					done("Email already exists!");
 				}
-				catch (err){
-					done(err);
+				else {
+					new User(user).save(); done(null,user);	
 				}
-			}
-			
-		})
-		.catch((err)=>{
-			done(err);
-		});
-		
+				
+			} catch (err){ done(err); }
+		}
 	}))
 },
 
@@ -109,7 +109,7 @@ linkedInStrategy : ()=>{
 		callbackURL: "/auth/linkedin/callback"
 
 	},
-	(accessToken,refreshToken,profile,done)=>{
+	async (accessToken,refreshToken,profile,done)=>{
 		// initialize user
 		const user = {
 			atProviderId : profile.id,
@@ -122,28 +122,28 @@ linkedInStrategy : ()=>{
 			avatar : profile.photos[0].value,
 			provider : profile.provider
 		}
+		
 		// check user in database
-		const UserInDb = User.findOne({atProviderId : user.atProviderId})
-		.then((data)=>{
-			// user exists
-			if (data) {done(null,user)}
-			// user doesn't exits
-			else {
-				try {
-					// Check if email was taken by another user
-					///////////////////////////////////////////
-					new User(user).save();
-					done(null,user);
+		const UserInDb = await User.findOne({atProviderId : user.atProviderId});
+
+		// user exists
+		if (UserInDb) { done(null,user); }
+		// user doesn't exits
+		else {
+			try {
+				// Check if email was taken by another user
+				///////////////////////////////////////////
+				const isEmailExists = await UserModel.find({ email: data.email });
+
+				if ( isEmailExists ) {
+					done("Email already exists!");
 				}
-				catch (err){
-					done(err);
+				else {
+					new User(user).save(); done(null,user);	
 				}
-			}
-			
-		})
-		.catch((err)=>{
-			done(err);
-		});
+				
+			} catch (err){ done(err); }
+		}
 	}))
 },
 

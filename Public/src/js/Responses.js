@@ -2,30 +2,45 @@ import { Chart } from 'chart.js';
 import axios from 'axios';
 
 
-// Submit response
-// Get the responses and display them
-var ctx = document.querySelectorAll("#canvas").forEach((canva)=>{
-	// Axios
-	const ctx = canva.getContext("2d");
-	const data = {
-	    datasets: [{
-	        data: [10, 20, 30,50,20],
-	        backgroundColor: ["#00b894","#0984e3","#d63031","#f53b57","#ffa801"]
-	    }],
-	    // These labels appear in the legend and in the tooltips when hovering different arcs
-	    labels: ['Other','I dont think','Yep','Nope','Not sure',]
-	};
-	// For a pie chart
-	var myPieChart = new Chart(ctx, {
-	    type: 'pie',
-	    data: data,
-	    options: {
-	        legend: { display: true,labels: {fontColor: 'rgba(0, 0, 0,.60)', position: 'right'}}
-	    }
-	});
-});	
+axios({
+	url : "/response/processSurveyResponses",
+	method : "GET",
+})
+.then((response)=>{
+	if ( response.data.processed == false ) {
+		window.displayAlertMessage( response.data.processed, response.data.message );
+	}
+	else {
+		// Get the responses and display them
+		var ctx = document.querySelectorAll("#canvas").forEach((canva)=>{
+			// Axios
+			const ctx = canva.getContext("2d");
+			const data = {
+			    datasets: [{
+			        data: [10, 20, 30,50,20],
+			        backgroundColor: ["#00b894","#0984e3","#d63031","#f53b57","#ffa801"]
+			    }],
+			    // These labels appear in the legend and in the tooltips when hovering different arcs
+			    labels: ['Other','I dont think','Yep','Nope','Not sure',]
+			};
+			// For a pie chart
+			var myPieChart = new Chart(ctx, {
+			    type: 'pie',
+			    data: data,
+			    options: {
+			        legend: { display: true,labels: {fontColor: 'rgba(0, 0, 0,.60)', position: 'right'}}
+			    }
+			});
+		});	
+	}
+})
+.catch((error)=>{
+	window.displayAlertMessage( response.data.processed, response.data.message );
+})
 
-// Submit response 
+
+
+// Submit response // Submit response
 window.submitSurveyResponse = ()=>{
 	// Get question ID
 	const urlParams = new URLSearchParams(window.location.search);
@@ -104,26 +119,10 @@ window.submitSurveyResponse = ()=>{
 	.then((response)=>{
 		// window.displayAlertMessage( response.data.saved, response.data.message );
 		console.log(response.data)
-		alert("Thank you for giving us your time!!")
+		alert("Thank you for giving us your time and submitting your answers!!")
 	})
 	.catch((error)=>{
 		// window.displayAlertMessage( false,"Something went wrong!" );
 		alert('Something went wrong! Try again.')
 	})
 }
-
-// {
-// 	question_id : "dfib nifdcubnisdn",
-// 	response : [
-// 		{
-// 				type : 'OneChoice',
-// 				question : "how many pro langs you know?",
-// 				result : [2]
-// 		},
-// 		{   
-// 				type : 'MultipleChoice',
-// 				question : "which langs you know?",
-// 				result : ['go']
-// 		}
-// 	]
-// },
