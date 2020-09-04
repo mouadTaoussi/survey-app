@@ -39,7 +39,7 @@
 			  	<% if (surveys) { %>
 					<% surveys.forEach((survey)=>{%> 
 					  <tr>
-					    <td><a href="/surveyEditor?survey_id=<%= survey.id %>"><%= survey.id %></a></td>
+					    <td><a href="/surveyEditor?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>"><%= survey.id %></a></td>
 					    <td><%= survey.title %></td>
 					    <td>
 					    	<p class="badge <% if (survey.active) {%><%= 'badge-success' %><%} else { %><%= 'badge-danger' %><% } %>">
@@ -143,6 +143,9 @@
 	      </div>
 	    </div>
 	  </div>
+	</div>
+	<div style="margin-top: 70px">
+	<%-   include('.././partials/footer')   %>
 	</div>
 </div>
 </body>

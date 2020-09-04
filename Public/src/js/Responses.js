@@ -2,43 +2,67 @@ import { Chart } from 'chart.js';
 import axios from 'axios';
 
 
-axios({
-	url : "/response/processSurveyResponses",
-	method : "GET",
-})
-.then((response)=>{
-	if ( response.data.processed == false ) {
+if ( window.location.pathname === "/surveyEditor" ){
+	// Get question ID
+	const urlParams = new URLSearchParams(window.location.search);
+	const survey_id = urlParams.get('survey_id');
+	const user_id = urlParams.get('user_id');
+
+	// Get the response results and then display them in the chart
+	axios({
+		url : `/response/processSurveyResponses?survey_id=${survey_id}&user_id=${user_id}`,
+		method : "GET",
+	})
+	.then((response)=>{
+		if ( response.data.processed == false ) {
+			window.displayAlertMessage( response.data.processed, response.data.message );
+		}
+		else {
+			// Get the resposnes list 
+			const responses_area = document.querySelector('.responses');
+
+			for (var i = 0; i < response.data.data.questions.length; i++) {
+				// Single response html
+				const single_responses = `
+				<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+					<h4 class="">${response.data.data.questions[i].title}</h4>
+					<p class="">${response.data.data.questions[i].type}</p>
+					<div class="chart-area">
+						<canvas id="#canvas${i}"></canvas>
+					</div>
+				</div>
+				`
+				// Inject the single response to the responses area
+				responses_area.innerHTML += single_responses;
+
+				// Get the responses and display them
+				var ctx = document.querySelector(`#canvas${i}`).getContext("2d");
+
+				const data = {
+				    datasets: [{
+				        data: response.data.data.questions[i].result,
+				        backgroundColor: ["#00b894","#0984e3","#d63031","#f53b57","#ffa801"]
+				    }],
+				    // These labels appear in the legend and in the tooltips when hovering different arcs
+				    labels: response.data.data.questions[i].options
+				};
+				// For a pie chart
+				var myPieChart = new Chart(ctx, {
+				    type: 'pie',
+				    data: data,
+				    options: {
+				        legend: { display: true,labels: {fontColor: 'rgba(0, 0, 0,.60)', position: 'right'}}
+				    }
+				});
+				
+			}
+
+		}
+	})
+	.catch((error)=>{
 		window.displayAlertMessage( response.data.processed, response.data.message );
-	}
-	else {
-		// Get the responses and display them
-		var ctx = document.querySelectorAll("#canvas").forEach((canva)=>{
-			// Axios
-			const ctx = canva.getContext("2d");
-			const data = {
-			    datasets: [{
-			        data: [10, 20, 30,50,20],
-			        backgroundColor: ["#00b894","#0984e3","#d63031","#f53b57","#ffa801"]
-			    }],
-			    // These labels appear in the legend and in the tooltips when hovering different arcs
-			    labels: ['Other','I dont think','Yep','Nope','Not sure',]
-			};
-			// For a pie chart
-			var myPieChart = new Chart(ctx, {
-			    type: 'pie',
-			    data: data,
-			    options: {
-			        legend: { display: true,labels: {fontColor: 'rgba(0, 0, 0,.60)', position: 'right'}}
-			    }
-			});
-		});	
-	}
-})
-.catch((error)=>{
-	window.displayAlertMessage( response.data.processed, response.data.message );
-})
-
-
+	})
+}
 
 // Submit response // Submit response
 window.submitSurveyResponse = ()=>{
@@ -118,7 +142,6 @@ window.submitSurveyResponse = ()=>{
 	})
 	.then((response)=>{
 		// window.displayAlertMessage( response.data.saved, response.data.message );
-		console.log(response.data)
 		alert("Thank you for giving us your time and submitting your answers!!")
 	})
 	.catch((error)=>{

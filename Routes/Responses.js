@@ -18,33 +18,43 @@ router.post('/submitResponse',async (request,response)=>{
 	response.json(await responsesController.submitResponses(request.body));
 })
 
-
-
-
 router.get('/processSurveyResponses', async(request,response)=>{
 	// Get the queries
+	const {  user_id, survey_id } = request.query;
 	// Get the survey
-	// const questions = await questionsController.findSurvey( request.query.user_id, request.query.survey_id );
+	const questions = await questionsController.findSurvey( user_id, survey_id );
     // Get thier responses
-	// const responses = await responsesController.findResponses(request.query.survey_id);
+	const responses = await responsesController.findResponses( survey_id );
 	// Get the results of the survey
-	// const processing  = await questionsController.processSurveyResponses(questions.data,responses.data);
+	const processing  = await questionsController.processSurveyResponses( questions.data, responses.data );
+
 	// Use cash (redis) to cash the result for let user dwonload them
+	// databaseConnection.set(survey_id, JSON.stringify(processing.processed),(err,result)=>{
+	// 	if(err){
+	// 		response.send({
+	// 			processed : false,
+	// 			message : "Something went wrong!"
+	// 		})	
+	// 	}
+	// 	else {
+	// 		console.log(result)
+	// 	}
+	// });
+
 	// Checking ...
-	// if( responses.found && questions.found && processing.processed ) {
+	if( responses.found && questions.found && processing.processed ) {
 
-	// 	response.send({
-	// 		processed : processing.processed,
-	// 		data :  processing.data 
-	// 	})		
-	// }else {
-	// 	response.send({
-	// 		processed : false,
-	// 		message :  "Something went wrong! Try again."
-	// 	})		
-	// }
+		response.send({
+			processed : processing.processed,
+			data :  processing.data 
+		})		
+	}else {
+		response.send({
+			processed : false,
+			message :  "Something went wrong! Try again."
+		})		
+	}
 
-	response.send(processed)
 })
 
 
