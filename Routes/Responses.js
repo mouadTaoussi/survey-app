@@ -26,7 +26,9 @@ router.get('/processSurveyResponses', async(request,response)=>{
     // Get thier responses
 	const responses = await responsesController.findResponses( survey_id );
 	// Get the results of the survey
-	const processing  = await questionsController.processSurveyResponses( questions.data, responses.data );
+	const processing  = await questionsController.processSurveyResponses( 
+		questions.data, responses.data
+	);
 
 	// Use cash (redis) to cash the result for let user dwonload them
 	// databaseConnection.set(survey_id, JSON.stringify(processing.processed),(err,result)=>{
@@ -60,6 +62,8 @@ router.get('/processSurveyResponses', async(request,response)=>{
 
 
 router.get('/downloadResults',(request,response)=>{
+	// Get the queries
+	const {  user_id, survey_id } = request.query;
 	response.send("Downloading...");
 	// get the result from cash to dwonload them
 })

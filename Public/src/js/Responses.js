@@ -21,42 +21,83 @@ if ( window.location.pathname === "/surveyEditor" ){
 			// Get the resposnes list 
 			const responses_area = document.querySelector('.responses');
 
+			// Result of the responses without of MultipleChoice and OneChoice without ShortParagraph
+			// For use them to display charts
+			var results_without_short_paragraph = [];
+
+			// Display responses
 			for (var i = 0; i < response.data.data.questions.length; i++) {
-				// Single response html
-				const single_responses = `
-				<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
-					<h4 class="">${response.data.data.questions[i].title}</h4>
-					<p class="">${response.data.data.questions[i].type}</p>
-					<div class="chart-area">
-						<canvas id="#canvas${i}"></canvas>
-					</div>
-				</div>
-				`
-				// Inject the single response to the responses area
-				responses_area.innerHTML += single_responses;
 
-				// Get the responses and display them
-				var ctx = document.querySelector(`#canvas${i}`).getContext("2d");
+				var single_response; 
+				// Check question type 
+				if (response.data.data.questions[i].type === "ShortParagraph"){
 
-				const data = {
-				    datasets: [{
-				        data: response.data.data.questions[i].result,
-				        backgroundColor: ["#00b894","#0984e3","#d63031","#f53b57","#ffa801"]
-				    }],
-				    // These labels appear in the legend and in the tooltips when hovering different arcs
-				    labels: response.data.data.questions[i].options
-				};
-				// For a pie chart
-				var myPieChart = new Chart(ctx, {
-				    type: 'pie',
-				    data: data,
-				    options: {
-				        legend: { display: true,labels: {fontColor: 'rgba(0, 0, 0,.60)', position: 'right'}}
-				    }
-				});
+					// Single response html
+					single_response = `
+					<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+						<h4>${response.data.data.questions[i].title}</h4>
+						<p>${response.data.data.questions[i].type}</p>
+						<p>ShortParagraph1</p>
+					</div>`
+
+				}else {
+
+					// Single response html
+					single_response = `
+					<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+						<h4>${response.data.data.questions[i].title}</h4>
+						<p>${response.data.data.questions[i].type}</p>
+						<div class="chart-area">
+							<canvas id="canvas${i}"></canvas>
+						</div>
+					</div>	
+					`
+					// Push just MultipleChoice and OneChoice results t use them below in charts
+					results_without_short_paragraph[i] = ({
+						result:response.data.data.questions[i].result,
+						options:response.data.data.questions[i].options
+					})
+				}
 				
-			}
+				// Inject the single response to the responses area
+				responses_area.innerHTML += single_response;
+				console.log(results_without_short_paragraph)
 
+			}
+			// Display Results charts
+			for (var i = 0; i < results_without_short_paragraph.length; i++) {
+
+				if( results_without_short_paragraph[i] !== undefined ) {
+
+					// // Get the responses and display them
+					let ctx = document.querySelector(`#canvas${i}`).getContext("2d");
+
+					let data = {
+					    datasets: [{
+					        data: results_without_short_paragraph[i].result,
+					        backgroundColor: [
+					        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+					        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+					        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+					        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+					        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+					        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+					        ]
+					    }],
+					    // These labels appear in the legend and in the tooltips when hovering different arcs
+					    labels: results_without_short_paragraph[i].options
+					};
+					// For a pie chart
+					let myPieChart = new Chart(ctx, {
+					    type: 'pie',
+					    data: data,
+					    options: {
+					        legend: { position: 'right', labels: {fontColor: 'rgba(0, 0, 0,.60)'}}
+					    }
+					});
+
+				}else { continue }
+			}
 		}
 	})
 	.catch((error)=>{

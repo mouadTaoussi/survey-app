@@ -129,9 +129,11 @@ if (window.location.pathname === "/surveyEditor" ) {
 	})
 
 	// Init that function for add new option if the user hasn't added one more question field
-	if (addoption.length == 0){
-		addNewOption(addoption,list);	
-	}
+	// if (addoption.length == 0){
+	// 	addNewOption(addoption,list);	
+	// }
+	addNewOption(addoption,list);
+	
 	function addNewOption(addoption,list){
 		for (let i = 0; i < addoption.length; i++) {
 		addoption[i].addEventListener('click',()=>{

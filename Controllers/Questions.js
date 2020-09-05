@@ -102,6 +102,8 @@ class Questions {
 	processSurveyResponses(questions/** Object **/,responses/** Array **/){
 		// const questions.options = responses.responses[0].options;
 		// const
+		// console.log(questions)
+		// console.log(responses)
 		for (var i = 0; i < questions.questions.length; i++) {
 
 			// Result of an individual question ! ! !
