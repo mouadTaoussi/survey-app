@@ -13,6 +13,8 @@ if (window.location.pathname === "/surveyEditor" ) {
 		document.querySelector('.responses').style.display = 'block';
 		responses_tab.classList.add('active');
 		edit_tab.classList.remove('active');
+		// Get results
+		window.getResults();  // located in ./Responses.js:7:12
 	})
 
 	// Sortable list feature !!

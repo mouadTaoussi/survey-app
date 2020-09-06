@@ -100,10 +100,7 @@ class Questions {
 		return 'question ' + questions_id + ' has been deleted!!!' ;
 	}
 	processSurveyResponses(questions/** Object **/,responses/** Array **/){
-		// const questions.options = responses.responses[0].options;
-		// const
-		// console.log(questions)
-		// console.log(responses)
+
 		for (var i = 0; i < questions.questions.length; i++) {
 
 			// Result of an individual question ! ! !
@@ -111,25 +108,29 @@ class Questions {
 
 			// Check if question type wheather if multiple choice or one choice or short paragraph
 			if ( questions.questions[i].type === 'OneChoice' ){
-				// console.log("oneChoice");
-
 				// Get all options of an individual question ! ! !
 				const options = questions.questions[i].options;
 
 				// Loop over options to compare them within response results
 				for (var k = 0; k < options.length; k++) {
 					// Push initial zeros in the resultOfQuestions array for
-					// increment some of them if possible 
+					// increment some of them if option and result got matched 
 					resultOfQuestion.push(0);
 
 					// Loop over responses in the database ! ! !
 					for (var o = 0; o < responses.length; o++) {
+						/*1*/// Check the explanation of this checking (responses[o].responses[i] !== undefined)  below
+						if (responses[o].responses[i] !== undefined) {
 
-						if (options[k] === responses[o].responses[i].result[0]){/***************************/
+						if (options[k] === responses[o].responses[i].result[0]){
 
-						resultOfQuestion[k]++;
+						resultOfQuestion[k]++; /// Increment by one du to option and result matching
 
-						} else { continue; }
+						} 
+						else { continue; }
+
+						}
+						else { continue }
 					}			
 				}
 
@@ -138,7 +139,6 @@ class Questions {
 
 			}
 			else if ( questions.questions[i].type === 'MultipleChoice' ){
-				// console.log("MultipleChoice");
 
 				// Get all options of an individual question ! ! !
 				const options = questions.questions[i].options;
@@ -146,20 +146,26 @@ class Questions {
 				// Loop over options to compare them within response results
 				for (var k = 0; k < options.length; k++) {
 					// Push initial zeros in the resultOfQuestions array for
-					// increment some of them if possible 
+					// increment some of them if option and result got matched
 					resultOfQuestion.push(0);
 
 					// Loop over responses in the database ! ! !
 					for (var o = 0; o < responses.length; o++) {
-						// Loop over result of single respone to compare them within options
+						/*1*/// Check the explanation of this checking (responses[o].responses[i] !== undefined)  below
+						if (responses[o].responses[i] !== undefined) {
+
+						// Loop over result of single response to compare them within options
 						for (var x = 0; x < responses[o].responses[i].result.length; x++) {
 							
-							if (options[k] === responses[o].responses[i].result[x]){/***********************/
+							if (options[k] === responses[o].responses[i].result[x]){
 
-							resultOfQuestion[k]++;
+							resultOfQuestion[k]++; /// Increment by one du to option and result matching
 
 							} else { continue; }
 						}
+
+						}else { continue }
+						
 					}			
 				}
 
@@ -167,8 +173,27 @@ class Questions {
 				questions.questions[i].result = resultOfQuestion;
 			}
 			else if ( questions.questions[i].type === 'ShortParagraph' ){
-				// console.log("ShortParagraph");
-				continue;
+
+				var shortParagraphes = [];
+				// Loop over responses in the database ! ! !
+				for (var o = 0; o < responses.length; o++) {
+					/*1*/// Check the explanation of this checking (responses[o].responses[i] !== undefined) below
+					if (responses[o].responses[i] !== undefined) {
+
+					if (responses[o].responses[i].result[0] !== null){
+
+						// Push resultOfQuestion to the individual quetion 
+						shortParagraphes.push(responses[o].responses[i].result[0]);	
+
+					}
+					else { continue }
+					
+					}else { continue }
+					
+				}		
+				// Push resultOfQuestion to the individual quetion 
+				questions.questions[i].result = shortParagraphes;	
+				console.log(questions.questions[i].result)
 			}
 		}
 
@@ -184,5 +209,12 @@ class Questions {
 	}
 }
 
-
+/*1*/
+/// Check if the questions length is same to thier respnoses length by check  
+/// if responses[o].responses[i] !== undefined
+/// We check if them are same length becasue the survey owner might add one more question 
+/// that thier response doesnt exists in the previous responses in the database
+/// so if we compare questions with responses as normal we gonna get undefined
+/// to the added question due to existance of response in the previous responses	
 module.exports = Questions;
+

@@ -3,106 +3,116 @@ import axios from 'axios';
 
 
 if ( window.location.pathname === "/surveyEditor" ){
-	// Get question ID
-	const urlParams = new URLSearchParams(window.location.search);
-	const survey_id = urlParams.get('survey_id');
-	const user_id = urlParams.get('user_id');
-
-	// Get the response results and then display them in the chart
-	axios({
-		url : `/response/processSurveyResponses?survey_id=${survey_id}&user_id=${user_id}`,
-		method : "GET",
-	})
-	.then((response)=>{
-		if ( response.data.processed == false ) {
-			window.displayAlertMessage( response.data.processed, response.data.message );
+	// Get results whenever the user hits response tab in the surveyEditor
+	window.getResults = function(){
+		// Check if the results already received
+		if ( document.querySelector('.responses').children.length > 0 ) {
+			return "already received results";
 		}
-		else {
-			// Get the resposnes list 
-			const responses_area = document.querySelector('.responses');
+		// Get question ID
+		const urlParams = new URLSearchParams(window.location.search);
+		const survey_id = urlParams.get('survey_id');
+		const user_id = urlParams.get('user_id');
 
-			// Result of the responses without of MultipleChoice and OneChoice without ShortParagraph
-			// For use them to display charts
-			var results_without_short_paragraph = [];
+		// Get the response results and then display them in the chart
+		axios({
+			url : `/response/processSurveyResponses?survey_id=${survey_id}&user_id=${user_id}`,
+			method : "GET",
+		})
+		.then((response)=>{
+			if ( response.data.processed == false ) {
+				window.displayAlertMessage( response.data.processed, response.data.message );
+			}
+			else {
+				// Get the resposnes list 
+				const responses_area = document.querySelector('.responses');
 
-			// Display responses
-			for (var i = 0; i < response.data.data.questions.length; i++) {
+				// Result of the responses without of MultipleChoice and OneChoice without ShortParagraph
+				// For use them to display charts
+				var results_without_short_paragraph = [];
 
-				var single_response; 
-				// Check question type 
-				if (response.data.data.questions[i].type === "ShortParagraph"){
+				// Display responses
+				for (var i = 0; i < response.data.data.questions.length; i++) {
 
-					// Single response html
-					single_response = `
-					<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
-						<h4>${response.data.data.questions[i].title}</h4>
-						<p>${response.data.data.questions[i].type}</p>
-						<p>ShortParagraph1</p>
-					</div>`
+					var single_response; 
+					// Check question type 
+					if (response.data.data.questions[i].type === "ShortParagraph"){
 
-				}else {
+						// Single response html
+						single_response = `
+						<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+							<h4>${response.data.data.questions[i].title}</h4>
+							<p>${response.data.data.questions[i].type}</p>
+							<p>ShortParagraph1</p>
+						</div>`
 
-					// Single response html
-					single_response = `
-					<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
-						<h4>${response.data.data.questions[i].title}</h4>
-						<p>${response.data.data.questions[i].type}</p>
-						<div class="chart-area">
-							<canvas id="canvas${i}"></canvas>
-						</div>
-					</div>	
-					`
-					// Push just MultipleChoice and OneChoice results t use them below in charts
-					results_without_short_paragraph[i] = ({
-						result:response.data.data.questions[i].result,
-						options:response.data.data.questions[i].options
-					})
+					}else {
+
+						// Single response html
+						single_response = `
+						<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+							<h4>${response.data.data.questions[i].title}</h4>
+							<p>${response.data.data.questions[i].type}</p>
+							<div class="chart-area">
+								<canvas id="canvas${i}"></canvas>
+							</div>
+						</div>	
+						`
+						// Push just MultipleChoice and OneChoice results t use them below in charts
+						// We didn't used array.push(v) because there are ShortParagraph, we wont use in the charts
+						results_without_short_paragraph[i] = ({
+							result:response.data.data.questions[i].result,
+							options:response.data.data.questions[i].options
+						})
+					}
+					
+					// Inject the single response to the responses area
+					responses_area.innerHTML += single_response;
+					console.log(results_without_short_paragraph)
+
 				}
-				
-				// Inject the single response to the responses area
-				responses_area.innerHTML += single_response;
-				console.log(results_without_short_paragraph)
+				// Display Results charts
+				for (var i = 0; i < results_without_short_paragraph.length; i++) {
 
+					// Check if ( results_without_short_paragraph[i] !== undefined ) because we didnt pushed ShortParagraphes
+					if( results_without_short_paragraph[i] !== undefined ) {
+
+						// // Get the responses and display them
+						let ctx = document.querySelector(`#canvas${i}`).getContext("2d");
+
+						let data = {
+						    datasets: [{
+						        data: results_without_short_paragraph[i].result,
+						        backgroundColor: [
+						        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+						        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+						        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+						        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+						        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+						        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+						        ]
+						    }],
+						    // These labels appear in the legend and in the tooltips when hovering different arcs
+						    labels: results_without_short_paragraph[i].options
+						};
+						// For a pie chart
+						let myPieChart = new Chart(ctx, {
+						    type: 'pie',
+						    data: data,
+						    options: {
+						        legend: { position: 'right', labels: {fontColor: 'rgba(0, 0, 0,.60)'}}
+						    }
+						});
+
+					}else { continue }
+				}
 			}
-			// Display Results charts
-			for (var i = 0; i < results_without_short_paragraph.length; i++) {
-
-				if( results_without_short_paragraph[i] !== undefined ) {
-
-					// // Get the responses and display them
-					let ctx = document.querySelector(`#canvas${i}`).getContext("2d");
-
-					let data = {
-					    datasets: [{
-					        data: results_without_short_paragraph[i].result,
-					        backgroundColor: [
-					        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-					        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-					        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-					        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-					        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-					        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-					        ]
-					    }],
-					    // These labels appear in the legend and in the tooltips when hovering different arcs
-					    labels: results_without_short_paragraph[i].options
-					};
-					// For a pie chart
-					let myPieChart = new Chart(ctx, {
-					    type: 'pie',
-					    data: data,
-					    options: {
-					        legend: { position: 'right', labels: {fontColor: 'rgba(0, 0, 0,.60)'}}
-					    }
-					});
-
-				}else { continue }
-			}
-		}
-	})
-	.catch((error)=>{
-		window.displayAlertMessage( response.data.processed, response.data.message );
-	})
+		})
+		.catch((error)=>{
+			window.displayAlertMessage( response.data.processed, response.data.message );
+		})
+	}
+	
 }
 
 // Submit response // Submit response
