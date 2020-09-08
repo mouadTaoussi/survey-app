@@ -139,8 +139,94 @@ if (window.location.pathname === "/surveyEditor" ){
 			window.displayAlertMessage( false,"Something went wrong!" );
 		})
 	})
-	// Receive questions (survey)
-	// Disable questions (survey)
+
+	// Importing another questions
+	window.importQuestions = function(){
+		// Get the survey id wanted to be imported as well as questions list to put the imported questions to
+		const import_survey_id = document.querySelector('.import_survey_id');
+		const questions_list   = document.querySelector('.questions_list');
+		const selected = "selected";
+		const nothing = "";
+
+		if (import_survey_id.value == "" ){
+			alert('Provide us a survey id you want to import');
+		}else {
+			axios({
+				method : 'GET',
+				url : "/question/importQuestions?survey_id=" + import_survey_id.value,
+			})
+			.then((response)=>{
+				// Displaying questions in questiion list
+				window.displayAlertMessage( response.data.found,response.data.message );
+				// Create options
+				var options = [];
+
+				
+				// Loop over questions to display each one of them!!!
+				for (var i = 0; i < response.data.data.length; i++) {
+
+					for (var io = 0; io < response.data.data[i].options.length; io++) {
+					
+						options.push(`
+							<li class="option-item">
+								<input type="text" placeholder="Option" class="form-control" value="${response.data.data[i].options[io]}" required>
+								<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
+							</li>
+						`)
+
+					}
+					const single_question =  `
+					<div class="single-question local-card local-mt-2 local-p-2 local-shadow" draggable='true'>
+						<!-- Dragable section -->
+						<div class="dragable">
+							<div></div><div></div><div></div>
+							<div></div><div></div><div></div>
+						</div>
+						<!-- Quetsion or title -->
+						<input 
+							class="form-control mt-2" 
+							placeholder='Which question you wanna write here?'
+							value="${response.data.data[i].title}" 
+							required
+						>
+						<!-- Files inputs -->
+						<div class="custom-file files-attachment">
+							<input type="file" class="custom-file-input" id="validatedCustomFile" onchange='getFile(event)' placeholder="${response.data.data[i].file}">
+							<label class="custom-file-label" for="validatedCustomFile" >Choose files...</label>
+							<div class="invalid-feedback">Example invalid custom file feedback</div>
+						</div>
+						<!-- Options -->
+						<div class="options-area">
+							<ul class="options-list">
+								` + "options" + `
+							</ul>
+							<p class="add-new-option p-2">Add new one +</p>
+						</div>
+						<!-- Settings -->
+						<div class="question_settings p-2">
+							<i 
+							onclick="deleteField(event)" 
+							style="display: inline" 
+							class="delete-field mx-2 far fa-trash-alt"></i>
+							<select style="display: inline;width: 180px;" class='mx-2 form-control'>
+								<option ${ response.data.data[i].type == "MultipleChoice" ? selected : nothing }>MultipleChoice</option>
+								<option ${ response.data.data[i].type == "OneChoice" ? selected : nothing } >OneChoice</option>
+								<option ${ response.data.data[i].type == "ShortParagraph" ? selected : nothing }>ShortParagraph</option>
+							</select>
+						</div>
+					</div>`
+
+					// Push that single question to the question list
+					questions_list.innerHTML += single_question;
+
+				}
+			})
+			.catch((err)=>{
+				// window.displayAlertMessage( false,err.message );
+				console.log(err)
+			})
+		}
+	}
 }
 
 // Delete questions (survey)

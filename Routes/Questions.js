@@ -31,8 +31,7 @@ router.post('/',validators.checkLanguage, auth.isAuthenticated, async (request,r
 
 		// Response
 		response.json({
-			saved : savingSurveyProcess.saved,
-			message : savingSurveyProcess.message,
+			saved : savingSurveyProcess.saved, message : savingSurveyProcess.message, 
 			survey_id : savingSurveyProcess.survey_id
 		})
 	}
@@ -47,17 +46,11 @@ router.post('/',validators.checkLanguage, auth.isAuthenticated, async (request,r
 
 			// Response
 			response.json({
-				saved : savingSurveyProcess.saved,
-				message : savingSurveyProcess.message,
-				survey_id : savingSurveyProcess.survey_id
-			})	
+				saved : savingSurveyProcess.saved, message : savingSurveyProcess.message, 
+				survey_id : savingSurveyProcess.survey_id })	
  		}
  		else {
-
- 			response.json({
- 				saved : false,
- 				message : "You're not authorized to make changes in this survey!"
- 			})
+ 			response.json({ saved : false, message : "You're not authorized to make changes in this survey!" })
  		}
 	}
 })
@@ -87,6 +80,30 @@ router.delete('/:id',validators.checkLanguage, auth.isAuthenticated , async(requ
 	}
 })
 
+router.get('/importQuestions', async(request,response)=>{
+	// Get the queries
+	const { survey_id } = request.query;
+	
+	// Get the survey
+	const questions = await questionsController.findSurvey( null, survey_id );
+
+	// Checking ...
+	if( questions.found ) {
+		// Check if questions exists
+		const message = questions.data.questions.length !== 0 ? "The questions imported successfuly!": "The questions is not exists."
+		// Render the survey Editor with imported questions
+		response.json({
+			found: true, data: questions.data.questions, 
+			message: message
+		})
+
+	}else {
+		response.send({
+			found : false,
+			message :  "Something went wrong! Try again."
+		})		
+	}
+})
 
 
 

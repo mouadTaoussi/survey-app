@@ -23,7 +23,7 @@ class Questions {
 				const surveys = await Question.find({ user_id: user_id });
 				
 				return {
-					found : true, data : surveys
+					found : true, data : surveys, message : ""
 				}
 			}
 			// To get the survey for edit 
@@ -32,10 +32,10 @@ class Questions {
 				const survey = await Question.findOne({ _id: survey_id, user_id: user_id });
 
 				if ( survey !== null ) {
-					return { found : true, data : survey }	
+					return { found : true, data : survey, message : "" }	
 				}
 				else {
-					return { found : false, data : null }
+					return { found : false, data : null, message : "" }
 				}
 			}
 			// To get a survey by its id 
@@ -44,21 +44,19 @@ class Questions {
 				const survey = await Question.findOne({ _id: survey_id });
 
 				if ( survey !== null ) {
-					return { found : true, data : survey }	
+					return { found : true, data : survey, message : "" }	
 				}
 				else {
-					return { found : false, data : null }
+					return { found : false, data : null, message : "" }
 				}
 			}
 			else {
-				return {
-					found : false
-				}
+				return { found : false, data : null, message : "" }
 			}
 		}
 		catch (err){
 			return {
-				found : false, message : "Something went wrong!"
+				found : false, message : "Something went wrong!", data : null
 			}
 		}
 
@@ -106,39 +104,13 @@ class Questions {
 			// Result of an individual question ! ! !
 			const resultOfQuestion = [];
 
-			// Check if question type wheather if multiple choice or one choice or short paragraph
-			if ( questions.questions[i].type === 'OneChoice' ){
-				// Get all options of an individual question ! ! !
-				const options = questions.questions[i].options;
-
-				// Loop over options to compare them within response results
-				for (var k = 0; k < options.length; k++) {
-					// Push initial zeros in the resultOfQuestions array for
-					// increment some of them if option and result got matched 
-					resultOfQuestion.push(0);
-
-					// Loop over responses in the database ! ! !
-					for (var o = 0; o < responses.length; o++) {
-						/*1*/// Check the explanation of this checking (responses[o].responses[i] !== undefined)  below
-						if (responses[o].responses[i] !== undefined) {
-
-						if (options[k] === responses[o].responses[i].result[0]){
-
-						resultOfQuestion[k]++; /// Increment by one du to option and result matching
-
-						} 
-						else { continue; }
-
-						}
-						else { continue }
-					}			
-				}
-
-				// Push resultOfQuestion to the individual quetion 
-				questions.questions[i].result = resultOfQuestion;
-
-			}
-			else if ( questions.questions[i].type === 'MultipleChoice' ){
+			
+			if ( 
+				questions.questions[i].type === 'MultipleChoice' 
+									|| 
+				questions.questions[i].type === 'OneChoice' 
+				)
+			{
 
 				// Get all options of an individual question ! ! !
 				const options = questions.questions[i].options;
@@ -190,7 +162,8 @@ class Questions {
 					
 					}else { continue }
 					
-				}		
+				}
+				console.log(shortParagraphes)		
 				// Push resultOfQuestion to the individual quetion 
 				questions.questions[i].result = shortParagraphes;	
 				console.log(questions.questions[i].result)
@@ -218,3 +191,36 @@ class Questions {
 /// to the added question due to existance of response in the previous responses	
 module.exports = Questions;
 
+// // Check if question type wheather if multiple choice or one choice or short paragraph
+// if ( questions.questions[i].type === 'OneChoice' ){
+// 	// Get all options of an individual question ! ! !
+// 	const options = questions.questions[i].options;
+
+// 	// Loop over options to compare them within response results
+// 	for (var k = 0; k < options.length; k++) {
+// 		// Push initial zeros in the resultOfQuestions array for
+// 		// increment some of them if option and result got matched 
+// 		resultOfQuestion.push(0);
+
+// 		// Loop over responses in the database ! ! !
+// 		for (var o = 0; o < responses.length; o++) {
+// 			/*1*/// Check the explanation of this checking (responses[o].responses[i] !== undefined)  below
+// 			if (responses[o].responses[i] !== undefined) {
+
+// 			if (options[k] === responses[o].responses[i].result[0]){
+
+// 			resultOfQuestion[k]++; /// Increment by one du to option and result matching
+
+// 			} 
+// 			else { continue; }
+
+// 			}
+// 			else { continue }
+// 		}			
+// 	}
+
+// 	// Push resultOfQuestion to the individual quetion 
+// 	questions.questions[i].result = resultOfQuestion;
+
+// }
+/*else */	

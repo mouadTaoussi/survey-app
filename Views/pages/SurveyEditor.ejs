@@ -57,7 +57,7 @@
 							>
 							<!-- Files inputs -->
 							<div class="custom-file files-attachment">
-								<input type="file" class="custom-file-input" id="validatedCustomFile" onchange='getFile(event)'>
+								<input type="file" class="custom-file-input" id="validatedCustomFile" onchange='getFile(event)' placeholder="<%= question.file %>">
 								<label class="custom-file-label" for="validatedCustomFile">Choose files...</label>
 								<div class="invalid-feedback">Example invalid custom file feedback</div>
 							</div>
@@ -221,11 +221,14 @@
 		        </button>
 		      </div>
 		      <div class="modal-body">
-		        ...
+		        <p>Paste the survey ID you want to import below</p>
+		        <strong style='font-size: 13px;line-height: 3px'>NB: You gonna get the survey ID in it's link, if <kbd>survey_id</kbd> relates to it as shown below!</strong>
+		        <img  class="local-mt-2" src="./previewID.png" width="100%">
+		        <input type="text" class="import_survey_id form-control" placeholder="Survey ID">
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="local-btn local-btn-dark" data-dismiss="modal">Close</button>
-		        <button type="button" class="local-btn local-btn-primary">Import</button>
+		        <button type="button" class="local-btn local-btn-primary" onclick="importQuestions()">Import</button>
 		      </div>
 		    </div>
 		  </div>
