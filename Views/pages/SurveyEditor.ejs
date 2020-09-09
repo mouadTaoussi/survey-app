@@ -201,7 +201,14 @@
 		        </button>
 		      </div>
 		      <div class="modal-body">
-		        ...
+		        <p>Link to share it in your social media:</p>
+		        <kbd style='font-size: 10px'>http://localhost:5000/submitResponse?survey_id=<%= survey.id %></kbd>
+		        <br>
+		        <br>
+		        <p>Embedded element to include it inside your website:</p>
+		        <kbd>
+		        	<iframe src="http://localhost:5000/embedded?survey_id=<%=survey.id%>" width="100%" height="245px" style=""></iframe>
+		        </kbd>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="local-btn local-btn-dark" data-dismiss="modal">Close</button>
@@ -222,9 +229,10 @@
 		      </div>
 		      <div class="modal-body">
 		        <p>Paste the survey ID you want to import below</p>
-		        <strong style='font-size: 13px;line-height: 3px'>NB: You gonna get the survey ID in it's link, if <kbd>survey_id</kbd> relates to it as shown below!</strong>
-		        <img  class="local-mt-2" src="./previewID.png" width="100%">
-		        <input type="text" class="import_survey_id form-control" placeholder="Survey ID">
+		        <strong style='font-size: 13px;line-height: 3px'>NB: You gonna get the survey ID in it's link, if <kbd>survey_id</kbd> relates to it as shown below!</strong><br>
+		        <!-- <img  class="local-mt-2" src="./previewID.png" width="100%"> -->
+		        <kbd style='font-size: 10px'>/surveyEditor?survey_id=5f4aef5b4491253b00b7cae</kbd>
+		        <input type="text" class="import_survey_id form-control local-mt-2" placeholder="Survey ID">
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="local-btn local-btn-dark" data-dismiss="modal">Close</button>

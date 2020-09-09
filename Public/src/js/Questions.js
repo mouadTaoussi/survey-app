@@ -198,7 +198,7 @@ if (window.location.pathname === "/surveyEditor" ){
 						<!-- Options -->
 						<div class="options-area">
 							<ul class="options-list">
-								` + "options" + `
+								` + options + `
 							</ul>
 							<p class="add-new-option p-2">Add new one +</p>
 						</div>
@@ -218,7 +218,7 @@ if (window.location.pathname === "/surveyEditor" ){
 
 					// Push that single question to the question list
 					questions_list.innerHTML += single_question;
-
+					options = [];
 				}
 			})
 			.catch((err)=>{

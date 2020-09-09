@@ -134,13 +134,22 @@ router.get('/dashboard', validators.checkLanguage, auth.isAuthenticated, async(r
 })
 
 
-router.get('/embedded',validators.checkLanguage,(request,response)=>{
-	
-	// Use the appropriate controller
-	// Logic
-	// render the pages by language specefied
-	response.render(`${request.lang.langPages}/embedded`);
+router.get('/embedded',validators.checkLanguage,async(request,response)=>{
+	// Survey ID
+	const survey_id = request.query.survey_id;
 
+	// Get the survey
+	const getSurvey = await questionsController.findSurvey( null, survey_id );
+
+	// Checking ...
+	if ( getSurvey.found ){
+		// render the pages by language specefied
+		response.render(`${request.lang.langPages}/EmbeddedPage`, { survey: getSurvey.data });
+	}
+	else {
+		response.redirect(`/notFound?lang=${request.lang.langShortcut}`);
+	}
+	
 })
 
 

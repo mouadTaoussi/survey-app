@@ -155,7 +155,7 @@
 }
 :root{
 	--primary : #1554a7;
-	--dark :  #2b2b2b/*rgba(0,0,0,.85)*/;
+	--dark :  #2b2b2b/*rgba(0,0,0,.85)*/;/*#24292e*/
 	--light : #ededed;
 	--success : #008272;
 	--danger : #ff0000/* #a4373a*/;
@@ -614,7 +614,7 @@
 /*  Svgs  */
 :root{
 	--primary : #1554a7;
-	--dark :  #2b2b2b/*rgba(0,0,0,.85)*/;
+	--dark :  #2b2b2b/*rgba(0,0,0,.85)*/;/*#24292e*/
 	--light : #ededed;
 	--success : #008272;
 	--danger : #ff0000/* #a4373a*/;
@@ -637,7 +637,7 @@
 }
 
 body {
-	background-color: /*white,/*/var(--light);/**/
+	background-color: /*white,/*//*var(--light);*//**/#ededed;
 	color: var(--dark);
 }
 h1,h2,h3,h5,h6 {
