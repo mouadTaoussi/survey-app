@@ -202,13 +202,25 @@
 		      </div>
 		      <div class="modal-body">
 		        <p>Link to share it in your social media:</p>
-		        <kbd style='font-size: 10px'>http://localhost:5000/submitResponse?survey_id=<%= survey.id %></kbd>
+		        
+		        <% if (survey == null ) { %>
+	        		<kbd style='font-size: 10px'>http://localhost:5000/submitResponse?survey_id=</kbd>
+	        	<% } else { %>
+	        		<kbd style='font-size: 10px'>http://localhost:5000/submitResponse?survey_id=<%= survey.id %></kbd>
+	        	<%}%>
 		        <br>
 		        <br>
 		        <p>Embedded element to include it inside your website:</p>
-		        <kbd>
-		        	<iframe src="http://localhost:5000/embedded?survey_id=<%=survey.id%>" width="100%" height="245px" style=""></iframe>
-		        </kbd>
+	        	<% if (survey == null ) { %>
+		        	<div class="local-alert info">
+		        		Save your survey to get embedded link!
+		        	</div>
+	        	<% } else { %>
+		        	<!-- <pre style="text-align: left">
+			        	<iframe src="http://localhost:5000/embedded?survey_id=<%=survey.id %>" width="100%" height="245px" style=""></iframe>
+			        </pre> -->
+	        	<%}%>
+
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="local-btn local-btn-dark" data-dismiss="modal">Close</button>

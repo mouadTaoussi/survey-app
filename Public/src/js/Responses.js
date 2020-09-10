@@ -43,8 +43,20 @@ if ( window.location.pathname === "/surveyEditor" ){
 						<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
 							<h4>${response.data.data.questions[i].title}</h4>
 							<p>${response.data.data.questions[i].type}</p>
-							<p>ShortParagraph1</p>
+							<p>Hii</p>
+							<div class="paragraphes"></div>
 						</div>`
+
+						// Inject the single response to the responses area
+						responses_area.innerHTML += single_response;
+
+						// Get the area where the paragraphes should be placed
+						const shortParagraphdiv = document.querySelectorAll('.paragraphes')[shortParagraphdiv-1];
+						
+						// console.log(shortParagraphdiv)
+						for (var io = 0; io < response.data.data.questions[i].result.length; io++) {
+							shortParagraphdiv.innerHTML += `<p>${response.data.data.questions[i].result[io]}</p><br>`;
+						}
 
 					}else {
 
@@ -58,17 +70,17 @@ if ( window.location.pathname === "/surveyEditor" ){
 							</div>
 						</div>	
 						`
+
 						// Push just MultipleChoice and OneChoice results t use them below in charts
 						// We didn't used array.push(v) because there are ShortParagraph, we wont use in the charts
 						results_without_short_paragraph[i] = ({
-							result:response.data.data.questions[i].result,
-							options:response.data.data.questions[i].options
+							result  :  response.data.data.questions[i].result,
+							options :  response.data.data.questions[i].options
 						})
+
+						// Inject the single response to the responses area
+						responses_area.innerHTML += single_response;
 					}
-					
-					// Inject the single response to the responses area
-					responses_area.innerHTML += single_response;
-					console.log(results_without_short_paragraph)
 
 				}
 				// Display Results charts

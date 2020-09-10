@@ -155,7 +155,7 @@ class Questions {
 					if (responses[o].responses[i].result[0] !== null){
 
 						// Push resultOfQuestion to the individual quetion 
-						shortParagraphes.push(responses[o].responses[i].result[0]);	
+						questions.questions[i].result.push(responses[o].responses[i].result[0]);	
 
 					}
 					else { continue }
@@ -163,10 +163,6 @@ class Questions {
 					}else { continue }
 					
 				}
-				console.log(shortParagraphes)		
-				// Push resultOfQuestion to the individual quetion 
-				questions.questions[i].result = shortParagraphes;	
-				console.log(questions.questions[i].result)
 			}
 		}
 
