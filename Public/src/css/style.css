@@ -18,7 +18,7 @@
 }
 
 body {
-	background-color: /*white,/*//*var(--light);*//**/#ededed;
+	background-color: /*white,/*//*var(--light);*//**/#f7f7f7;
 	color: var(--dark);
 }
 h1,h2,h3,h5,h6 {
@@ -81,6 +81,15 @@ h1,h2,h3,h5,h6 {
 	background-size: contain; 
 	width: 240px;
 	height: 60px;
+	margin: 50px auto;
+}
+.empty-content {
+	background-image: url('.././assets/undraw_empty_xct9.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain; 
+	width: 400px;
+	height: 400px;
 	margin: 50px auto;
 }
 /**

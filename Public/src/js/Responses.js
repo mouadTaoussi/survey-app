@@ -20,6 +20,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 			method : "GET",
 		})
 		.then((response)=>{
+			console.log(response)
 			if ( response.data.processed == false ) {
 				window.displayAlertMessage( response.data.processed, response.data.message );
 			}
@@ -43,20 +44,34 @@ if ( window.location.pathname === "/surveyEditor" ){
 						<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
 							<h4>${response.data.data.questions[i].title}</h4>
 							<p>${response.data.data.questions[i].type}</p>
-							<p>Hii</p>
-							<div class="paragraphes"></div>
+							<div style="overflow:scroll; height:250px;" class="paragraphes"></div>
 						</div>`
 
 						// Inject the single response to the responses area
 						responses_area.innerHTML += single_response;
 
 						// Get the area where the paragraphes should be placed
-						const shortParagraphdiv = document.querySelectorAll('.paragraphes')[shortParagraphdiv-1];
-						
-						// console.log(shortParagraphdiv)
-						for (var io = 0; io < response.data.data.questions[i].result.length; io++) {
-							shortParagraphdiv.innerHTML += `<p>${response.data.data.questions[i].result[io]}</p><br>`;
+						const shortParagraphdiv = document.querySelectorAll('.paragraphes');
+
+						for ( var io = 0; io < response.data.data.questions[i].result.length; io++ ) {
+
+							if (response.data.data.questions[i].result[io] === '') {
+								continue
+							}
+							else {
+								shortParagraphdiv[shortParagraphdiv.length-1].innerHTML += `<p class="answres">${response.data.data.questions[i].result[io]}</p><br>`;	
+							}
+
 						}
+
+						// Apply and Implement sme styles to the answres
+						document.querySelectorAll(".answres")
+						.forEach((answer)=>{
+							answer.style.padding         = "8px 0 8px 15px";
+							answer.style.margin          = ".2px"
+							answer.style.backgroundColor = "rgba(0,0,0,.1)";
+							// answer.
+						})
 
 					}else {
 

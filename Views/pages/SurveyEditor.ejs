@@ -185,7 +185,17 @@
 						<i data-toggle="tooltip" data-placement="left" title="Share this survey" class="fas fa-share-square"></i>
 					</li>
 					<li type="button">
-						<i data-toggle="tooltip" data-placement="left" title="Share this survey" class="fas fa-file-download"></i>
+						<% if (survey !== null ) { %>
+							<a href='/response/downloadResults?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>'>
+								<i data-toggle="tooltip" data-placement="left" title="Download responses" class="fas fa-file-download"></i>
+							</a>
+						<%}%>
+						<% if (survey == null ) { %>
+							<a href='#'>
+								<i data-toggle="tooltip" data-placement="left" title="Download responses" class="fas fa-file-download"></i>
+							</a>
+						<%}%>
+						
 					</li>
 				</ul>
 			</div>

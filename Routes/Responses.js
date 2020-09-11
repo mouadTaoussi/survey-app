@@ -1,4 +1,7 @@
 const express                         = require('express');
+const fileSystem                      = require('fs');
+const mime                            = require('mime');
+const path                            = require('path');
 const Responses                       = require('.././Controllers/Responses.js');
 const Questions                       = require('.././Controllers/Questions.js');//
 const auth                            = require('.././Middlewares/Authentication.js');
@@ -52,11 +55,56 @@ router.get('/processSurveyResponses', async(request,response)=>{
 
 
 
-router.get('/downloadResults',(request,response)=>{
+router.get('/downloadResults',async(request,response)=>{
 	// Get the queries
 	const {  user_id, survey_id } = request.query;
-	response.send("Downloading...");
-	// get the result from cash to dwonload them
+	
+	// Get the survey
+	const questions = await questionsController.findSurvey( user_id, survey_id );
+
+    // Get thier responses
+	const responses = await responsesController.findResponses( survey_id );
+	
+	// Get the results of the survey
+	const processing  = await questionsController.processSurveyResponses( 
+		questions.data, responses.data
+	);
+
+	// Checking ...
+	if( responses.found && questions.found && processing.processed ) {
+
+		// Save results as a file
+		fileSystem.appendFileSync(
+			__dirname + '/SurveyResultsForDownload/' + survey_id + '.txt',
+			JSON.stringify(processing.data.questions)
+		)
+
+		// Get the file location
+		var file = __dirname + '/SurveyResultsForDownload/' + survey_id + '.txt';
+
+		// const filename = path.basename(file);
+		const mimetype = mime.lookup(file);
+
+		response.setHeader('Content-disposition', 'attachment; filename=' + survey_id);
+		response.setHeader('Content-type', mimetype);
+
+		// // Download the file
+		response.download(file,"your_survey_result_"+survey_id+".txt");
+
+		setTimeout(()=>{
+			// Delete  file
+			fileSystem.unlink(file, function(err) {
+
+				if (err) { return console.error(err); }
+
+			});
+		},5000)
+		
+	}else {
+		response.send({
+			processed : false, message :  "Something went wrong! Try again."
+		})		
+	}
 })
 
 
@@ -65,3 +113,16 @@ router.get('/downloadResults',(request,response)=>{
 
 
 module.exports = router;
+// Save results as a file
+// const writeStream = fileSystem
+//  .createWriteStream(__dirname  + '/SurveyResultsForDownload/' + survey_id + '.txt');
+
+// // Write a new file for the results
+// writeStream.write(JSON.stringify(processing.data.questions));
+		
+// fileSystem.readFile(__dirname + '/SurveyResultsForDownload/' + survey_id + '.txt','utf8',(err,data)=>{
+// 	console.log(data)
+// });
+
+// // Ending the process
+// writeStream.end();
