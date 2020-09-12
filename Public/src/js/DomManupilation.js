@@ -1,4 +1,4 @@
-if (window.location.pathname === "/surveyEditor" ) {
+if (window.location.pathname === "/surveyEditor" || window.location.pathname === "/") {
 	// Tabs feature !!
 	const edit_tab = document.querySelector('.edit-tab')
 	const responses_tab = document.querySelector('.responses-tab')

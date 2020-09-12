@@ -1,0 +1,60 @@
+<div class="single-question local-card local-mt-2 local-p-2 local-shadow" draggable='true'>
+<!-- Dragable section -->
+<div class="dragable">
+	<div></div><div></div><div></div>
+	<div></div><div></div><div></div>
+</div>
+<!-- Quetsion or title -->
+<input 
+	class="form-control mt-2" 
+	placeholder='Which question you wanna write here?'
+	value="How you knew this incredible platform?" 
+	required
+>
+<!-- Files inputs -->
+<div class="custom-file files-attachment">
+	<input type="file" class="custom-file-input" id="validatedCustomFile" onchange='' placeholder="">
+	<label class="custom-file-label" for="validatedCustomFile">Choose files...</label>
+	<div class="invalid-feedback">Example invalid custom file feedback</div>
+</div>
+<!-- Options -->
+<div class="options-area">
+	<ul class="options-list">
+		
+		<li class="option-item">
+			<input 
+				type="text" 
+				placeholder="Option" 
+				class="form-control" 
+				required 
+				value="Social media"
+			>
+			<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
+		</li>
+		<li class="option-item">
+			<input 
+				type="text" 
+				placeholder="Option" 
+				class="form-control" 
+				required 
+				value="By accident"
+			>
+			<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
+		</li>
+		
+	</ul>
+	<p class="add-new-option p-2">Add new one +</p>
+</div>
+<!-- Settings -->
+<div class="question_settings p-2">
+	<i 
+	onclick="" 
+	style="display: inline" 
+	class="delete-field mx-2 far fa-trash-alt"></i>
+	<select style="display: inline;width: 180px;" class='mx-2 form-control'>
+		<option selected>MultipleChoice</option>
+		<option>OneChoice</option>
+		<option>ShortParagraph</option>
+	</select>
+</div>
+</div>

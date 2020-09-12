@@ -1,0 +1,37 @@
+<div style="height:auto;" class='local-card l local-pt-2 local-pb-2 local-shadow'>
+	<h6>How you knew this incredible platform</h6>
+	<!-- <p>MultipleChoice</p> -->
+	<div style='width: 80%;margin: 30px auto;'>
+		<canvas id="canvas-preview"></canvas>
+	</div>
+</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script>
+	// // Get the responses and display them
+	let ctx = document.querySelector(`#canvas-preview`).getContext("2d");
+
+	let data = {
+	    datasets: [{
+	        data: [5,3,2],
+	        backgroundColor: [
+	        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+	        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+	        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+	        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+	        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+	        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+	        ]
+	    }],
+	    // These labels appear in the legend and in the tooltips when hovering different arcs
+	    labels: ["Social media","By accident","In a Company"]
+	};
+	// For a pie chart
+	let myPieChart = new Chart(ctx, {
+	    type: 'pie',
+	    data: data,
+	    options: {
+	        legend: { position:"right", labels: {fontColor: 'rgba(0, 0, 0,.60)'}}
+	    }
+	});
+</script>

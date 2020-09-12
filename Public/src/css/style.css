@@ -92,6 +92,7 @@ h1,h2,h3,h5,h6 {
 	height: 400px;
 	margin: 50px auto;
 }
+
 /**
 *
 *
@@ -175,7 +176,7 @@ h1,h2,h3,h5,h6 {
 	left: 190px;
 }
 .options-area {
-	width: 50%;
+	width: 70%;
 }
 
 /**
@@ -219,7 +220,7 @@ h1,h2,h3,h5,h6 {
 /**
 *
 *
-* Index
+* Index (Home Page)
 *
 *
 **/
@@ -235,6 +236,29 @@ h1,h2,h3,h5,h6 {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain; 
+}
+.svg-background-second-landing-page {
+	/*background-image: url('.././assets/Background.svg');*/
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover; 
+	padding: 5px 0 5px 0;
+}
+.svg-background-third-landing-page {
+	/*background-image: url('.././assets/Background.svg');*/
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover; 
+	padding: 5px 0 5px 0;
+}
+.svg-background-fourth-landing-page {
+	background: #1554a7;
+}
+.svg-background-fifth-landing-page {
+
+}
+.svg-background-sixth-landing-page {
+
 }
 
 /**
@@ -476,7 +500,7 @@ h1,h2,h3,h5,h6 {
 }
 .add-new-option {
 	font-size:13px;
-	width: 50%;
+	width: 90%;
 	cursor: pointer;
 	transition: all .2 ease-out;
 }
