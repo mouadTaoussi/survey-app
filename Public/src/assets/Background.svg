@@ -1,11 +1,45 @@
 <svg width="736" height="409" viewBox="0 0 736 409" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect y="6" width="736" height="403" fill="white"/>
-<path d="M0 127H309L269.618 357L0 298V127Z" fill="#397CE0" fill-opacity="0.62"/>
-<path d="M0 126H309L269.618 356L0 287V126Z" fill="#397CE0" fill-opacity="0.83"/>
-<path d="M736 113H199L270.633 357L736 279V113Z" fill="#397CE0" fill-opacity="0.53"/>
-<path opacity="0.6" d="M736 1H199L270.132 357L736 245.644V1Z" fill="#397CE0"/>
+<path d="M0 127H309L269.618 357L0 298V127Z" fill="#052580" fill-opacity="0.67"/>
+<path d="M0 126H309L269.618 356L0 287V126Z" fill="#2A479A"/>
+<path d="M736 113H199L270.633 357L736 279V113Z" fill="#052580" fill-opacity="0.6"/>
+<path opacity="0.6" d="M736 1H199L270.132 357L736 245.644V1Z" fill="#2A479A"/>
 <path d="M0 0H735V210L270 357L0 278V0Z" fill="#1554A7"/>
 <path d="M0 0H735V210L270 357L0 278V0Z" fill="url(#paint0_linear)"/>
+<line x1="401.664" y1="152.712" x2="407.942" y2="125.921" stroke="white" stroke-opacity="0.17"/>
+<line x1="438.307" y1="161.811" x2="401.886" y2="153.277" stroke="white" stroke-opacity="0.17"/>
+<rect x="405.635" y="139.988" width="4.94645" height="12.9844" transform="rotate(13.1887 405.635 139.988)" fill="white" fill-opacity="0.17"/>
+<rect x="412.995" y="135.68" width="4.94645" height="18.8583" transform="rotate(13.1887 412.995 135.68)" fill="white" fill-opacity="0.17"/>
+<rect x="417.323" y="144.314" width="4.94645" height="11.4387" transform="rotate(13.1887 417.323 144.314)" fill="white" fill-opacity="0.17"/>
+<rect x="423.977" y="143.016" width="4.94645" height="14.221" transform="rotate(13.1887 423.977 143.016)" fill="white" fill-opacity="0.17"/>
+<rect x="427.952" y="153.156" width="4.94645" height="5.25561" transform="rotate(13.1887 427.952 153.156)" fill="white" fill-opacity="0.17"/>
+<rect x="438.486" y="135.303" width="4.94645" height="25.0414" transform="rotate(13.1887 438.486 135.303)" fill="white" fill-opacity="0.17"/>
+<rect x="241.235" y="302.861" width="15.1765" height="2.29412" transform="rotate(-15.2045 241.235 302.861)" fill="white" fill-opacity="0.17"/>
+<rect x="242.207" y="306.437" width="15.1765" height="2.29412" transform="rotate(-15.2045 242.207 306.437)" fill="white" fill-opacity="0.17"/>
+<rect x="243.225" y="310.183" width="15.1765" height="2.29412" transform="rotate(-15.2045 243.225 310.183)" fill="white" fill-opacity="0.17"/>
+<rect x="244.243" y="313.93" width="15.1765" height="2.29412" transform="rotate(-15.2045 244.243 313.93)" fill="white" fill-opacity="0.17"/>
+<circle cx="239.918" cy="304.407" r="1.14706" transform="rotate(-15.2045 239.918 304.407)" fill="white" fill-opacity="0.17"/>
+<circle cx="240.89" cy="307.984" r="1.14706" transform="rotate(-15.2045 240.89 307.984)" fill="white" fill-opacity="0.17"/>
+<circle cx="241.908" cy="311.73" r="1.14706" transform="rotate(-15.2045 241.908 311.73)" fill="white" fill-opacity="0.17"/>
+<circle cx="242.926" cy="315.476" r="1.14706" transform="rotate(-15.2045 242.926 315.476)" fill="white" fill-opacity="0.17"/>
+<rect x="46.4804" y="88.9176" width="6.68567" height="2.38774" transform="rotate(-30.2009 46.4804 88.9176)" fill="white" fill-opacity="0.24"/>
+<rect x="54.1159" y="84.4734" width="6.68567" height="2.38774" transform="rotate(-30.2009 54.1159 84.4734)" fill="white" fill-opacity="0.24"/>
+<rect x="61.271" y="79.2039" width="8.35708" height="3.34283" transform="rotate(-30.2009 61.271 79.2039)" fill="white" fill-opacity="0.24"/>
+<rect x="48.5223" y="92.4258" width="6.68567" height="2.38774" transform="rotate(-30.2009 48.5223 92.4258)" fill="white" fill-opacity="0.24"/>
+<rect x="56.1578" y="87.9816" width="6.68567" height="2.38774" transform="rotate(-30.2009 56.1578 87.9816)" fill="white" fill-opacity="0.24"/>
+<rect x="63.7933" y="83.5375" width="6.68567" height="2.38774" transform="rotate(-30.2009 63.7933 83.5375)" fill="white" fill-opacity="0.24"/>
+<rect x="50.5642" y="95.9339" width="6.68567" height="2.38774" transform="rotate(-30.2009 50.5642 95.9339)" fill="white" fill-opacity="0.24"/>
+<rect x="58.1997" y="91.4898" width="6.68567" height="2.38774" transform="rotate(-30.2009 58.1997 91.4898)" fill="white" fill-opacity="0.24"/>
+<rect x="65.8352" y="87.0457" width="6.68567" height="2.38774" transform="rotate(-30.2009 65.8352 87.0457)" fill="white" fill-opacity="0.24"/>
+<rect x="52.6061" y="99.4421" width="6.68567" height="2.38774" transform="rotate(-30.2009 52.6061 99.4421)" fill="white" fill-opacity="0.24"/>
+<rect x="60.2416" y="94.998" width="6.68567" height="2.38774" transform="rotate(-30.2009 60.2416 94.998)" fill="white" fill-opacity="0.24"/>
+<rect x="67.8771" y="90.5539" width="6.68567" height="2.38774" transform="rotate(-30.2009 67.8771 90.5539)" fill="white" fill-opacity="0.24"/>
+<rect x="52.6061" y="99.4421" width="6.68567" height="2.38774" transform="rotate(-30.2009 52.6061 99.4421)" fill="white" fill-opacity="0.24"/>
+<rect x="60.2416" y="94.998" width="6.68567" height="2.38774" transform="rotate(-30.2009 60.2416 94.998)" fill="white" fill-opacity="0.24"/>
+<rect x="67.8771" y="90.5539" width="6.68567" height="2.38774" transform="rotate(-30.2009 67.8771 90.5539)" fill="white" fill-opacity="0.24"/>
+<rect x="54.648" y="102.95" width="6.68567" height="2.38774" transform="rotate(-30.2009 54.648 102.95)" fill="white" fill-opacity="0.24"/>
+<rect x="62.2835" y="98.5062" width="6.68567" height="2.38774" transform="rotate(-30.2009 62.2835 98.5062)" fill="white" fill-opacity="0.24"/>
+<rect x="69.919" y="94.0621" width="6.68567" height="2.38774" transform="rotate(-30.2009 69.919 94.0621)" fill="white" fill-opacity="0.24"/>
 <line x1="609.5" y1="95" x2="609.5" y2="218" stroke="white" stroke-opacity="0.35"/>
 <line x1="536.5" y1="146" x2="536.5" y2="269" stroke="white" stroke-opacity="0.35"/>
 <line x1="458.5" y1="100" x2="458.5" y2="223" stroke="white" stroke-opacity="0.35"/>
@@ -15,8 +49,8 @@
 <line x1="93.5" y1="113" x2="93.5" y2="236" stroke="white" stroke-opacity="0.35"/>
 <defs>
 <linearGradient id="paint0_linear" x1="367" y1="130" x2="362" y2="441" gradientUnits="userSpaceOnUse">
-<stop stop-color="#1554A7"/>
-<stop offset="1" stop-color="#397CE0" stop-opacity="0.95"/>
+<stop stop-color="#052580"/>
+<stop offset="1" stop-color="#052580" stop-opacity="0"/>
 </linearGradient>
 </defs>
 </svg>

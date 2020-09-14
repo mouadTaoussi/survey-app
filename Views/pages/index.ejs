@@ -17,10 +17,26 @@
 						<a class="dropdown-item" href="/?lang=cn">中文</a>
 					</div>
 				</li>
-				<li class="header-list-item"><a href="/login"><button class="local-btn local-btn-primary">Get Started</button></a></li>
-				<li class="header-list-item"><a href="/login"><button class="local-btn">Log in</button></a></li>
-				<li class="header-list-item"><a href="/register"><button class="local-btn">Register</button></a></li>
-				<li class="header-list-item"><a href="~"><button class="local-btn">How it works?</button></a></li>
+				<li class="header-list-item">
+					<a href="/login">
+						<button class="local-btn" style="background: inherit;color: white">Get Started</button>
+					</a>
+				</li>
+				<li class="header-list-item">
+					<a href="/login">
+						<button class="local-btn" style="background: inherit;color: white">Log in</button>
+					</a>
+				</li>
+				<li class="header-list-item">
+					<a href="/register">
+						<button class="local-btn" style="background: inherit;color: white">Register</button>
+					</a>
+				</li>
+				<li class="header-list-item">
+					<a href="~">
+						<button class="local-btn"style="background: inherit;color: white">How it works?</buttoN>
+					</a>
+				</li>
 			</ul>
 		</div>
 	</header>
@@ -54,7 +70,7 @@
 			<div class="bg-light local-p-4 local-m-2 border local-shadow">
 				<h4 class="text-center m-4">Surveys</h4>
 				<p class="text-dark">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, 
 				</p>
 				<center>
 					<a href="/login">
@@ -66,6 +82,7 @@
 				<h4 class="text-center m-4">API</h4>
 				<p class="text-dark">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, 
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, 				
 				</p>
 				<center>
 					<a href="/login">
@@ -76,8 +93,7 @@
 			<div class="bg-light local-p-4 local-m-2 border local-shadow">
 				<h4 class="text-center m-4">GraphQL API</h4>
 				<p class="text-dark">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				</p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit,
 				<center>
 					<a href="/login">
 						<button class="local-btn local-btn-info">Use that!</button>	
@@ -110,7 +126,7 @@
 			<div id="pages-childs" class="product-feature-description-area">
 				<h1 class="title-area" style='font-size: 55px;margin-top: 20px;'>
 					<strong style="color: rgba(0,0,0,.9);">
-						Get to know your clients well!
+						Get to know your target well!
 					</strong>
 				</h1>	
 				<p class="text-dark">
@@ -125,27 +141,14 @@
 
 	<div class="svg-background-fourth-landing-page">
 		<div class="fourth-landing-page local-container-8">
-			<div class="display-app-area"></div>
-		</div>
-	</div>
-
-	<div class="svg-background-fifth-landing-page">
-		<div class="fifth-landing-page local-container-8 bg-light p-4 border local-shadow">
 			<h1 class="title-area text-center" style='font-size: 55px;margin-top: 30px;'>
-				<strong style="color: rgba(0,0,0,.9);">
+				<strong class="text-white">
 					Are you ready wanna get started?
 				</strong>
 			</h1>
-			<div style='margin: 55px;'>
-				<CENTER>
-					<input style="margin: 10px;" type="radio" id="yes" name="option" checked>
-			  		<label for="yes"></label><strong>YEAAH IM READY RO GET STARTED!!</strong><br>
-			  		<input style="margin: 10px;" type="radio" id="no" name="option" value="">
-			  		<label for="no"></label><strong>NOT NOW! OR MAYBE OR I WON'T USE IT SOMEDAY</strong><br>
-		  		</CENTER>
-		  	</div>
 			<center>	
-				<button class="local-btn local-btn-primary">Get Started</button>
+				<button class="local-btn">Get Started</button>
+				<button class="local-btn">Not now</button>
 			</center>
 		</div>
 	</div>
@@ -182,161 +185,3 @@
 </body>
 <%-   include('.././partials/ScriptTags')   %>
 </html>
-<style>
-	:root {
-		--margin-between-landing-pages : 100px;
-	}
-	.first-landing-page {
-		display:  grid;
-		grid-template-columns: 2fr 2fr 2fr;
-		grid-column-gap: 20px;
-		margin : var(--margin-between-landing-pages) auto var(--margin-between-landing-pages) auto;
-	}
-	.second-landing-page,
-	.third-landing-page
-	{
-		display:  grid;
-		grid-template-columns: 2fr 2fr;
-		grid-column-gap: 30px;
-		margin : var(--margin-between-landing-pages) auto var(--margin-between-landing-pages) auto;
-
-	}
-	.fourth-landing-page,
-	.fifth-landing-page,
-	.sixth-landing-page {
-		margin : var(--margin-between-landing-pages) auto var(--margin-between-landing-pages) auto;
-	}
-	.display-app-area {
-		height: 600px;
-	}
-	.services {
-		display: grid;
-		grid-template-columns: 2fr 2fr;
-		grid-gap: 20px;
-	}
-	.service {
-		background-color: #326ce5;
-		height: 300px;
-	}
-	.service-1 {
-		background-color: #da2643;
-		height: 300px;
-	}
-	.service-1 , .service {
-		display: grid;
-		grid-template-columns: .5fr 1fr;
-		align-items: center;
-		padding: 20px;
-	}
-	.kbt-logo, .opnstk-logo {
-		width: 70%;
-		height: 70%;
-	}
-	.landing-page-header {
-		height: 70px;
-		/*padding-top: 25px;*/
-		background-color: #1554a7;
-		/*position: fixed;*/
-		width: 100%;
-
-	}.header-list {
-		list-style: none;
-	}
-	.header-list-item {
-		display: inline;
-		float: right;
-		font-weight: 500;
-	}
-	.header-grid {
-		display: grid;
-		height: 100%;
-		padding-top: 17px;
-		grid-template-columns: 1.8fr 2.2fr;
-		grid-gap: 20px;
-	}
-	 
-	.content {
-		display: grid;
-		grid-template-columns: 2.5fr 1.5fr;
-		grid-gap: 30px;
-	}
-	.text-area, .show-app {
-		height: 100vh;
-	}
-
-	.main-title {
-		color: white;
-		animation-name: title;
-		animation-duration: 1.5s;
-		animation-delay: 0s;
-		animation-iteration-count: 1;
-		animation-timing-function: ease-in-out;
-		transition: all .2s ease-out;
-	}
-	.description {
-		color: white;
-	}
-	@keyframes title {
-		0% {
-			opacity: 0;
-		}
-		50% {
-			opacity: 5;
-		}
-		100% {
-			opacity: 100;
-		}
-	}
-	.landing-page-footer {
-		background-color: /*#0c3e7f*/ /*#07336d*/;
-		height: 400px;
-		width: 100%;
-		padding: 20px;
-	}
-	
-	@media only screen and (max-width: 600px){
-		.first-landing-page {
-			grid-template-columns: 2fr;
-			grid-column-gap: 20px;
-			margin : 40px auto 40px auto;
-		}
-		.second-landing-page,
-		.third-landing-page
-		{
-			grid-template-columns: 2fr;
-			grid-column-gap: 20px;
-			margin : 40px auto 40px auto;
-
-		}
-		.fourth-landing-page ,
-		.fifth-landing-page ,
-		.sixth-landing-page {
-			margin : 40px auto 40px auto;
-		}
-		.services {
-			grid-template-columns: 2fr;
-		}
-		.header-list {
-			display: none;
-		}
-		.content {
-			display: grid;
-			grid-template-columns: 2fr;
-			grid-gap: 10px;
-		}
-		.text-area, .show-app {
-			height: 300px;
-		}
-		.title-area {
-			text-align: center;
-			font-size: 30px!important;
-		}
-		.description {
-			font-size: 12px;
-			text-align: center;
-		}
-		.landing-page-btns {
-			margin: 0 auto;
-		}
-	}
-</style>

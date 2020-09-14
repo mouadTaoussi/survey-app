@@ -9,6 +9,9 @@
 .dark { 
 	background-color: var(--dark) 
 }
+.black {
+	background-color: black;
+}
 .primary { 
 	background-color: var(--primary) 
 }
@@ -29,6 +32,9 @@
 }
 .local-text-dark { 
 	color: var(--dark) 
+}
+.local-text-black { 
+	color: black 
 }
 .local-text-primary { 
 	color: var(--primary) 

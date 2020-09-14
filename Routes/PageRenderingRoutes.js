@@ -27,6 +27,12 @@ router.get('/',validators.checkLanguage, auth.isLoggedin, (request,response)=>{
 	
 })
 
+router.get('/privacyPolicy',validators.checkLanguage,(request,response)=>{
+	
+	// render the pages by language specefied
+	response.render(`${request.lang.langPages}/PrivacyAndPolicy`);
+
+})
 
 router.get('/login',validators.checkLanguage,auth.isLoggedin,(request,response)=>{
 	// Check for error messages if exists
