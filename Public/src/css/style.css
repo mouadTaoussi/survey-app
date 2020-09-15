@@ -327,6 +327,11 @@ h1,h2,h3,h5,h6 {
 	float: right;
 	font-weight: 500;
 }
+.hamburger-menu {
+	position: absolute;
+	top : 26px;
+	display: none!important;
+}
 .header-grid {
 	display: grid;
 	height: 100%;
@@ -334,7 +339,6 @@ h1,h2,h3,h5,h6 {
 	grid-template-columns: 1.8fr 2.2fr;
 	grid-gap: 20px;
 }
- 
 .content {
 	display: grid;
 	grid-template-columns: 2.5fr 1.5fr;
@@ -680,12 +684,13 @@ h1,h2,h3,h5,h6 {
 /**
 *
 *
-* Privacy & Policy
+* Privacy & Policy && How it works?
 *
 *
 **/
+.how-it-works-content,
 .privacy-content {
-	margin-top: 30px;
+	margin-top: 40px;
 }
 
 
@@ -756,7 +761,15 @@ h1,h2,h3,h5,h6 {
 	.services {
 		grid-template-columns: 2fr;
 	}
-	.header-list {
+	.header-grid {
+		padding-top: 17px;
+		grid-template-columns: 4fr .5fr;
+		grid-gap: 20px;
+	}
+	.hamburger-menu {
+		display: block!important;
+	}
+	.header-list-item {
 		display: none;
 	}
 	.content {
@@ -846,8 +859,16 @@ h1,h2,h3,h5,h6 {
 	.services {
 		grid-template-columns: 2fr;
 	}
-	.header-list {
+	.header-grid {
+		padding-top: 17px;
+		grid-template-columns: 4fr .5fr;
+		grid-gap: 20px;
+	}
+	.header-list-item {
 		display: none;
+	}
+	.hamburger-menu {
+		display: block!important;
 	}
 	.content {
 		display: grid;
@@ -868,7 +889,6 @@ h1,h2,h3,h5,h6 {
 	.landing-page-btns {
 		margin: 0 auto;
 	}
-
 	/**
 	*
 	*

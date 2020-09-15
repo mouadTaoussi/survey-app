@@ -13,215 +13,6 @@
 	--warning : #c19c00;
 }
 
-
-@media only screen and (max-width: 800px){
-	/**
-	*
-	*
-	* Change password
-	*
-	*
-	**/
-	.changePassword {
-		width: 90%;
-	}
-	.changePassword {
-		width: 70%;
-	}
-	.svgs {
-		display: none;
-	}
-	/**
-	*
-	*
-	* Dashboard
-	*
-	*
-	**/
-	/**
-	*
-	*
-	* Embedded page
-	*
-	*
-	**/
-	/**
-	*
-	*
-	* FiveOO && ForOFor
-	*
-	*
-	**/
-	/**
-	*
-	*
-	* Index
-	*
-	*
-	**/
-	.first-landing-page {
-		grid-template-columns: 2fr;
-		grid-column-gap: 20px;
-		margin : 40px auto 40px auto;
-	}
-	.second-landing-page,
-	.third-landing-page
-	{
-		grid-template-columns: 2fr;
-		grid-column-gap: 20px;
-		margin : 40px auto 40px auto;
-
-	}
-	.fourth-landing-page ,
-	.fifth-landing-page ,
-	.sixth-landing-page {
-		margin : 40px auto 40px auto;
-	}
-	.services {
-		grid-template-columns: 2fr;
-	}
-	.header-list {
-		display: none;
-	}
-	.content {
-		display: grid;
-		grid-template-columns: 2fr;
-		grid-gap: 10px;
-	}
-	.text-area, .show-app {
-		height: 300px;
-	}
-	.title-area {
-		text-align: center;
-		font-size: 30px!important;
-	}
-	.description {
-		font-size: 12px;
-		text-align: center;
-	}
-	.landing-page-btns {
-		margin: 0 auto;
-	}
-	/**
-	*
-	*
-	* Login
-	*
-	*
-	**/
-	.login {
-		width: 90%;
-	}
-	.login {
-		width: 70%;
-	}
-	.svgs {
-		display: none;
-	}
-	/**
-	*
-	*
-	* Register
-	*
-	*
-	**/
-	.register {
-		width: 90%;
-	}
-	/**
-	*
-	*
-	* Reset Password
-	*
-	*
-	**/
-	.resetPassword {
-		width: 90%;
-	}
-}
-
-
-@media only screen and (max-width: 600px){
-	.error-page-content {
-		grid-template-columns: 5fr;
-		grid-gap: 30px;
-	}
-	.register {
-		width: 70%;
-	}
-	.svgs {
-		display: none;
-	}
-	.resetPassword {
-		width: 70%;
-	}
-	.svgs {
-		display: none;
-	}
-	.local-container-4 {
-		width: 95%;
-	}
-	/**
-	*
-	*
-	* Survey Editor
-	*
-	*
-	**/
-	.chart-area {
-			width: 100%;height: 100%;margin: 0 auto;
-	}
-	/**
-	*
-	*
-	* Thank you
-	*
-	*
-	**/
-	.thankyou-page-content {
-		grid-template-columns: 5fr;
-		grid-gap: 30px;
-	}
-}
-
-/*@media only screen and (max-width: 800px){
-
-}
-@media only screen and (max-width: 600px){
-
-}
-
-@media only screen and (max-width: 800px){
-
-}
-@media only screen and (max-width: 600px){
-	
-}
-
-@media only screen and (max-width: 800px){
-
-}
-@media only screen and (max-width: 600px){
-	
-}
-/**
-*
-*
-* Submit Survey Response
-*
-*
-**/
-/*@media only screen and (max-width: 600px){
-	
-}
-
-@media only screen and (max-width: 600px){
-	
-}
-
-@media only screen and (max-width: 600px){
-
-}*/
 /************************  Colors ******************************/
 .light { 
 	background-color: var(--light) 
@@ -552,7 +343,7 @@
 }
 
 body {
-	background-color: /*white,/*//*var(--light);*//**/#f7f7f7;
+	background-color: #f7f7f7;
 	color: var(--dark);
 }
 h1,h2,h3,h5,h6 {
@@ -862,6 +653,11 @@ h1,h2,h3,h5,h6 {
 	float: right;
 	font-weight: 500;
 }
+.hamburger-menu {
+	position: absolute;
+	top : 26px;
+	display: none!important;
+}
 .header-grid {
 	display: grid;
 	height: 100%;
@@ -869,7 +665,6 @@ h1,h2,h3,h5,h6 {
 	grid-template-columns: 1.8fr 2.2fr;
 	grid-gap: 20px;
 }
- 
 .content {
 	display: grid;
 	grid-template-columns: 2.5fr 1.5fr;
@@ -903,7 +698,6 @@ h1,h2,h3,h5,h6 {
 	}
 }
 .landing-page-footer {
-	background-color: /*#0c3e7f*/ /*#07336d*/;
 	height: 400px;
 	width: 100%;
 	padding: 20px;
@@ -1216,16 +1010,17 @@ h1,h2,h3,h5,h6 {
 /**
 *
 *
-* Privacy & Policy
+* Privacy & Policy && How it works?
 *
 *
 **/
+.how-it-works-content,
 .privacy-content {
-	margin-top: 30px;
+	margin-top: 40px;
 }
 
 
-
+/*//////////////////////////////////////*/
 @media only screen and (max-width: 800px){
 	/**
 	*
@@ -1292,7 +1087,15 @@ h1,h2,h3,h5,h6 {
 	.services {
 		grid-template-columns: 2fr;
 	}
-	.header-list {
+	.header-grid {
+		padding-top: 17px;
+		grid-template-columns: 4fr .5fr;
+		grid-gap: 20px;
+	}
+	.hamburger-menu {
+		display: block!important;
+	}
+	.header-list-item {
 		display: none;
 	}
 	.content {
@@ -1354,16 +1157,95 @@ h1,h2,h3,h5,h6 {
 
 
 @media only screen and (max-width: 600px){
+	/**
+	*
+	*
+	* Index
+	*
+	*
+	**/
+	.first-landing-page {
+		grid-template-columns: 2fr;
+		grid-column-gap: 20px;
+		margin : 40px auto 40px auto;
+	}
+	.second-landing-page,
+	.third-landing-page
+	{
+		grid-template-columns: 2fr;
+		grid-column-gap: 20px;
+		margin : 40px auto 40px auto;
+
+	}
+	.fourth-landing-page ,
+	.fifth-landing-page ,
+	.sixth-landing-page {
+		margin : 40px auto 40px auto;
+	}
+	.services {
+		grid-template-columns: 2fr;
+	}
+	.header-grid {
+		padding-top: 17px;
+		grid-template-columns: 4fr .5fr;
+		grid-gap: 20px;
+	}
+	.header-list-item {
+		display: none;
+	}
+	.hamburger-menu {
+		display: block!important;
+	}
+	.content {
+		display: grid;
+		grid-template-columns: 2fr;
+		grid-gap: 10px;
+	}
+	.text-area, .show-app {
+		height: 300px;
+	}
+	.title-area {
+		text-align: center;
+		font-size: 30px!important;
+	}
+	.description {
+		font-size: 12px;
+		text-align: center;
+	}
+	.landing-page-btns {
+		margin: 0 auto;
+	}
+	/**
+	*
+	*
+	* Error page
+	*
+	*
+	**/
 	.error-page-content {
 		grid-template-columns: 5fr;
 		grid-gap: 30px;
 	}
+	/**
+	*
+	*
+	* Register
+	*
+	*
+	**/
 	.register {
 		width: 70%;
 	}
 	.svgs {
 		display: none;
 	}
+	/**
+	*
+	*
+	* Reset Password
+	*
+	*
+	**/
 	.resetPassword {
 		width: 70%;
 	}
