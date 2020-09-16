@@ -26,6 +26,10 @@ h1,h2,h3,h5,h6 {
 	/*font-family: 'Ubuntu', sans-serif;*/
 }
 
+.header-brand {
+	position: absolute;
+	left: 50px;
+}
 .svg-one {
 	background-image: url('.././assets/undraw_my_password_d6kg.svg');
 	background-repeat: no-repeat;
@@ -299,7 +303,7 @@ h1,h2,h3,h5,h6 {
 	height: 300px;
 }
 .service-1 {
-	background-color: #da2643;
+	background-color: #e535ab /* GraphQL Color */;
 	height: 300px;
 }
 .service-1 , .service {
@@ -308,7 +312,7 @@ h1,h2,h3,h5,h6 {
 	align-items: center;
 	padding: 20px;
 }
-.kbt-logo, .opnstk-logo {
+.kbt-logo, .graphql-logo {
 	width: 70%;
 	height: 70%;
 }
@@ -318,6 +322,7 @@ h1,h2,h3,h5,h6 {
 	background-color: #052580/*#1554a7*/;
 	position: fixed;
 	width: 100%;
+	transition: all .2s ease-out; 
 
 }.header-list {
 	list-style: none;
@@ -831,6 +836,10 @@ h1,h2,h3,h5,h6 {
 
 
 @media only screen and (max-width: 600px){
+	.header-brand {
+		position: absolute;
+		left: -5px;
+	}
 	/**
 	*
 	*

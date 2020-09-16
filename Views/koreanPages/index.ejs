@@ -6,30 +6,15 @@
 </head>
 <body style='background-color: white;'>
 	<!-- <h1>it works!</h1> -->
-	<header class="landing-page-header">
-		<div class="local-container-8 header-grid">
-			<a href="/?lang=kr">
-				<div class="header-brand"></div>
-			</a>
-			<ul class="header-list">
-				<li class="header-list-item">
-					<button class="local-btn" id="languageDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">한국어<i class="fas fa-chevron-down mx-2"></i></button>
-					<div class="dropdown-menu" aria-labelledby="languageDropDown">
-						<a class="dropdown-item" href="/?lang=en">English</a>
-						<a class="dropdown-item" href="/?lang=cn">中文</a>
-					</div>
-				</li>
-				<li class="header-list-item"><a href="/login?lang=kr"><button class="local-btn local-btn-primary">시작하다</button></a></li>
-				<li class="header-list-item"><a href="/login?lang=kr"><button class="local-btn">로그인</button></a></li>
-				<li class="header-list-item"><a href="/register?lang=kr"><button class="local-btn">레지스터</button></a></li>
-				<li class="header-list-item"><a href="/privacyPolicy?lang=kr"><button class="local-btn">어떻게 작동합니까?</button></a></li>
-			</ul>
-		</div>
-	</header>
+	<%-   include('.././partials/koreanHomePage&PrivacyHeader')   %>
 	<div class="landing-page">
 		<div class="content local-container-8">
 			<div class="text-area">
-				<h1 style='font-size: 60px;'><strong class="title">청중의 강인함을 발견하십시오!</strong></h1>
+				<h1 class="title-area" style='font-size: 65px;transition: all .2s ease-out;'>
+					<strong class="main-title">
+						청중의 강인함을 발견하십시오!
+					</strong>
+				</h1>
 				<p class="description">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				</p>
@@ -40,6 +25,124 @@
 		</div>
 	</div>
 	
+	<div class="svg-background-first-landing-page">
+		<h1 class="title-area text-center" style='font-size: 55px;margin-top: 30px;'>
+			<strong style="color: rgba(0,0,0,.9);">
+				What we offer?
+			</strong>
+		</h1>
+		<div class="first-landing-page local-container-8">
+			<div class="bg-light local-p-4 local-m-2 border local-shadow">
+				<h4 class="text-center m-4">Surveys</h4>
+				<p class="text-dark">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, 
+				</p>
+				<center>
+					<a href="/login">
+						<button class="local-btn local-btn-info">Create a new survey</button>	
+					</a>
+				</center>
+			</div>			
+			<div class="bg-light local-p-4 local-m-2 border local-shadow">
+				<h4 class="text-center m-4">API</h4>
+				<p class="text-dark">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, 
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, 				
+				</p>
+				<center>
+					<a href="/login">
+						<button class="local-btn local-btn-info">Use that!</button>	
+					</a>
+				</center>
+			</div>			
+			<div class="bg-light local-p-4 local-m-2 border local-shadow">
+				<h4 class="text-center m-4">GraphQL API</h4>
+				<p class="text-dark">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit,
+				<center>
+					<a href="/login">
+						<button class="local-btn local-btn-info">Use that!</button>	
+					</a>
+				</center>
+			</div>			
+		</div>
+	</div>
+
+	<div class="svg-background-second-landing-page">
+		<div class="second-landing-page local-container-8">
+			<div id="pages-childs" class="product-feature-preview-feature-area">
+				<%-   include('.././partials/single_question_preview')   %>
+			</div>
+			<div id="pages-childs" class="product-feature-description-area">
+				<h1 class="title-area" style='font-size: 55px;margin-top: 30px;'>
+					<strong style="color: rgba(0,0,0,.9);">
+						Release questions to your target Easily!
+					</strong>
+				</h1>
+				<p class="text-dark">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				</p>	
+			</div>
+		</div>
+	</div>
+
+	<div class="svg-background-third-landing-page">
+		<div class="third-landing-page local-container-8">
+			<div id="pages-childs" class="product-feature-description-area">
+				<h1 class="title-area" style='font-size: 55px;margin-top: 20px;'>
+					<strong style="color: rgba(0,0,0,.9);">
+						Get to know your target well!
+					</strong>
+				</h1>	
+				<p class="text-dark">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				</p>		
+			</div>
+			<div id="pages-childs" class="product-feature-preview-feature-area">
+				<%-   include('.././partials/response_preview_chart')   %>
+			</div>
+		</div>
+	</div>
+
+	<div class="svg-background-fourth-landing-page">
+		<div class="fourth-landing-page local-container-8">
+			<h1 class="title-area text-center" style='font-size: 55px;margin-top: 30px;'>
+				<strong class="text-white">
+					Are you ready wanna get started?
+				</strong>
+			</h1>
+			<center>	
+				<button class="local-btn">Get Started</button>
+				<button class="local-btn">Not now</button>
+			</center>
+		</div>
+	</div>
+
+	<div class="svg-background-sixth-landing-page">
+		<div class="sixth-landing-page local-container-8">
+			<div class="services">
+				<div class="service">
+					<img src="https://assets.ubuntu.com/v1/1db850da-K8s+logo.svg" class="kbt-logo">
+					<div>
+						<h2 class="text-left text-white">Watch our SurveyApp Webiners ›</h2>
+						<h6 class="text-left text-white">
+							A series of on-demand webinars to learn more about Charmed Kubernetes.
+						</h6>
+					</div>
+				</div>
+				<div class="service-1">
+					<img src="https://assets.ubuntu.com/v1/c8efedd7-OpenStack_Logo_white.svg" class="opnstk-logo">
+					<div>
+						<h2 class="text-left text-white">OpenStack costs increasing? ›</h2>
+						<h6 class="text-left text-white">
+							Learn how outsourcing OpenStack operations can accelerate the private cloud deployment process and help to bring costs down.
+						</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<footer class="landing-page-footer bg-light border">
 		<div class="local-container-8"></div>
 	</footer>

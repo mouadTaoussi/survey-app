@@ -6,46 +6,7 @@
 </head>
 <body style='background-color: white;'>
 	<!-- <h1>it works!</h1> -->
-	<header class="landing-page-header">
-		<div class="local-container-8 header-grid">
-			<a href="/?lang=cn">
-				<div class="header-brand"></div>
-			</a>
-
-			<ul class="header-list">
-				<li class="header-list-item">
-					<button class="local-btn" id="languageDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">English<i class="fas fa-chevron-down mx-2"></i></button>
-					<div class="dropdown-menu" aria-labelledby="languageDropDown">
-						<a class="dropdown-item" href="/?lang=kr">한국어</a>
-						<a class="dropdown-item" href="/?lang=cn">中文</a>
-					</div>
-				</li>
-				<li class="header-list-item">
-					<a href="/login">
-						<button class="local-btn" style="background: inherit;color: white">Get Started</button>
-					</a>
-				</li>
-				<li class="header-list-item">
-					<a href="/login">
-						<button class="local-btn" style="background: inherit;color: white">Log in</button>
-					</a>
-				</li>
-				<li class="header-list-item">
-					<a href="/register">
-						<button class="local-btn" style="background: inherit;color: white">Register</button>
-					</a>
-				</li>
-				<li class="header-list-item">
-					<a href="/privacyPolicy?lang=en">
-						<button class="local-btn"style="background: inherit;color: white">How it works?</buttoN>
-					</a>
-				</li>
-				<li>
-					<i class="hamburger-menu fas fa-bars text-white"></i>
-				</li>
-			</ul>
-		</div>
-	</header>
+	<%-   include('.././partials/HomePage&PrivacyHeader')   %>
 	<div class="landing-page">
 		<div class="content local-container-8">
 			<div class="text-area">
@@ -55,10 +16,10 @@
  					</strong>
 				</h1>
 				<p class="description">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					Discover your target by creating a surveys for them and then you'll get your responses easily,
 				</p>
 				<div class="landing-page-btns">
-					<a href="~"><button class='local-btn cta-btn local-btn-primary'>Get Started</button></a>
+					<a href="/login?lang=en"><button class='local-btn cta-btn local-btn-primary'>Get Started</button></a>
 					<a href="~"><button class='local-btn cta-btn local-btn-dark'>Learn more</button></a>
 				</div>
 			</div>
@@ -76,10 +37,11 @@
 			<div class="bg-light local-p-4 local-m-2 border local-shadow">
 				<h4 class="text-center m-4">Surveys</h4>
 				<p class="text-dark">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, 
+					You can create & costum & edit your surveys to your target,
+					along side using surveys to a specific target, you can also use survey as an invitation request to your family & friends asking them about your event, to know what they need! 
 				</p>
 				<center>
-					<a href="/login">
+					<a href="/login?lang=en">
 						<button class="local-btn local-btn-info">Create a new survey</button>	
 					</a>
 				</center>
@@ -87,11 +49,11 @@
 			<div class="bg-light local-p-4 local-m-2 border local-shadow">
 				<h4 class="text-center m-4">API</h4>
 				<p class="text-dark">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, 
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, 				
+					If you are a passionate about APIs! then this side might be appropriate for you,
+					you can use our APIs to learn RestfulAPI as a developer, or might be in your future app if possible. 				
 				</p>
 				<center>
-					<a href="/login">
+					<a href="/docs?lang=en">
 						<button class="local-btn local-btn-info">Use that!</button>	
 					</a>
 				</center>
@@ -99,9 +61,10 @@
 			<div class="bg-light local-p-4 local-m-2 border local-shadow">
 				<h4 class="text-center m-4">GraphQL API</h4>
 				<p class="text-dark">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit,
+					If you are a passionate about GraphQL world! then this side might be good to get started,
+					you can use GraphQL API to learn the technology as a developer, or might be in your future app if possible.
 				<center>
-					<a href="/login">
+					<a href="/docs?lang=en">
 						<button class="local-btn local-btn-info">Use that!</button>	
 					</a>
 				</center>
@@ -121,7 +84,7 @@
 					</strong>
 				</h1>
 				<p class="text-dark">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					without hard steps, and you can edit them whenever you want for your target,
 				</p>	
 			</div>
 		</div>
@@ -136,7 +99,7 @@
 					</strong>
 				</h1>	
 				<p class="text-dark">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					by creating questions of your survey, you'll be able to receive responses back from your target organized in charts for each question, then you can download your responses as JSON format 
 				</p>		
 			</div>
 			<div id="pages-childs" class="product-feature-preview-feature-area">
@@ -149,12 +112,12 @@
 		<div class="fourth-landing-page local-container-8">
 			<h1 class="title-area text-center" style='font-size: 55px;margin-top: 30px;'>
 				<strong class="text-white">
-					Are you ready wanna get started?
+					Are you ready to get started?
 				</strong>
 			</h1>
 			<center>	
-				<button class="local-btn">Get Started</button>
-				<button class="local-btn">Not now</button>
+				<a href="/login?lang=en"><button class="local-btn">Get Started</button></a>
+				<button onclick="window.close()" class="local-btn">Not now</button>
 			</center>
 		</div>
 	</div>
@@ -172,11 +135,13 @@
 					</div>
 				</div>
 				<div class="service-1">
-					<img src="https://assets.ubuntu.com/v1/c8efedd7-OpenStack_Logo_white.svg" class="opnstk-logo">
+					<img src="./graphql-svg.png" class="graphql-logo">
 					<div>
-						<h2 class="text-left text-white">OpenStack costs increasing? ›</h2>
+						<h2 class="text-left">
+							<a href="/docs?lang=en" class="text-white">Explore our GraphQL API ›</a>
+						</h2>
 						<h6 class="text-left text-white">
-							Learn how outsourcing OpenStack operations can accelerate the private cloud deployment process and help to bring costs down.
+							Learn how GraphQL operations can accelerate using data in the application process and help to bring costs down.
 						</h6>
 					</div>
 				</div>

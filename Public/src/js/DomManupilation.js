@@ -1,7 +1,9 @@
-if (window.location.pathname === "/surveyEditor" || window.location.pathname === "/") {
+if (window.location.pathname === "/surveyEditor") {
+
 	// Tabs feature !!
-	const edit_tab = document.querySelector('.edit-tab')
-	const responses_tab = document.querySelector('.responses-tab')
+	const edit_tab = document.querySelector('.edit-tab');
+	const responses_tab = document.querySelector('.responses-tab');
+
 	edit_tab.addEventListener('click',()=>{
 		document.querySelector('.survey-editor').style.display = '';
 		document.querySelector('.responses').style.display = 'none';
@@ -173,4 +175,37 @@ if (window.location.pathname === "/surveyEditor" || window.location.pathname ===
 	window.deleteField = (event)=>{
 		event.path[2]/*.parentNode*/.remove();
 	}
+}
+else if ( 
+	window.location.pathname === "/privacyPolicy" 
+						|| 
+	window.location.pathname === "/" 
+						|| 
+	window.location.pathname === "/docs" 
+	) {
+
+	// Show menu ON smaller devices
+	document.querySelector('.hamburger-menu').addEventListener('click',()=>{
+		// Grab the header
+		const header = document.querySelector('.landing-page-header');
+
+		// Check the header height
+		if (header.style.height != "70px"){
+
+			// Set the height to 70px
+			header.style.height = "70px";
+
+			// unDisplay the menu content
+			document.querySelector('.menu_content_for_smaller_devices').style.display = "none";
+		}
+		else if (header.style.height != "230px") {
+
+			// Diplay the menu content
+			document.querySelector('.menu_content_for_smaller_devices').style.display = "block";
+
+			// Set the height to 230px
+			header.style.height = "230px";	
+		}
+	})
+
 }

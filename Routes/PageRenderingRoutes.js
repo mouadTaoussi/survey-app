@@ -34,6 +34,13 @@ router.get('/privacyPolicy',validators.checkLanguage,(request,response)=>{
 
 })
 
+router.get('/docs',validators.checkLanguage,(request,response)=>{
+	
+	// render the pages by language specefied
+	response.render(`${request.lang.langPages}/Documentation`);
+
+})
+
 router.get('/login',validators.checkLanguage,auth.isLoggedin,(request,response)=>{
 	// Check for error messages if exists
 	const { loggedIn, message } = request.query;
