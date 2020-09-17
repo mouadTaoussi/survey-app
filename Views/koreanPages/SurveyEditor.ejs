@@ -1,13 +1,275 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>감사합니다!</title>
+	<title>설문 조사 편집자</title>
 	<%-   include('.././partials/HeadTags')   %>
 </head>
 <body style="">
 <%- include('.././partials/koreanHeaderElement',{avatar:user.avatar}) %>
 <div class="mt-4 mb-4 local-container-8">
-	
+	<%- include('.././partials/alertMessage') %>
+	<ul class="list-group list-group-horizontal-sm">
+	  <li style="cursor:pointer;" class="list-group-item edit-tab active">편집하다</li>
+	  <li style="cursor:pointer;" class="list-group-item responses-tab">응답</li>
+	</ul>
+	<!-- <h1>Survey Editor</h1> -->
+	<!-- ---------------------------------------------------------- -->
+	<!-- ---------------------------------------------------------- -->
+	<!-- ---------------------------------------------------------- -->
+	<div class="survey-editor">
+
+		<div class="survey-editor-preview">
+			<% if ( survey !== null ) { %>
+				<div class="desc local-card local-mt-4 local-p-2 local-shadow">
+			
+					<input 
+					    type="text" 
+					    name="survey-title" 
+					    class="form-control survey-title local-mt-2" 
+					    placeholder="이 설문 조사의 제목"
+					    value="<%= survey.title %>">
+					<textarea  
+					    type="text" 
+					    name="survey-description" 
+					    class="form-control survey-description local-mt-2"
+					    placeholder="이 설문 조사에 대한 설명"
+					 ><%= survey.description %></textarea>
+					 <p class="text-left local-mt-2">설문 조사 ID: <strong class="survey_id"><%= survey.id %></strong></p>
+					
+				</div>
+				<div class="questions_list">
+					<!-- Single Question -->
+					<!-- Single Question -->
+					<% survey.questions.forEach((question)=>{ %>				
+						<div class="single-question local-card local-mt-2 local-p-2 local-shadow" draggable='true'>
+							<!-- Dragable section -->
+							<div class="dragable">
+								<div></div><div></div><div></div>
+								<div></div><div></div><div></div>
+							</div>
+							<!-- Quetsion or title -->
+							<input 
+								class="form-control mt-2" 
+								placeholder='여기에 어떤 질문을 쓰고 싶은가요?'
+								value="<%= question.title %>" 
+								required
+							>
+							<!-- Files inputs -->
+							<div class="custom-file files-attachment">
+								<input type="file" class="custom-file-input" id="validatedCustomFile" onchange='getFile(event)' placeholder="<%= question.file %>">
+								<label class="custom-file-label" for="validatedCustomFile">파일 선택 ...</label>
+								<div class="invalid-feedback">Example invalid custom file feedback</div>
+							</div>
+							<!-- Options -->
+							<div class="options-area">
+								<ul class="options-list">
+									<% question.options.forEach((option)=>{ %>
+									<li class="option-item">
+										<input 
+											type="text" 
+											placeholder="선택권" 
+											class="form-control" 
+											required 
+											value="<%= option %>"
+										>
+										<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
+									</li>
+									<% }) %>
+								</ul>
+								<p class="add-new-option p-2">새로 추가 +</p>
+							</div>
+							<!-- Settings -->
+							<div class="question_settings p-2">
+								<i 
+								onclick="deleteField(event)" 
+								style="display: inline" 
+								class="delete-field mx-2 far fa-trash-alt"></i>
+								<select style="display: inline;width: 180px;" class='mx-2 form-control'>
+
+									<% if (question.type === "MultipleChoice") { %>
+									<%- "<option selected>MultipleChoice</option><option>OneChoice</option><option>ShortParagraph</option>" %>
+									
+									<% } else if (question.type === "OneChoice") { %>
+									<%- "<option>MultipleChoice</option><option selected>OneChoice</option><option>ShortParagraph</option>" %>
+									
+									<% } else if (question.type === "ShortParagraph") { %>
+									<%- "<option>MultipleChoice</option><option>OneChoice</option><option selected>ShortParagraph</option>" %>
+
+									<% } else { %>
+									<%- "<option>MultipleChoice</option><option>OneChoice</option><option>ShortParagraph</option>" %>
+									<% } %>
+
+								</select>
+							</div>
+						</div>
+					<% }) %>
+				</div>
+			<% } else { %>
+				<div class="desc local-card local-mt-4 local-p-2 local-shadow">
+			
+					<input 
+					    type="text" 
+					    name="survey-title" 
+					    class="form-control survey-title local-mt-2" 
+					    placeholder="이 설문 조사의 제목">
+					<textarea  
+					    type="text" 
+					    name="survey-description" 
+					    class="form-control survey-description local-mt-2"
+					    placeholder="이 설문 조사에 대한 설명"
+					 ></textarea>
+					 <p class="text-left local-mt-2">설문 조사 ID: <strong class="survey_id">---</strong></p>
+					
+				</div>
+				<div class="questions_list">
+					<!-- Single Question -->
+					<!-- Single Question -->
+					<div class="single-question local-card local-mt-2 local-p-2 local-shadow" draggable='true'>
+						<!-- Dragable section -->
+						<div class="dragable">
+							<div></div><div></div><div></div>
+							<div></div><div></div><div></div>
+						</div>
+						<!-- Quetsion or title -->
+						<input class="form-control mt-2" placeholder='여기에 어떤 질문을 쓰고 싶은가요?' required>
+						<!-- Files inputs -->
+						<div class="custom-file files-attachment">
+							<input type="file" class="custom-file-input" id="validatedCustomFile" onchange='getFile(event)'>
+							<label class="custom-file-label" for="validatedCustomFile">파일 선택 ...</label>
+							<div class="invalid-feedback">Example invalid custom file feedback</div>
+						</div>
+						<!-- Options -->
+						<div class="options-area">
+							<ul class="options-list">
+								<li class="option-item">
+									<input type="text" placeholder="선택권" class="form-control" required>
+									<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
+								</li>
+								<li class="option-item">
+									<input type="text" placeholder="선택권" class="form-control" required>
+									<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
+								</li>
+							</ul>
+							<p class="add-new-option p-2">새로 추가 +</p>
+						</div>
+						<!-- Settings -->
+						<div class="question_settings p-2">
+							<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
+							<select style="display: inline;width: 180px;" class='mx-2 form-control'>
+								<option>MultipleChoice</option>
+								<option>OneChoice</option>
+								<option>ShortParagraph</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			<% } %>
+			<!-- Description Place -->
+			<!-- Description Place -->
+			<button class="local-btn local-btn-primary local-mt-2 local-mb-2 float-right btn-save-changes">변경 사항을 저장하다</button>
+		</div>
+		<!-------------------- Tools ----------------------->
+		<!-------------------- Tools ----------------------->
+		<!-------------------- Tools ----------------------->
+		<div class="survey-editor-tools">
+			<div class="tools-panel local-mt-4  local-shadow local-p-2">
+				<ul class="tools-list">
+					<li class="add_new_field">
+						<i data-toggle="tooltip" data-placement="left" title="새 필드 추가" class="fas fa-plus"></i>
+					</li>
+					<li type="button" data-toggle="modal" data-target="#importModal">
+						<i data-toggle="tooltip" data-placement="left" title="다른 설문 조사 질문 가져 오기" class="fas fa-file-import"></i>
+					</li>
+					<li type="button" data-toggle="modal" data-target="#shareMethodsModal">
+						<i data-toggle="tooltip" data-placement="left" title="이 설문 조사 공유" class="fas fa-share-square"></i>
+					</li>
+					<li type="button">
+						<% if (survey !== null ) { %>
+							<a href='/response/downloadResults?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>'>
+								<i data-toggle="tooltip" data-placement="left" title="응답 다운로드" class="fas fa-file-download"></i>
+							</a>
+						<%}%>
+						<% if (survey == null ) { %>
+							<a href='#'>
+								<i data-toggle="tooltip" data-placement="left" title="응답 다운로드" class="fas fa-file-download"></i>
+							</a>
+						<%}%>
+						
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- shareMethodsModal -->
+		<div class="modal fade" id="shareMethodsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">이 설문 조사 공유</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p>소셜 미디어에서 공유 할 수있는 링크 :</p>
+		        
+		        <% if (survey == null ) { %>
+	        		<kbd style='font-size: 10px'>http://localhost:5000/submitResponse?survey_id=</kbd>
+	        	<% } else { %>
+	        		<kbd style='font-size: 10px'>http://localhost:5000/submitResponse?survey_id=<%= survey.id %></kbd>
+	        	<%}%>
+		        <br>
+		        <br>
+		        <p>웹 사이트에 포함 할 포함 된 요소 :</p>
+	        	<% if (survey == null ) { %>
+		        	<div class="local-alert info">
+		        		링크를 삽입하려면 설문 조사를 저장하세요!
+		        	</div>
+	        	<% } else { %>
+		        	<!-- <pre style="text-align: left">
+			        	<iframe src="http://localhost:5000/embedded?survey_id=<%=survey.id %>" width="100%" height="245px" style=""></iframe>
+			        </pre> -->
+	        	<%}%>
+
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="local-btn local-btn-dark" data-dismiss="modal">닫기</button>
+		        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- importModal -->
+		<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">다른 질문 가져 오기</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p>아래에 가져올 설문 ID를 붙여 넣으세요:</p>
+		        <strong style='font-size: 13px;line-height: 3px'>
+		        	NB : <kbd> survey_id </kbd>가 아래와 같이 관련되어 있다면 링크에서 설문 조사 ID를 얻을 수 있습니다!</strong><br>
+		        <!-- <img  class="local-mt-2" src="./previewID.png" width="100%"> -->
+		        <kbd style='font-size: 10px'>/surveyEditor?survey_id=5f4aef5b4491253b00b7cae</kbd>
+		        <input type="text" class="import_survey_id form-control local-mt-2" placeholder="Survey ID">
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="local-btn local-btn-dark" data-dismiss="modal">닫기</button>
+		        <button type="button" class="local-btn local-btn-primary" onclick="importQuestions()">수입</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<!-- ---------------------------------------------------------- -->
+	<!-- ---------------------------------------------------------- -->
+	<!-- ---------------------------------------------------------- -->
+	<div class="responses">
+		
+	</div>
 </div>
 </body>
 <%-   include('.././partials/ScriptTags')   %>
