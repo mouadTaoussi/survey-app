@@ -1,111 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SubmitSurveyResponse</title>
+	<title>提交调查回复</title>
 	<%-   include('.././partials/HeadTags')   %>
 </head>
 <body>
 <div class="local-container-4">
-	<!-- <h1>SubmitSurveyResponse</h1> -->
-	<div class="desc local-card local-mt-2 local-p-2">
-		<h2 clas="text-left">A questions about programming!!!</h2>
+	<div class="desc local-card local-mt-2 local-p-2 shadow">
+		<h2 clas="text-left"><%= survey.title %></h2>
 		<p clas="text-left">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			<%= survey.description %>
 		</p>
 	</div>
-	<div class="local-card local-mt-2 local-p-2">
-		<p>How many programming languages you know?</p>
-		<div class="options-area">
-			<select class="form-control question-inputs">
-				<option value='' default disabled >Select one</option>
-				<option value=''>1</option>
-				<option value=''>2</option>
-				<option value=''>3</option>
-				<option value=''>4</option>
-				<option value=''>5</option>
-			</select>
+	<% survey.questions.forEach((question)=>{ %>
+	<div class="single-response local-card local-mt-2 local-p-2 shadow">
+		<p><strong><%= question.title %></strong></p>
+		<p class="question-type"><%= question.type %></p>
+		<div class="options">
+			<% if (question.type === "OneChoice") {%>
+				<select class="form-control question-inputs">
+					<% question.options.forEach((option)=>{ %>
+  						<option><%= option %></option>
+					<% }) %>
+				</select>
+			<% } else if (question.type === "MultipleChoice") {%>
+					<% question.options.forEach((option)=>{ %>
+					<input type="checkbox" id="<%= option %>" name="option" value="<%= option %>">
+	  				<label for="<%= option %>"><%= option %></label><br>
+					<% }) %>
+			<% } else if (question.type === "ShortParagraph") {%>
+				<%-'<input type="text" class="form-control" id="ShortParagraph" placeholder="Write a short paragraph">'-%>
+			<% } %>
 		</div>
+		<!-- Check if any files provided -->
+		<% if (question.file !== null) {%>
+			<a href="<%= question.file %>" class='local-mt-2' target='_blank'>Check file attachment</a>
+		<% } %>
 	</div>
-	<div class="local-card local-mt-2 local-p-2">
-		<p>How many programming languages you know?</p>
-		<div class="options-area">
-			<select class="form-control question-inputs">
-				<option value='' default disabled >Select one</option>
-				<option value=''>1</option>
-				<option value=''>2</option>
-				<option value=''>3</option>
-				<option value=''>4</option>
-				<option value=''>5</option>
-			</select>
-		</div>
-	</div>
-	<div class="local-card local-mt-2 local-p-2">
-		<p>How many programming languages you know?</p>
-		<div class="options-area">
-			<select class="form-control question-inputs">
-				<option value='' default disabled >Select one</option>
-				<option value=''>1</option>
-				<option value=''>2</option>
-				<option value=''>3</option>
-				<option value=''>4</option>
-				<option value=''>5</option>
-			</select>
-		</div>
-	</div>
-	<div class="local-card local-mt-2 local-p-2">
-		<p>How many programming languages you know?</p>
-		<div class="options-area">
-			<select class="form-control question-inputs">
-				<option value='' default disabled >Select one</option>
-				<option value=''>1</option>
-				<option value=''>2</option>
-				<option value=''>3</option>
-				<option value=''>4</option>
-				<option value=''>5</option>
-			</select>
-		</div>
-	</div>
-	<div class="local-card local-mt-2 local-p-2">
-		<p>How many programming languages you know?</p>
-		<div class="options-area">
-			<select class="form-control question-inputs">
-				<option value='' default disabled >Select one</option>
-				<option value=''>1</option>
-				<option value=''>2</option>
-				<option value=''>3</option>
-				<option value=''>4</option>
-				<option value=''>5</option>
-			</select>
-		</div>
-	</div>
-	<div class="local-card local-mt-2 local-p-2">
-		<p>How many programming languages you know?</p>
-		<div class="options-area">
-			<select class="form-control question-inputs">
-				<option value='' default disabled >Select one</option>
-				<option value=''>1</option>
-				<option value=''>2</option>
-				<option value=''>3</option>
-				<option value=''>4</option>
-				<option value=''>5</option>
-			</select>
-		</div>
-	</div>
-	<div class="local-card local-mt-2 local-p-2">
-		<p>How many programming languages you know?</p>
-		<div class="options-area">
-			<select class="form-control question-inputs">
-				<option value='' default disabled >Select one</option>
-				<option value=''>1</option>
-				<option value=''>2</option>
-				<option value=''>3</option>
-				<option value=''>4</option>
-				<option value=''>5</option>
-			</select>
-		</div>
-	</div>
-	<button class='float-right local-btn local-mt-2 local-mb-2 local-btn-primary'>提交</button>
-
+	<% }) %>
+	<button class='float-right local-btn local-mt-2 local-mb-2 local-btn-primary' onclick='submitSurveyResponse()'>提交</button>
 </div>
 </body>
 <%-   include('.././partials/ScriptTags')   %>

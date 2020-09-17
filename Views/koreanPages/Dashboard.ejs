@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>계기반</title>
 	<%-   include('.././partials/HeadTags')   %>
 </head>
 <body>
-<%- include('.././partials/koreanHeaderElement') %>
+<%- include('.././partials/koreanHeaderElement', {avatar:user.avatar}) %>
 <div class="local-container-8">
 	<!-- <h1 class="mt-4">Dashboard</h1> -->
 	<!-- Dynamic alert message -->
@@ -30,54 +30,59 @@
 	      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
 	      	<h3 class="text-left local-mb-4">설문 조사</h3>
 	      	<table class="table table-hover">
-			  <thead style="background-color:rgba(0,0,0,.1)">
-			    <tr>
-			      <th scope="col">#</th>
-			      <th scope="col">First</th>
-			      <th scope="col">Last</th>
-			      <th scope="col">Handle</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr>
-			      <th scope="row">1</th>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">2</th>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">3</th>
-			      <td colspan="2">Larry the Bird</td>
-			      <td>@twitter</td>
-			    </tr>
-			   <!--  <tr>
-			      <th scope="row">4</th>
-			      <td colspan="2">Larry the Bird</td>
-			      <td>@twitter</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">5</th>
-			      <td colspan="2">Larry the Bird</td>
-			      <td>@twitter</td>
-			    </tr> -->
-			    <tr style="background-color:rgba(0,0,0,.20);cursor: pointer">
-			      <td colspan="2">새로운 설문 조사 작성 +</td>
+	      	  <% if (surveys.length == 0) { %>
+	      	   	<div class="empty-content"></div>
+	      	  <% } %>
+	      	  <% if (surveys.length > 0) { %>
+				<thead style="background-color:rgba(0,0,0,.1); font-family: 'Poppins';">
+				    <tr>
+				      <th scope="col">설문 조사 ID</th>
+				      <th scope="col">설문 조사 제목</th>
+				      <th scope="col">유효한</th>
+				      <th scope="col"></th>
+				      <th scope="col"></th>
+				    </tr>
+				  </thead>
+				<tbody>
+				<% surveys.forEach((survey)=>{%> 
+				  <tr>
+				    <td>
+				    	<a href="/surveyEditor?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>&lang=kr">
+				    		<%= survey.id %>
+				    	</a>
+				    </td>
+				    <td><%= survey.title %></td>
+				    <td>
+				    	<p class="badge <% if (survey.active) {%><%= 'badge-success' %><%} else { %><%= 'badge-danger' %><% } %>">
+				    	<%= survey.active %>
+				    	</p>
+				    </td>
+				    <td>
+				    	<button class="local-btn local-btn-danger" onclick="deleteSurvey(event,'<%= survey.id %>')">지우다</button>
+				    </td>
+				    <td>
+				    	<a href="/submitResponse?survey_id=<%= survey.id %>&lang=kr" target="_blank">
+				    		<button class="local-btn local-btn-info">시사</button>
+				    	</a>
+				    </td>
+				  </tr>
+				<% }) %>
+				<% } %>
+			    <tr style="background-color:rgba(0,0,0,.20); cursor: pointer">
+			      <td><a class="text-dark" href='/surveyEditor?lang=kr'>새 설문 조사 만들기 +</a></td>
+			      <td></td>
+			      <td></td>
 			      <td></td>
 			      <td></td>
 			    </tr>
+				</a>
 			  </tbody>
 			</table>
 	      </div>
 	      <!-- user account -->
 	      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
 	      	<h3 class="text-left local-mb-4">귀하의 계정</h3>
-	      	<img src="https://avatars3.githubusercontent.com/u/50294614?v=4" class="logo-of-user local-mb-4" width="200" height="200">
+	      	<img src="<%= user.avatar %>" class="logo-of-user local-mb-4" width="200" height="200">
 	      	<div class="avatar-input">
 	
 			    <label for="avatar" class="btn"><i class="far fa-edit"></i></label>
@@ -86,47 +91,63 @@
 		    </div>
 		    <br>
 		    <br>
-		    <label for="firstName">First Name</label>
-		    <input 
-			    type="text"
-			    id="firstName"
-			    name="firstName" 
-			    class="form-control user-profile-inputs local-mb-2" 
-			    placeholder="Enter your First Name" 
-			    value="Mouad" 
-			    required
-		    >
-		    <label for="givenName">Given Name</label>
-			<input 
-				type="text" 
-				id="givenName"
-				name="givenName" 
-				class="form-control user-profile-inputs local-mb-2" 
-				placeholder="Enter your Family Name" 
-				value="Taoussi" 
-				required
-			>
-			<label for="username">User Name</label>
-			<input 
-				type="text" 
-				id="username"
-				name="username" 
-				class="form-control user-profile-inputs local-mb-2" 
-				placeholder="Enter your username" 
-				value="mouadtaoussi" 
-				required
-			>
-			<label for="email">Email</label>
-			<input 
-				type="email"
-				id="email" 
-				name="email" 
-				class="form-control user-profile-inputs local-mb-2 local-mb-4" 
-				placeholder="Enter your email" 
-				value="mouadtaoussi0@gmail.com"
-				required
-			>
-	      	<button class="local-btn local-btn-success local-mb-4">Update</button>
+		    <div style='background-color: white;' class="user_form local-p-4 shadow local-mb-4">
+			    <label for="user_id">너의 아이디:</label>
+			    <input 
+				    type="text"
+				    id="user_id"
+				    name="user_id" 
+				    class="form-control user-profile-inputs local-mb-2" 
+				    value="<%= user.id %>" 
+				    disabled
+			    >
+			    <label for="firstName">이름</label>
+			    <input 
+				    type="text"
+				    id="firstName"
+				    name="firstName" 
+				    class="form-control user-profile-inputs local-mb-2" 
+				    placeholder="Enter your First Name" 
+				    value="<%= user.fullName.familyName %>" 
+				    required
+			    >
+			    <label for="givenName">이름</label>
+				<input 
+					type="text" 
+					id="givenName"
+					name="givenName" 
+					class="form-control user-profile-inputs local-mb-2" 
+					placeholder="Enter your Family Name" 
+					value="<%= user.fullName.givenName %>" 
+					required
+				>
+				<label for="username">사용자 이름</label>
+				<input 
+					type="text" 
+					id="username"
+					name="username" 
+					class="form-control user-profile-inputs local-mb-2" 
+					placeholder="Enter your username" 
+					value="<%= user.username %>" 
+					required
+				>
+				<label for="email">이메일</label>
+				<input 
+					type="email"
+					id="email" 
+					name="email" 
+					class="form-control user-profile-inputs local-mb-2 local-mb-4" 
+					placeholder="Enter your email" 
+					value="<%= user.email %>"
+					required
+				>
+		      	<button onclick="updateUser()" class="local-btn local-btn-success local-mb-4">
+			      	변경 사항을 저장하다
+			     </button>
+		      	<a href="/auth/logout?lang=kr">
+		      		<button class="local-btn local-btn-danger local-mb-4">로그 아웃</button>
+		      	</a>
+		    </div>
 	      </div>
 	      <!-- settings  -->
 	      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">

@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Embedded Page</title>
+	<title>삽입 된 페이지</title>
 	<%-   include('.././partials/HeadTags')   %>
 </head>
 <body>
 <div class="local-container-2">
 	<div class="desc local-card local-p-2">
-		<h2 clas="text-left">A questions about programming!!!</h2>
+		
+		<h2 clas="text-left"><%= survey.title %></h2>
 		<p clas="text-left">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			<%= survey.title %>
 		</p>
-		<a href="/submitResponse?lang=kr" target="_blank">
+		<a href="/submitResponse?survey_id=<%= survey.id %>&lang=kr" target="_blank">
 			<button class="local-btn local-btn-primary">페이지에서 열기</button>
 		</a>
 		<ul class="footer-list local-mt-4">
 			<li class='footer-list-item'>서비스 약관</li>
-			<li class='footer-list-item'>개인 정보 정책</li>
-			<li class='footer-list-item'>어떻게 작동합?</li>
+			<a href="/privacyPolicy?lang=kr" class="text-white">
+				<li class='footer-list-item'>개인 정보 정책</li>
+			</a>
+			<a href="/privacyPolicy?lang=kr" class="text-white">
+				<li class='footer-list-item'>어떻게 작동합?
+				</li>
+			</a>
 		</ul>
 	</div>
 </div>
