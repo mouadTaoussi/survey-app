@@ -6,7 +6,7 @@ const express_sessions                = require('express-session');
 const body_parser                     = require('body-parser');
 const helmet                          = require('helmet');
 const xss                             = require('xss');
-const dotenv                          = require('dotenv');
+// const dotenv                          = require('dotenv');
 const morgan                          = require('morgan');
 const redis                           = require('redis');
 const RedisStore                      = require('connect-redis')(express_sessions);
@@ -18,7 +18,7 @@ const responses                       = require('./Routes/Responses.js');
 const pageRendering                   = require('./Routes/PageRenderingRoutes.js');
 
 // Load .env
-dotenv.config({ path: './Config/.env' });
+// dotenv.config({ path: './Config/.env' });
 
 // Init express && router
 const app = express();
