@@ -52,13 +52,6 @@ app.use(express.static('Public/dist'));
 // Init body parser
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
-const Question  = require('./Models/QuestionsModel.js')
-app.get('/get', async(req,res)=>{
-	res.json(req.session);
-	// const survey = await Question.find({ _id: "5f47c5059af74c6b50918af4", user_id: "5f3043e1a02f0368dcc46125" })
-	// res.json(survey)
-
-})
 
 // Routes
 app.use('/auth',authentication);   app.use('/question',questions);
@@ -80,18 +73,3 @@ const PORT = process.env.PORT || process.env.NODE_PORT;
 app.listen(PORT,()=>{
 	console.log("[INFO]: Server up and running!")
 });
-
-// location / {
-//    root   html;
-//    index  index.html index.htm;
-// }
-// INITiAL ROUTE
-// app.get('/',(req,res)=>{
-// 	res.render('pages/index');
-// 	// redisDatabase.keys('*',  (err, keys)=>{
-// 	// 	console.log(keys);
-// 	// })
-// 	redisDatabase.get('sess:mk8xcUI4epdpI80EYxz8g1ZkWDw09Pqm',  (err, value)=>{
-// 		console.log(JSON.parse(value));
-// 	})
-// })

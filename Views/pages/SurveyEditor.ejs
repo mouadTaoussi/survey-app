@@ -214,21 +214,25 @@
 		        <p>Link to share it in your social media:</p>
 		        
 		        <% if (survey == null ) { %>
-	        		<kbd style='font-size: 10px'>http://localhost:5000/submitResponse?survey_id=</kbd>
+	        		<kbd style='font-size: 10px'>surveyapp1.herokuapp.com/submitResponse?survey_id=</kbd>
 	        	<% } else { %>
-	        		<kbd style='font-size: 10px'>http://localhost:5000/submitResponse?survey_id=<%= survey.id %></kbd>
+	        		<kbd style='font-size: 10px'>surveyapp1.herokuapp.com/submitResponse?survey_id=<%= survey.id %>&lang=en</kbd>
 	        	<%}%>
-		        <br>
-		        <br>
+	        	<p class="my-4"><strong>NB: if you get bother with this long link, You can make it short via this <a href="https://minurl1.herokuapp.com" target="_blank">app</a>!</strong></p>
+
 		        <p>Embedded element to include it inside your website:</p>
 	        	<% if (survey == null ) { %>
 		        	<div class="local-alert info">
 		        		Save your survey to get embedded link!
 		        	</div>
 	        	<% } else { %>
-		        	<!-- <pre style="text-align: left">
-			        	<iframe src="http://localhost:5000/embedded?survey_id=<%=survey.id %>" width="100%" height="245px" style=""></iframe>
-			        </pre> -->
+<xmp style="">
+<iframe 
+  src="surveyapp1.herokuapp.com/embedded?survey_id=<%=survey.id %>&lang=en" 
+  width="100%" 
+  height="245px">
+</iframe>
+</xmp> 
 	        	<%}%>
 
 		      </div>
