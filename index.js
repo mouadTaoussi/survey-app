@@ -19,7 +19,7 @@ const responses                       = require('./Routes/Responses.js');
 const pageRendering                   = require('./Routes/PageRenderingRoutes.js');
 
 // Load .env
-// dotenv.config({ path: './Config/.env' });
+dotenv.config({ path: './Config/.env' });
 
 // Init express && router
 const app = express();
