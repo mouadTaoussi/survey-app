@@ -7,7 +7,7 @@ const UserModel                       = require('.././Models/UserModel.js');
 
 const authenticationStrategies = {
 
-// Github strategy
+// Github strategy.
 googleStrategy : ()=>{
 	passport.use(new Google({
 		clientID: process.env.GOOGLE_ID,
