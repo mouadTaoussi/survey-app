@@ -3,7 +3,7 @@ const Google                          = require('passport-google-oauth20').Strat
 const Github                          = require('passport-github').Strategy;
 const passport                        = require('passport');
 // Users model
-const User                            = require('.././Models/UserModel.js');
+const UserModel                       = require('.././Models/UserModel.js');
 
 const authenticationStrategies = {
 
