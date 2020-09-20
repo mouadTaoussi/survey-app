@@ -1,5 +1,6 @@
 const express                         = require('express');
 // const ejs                             = require('ejs'); 
+const path                            = require('path');
 const passport                        = require('passport'); 
 const express_graphql                 = require('express-graphql');
 const express_sessions                = require('express-session');
@@ -25,6 +26,7 @@ const app = express();
 
 // Init View engine
 app.set('view engine','ejs');
+app.set('views', path.join(__dirname, '/Views'));
 
 // Init database connection
 const mongoDatabase = databaseConnection.mongodbConnection();
@@ -63,10 +65,10 @@ app.use(helmet());
 // Init xss
 app.use(xss);
 
-// Init logging
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'))
-}
+// // Init logging
+// if (process.env.NODE_ENV === 'development') {
+//   app.use(morgan('dev'))
+// }
 
 // Init port && Start the server
 const PORT = process.env.PORT || process.env.NODE_PORT;
