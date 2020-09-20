@@ -29,7 +29,7 @@ googleStrategy : ()=>{
 		}
 		
 		// check user in database
-		const UserInDb = await User.findOne({atProviderId : user.atProviderId});
+		const UserInDb = await UserModel.findOne({atProviderId : user.atProviderId});
 
 		// user exists
 		if (UserInDb) { done(null,user); }
@@ -44,7 +44,7 @@ googleStrategy : ()=>{
 					done("Email already exists!");
 				}
 				else {
-					new User(user).save(); done(null,user);	
+					new UserModel(user).save(); done(null,user);	
 				}
 				
 			}
@@ -77,7 +77,7 @@ githubStrategy : ()=>{
 		}
 
 		// check user in database
-		const UserInDb = await User.findOne({atProviderId : user.atProviderId});
+		const UserInDb = await UserModel.findOne({atProviderId : user.atProviderId});
 
 		// user exists
 		if (UserInDb) { done(null,user); }
@@ -92,7 +92,7 @@ githubStrategy : ()=>{
 					done("Email already exists!");
 				}
 				else {
-					new User(user).save(); done(null,user);	
+					new UserModel(user).save(); done(null,user);	
 				}
 				
 			} catch (err){ done(err); }
@@ -124,7 +124,7 @@ linkedInStrategy : ()=>{
 		}
 		
 		// check user in database
-		const UserInDb = await User.findOne({atProviderId : user.atProviderId});
+		const UserInDb = await UserModel.findOne({atProviderId : user.atProviderId});
 
 		// user exists
 		if (UserInDb) { done(null,user); }
@@ -139,7 +139,7 @@ linkedInStrategy : ()=>{
 					done("Email already exists!");
 				}
 				else {
-					new User(user).save(); done(null,user);	
+					new UserModel(user).save(); done(null,user);	
 				}
 				
 			} catch (err){ done(err); }
