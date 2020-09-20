@@ -4,8 +4,8 @@
   "description": "this is a survey app ",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server",
-    "start": "node server"
+    "dev": "nodemon index",
+    "start": "node index"
   },
   "repository": {
     "type": "git",
