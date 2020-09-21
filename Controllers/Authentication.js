@@ -106,9 +106,26 @@ class Authentication {
 		try {
 			// Check if email was taken by another user
 			///////////////////////////////////////////
+			const isEmailExists = await User.find({ email: bodyData.email });
+			if (isEmailExists) {
+				return {
+					saved : false,
+					message : 'Email already exists!',
+				}
+			}
+		
 			// Update or save changes
 			const saving = await User.findByIdAndUpdate(user_id,bodyData);
-			
+
+			// Update the full name credentials
+			const user   = await User.findById(user_id);
+
+			user.fullName.familyName = bodyData.firstName;
+			user.fullName.givenName = bodyData.givenName;
+
+			// Save the full name credentials
+			await user.save();
+
 			// return
 			return {
 				saved : true,
