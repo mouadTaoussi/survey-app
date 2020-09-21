@@ -107,7 +107,9 @@ class Authentication {
 			// Check if email was taken by another user
 			///////////////////////////////////////////
 			const isEmailExists = await User.findOne({ email: bodyData.email });
-
+			console.log(isEmailExists._id !== user_id)
+			console.log(user_id)
+			console.log(isEmailExists._id)
 			if (isEmailExists._id !== user_id) {
 				return {
 					saved : false,
