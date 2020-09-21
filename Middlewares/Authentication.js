@@ -41,17 +41,18 @@ module.exports = {
 	isCompletedCredentiels : async (req,res,next)=>{
 		// Info about user's account
 		const info =  [];
+		console.log(req.user)
 		// Validate thier credentiels
-		if (req.user.email === null){
+		if (req.user.email === null || req.user.email === '' ){
 			info.push('Provide us your email!')
 		}
-		else if (req.user.username === null){
+	    if (req.user.username === null || req.user.username === '' ){
 			info.push('Provide us your username!')
 		}
-		else if (req.user.fullName.familyName === null ){
+		if (req.user.fullName.familyName === null || req.user.fullName.familyName === '' ){
 			info.push('Provide us your family name!')
 		}
-		else if (req.user.fullName.givenName === null ){
+		if (req.user.fullName.givenName === null || req.user.fullName.givenName === '' ){
 			info.push('Provide us your given name!')
 		}
 		req.info = info;

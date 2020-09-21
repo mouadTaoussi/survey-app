@@ -29,7 +29,7 @@ googleStrategy : function (){
 		}
 		
 		// check user in database
-		const UserInDb = await UserModel.findOne({atProviderId : user.atProviderId});
+		const UserInDb = await UserModel.findOne({ atProviderId : user.atProviderId });
 
 		// user exists
 		if (UserInDb) { done(null,user); }
@@ -43,7 +43,6 @@ googleStrategy : function (){
 				if ( isEmailExists ) {
 					// We gonna save the user without email and let hima put an email in future
 					user.email = null;
-					console.log(user)
 					new UserModel(user).save(); done(null,user);	
 				}
 				else {
@@ -80,7 +79,7 @@ githubStrategy : function (){
 		}
 
 		// check user in database
-		const UserInDb = await UserModel.findOne({atProviderId : user.atProviderId});
+		const UserInDb = await UserModel.findOne({ atProviderId : user.atProviderId });
 
 		// user exists
 		if (UserInDb) { done(null,user); }
@@ -95,7 +94,6 @@ githubStrategy : function (){
 				if ( isEmailExists ) {
 					// We gonna save the user without email and let hima put an email in future
 					user.email = null;
-					console.log(user)
 					new UserModel(user).save(); done(null,user);
 				}
 				else {
@@ -131,7 +129,7 @@ linkedInStrategy : function(){
 		}
 		
 		// check user in database
-		const UserInDb = await UserModel.findOne({atProviderId : user.atProviderId});
+		const UserInDb = await UserModel.findOne({ atProviderId : user.atProviderId });
 
 		// user exists
 		if (UserInDb) { done(null,user); }
@@ -145,7 +143,6 @@ linkedInStrategy : function(){
 				if ( isEmailExists ) {
 					// We gonna save the user without email and let him put an email in future
 					user.email = null;
-					console.log(user)
 					new UserModel(user).save(); done(null,user);	
 				}
 				else {

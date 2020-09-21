@@ -19,6 +19,13 @@
 	    </div>
 	  </div>
 	  <div class="col-9">
+	  	<% if ( infos.length > 0 ) { %>
+	  	
+	  		<% infos.forEach((info)=>{ %>
+	  			<div class="local-alert info mb-4"><%= info %></div>
+	  		<% }) %>
+
+	  	<% } %>
 	  	<!-- tabs section -->
 	    <div class="tab-content" id="nav-tabContent">
 	    <!-- Surveys tab -->

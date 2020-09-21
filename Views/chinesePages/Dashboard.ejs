@@ -20,10 +20,13 @@
 	    </div>
 	  </div>
 	  <div class="col-9">
-	  	<!-- alert messages -->
-	  	<!-- <div class="local-alert info local-mb-2">
-	  		Provide us your email ! ! !
-	  	</div> -->
+	  	<% if ( infos.length > 0 ) { %>
+	  	
+	  		<% infos.forEach((info)=>{ %>
+	  			<div class="local-alert info mb-4"><%= info %></div>
+	  		<% }) %>
+
+	  	<% } %>
 	  	<!-- tabs section -->
 	    <div class="tab-content" id="nav-tabContent">
 	    <!-- Surveys tab -->

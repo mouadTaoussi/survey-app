@@ -132,14 +132,14 @@ router.get('/changePassword',validators.checkLanguage, auth.isLoggedin, auth.isT
 router.get('/dashboard', validators.checkLanguage, auth.isAuthenticated, auth.isCompletedCredentiels, async(request,response)=>{
 	// Get authenticated user
 	const user = request.user;
-	console.log(request.info)
+	
 	// Use the appropriate controller
 	const surveys = await questionsController.findSurvey( user.id, null );
 
 	// Checking ...
 	if (surveys.found){
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/Dashboard` , { surveys : surveys.data, user });
+		response.render(`${request.lang.langPages}/Dashboard` , { surveys: surveys.data, user: user, infos: request.info });
 	}
 	else {
 		response.redirect(`/serverError?lang=${request.lang.langShortcut}`)
