@@ -107,14 +107,14 @@ class Authentication {
 			// Check if email was taken by another user
 			///////////////////////////////////////////
 			const isEmailExists = await User.findOne({ email: bodyData.email });
-			console.log(isEmailExists._id !== user_id)
-			console.log(user_id)
-			console.log(isEmailExists._id)
-			if (isEmailExists._id !== user_id) {
-				return {
-					saved : false,
-					message : 'Email already exists!',
-				}
+
+			if (isEmailExists !== null) {
+				if (isEmailExists._id.toString() !== user_id) {
+					return {
+						saved : false,
+						message : 'Email already exists!',
+					}
+				}	
 			}
 		
 			// Update or save changes
@@ -137,6 +137,7 @@ class Authentication {
 			}
 		}
 		catch (err){
+			console.log(err.message)
 			return {
 				saved : false,
 				message : "Something went wrong!"

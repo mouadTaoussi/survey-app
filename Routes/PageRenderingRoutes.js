@@ -129,10 +129,10 @@ router.get('/changePassword',validators.checkLanguage, auth.isLoggedin, auth.isT
 })
 
 
-router.get('/dashboard', validators.checkLanguage, auth.isAuthenticated, async(request,response)=>{
+router.get('/dashboard', validators.checkLanguage, auth.isAuthenticated, auth.isCompletedCredentiels, async(request,response)=>{
 	// Get authenticated user
 	const user = request.user;
-
+	console.log(request.info)
 	// Use the appropriate controller
 	const surveys = await questionsController.findSurvey( user.id, null );
 

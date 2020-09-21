@@ -42,14 +42,17 @@ module.exports = {
 		// Info about user's account
 		const info =  [];
 		// Validate thier credentiels
-		if (!req.user.email){
+		if (req.user.email === null){
 			info.push('Provide us your email!')
 		}
-		else if (!req.user.username){
+		else if (req.user.username === null){
 			info.push('Provide us your username!')
 		}
-		else if (!req.user.fullName){
-			info.push('Provide us your full name!')
+		else if (req.user.fullName.familyName === null ){
+			info.push('Provide us your family name!')
+		}
+		else if (req.user.fullName.givenName === null ){
+			info.push('Provide us your given name!')
 		}
 		req.info = info;
 		next();

@@ -38,14 +38,17 @@ googleStrategy : function (){
 			try {
 				// Check if email was taken by another user
 				///////////////////////////////////////////
-				// const isEmailExists = await UserModel.findOne({ email: user.email });
+				const isEmailExists = await UserModel.findOne({ email: user.email });
 
-				// if ( isEmailExists ) {
-				// 	done("Email already exists!");
-				// }
-				// else {
+				if ( isEmailExists ) {
+					// We gonna save the user without email and let hima put an email in future
+					user.email = null;
+					console.log(user)
 					new UserModel(user).save(); done(null,user);	
-				// }
+				}
+				else {
+					new UserModel(user).save(); done(null,user);	
+				}
 				
 			}
 			catch (err){ done(err); }
@@ -87,14 +90,17 @@ githubStrategy : function (){
 
 				// Check if email was taken by another user
 				///////////////////////////////////////////
-				// const isEmailExists = await UserModel.findOne({ email: user.email });
+				const isEmailExists = await UserModel.findOne({ email: user.email });
 
-				// if ( isEmailExists ) {
-				// 	done("Email already exists!");
-				// }
-				// else {
-					new UserModel(user).save(); done(null,user);	
-				// }
+				if ( isEmailExists ) {
+					// We gonna save the user without email and let hima put an email in future
+					user.email = null;
+					console.log(user)
+					new UserModel(user).save(); done(null,user);
+				}
+				else {
+					new UserModel(user).save(); done(null,user);		
+				}
 				
 			} catch (err){ done(err); }
 		}
@@ -134,14 +140,17 @@ linkedInStrategy : function(){
 			try {
 				// Check if email was taken by another user
 				///////////////////////////////////////////
-				// const isEmailExists = await UserModel.findOne({ email: user.email });
+				const isEmailExists = await UserModel.findOne({ email: user.email });
 
-				// if ( isEmailExists ) {
-				// 	done("Email already exists!");
-				// }
-				// else {
+				if ( isEmailExists ) {
+					// We gonna save the user without email and let him put an email in future
+					user.email = null;
+					console.log(user)
 					new UserModel(user).save(); done(null,user);	
-				// }
+				}
+				else {
+					new UserModel(user).save(); done(null,user);	
+				}
 				
 			} catch (err){ done(err); }
 		}
