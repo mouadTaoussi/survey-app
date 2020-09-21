@@ -8,7 +8,7 @@ const UserModel                       = require('.././Models/UserModel.js');
 const authenticationStrategies = {
 
 // Github strategy.
-googleStrategy : ()=>{
+googleStrategy : function (){
 	passport.use(new Google({
 		clientID: process.env.GOOGLE_ID,
 		clientSecret: process.env.GOOGLE_SECRET,
@@ -38,14 +38,14 @@ googleStrategy : ()=>{
 			try {
 				// Check if email was taken by another user
 				///////////////////////////////////////////
-				const isEmailExists = await UserModel.find({ email: user.email });
+				// const isEmailExists = await UserModel.find({ email: user.email });
 
-				if ( isEmailExists ) {
-					done("Email already exists!");
-				}
-				else {
+				// if ( isEmailExists ) {
+				// 	done("Email already exists!");
+				// }
+				// else {
 					new UserModel(user).save(); done(null,user);	
-				}
+				// }
 				
 			}
 			catch (err){ done(err); }
@@ -54,7 +54,7 @@ googleStrategy : ()=>{
 },
 
 // Google strategy
-githubStrategy : ()=>{
+githubStrategy : function (){
 	passport.use(new Github({
 		clientID: process.env.GITHUB_ID,
 		clientSecret: process.env.GITHUB_SECRET,
@@ -87,14 +87,14 @@ githubStrategy : ()=>{
 
 				// Check if email was taken by another user
 				///////////////////////////////////////////
-				const isEmailExists = await UserModel.find({ email: user.email });
+				// const isEmailExists = await UserModel.find({ email: user.email });
 
-				if ( isEmailExists ) {
-					done("Email already exists!");
-				}
-				else {
+				// if ( isEmailExists ) {
+				// 	done("Email already exists!");
+				// }
+				// else {
 					new UserModel(user).save(); done(null,user);	
-				}
+				// }
 				
 			} catch (err){ done(err); }
 		}
@@ -102,7 +102,7 @@ githubStrategy : ()=>{
 },
 
 // Linkedin strategy
-linkedInStrategy : ()=>{
+linkedInStrategy : function(){
 	passport.use(new Linkedin({
 		clientID: process.env.LINKEDIN_ID,
 		clientSecret: process.env.LINKEDIN_SECRET,
@@ -134,14 +134,14 @@ linkedInStrategy : ()=>{
 			try {
 				// Check if email was taken by another user
 				///////////////////////////////////////////
-				const isEmailExists = await UserModel.find({ email: user.email });
+				// const isEmailExists = await UserModel.find({ email: user.email });
 
-				if ( isEmailExists ) {
-					done("Email already exists!");
-				}
-				else {
+				// if ( isEmailExists ) {
+				// 	done("Email already exists!");
+				// }
+				// else {
 					new UserModel(user).save(); done(null,user);	
-				}
+				// }
 				
 			} catch (err){ done(err); }
 		}
