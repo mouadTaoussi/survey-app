@@ -38,7 +38,7 @@ googleStrategy : function (){
 			try {
 				// Check if email was taken by another user
 				///////////////////////////////////////////
-				// const isEmailExists = await UserModel.find({ email: user.email });
+				// const isEmailExists = await UserModel.findOne({ email: user.email });
 
 				// if ( isEmailExists ) {
 				// 	done("Email already exists!");
@@ -87,7 +87,7 @@ githubStrategy : function (){
 
 				// Check if email was taken by another user
 				///////////////////////////////////////////
-				// const isEmailExists = await UserModel.find({ email: user.email });
+				// const isEmailExists = await UserModel.findOne({ email: user.email });
 
 				// if ( isEmailExists ) {
 				// 	done("Email already exists!");
@@ -134,7 +134,7 @@ linkedInStrategy : function(){
 			try {
 				// Check if email was taken by another user
 				///////////////////////////////////////////
-				// const isEmailExists = await UserModel.find({ email: user.email });
+				// const isEmailExists = await UserModel.findOne({ email: user.email });
 
 				// if ( isEmailExists ) {
 				// 	done("Email already exists!");
