@@ -3,18 +3,18 @@ const ResetPasswordToken               = require('.././Models/ResetPasswordToken
 
 module.exports = {
 	// You know this middleware what could do, so no explanation required !! !! !! 
-	isAuthenticated : async (req,res,next)=>{
-		if (req.session.passport){
+	isAuthenticated : async (request,response,next)=>{
+		if (request.session.passport){
 			const user = await User.findOne({ 
-				atProviderId : req.session.passport.user.atProviderId 
+				atProviderId : request.session.passport.user.atProviderId 
 			});
-			req.user = user;
+			request.user = user;
 			next();
 		}
-		else if (req.session.local){
+		else if (request.session.local){
 			try {
-				const user = await User.findById( req.session.local.id );
-				req.user = user;
+				const user = await User.findById( request.session.local.id );
+				request.user = user;
 				next();	
 			}
 			catch (err){
@@ -22,46 +22,46 @@ module.exports = {
 			}
 		}
 		else {
-			res.redirect(`/login?lang=${req.lang.langShortcut}`);
+			response.redirect(`/login?lang=${request.lang.langShortcut}`);
 		}
 	},
 	// This middleware check the user logged in for prevent him to access login page ! ! !
-	isLoggedin : (req,res,next)=>{
-		if (req.session.passport){
-			res.redirect(`/dashboard?lang=${req.lang.langShortcut}`);
+	isLoggedin : (request,response,next)=>{
+		if (request.session.passport){
+			response.redirect(`/dashboard?lang=${request.lang.langShortcut}`);
 		}
-		else if (req.session.local){
-			res.redirect(`/dashboard?lang=${req.lang.langShortcut}`);	
+		else if (request.session.local){
+			response.redirect(`/dashboard?lang=${request.lang.langShortcut}`);	
 		}
 		else {
 			next();
 		}
 	},
 	// This middleware comes after isAuthenticated middleware above ! ! !
-	isCompletedCredentiels : async (req,res,next)=>{
+	isCompletedCredentiels : async (request,response,next)=>{
 		// Info about user's account
 		const info =  [];
-		console.log(req.user)
+		console.log(request.user)
 		// Validate thier credentiels
-		if (req.user.email === null || req.user.email === '' ){
+		if (request.user.email === null || request.user.email === '' ){
 			info.push('Provide us your email!')
 		}
-	    if (req.user.username === null || req.user.username === '' ){
+	    if (request.user.username === null || request.user.username === '' ){
 			info.push('Provide us your username!')
 		}
-		if (req.user.fullName.familyName === null || req.user.fullName.familyName === '' ){
+		if (request.user.fullName.familyName === null || request.user.fullName.familyName === '' ){
 			info.push('Provide us your family name!')
 		}
-		if (req.user.fullName.givenName === null || req.user.fullName.givenName === '' ){
+		if (request.user.fullName.givenName === null || request.user.fullName.givenName === '' ){
 			info.push('Provide us your given name!')
 		}
-		req.info = info;
+		request.info = info;
 		next();
 	},
 	// This middleware checks if a forgotten password token provided is valid or exists ! ! !
-	isTokenValid : async (req,res,next)=>{
+	isTokenValid : async (request,response,next)=>{
 		// Get the token in the query
-		const { token, email } = req.query;
+		const { token, email } = request.query;
 		
 		try {
 			// Grab that token in the database
@@ -69,24 +69,28 @@ module.exports = {
 			
 			// Check if token exists
 			if (!getToken){
-				res.redirect(`/resetPassword?lang=${req.lang.langShortcut}`);
+				response.redirect(`/resetPassword?lang=${request.lang.langShortcut}`);
 			}
 			else {
 				// Get the user related to this token and compare it with the email provided
 				const getUser = await User.findById(getToken.user_id);
 
 				if (email === getUser.email){
-					req.nextStep = { email : getUser.email, token : token };
+					request.nextStep = { email : getUser.email, token : token };
 					next()
 				}
 				else {
-					res.redirect(`/resetPassword?lang=${req.lang.langShortcut}`);
+					response.redirect(`/resetPassword?lang=${request.lang.langShortcut}`);
 				}
 			}
 		}
 		catch(err){
 			// Render err page
 		}
+	},
+	// This middleware used in API routes to authenticate users to consume the resources of it
+	validateAPIKEY : (request,response)=>{
+
 	}
 }
 

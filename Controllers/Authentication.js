@@ -357,12 +357,16 @@ class Authentication {
 		catch (err){
 			console.log('[ERROR]: Something went wrong in Controllers/Authentication.js:302:17');
 		}
+	};
+	async regenerateAPIKEY(){
+
 	}
 }
 
 // Run track reset password tokens process every minute ! ! !
 const authentication = new Authentication();
-setInterval(authentication.trackResetPasswordTokens,60000);
+setInterval(authentication.trackResetPasswordTokens,  60000);
+setInterval(authentication.regenerateAPIKEY,          60000);
 
 module.exports = Authentication;
 

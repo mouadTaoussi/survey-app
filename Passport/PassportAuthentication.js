@@ -1,15 +1,28 @@
-const Linkedin                        = require('passport-linkedin-oauth2').Strategy;
-const Google                          = require('passport-google-oauth20').Strategy;
-const Github                          = require('passport-github').Strategy;
+const LinkedinOauthStrategy           = require('passport-linkedin-oauth2').Strategy;
+const GoogleOauthStrategy             = require('passport-google-oauth20').Strategy;
+const GithubOauthStrategy             = require('passport-github').Strategy;
 const passport                        = require('passport');
 // Users model
 const UserModel                       = require('.././Models/UserModel.js');
 
 const authenticationStrategies = {
 
+serializeUser : ()=>{
+	passport.serializeUser((user, done) => {
+		// console.log('serializeUser Fired!');
+	    done(null, user)
+	});
+},
+
+deserializeUser : ()=>{
+	passport.deserializeUser(function(id, done) {
+		console.log('deserializeUser Fired!');
+	})
+},
+
 // Github strategy.
 googleStrategy : function (){
-	passport.use(new Google({
+	passport.use(new GoogleOauthStrategy({
 		clientID: process.env.GOOGLE_ID,
 		clientSecret: process.env.GOOGLE_SECRET,
 		callbackURL: "/auth/google/callback"
@@ -57,7 +70,7 @@ googleStrategy : function (){
 
 // Google strategy
 githubStrategy : function (){
-	passport.use(new Github({
+	passport.use(new GithubOauthStrategy({
 		clientID: process.env.GITHUB_ID,
 		clientSecret: process.env.GITHUB_SECRET,
 		callbackURL: "/auth/github/callback"
@@ -107,7 +120,7 @@ githubStrategy : function (){
 
 // Linkedin strategy
 linkedInStrategy : function(){
-	passport.use(new Linkedin({
+	passport.use(new LinkedinOauthStrategy({
 		clientID: process.env.LINKEDIN_ID,
 		clientSecret: process.env.LINKEDIN_SECRET,
 		scope: ['r_emailaddress', 'r_liteprofile'],
@@ -153,19 +166,6 @@ linkedInStrategy : function(){
 		}
 	}))
 },
-
-serializeUser : ()=>{
-	passport.serializeUser((user, done) => {
-		console.log('serializeUser Fired!');
-	    done(null, user)
-	});
-},
-
-deserializeUser : ()=>{
-	passport.deserializeUser(function(id, done) {
-		console.log('deserializeUser Fired!');
-	})
-}
 }
 
 module.exports = authenticationStrategies;

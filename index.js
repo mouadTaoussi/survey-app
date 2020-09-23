@@ -17,6 +17,7 @@ const authentication                  = require('./Routes/Authentication.js');
 const questions                       = require('./Routes/Questions.js');
 const responses                       = require('./Routes/Responses.js');
 const pageRendering                   = require('./Routes/PageRenderingRoutes.js');
+const applicationProgrammingInterface = require('./Routes/Api.js');
 
 // Load .env
 // dotenv.config({ path: './Config/.env' });
@@ -58,6 +59,7 @@ app.use(express.json());
 // Routes
 app.use('/auth',authentication);   app.use('/question',questions);
 app.use('/response',responses);    app.use('/',pageRendering);
+app.user('/api/v1',applicationProgrammingInterface);
 
 // Init helmet
 app.use(helmet());

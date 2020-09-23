@@ -56,9 +56,11 @@ if ( window.location.pathname === "/surveyEditor" ){
 						for ( var io = 0; io < response.data.data.questions[i].result.length; io++ ) {
 
 							if (response.data.data.questions[i].result[io] === '') {
+								// Ignore th empty paragraph response
 								continue
 							}
 							else {
+								// Taking th last paragraph type response for inject paragraphes for it!!!
 								shortParagraphdiv[shortParagraphdiv.length-1].innerHTML += `<p class="answres">${response.data.data.questions[i].result[io]}</p><br>`;	
 							}
 

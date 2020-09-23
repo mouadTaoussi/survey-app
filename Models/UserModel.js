@@ -44,6 +44,10 @@ const User = new mongoose.Schema({
 	password : {
 		type : String,
 		required : false // 
+	},
+	apiKey : {
+		type : String,
+		required : true
 	}
 })
 
