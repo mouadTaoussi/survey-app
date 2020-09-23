@@ -1,10 +1,10 @@
 module.exports = {
-	validateQuestions : (req,res,next)=>{
+	// validateQuestions : (req,res,next)=>{
 
-	},
-	validateSubmittedResponse : (req,res,next)=>{
+	// },
+	// validateSubmittedResponse : (req,res,next)=>{
 
-	},
+	// },
 	// This middleware comes first before all middlewares ! ! ! 
 	// For let other middlewares decide which kanguage should be rendered or redirected to
 	checkLanguage : (req,res,next)=>{

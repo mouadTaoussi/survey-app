@@ -41,7 +41,7 @@ module.exports = {
 	isCompletedCredentiels : async (request,response,next)=>{
 		// Info about user's account
 		const info =  [];
-		console.log(request.user)
+
 		// Validate thier credentiels
 		if (request.user.email === null || request.user.email === '' ){
 			info.push('Provide us your email!')
@@ -89,7 +89,15 @@ module.exports = {
 		}
 	},
 	// This middleware used in API routes to authenticate users to consume the resources of it
-	validateAPIKEY : (request,response)=>{
+	validateAPIKEY : (request,response,next)=>{
+		// Attach the API_KEY owner data to the request object
+		next();
+
+	},
+	isOwenedTheSurvey : (request,response,next)=>{
+
+		// TAKES THE USER_ID AND THE APIKEY
+		next();
 
 	}
 }

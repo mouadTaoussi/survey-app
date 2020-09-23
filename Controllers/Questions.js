@@ -61,6 +61,23 @@ class Questions {
 		}
 
 	}
+	async findMany(limit){
+		try {
+			// Update or save changes
+			const surveys = await Question.find().limit(limit);
+			
+			// return
+			return {
+				found : true, data : surveys
+			}
+		}
+		catch (err){
+			// return
+			return {
+				found : false, message : err.message,
+			}
+		}
+	}
 	async updateSurvey(questions_id,questions){
 
 		try {

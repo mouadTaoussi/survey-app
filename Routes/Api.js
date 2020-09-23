@@ -1,23 +1,24 @@
-const express                         = require('express');
-const { validateAPIKEY }              = require('.././Middlewares/Authentication.js');
+const express                               = require('express');
+const APIControllers                        = require('.././Api/Api.js');
+const { validateAPIKEY, isOwenedTheSurvey }  = require('.././Middlewares/Authentication.js');
 
 // Init router
 const router = express.Router();
 
 // Surveys
-router.get    ('/get/survey',         validateAPIKEY, getSurvey              )
-router.get    ('/get/surveys',        validateAPIKEY, getSurveys             )
-router.put    ('/update/survey',      validateAPIKEY, updateSurvey           )
-router.delete ('/delete/survey',      validateAPIKEY, deleteSurvey           )
+router.get    ('/get/survey',      validateAPIKEY, APIControllers.getSurvey);
+router.get    ('/get/surveys',     validateAPIKEY, APIControllers.getSurveys);
+router.put    ('/update/survey',   validateAPIKEY, isOwenedTheSurvey, APIControllers.updateSurvey);
+router.delete ('/delete/survey',   validateAPIKEY, isOwenedTheSurvey, APIControllers.deleteSurvey);
 
 // Responses
-router.get    ('/get/responses',      validateAPIKEY, getResponse            )
-router.get    ('/get/responses',      validateAPIKEY, getResponsesBySurveyID )
+router.get    ('/get/responses',   validateAPIKEY, isOwenedTheSurvey, APIControllers.getResponses);
+// router.get    ('/get/response',    validateAPIKEY, APIControllers.getResponsesBySurveyID );
 
 // Users
-router.get    ('/get/user',           validateAPIKEY, getUserByID            )
-router.get    ('/get/users',          validateAPIKEY, getUsers               )
-router.put    ('/get/user',           validateAPIKEY, updateUser             )
+router.get    ('/get/user',        validateAPIKEY, APIControllers.getUserByID);
+router.get    ('/get/users',       validateAPIKEY, APIControllers.getUsers);
+router.put    ('/get/user',        validateAPIKEY, APIControllers.updateUser);
 
 
 module.exports = router;

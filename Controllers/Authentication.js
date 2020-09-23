@@ -359,14 +359,30 @@ class Authentication {
 		}
 	};
 	async regenerateAPIKEY(){
+		// We gonna generate an API KEY for each user! then save it
+		const users = await User.find();
 
+		for (var i = 0; i < users.length; i++) {
+			users[i]
+			// Generate an API_KEY
+			// Attach it to the current user
+			// Save it
+			// Repeat
+		}
 	}
 }
 
+// Time whether day or week converted to millisecond (ms)
+// See: https://www.unitjuggler.com/convert-time-from-day-to-ms.html
+const Time_config = {
+	MINUTE     : 60000,
+	HALF_DAY   : 43200000,
+	DAY        : 43200000 + 43200000
+}
 // Run track reset password tokens process every minute ! ! !
 const authentication = new Authentication();
-setInterval(authentication.trackResetPasswordTokens,  60000);
-setInterval(authentication.regenerateAPIKEY,          60000);
+setInterval(authentication.trackResetPasswordTokens,  Time_config.MINUTE);
+setInterval(authentication.regenerateAPIKEY,          Time_config.HALF_DAY);
 
 module.exports = Authentication;
 

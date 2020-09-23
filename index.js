@@ -7,7 +7,7 @@ const express_sessions                = require('express-session');
 const body_parser                     = require('body-parser');
 const helmet                          = require('helmet');
 const xss                             = require('xss');
-// const dotenv                          = require('dotenv');
+const dotenv                          = require('dotenv');
 // const morgan                          = require('morgan');
 const redis                           = require('redis');
 const RedisStore                      = require('connect-redis')(express_sessions);
@@ -20,7 +20,7 @@ const pageRendering                   = require('./Routes/PageRenderingRoutes.js
 const applicationProgrammingInterface = require('./Routes/Api.js');
 
 // Load .env
-// dotenv.config({ path: './Config/.env' });
+dotenv.config({ path: './Config/.env' });
 
 // Init express && router
 const app = express();
@@ -57,9 +57,10 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 
 // Routes
+app.use('/api/v1',applicationProgrammingInterface);
 app.use('/auth',authentication);   app.use('/question',questions);
 app.use('/response',responses);    app.use('/',pageRendering);
-app.user('/api/v1',applicationProgrammingInterface);
+
 
 // Init helmet
 app.use(helmet());
