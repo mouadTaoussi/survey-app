@@ -1,4 +1,5 @@
 const User                             = require('.././Models/UserModel.js');
+const Questions                        = require('.././Models/QuestionsModel.js');
 const ResetPasswordToken               = require('.././Models/ResetPasswordToken.js');
 
 module.exports = {
@@ -89,15 +90,59 @@ module.exports = {
 		}
 	},
 	// This middleware used in API routes to authenticate users to consume the resources of it
-	validateAPIKEY : (request,response,next)=>{
-		// Attach the API_KEY owner data to the request object
-		next();
+	validateAPIKEY : async (request,response,next)=>{
 
+		const { api_key } = request.query;
+
+		// Check if the api key provided
+		if ( api_key === undefined || api_key === null ) {
+
+			response.json({
+				message : "API KEY required"
+			})
+
+		}
+		else {
+			
+			// Get the user related to this apiKey
+			const getUser = await User.findOne({ apiKey : api_key });
+		
+			// Check if the apiKEY owner exists
+			if( getUser !== null ) {
+
+				// Attach the API_KEY owner data to the request object
+				request.user = getUser;
+				// Next
+				next();
+
+			}else {
+				response.json({ message : "API KEY invalid" });
+			}
+		}
+		
 	},
-	isOwenedTheSurvey : (request,response,next)=>{
+	// Comes after the above middleware <validateAPIKEY> for get the user from it, and check it if ownes the survey
+	isOwenedTheSurvey : async (request,response,next)=>{
 
 		// TAKES THE USER_ID AND THE APIKEY
-		next();
+		const { user }       = request;
+		const { survey_id }  = request.query;
+
+		// Find the survey from the database
+		const survey = await Questions.findOne({ survey_id: survey_id }); 
+
+		// Compare its user_id to the user id 
+		if (survey === null) {
+			response.json({message: "No survey with that ID."});
+		}
+		else {
+			if (survey.user_id === user.id){
+				next();
+			}
+			else {
+				response.json({message: "You are not authorized to make changes on that survey!"})
+			}
+		}
 
 	}
 }

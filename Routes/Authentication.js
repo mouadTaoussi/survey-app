@@ -150,15 +150,11 @@ router.get('/logout', (request,response)=>{
 		response.redirect('/login');
 	})
 })
-router.get('/getFirebaseConfig',auth.isAuthenticated,(request,response)=>{
-	// send the firebase config to the client 
-	response.json({
-		apiKey : process.env.FIREBASE_API_KEY,
-	 	authDomain : process.env.FIREBASE_AUTH_DOMAIN,
-	 	databaseURL : process.env.FIREBASE_DATABASE_URL,
-	 	storageBucket : process.env.FIREBASE_STORAGE_BUCKET,
-	 	projectId : process.env.FIREBASE_PROJECT_ID
-	})
+router.get('/regenerateapikey',auth.isAuthenticated,(request,response)=>{
+	// Get the user id based on session
+	const user_id = request.user.id;
+	// generate an api key 
+	const new_api_key = await authController.regenerateAPIKEY(user_id);
 })
 
 module.exports = router;

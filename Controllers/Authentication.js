@@ -1,6 +1,7 @@
 const nodemailer                      = require('nodemailer');
 const bcrypt                          = require('bcrypt');
 const uuid                            = require('uuid');
+const uuid_apikey                     = require('uuid-apikey');
 const User                            = require('.././Models/UserModel.js');
 const ResetPasswordTokenModel         = require('.././Models/ResetPasswordToken.js');
 
@@ -86,6 +87,7 @@ class Authentication {
 	async getUser(user_id){
 		try {
 			const user = await User.findById(user_id);
+			// 
 			if (!user) return {
 				found : false,
 				message : 'User not found!'
@@ -358,17 +360,19 @@ class Authentication {
 			console.log('[ERROR]: Something went wrong in Controllers/Authentication.js:302:17');
 		}
 	};
-	async regenerateAPIKEY(){
+	async regenerateAPIKEY(user_id){
 		// We gonna generate an API KEY for each user! then save it
-		const users = await User.find();
+		const user = await User.findOne({ _id : user_id });
 
-		for (var i = 0; i < users.length; i++) {
-			users[i]
-			// Generate an API_KEY
-			// Attach it to the current user
-			// Save it
-			// Repeat
-		}
+		// Generate an API_KEY
+		const api_key = uuid_apikey.create({ noDashes:true }).apiKey;
+
+		// Attach it to the current user
+		user.apiKey = api_key;
+		
+		// Save it
+		const user = await user.save();
+		
 	}
 }
 
@@ -382,7 +386,7 @@ const Time_config = {
 // Run track reset password tokens process every minute ! ! !
 const authentication = new Authentication();
 setInterval(authentication.trackResetPasswordTokens,  Time_config.MINUTE);
-setInterval(authentication.regenerateAPIKEY,          Time_config.HALF_DAY);
+// setInterval(authentication.regenerateAPIKEY,          Time_config.HALF_DAY);
 
 module.exports = Authentication;
 

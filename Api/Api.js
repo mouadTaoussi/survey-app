@@ -45,6 +45,7 @@ async function getSurveys(request,response){
 
 }
 function updateSurvey(request,response){
+	// Don't change the user_id
 	response.json({
 		message : 'it works!'
 	})
