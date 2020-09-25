@@ -1,4 +1,5 @@
 const mongoose                        = require('mongoose'); 
+const uuid_apikey                     = require('uuid-apikey');
 
 const User = new mongoose.Schema({
 	atProviderId : {
@@ -47,8 +48,10 @@ const User = new mongoose.Schema({
 	},
 	apiKey : {
 		type : String,
-		required : true
+		required : true,
 	}
 })
+
+
 
 module.exports = mongoose.model('users',User);

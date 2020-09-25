@@ -97,16 +97,17 @@ module.exports = {
 		// Check if the api key provided
 		if ( api_key === undefined || api_key === null ) {
 
-			response.json({
+			response.status(404).json({
 				message : "API KEY required"
 			})
+			
 
 		}
 		else {
 			
 			// Get the user related to this apiKey
 			const getUser = await User.findOne({ apiKey : api_key });
-		
+			
 			// Check if the apiKEY owner exists
 			if( getUser !== null ) {
 
@@ -116,7 +117,7 @@ module.exports = {
 				next();
 
 			}else {
-				response.json({ message : "API KEY invalid" });
+				response.status(404).json({ message : "API KEY invalid" });
 			}
 		}
 		
@@ -125,22 +126,23 @@ module.exports = {
 	isOwenedTheSurvey : async (request,response,next)=>{
 
 		// TAKES THE USER_ID AND THE APIKEY
-		const { user }       = request;
+		const { user }       = request; 
 		const { survey_id }  = request.query;
 
 		// Find the survey from the database
-		const survey = await Questions.findOne({ survey_id: survey_id }); 
-
+		const survey = await Questions.findOne({ _id: survey_id }); 
+		
 		// Compare its user_id to the user id 
 		if (survey === null) {
-			response.json({message: "No survey with that ID."});
+			response.status(404).json({message: "No survey with that ID."});
 		}
 		else {
-			if (survey.user_id === user.id){
+
+			if (survey.user_id == user._id){
 				next();
 			}
 			else {
-				response.json({message: "You are not authorized to make changes on that survey!"})
+				response.status(401).json({message: "You are not authorized to make changes on that survey!"});
 			}
 		}
 

@@ -8,7 +8,7 @@ const router = express.Router();
 // Surveys
 router.get    ('/get/survey',      validateAPIKEY, APIControllers.getSurvey);
 router.get    ('/get/surveys',     validateAPIKEY, APIControllers.getSurveys);
-router.put    ('/update/survey',   validateAPIKEY, isOwenedTheSurvey, APIControllers.updateSurvey);
+router.put    ('/update/survey',   validateAPIKEY, isOwenedTheSurvey, APIControllers.updateUserSurvey);
 router.delete ('/delete/survey',   validateAPIKEY, isOwenedTheSurvey, APIControllers.deleteSurvey);
 
 // Responses

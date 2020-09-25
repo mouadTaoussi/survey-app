@@ -65,12 +65,14 @@ class Authentication {
 			},
 			username : username,
 			email : email,
-			password : hashed_password
+			password : hashed_password,
+			apiKey : uuid_apikey.create({ noDashes:true }).apiKey
 		};
 		const new_user = new User(user);
 		try {
 			// Save user to the database
 			const saving = await new_user.save();
+		
 			return {
 				registered : true,
 				message : 'User registered!!!',
@@ -78,6 +80,7 @@ class Authentication {
 			}
 		}
 		catch (err){
+			
 			return {
 				registered : false,
 				message : 'Something went wrong'
@@ -363,7 +366,7 @@ class Authentication {
 	async regenerateAPIKEY(user_id){
 		// We gonna generate an API KEY for each user! then save it
 		const user = await User.findOne({ _id : user_id });
-
+		
 		// Generate an API_KEY
 		const api_key = uuid_apikey.create({ noDashes:true }).apiKey;
 
@@ -371,8 +374,12 @@ class Authentication {
 		user.apiKey = api_key;
 		
 		// Save it
-		const user = await user.save();
-		
+		const saving = await user.save();
+
+		return {
+			changed : true,
+			apiKey : api_key
+		}
 	}
 }
 
@@ -386,7 +393,6 @@ const Time_config = {
 // Run track reset password tokens process every minute ! ! !
 const authentication = new Authentication();
 setInterval(authentication.trackResetPasswordTokens,  Time_config.MINUTE);
-// setInterval(authentication.regenerateAPIKEY,          Time_config.HALF_DAY);
 
 module.exports = Authentication;
 

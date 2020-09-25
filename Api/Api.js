@@ -44,11 +44,26 @@ async function getSurveys(request,response){
 	}
 
 }
-function updateSurvey(request,response){
+async function updateUserSurvey(request,response){
+	// http://localhost:5000/api/v1/update/survey?survey_id=5f6df67cc7f99705148d46ca&api_key=FKCV7HJC9EMCDQMM8PTD3A87A5BN
+	// localhost:5000/api/v1/get/surveys?limit=1&api_key=03BEM4W4TW430APJ2Q0DS8ZVK3KR
+	// Get the survey_id 
+	console.log("query")
+	console.log(request.query)
+	const { survey_id }  = request.query;
+
+	// Get body data as well as user object
+	const { body, user } = request;
+
+	// Keep the user_id same 
+	body.user_id = user.id;
+
+	// Update
+	const updated             = await questionsController.updateSurvey(survey_id, body);
+
 	// Don't change the user_id
-	response.json({
-		message : 'it works!'
-	})
+	response.json(updated);
+
 }
 function deleteSurvey(request,response) {
 	response.json({
@@ -96,7 +111,7 @@ function updateUser(request,response){
 
 // Export all of the controllers to use in API routes
 module.exports = { 
-	getSurvey,    getSurveys,    updateSurvey, 
+	getSurvey,    getSurveys,    updateUserSurvey, 
 	deleteSurvey, getResponses, 
 	getUserByID,  getUsers,      updateUser
 };

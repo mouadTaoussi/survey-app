@@ -150,11 +150,13 @@ router.get('/logout', (request,response)=>{
 		response.redirect('/login');
 	})
 })
-router.get('/regenerateapikey',auth.isAuthenticated,(request,response)=>{
+router.get('/regenerateapikey',auth.isAuthenticated,async(request,response)=>{
 	// Get the user id based on session
 	const user_id = request.user.id;
 	// generate an api key 
 	const new_api_key = await authController.regenerateAPIKEY(user_id);
+	
+	response.json(new_api_key);
 })
 
 module.exports = router;
