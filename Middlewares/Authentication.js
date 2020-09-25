@@ -42,7 +42,6 @@ module.exports = {
 	isCompletedCredentiels : async (request,response,next)=>{
 		// Info about user's account
 		const info =  [];
-
 		// Validate thier credentiels
 		if (request.user.email === null || request.user.email === '' ){
 			info.push('Provide us your email!')
@@ -142,7 +141,7 @@ module.exports = {
 				next();
 			}
 			else {
-				response.status(401).json({message: "You are not authorized to make changes on that survey!"});
+				response.status(401).json({message: "You are not authorized to read responses and makeing changes on that survey!"});
 			}
 		}
 

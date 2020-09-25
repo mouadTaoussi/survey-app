@@ -1,5 +1,5 @@
 const mongoose                        = require('mongoose'); 
-const uuid_apikey                     = require('uuid-apikey');
+
 
 const User = new mongoose.Schema({
 	atProviderId : {

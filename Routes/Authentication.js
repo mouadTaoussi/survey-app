@@ -53,6 +53,7 @@ router.post('/login', validators.checkLanguage, auth.isLoggedin, async(request,r
 	}
 
 });
+
 router.post('/register', validators.checkLanguage, auth.isLoggedin, async(request,response)=>{
 	// Get  the body data
 	const { firstName,givenName,username,email,password,password2 } = request.body;
@@ -80,6 +81,7 @@ router.post('/register', validators.checkLanguage, auth.isLoggedin, async(reques
 		response.redirect(`/register?lang=${request.lang.langShortcut}&registered=${registerProcess.registered}&message=${registerProcess.message}`);
 	}
 })
+
 router.post('/resetPassword', validators.checkLanguage, auth.isLoggedin, async(request,response)=>{
 	// Grab body data
 	const { email } = request.body;
@@ -99,6 +101,7 @@ router.post('/resetPassword', validators.checkLanguage, auth.isLoggedin, async(r
 		response.redirect(`/resetPassword?lang=${request.lang.langShortcut}&sent=${sendingEmailProccess.sent}&message=${sendingEmailProccess.message}`);
 	}
 })
+
 router.post('/changePassword', validators.checkLanguage, auth.isLoggedin, auth.isTokenValid, async(request,response)=>{
 	// Get the token and email in the middleware 
 	const { token,email } = request.nextStep;
@@ -130,6 +133,7 @@ router.post('/changePassword', validators.checkLanguage, auth.isLoggedin, auth.i
 		response.redirect(`/changePassword?lang=${request.lang.langShortcut}&token=${token}&email=${email}&changed=${changingPasswordProcess.changed}&message=${changingPasswordProcess.message}`)
 	}
 })
+
 router.post('/updateUser', auth.isAuthenticated, async (request,response)=>{
 	// Get body data
 	const bodyData = request.body;
@@ -144,12 +148,14 @@ router.post('/updateUser', auth.isAuthenticated, async (request,response)=>{
 		saved : updatingUserProcess.saved 
 	})
 })
+
 router.get('/logout', (request,response)=>{
 	request.session.destroy(function(err) {
 		// cannot access session here
 		response.redirect('/login');
 	})
 })
+
 router.get('/regenerateapikey',auth.isAuthenticated,async(request,response)=>{
 	// Get the user id based on session
 	const user_id = request.user.id;
@@ -160,3 +166,4 @@ router.get('/regenerateapikey',auth.isAuthenticated,async(request,response)=>{
 })
 
 module.exports = router;
+// 5f6e5da671fd963ca85b23d9

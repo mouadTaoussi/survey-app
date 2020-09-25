@@ -2,23 +2,11 @@ const LinkedinOauthStrategy           = require('passport-linkedin-oauth2').Stra
 const GoogleOauthStrategy             = require('passport-google-oauth20').Strategy;
 const GithubOauthStrategy             = require('passport-github').Strategy;
 const passport                        = require('passport');
+const uuid_apikey                     = require('uuid-apikey');
 // Users model
 const UserModel                       = require('.././Models/UserModel.js');
 
 const authenticationStrategies = {
-
-serializeUser : ()=>{
-	passport.serializeUser((user, done) => {
-		// console.log('serializeUser Fired!');
-	    done(null, user)
-	});
-},
-
-deserializeUser : ()=>{
-	passport.deserializeUser(function(id, done) {
-		console.log('deserializeUser Fired!');
-	})
-},
 
 // Github strategy.
 googleStrategy : function (){
@@ -38,12 +26,12 @@ googleStrategy : function (){
 			},
 			email : profile.emails[0].value,
 			avatar : profile.photos[0].value,
-			provider : profile.provider
+			provider : profile.provider,
 		}
-		
+
 		// check user in database
 		const UserInDb = await UserModel.findOne({ atProviderId : user.atProviderId });
-
+		
 		// user exists
 		if (UserInDb) { done(null,user); }
 		// user doesn't exits
@@ -54,12 +42,20 @@ googleStrategy : function (){
 				const isEmailExists = await UserModel.findOne({ email: user.email });
 
 				if ( isEmailExists ) {
+
 					// We gonna save the user without email and let hima put an email in future
 					user.email = null;
+
+					// Set an API KEY
+					apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+
+					// Save user
 					new UserModel(user).save(); done(null,user);	
+					
 				}
 				else {
-					new UserModel(user).save(); done(null,user);	
+					new UserModel(user).save(); done(null,user);
+	
 				}
 				
 			}
@@ -88,7 +84,8 @@ githubStrategy : function (){
 			userName : profile.username,
 			email : profile.email,
 			avatar : profile.photos[0].value,
-			provider : profile.provider
+			provider : profile.provider,
+			
 		}
 
 		// check user in database
@@ -105,8 +102,14 @@ githubStrategy : function (){
 				const isEmailExists = await UserModel.findOne({ email: user.email });
 
 				if ( isEmailExists ) {
+
 					// We gonna save the user without email and let hima put an email in future
 					user.email = null;
+
+					// Set an API KEY
+					apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+
+					// Save user
 					new UserModel(user).save(); done(null,user);
 				}
 				else {
@@ -138,7 +141,8 @@ linkedInStrategy : function(){
 			},
 			email : profile.emails[0].value,
 			avatar : profile.photos[0].value,
-			provider : profile.provider
+			provider : profile.provider,
+			
 		}
 		
 		// check user in database
@@ -154,8 +158,14 @@ linkedInStrategy : function(){
 				const isEmailExists = await UserModel.findOne({ email: user.email });
 
 				if ( isEmailExists ) {
+
 					// We gonna save the user without email and let him put an email in future
 					user.email = null;
+
+					// Set an API KEY
+					apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+					
+					// Save user
 					new UserModel(user).save(); done(null,user);	
 				}
 				else {
@@ -166,6 +176,20 @@ linkedInStrategy : function(){
 		}
 	}))
 },
+
+serializeUser : ()=>{
+	passport.serializeUser((user, done) => {
+		// console.log('serializeUser Fired!');
+	    done(null, user)
+	});
+},
+
+deserializeUser : ()=>{
+	passport.deserializeUser(function(id, done) {
+		console.log('deserializeUser Fired!');
+	})
+},
+
 }
 
 module.exports = authenticationStrategies;
