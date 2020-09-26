@@ -1,5 +1,5 @@
-const express                               = require('express');
-const APIControllers                        = require('.././Api/Api.js');
+const express                                = require('express');
+const APIControllers                         = require('.././Api/Api.js');
 const { validateAPIKEY, isOwenedTheSurvey }  = require('.././Middlewares/Authentication.js');
 
 // Init router

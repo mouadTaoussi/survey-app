@@ -53,41 +53,56 @@ async function updateUserSurvey(request,response){
 	// Get body data as well as user object
 	const { body, user }      = request;
 
-	// Validate if the user has provided all of the fields
-	// if ( body.description == undefined ) {
-	// 	response.status(400).json({ updated : false, message : "Provide us a description field"})
-	// }
-	// if ( body.title == undefined ) {
-	// 	response.status(400).json({ updated : false, message : "Provide us a title field"})
-	// }
+	// Validate if the user has provided correct fields
 	if ( body._id != survey_id ) {
 		response.status(400).json({ updated : false, message : "Must not change the id of the survey: _id"})
 	}
-	
+
 	if ( body.questions != undefined ){
 		if ( Array.isArray(body.questions ) == false){
-			response.status(400).json({ updated : false, message : "Questions field must be an array of questions! not text or number"});
+			response.status(400).json({ updated : false, 
+				message : "Questions field must be an array of questions! not text or number"
+			});
 		}
 		else {
 			// Validate if the questions fields are provided all
 			for (var i = 0; i < body.questions.length; i++) {
+		
 				// Options
 				if ( body.questions[i].options == undefined ){
 					continue
 				}
 				else if ( body.questions[i].options != undefined ){
+
+					// Check if the options is array
 					if ( Array.isArray(body.questions[i].options) == false ){
-						response.status(400).json({ updated : false, message : "Provide us some sort of options in the options field! not text or number"})
+
+						// Make it modified so we won't push it to the database
+						body.questions[i].options = undefined;
+
+						// End the process with 400 status code : Bad request
+						response.status(400).json({ updated : false,
+							message : "Provide us some sort of options in the options field! not text or number"
+						})
 					}
 				}
 
-				// Resutls
+				// Results
 				if ( body.questions[i].result == undefined ) {
 					continue
 				}
 				else if ( body.questions[i].result != undefined ){
+
+					// Check if the result is array
 					if ( Array.isArray(body.questions[i].result) == false ){
-						response.status(400).json({ updated : false, message : "result field must be an empty array! not text or number"})
+
+						// Make it modified so we won't push it to the database
+						body.questions[i].result = undefined;
+
+						// End the process with 400 status code : Bad request
+						response.status(400).json({ updated : false, 
+							message : "result field must be an empty array! not text or number"
+						})
 					}
 				}
 
@@ -112,6 +127,13 @@ async function updateUserSurvey(request,response){
 
 	// Update
 	const updated             = await questionsController.updateSurvey(survey_id, body);
+	
+	// const profile = await Profile.findByIdAndUpdate(req.params.id, 
+ //    { $set: { 'settings.darkMode': req.body.darkMode } }, 
+ //     {
+ //        new: true,
+ //        runValidators: true
+ //    });
 
 	response.json(updated);
 
@@ -207,16 +229,23 @@ async function updateUser(request,response){
 
 	// // Get body data as well as user object
 	const { body, user } = request;
+	const { user_id }    = request.query;
 
-	// Validate the fields provided by the user
+	// If authorized to update
+	if ( user_id != user._id ){
+		response.status(401).json({message: "You are not authorized to make changes on that user!"});
+	}
+	else {
+		// Validate the fields provided by the user
 
-	// Keep the user_id same 
-	body._id = user.id;
+		// Keep the user_id same 
+		body._id = user.id;
 
-	// // Update
-	const updated             = await authController.updateUser(user_id,body);
+		// // Update
+		const updated             = await authController.updateUser(user_id,body);
 
-	response.json(updated);
+		response.json(updated);
+	}
 }
 
 // Export all of the controllers to use in API routes
