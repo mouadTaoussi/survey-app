@@ -18,7 +18,7 @@ router.get    ('/get/responses',   validateAPIKEY, isOwenedTheSurvey, APIControl
 // Users
 router.get    ('/get/user',        validateAPIKEY, APIControllers.getUserByID);
 router.get    ('/get/users',       validateAPIKEY, APIControllers.getUsers);
-router.put    ('/get/user',        validateAPIKEY, APIControllers.updateUser);
+router.put    ('/update/user',     validateAPIKEY, APIControllers.updateUser);
 
 
 module.exports = router;

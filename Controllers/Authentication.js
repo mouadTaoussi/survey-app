@@ -107,6 +107,22 @@ class Authentication {
 			}
 		}
 	}
+	async getMany(limit){
+		try {
+			const users = await User.find().limit(limit);
+			// 
+			return {
+				found : true,
+				users : users
+			}
+		}
+		catch(err){
+			return {
+				found : false,
+				message : 'Something went wrong!'
+			}
+		}
+	}
 	async updateUser(user_id,bodyData){
 		try {
 			// Check if email was taken by another user
@@ -142,7 +158,7 @@ class Authentication {
 			}
 		}
 		catch (err){
-			console.log(err.message)
+			
 			return {
 				saved : false,
 				message : "Something went wrong!"
