@@ -149,6 +149,24 @@
 	      <!-- settings  -->
 	      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
 	      	<h3 class="text-left local-mb-4">Settings</h3>
+	      	<div class="settings-area">
+	      		<label for="email">Your API key:</label>
+				<input 
+					type="text"
+					id="apiKey" 
+					name="apiKey" 
+					class="form-control user-profile-inputs local-mb-2" 
+					placeholder="API KEY" 
+					value="<%= user.apiKey %>"
+					disabled
+				>
+				<p class="text-dark" style="font-size: 13px; cursor:pointer;" onclick="regenerateAPIKEY()">Revoke this API KEY</p>
+				<label for="email">Display Theme:</label>
+				<select class="form-control">
+					<option>Light</option>
+					<option>Dark</option>
+				</select>
+	      	</div>
 	      </div>
 	    </div>
 	  </div>

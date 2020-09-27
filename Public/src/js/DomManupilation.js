@@ -209,3 +209,12 @@ else if (
 	})
 
 }
+
+
+// Display Themes
+function darkTheme(){
+	// Change the vars of the css
+}
+function lightTheme(){
+	// Change the vars of the css
+}

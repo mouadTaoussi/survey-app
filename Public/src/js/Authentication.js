@@ -97,5 +97,22 @@ if (window.location.pathname === "/dashboard" ) {
 		})
 		.catch((err)=>{ alert(errorMessage); })
 	}
+	// Regenerate an API KEY and revoke the current one
+	window.regenerateAPIKEY = ()=>{
+
+		// Regenerate one
+		axios({
+			method: "GET",
+			url   : "/auth/regenerateapikey",
+		})
+		.then((response)=>{
+			// Inject that new API KEY
+			document.querySelector('#apiKey').value = response.data.apiKey;
+		})
+		.catch((err)=>{
+			// Display alert message
+			window.displayAlertMessage(response.data.saved,response.data.message);
+		})
+	}
 }
 
