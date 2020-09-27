@@ -13,12 +13,10 @@ router.delete ('/delete/survey',   validateAPIKEY, isOwenedTheSurvey, APIControl
 
 // Responses
 router.get    ('/get/responses',   validateAPIKEY, isOwenedTheSurvey, APIControllers.getResponses);
-// router.get    ('/get/response',    validateAPIKEY, APIControllers.getResponsesBySurveyID );
 
 // Users
 router.get    ('/get/user',        validateAPIKEY, APIControllers.getUserByID);
 router.get    ('/get/users',       validateAPIKEY, APIControllers.getUsers);
-router.put    ('/update/user',     validateAPIKEY, APIControllers.updateUser);
 
 
 module.exports = router;
