@@ -153,6 +153,24 @@
 	      <!-- settings  -->
 	      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
 	      	<h3 class="text-left local-mb-4">设定</h3>
+	      	<div class="settings-area">
+	      		<label for="email">您的API密钥：</label>
+				<input 
+					type="text"
+					id="apiKey" 
+					name="apiKey" 
+					class="form-control user-profile-inputs local-mb-2" 
+					placeholder="API KEY" 
+					value="<%= user.apiKey %>"
+					disabled
+				>
+				<p class="text-dark" style="font-size: 13px; cursor:pointer;" onclick="regenerateAPIKEY()">撤销此API密钥</p>
+				<label for="email">显示主题：</label>
+				<select class="form-control">
+					<option>Light</option>
+					<option>Dark</option>
+				</select>
+	      	</div>
 	      </div>
 	    </div>
 	  </div>
