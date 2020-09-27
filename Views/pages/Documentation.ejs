@@ -9,30 +9,96 @@
 	<%-   include('.././partials/HomePage&PrivacyHeader')   %>
 	<!-- ----------------------------- Privacy && Policy ----------------------------- -->
 	<div class="local-container-4 privacy">
-		<h1 style='padding-top: 150px;'><strong class="local-text-black">API reference</strong></h1>
-			<!-- --------------------------------------------- -->
-			<!-- <h5 class="local-text-black">What we collect about you?</h5>
-			<p>
-
-			</p>
+			<h1 style='padding-top: 150px;'><strong class="local-text-black">API reference</strong></h1>
+			<section class="introduction">
+				<h6>This page explains how to get started with <strong>SurveyApp API</strong> v1, and deal with it</h6>
+				<strong>This is not a public API! so you need to create an accound or log in if you already have one.</strong>
+			</section>
+			<!-- Space -->
 			<br>
-			<br> -->
-			<!-- --------------------------------------------- -->
-			<!-- <h5 class="local-text-black">What we collect about you?</h5>
-			<p>
+			<br>
+			<!-- Space -->
+			<section class="get-started">
+				<h4 class="local-text-black">Get started</h4>
+				<h6>First off you have to get an API KEY at <STRONG>Log in > Dashboard > Settings > Your API key</STRONG></h6>
+				<h6>After getting your API KEY, now you are ready to submit your first query!</h6>
+			</section>
+			<!-- Space -->
+			<br>
+			<br>
+			<!-- Space -->
+			<section class="endpoints">
+				<h4 class="local-text-black">Endpoints (Routes)</h4>
+				<xmp style="background-color:black;color:white;padding: 5px">surveyapp1.herokuapp.com/api/v1/get/users?limit=2</xmp>
+				<p>
+					this above example represents a simple url to get 2 users as limited above.
+					all of the API endpoints start by <strong>surveyapp1.herokuapp.com</strong> which is the domain name of the app, then after it there is /api/ that describes the api and the /v1/ which represents the current major version of this API, then /get/ that specify to the API whether you want to get data or modify it, and finally /users field that describes which data you wanna get such as users or a spesific user or surveys ...
+					This is the basic structure of the API URL
+				</p>
+				<p>so the structure of API URLs would be like:</p>
+				<xmp style="background-color:black;color:white;padding: 5px">surveyapp1.herokuapp.com/api/version/method/data?query=value&query=value</xmp>
+				<!-- Space -->
+				<br>
+				<br>
+				<!-- Space -->
+				<p>This table shows you a list of queries that necessery to include them while you request data from the endpoints</p>
+				<table class="table">
+					<tr>
+						<td><strong>Query</strong></td>
+						<td><strong>Type</strong></td>
+						<td><strong>When</strong></td>
+						<td><strong>Definition</strong></td>
+					</tr>
+					<tr>
+						<td>api_key</td>
+						<td>String</td>
+						<td>at endpoints all api to grant access to the data.</td>
+						<td>the query which authorize you to get & modify data from your app.</td>
+					</tr>
+					<tr>
+						<td>limit</td>
+						<td>Number</td>
+						<td>at endpoints /get/users and /get/surveys.</td>
+						<td>for get just a specified amount of users or surveys.</td>
+					</tr>
+					<tr>
+						<td>user_id</td>
+						<td>String</td>
+						<td>at /get/user.</td>
+						<td>for get an user by his ID.</td>
+					</tr>
+					<tr>
+						<td>survey_id</td>
+						<td>String</td>
+						<td>at /get/survey and /update/survey and /delete/survey and /get/responses.</td>
+						<td>for get access to a specific survey and manipulate it.</td>
+					</tr>
+				</table>
+				<!-- Space -->
+				<br>
+				<br>
+				<!-- Space -->
+				<p>List of the available endpoints:</p>
+				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/user?user_id=3cdDC...&api_key=YOUR_API_KEY</xmp>
+				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/users?limit=2&api_key=YOUR_API_KEY</xmp>
+				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/surveys?limit=2&api_key=YOUR_API_KEY</xmp>
+				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ PUT/   (*1) surveyapp1.herokuapp.com/api/v1/update/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ DELETE/(*2) surveyapp1.herokuapp.com/api/v1/delete/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/   (*3) surveyapp1.herokuapp.com/api/v1/get/responses?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+				<!-- Space -->
+				<br>
+				<!-- Space -->
+				<div class="alert alert-info">
+
+					<strong>*1~2~3</strong><br>
 				
-			</p>
-			<br>
-			<br> -->
-			<!-- --------------------------------------------- -->
-			<!-- <h5 class="local-text-black">What we collect about you?</h5>
-			<p>
+					You mustn't update and delete surveys that hasn't yours! as well as reading responses from them.<br>
+					You allowed to do these actions at just your surveys!
+				
+				</div>
 
-			</p>
-			<br>
-			<br> -->
-			<%- include('.././partials/notAvailableForNow') %>
-			
+			</section>
 	</div>
 </body>
 <%-   include('.././partials/ScriptTags')   %>
