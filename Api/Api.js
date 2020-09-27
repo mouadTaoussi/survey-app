@@ -43,10 +43,10 @@ async function getSurveys(request,response){
 		response.json(surveys);
 	}
 
-}// http://localhost:5000/api/v1/get/surveys?api_key=2TZ9F8AXWB4G09GX2W0TYTEPVJ7H&limit=1
+}
+
 async function updateUserSurvey(request,response){
-	// http://localhost:5000/api/v1/update/survey?survey_id=5f6df67cc7f99705148d46ca&api_key=FKCV7HJC9EMCDQMM8PTD3A87A5BN
-	// localhost:5000/api/v1/get/surveys?limit=1&api_key=03BEM4W4TW430APJ2Q0DS8ZVK3KR
+
 	// Get the survey_id 
 	const { survey_id }       = request.query;
 
@@ -114,7 +114,7 @@ async function updateUserSurvey(request,response){
 				if ( body.questions[i].required == undefined ){ continue }
 
 				if ( body.questions[i].file == undefined ){ continue }
-					
+
 				if ( body.questions[i].title == undefined ){ continue }
 			}	
 		}
