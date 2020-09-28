@@ -1,5 +1,4 @@
-if (window.location.pathname === "/surveyEditor") {
-
+if ( window.location.pathname === "/surveyEditor" || window.location.pathname === "/" ) {
 	// Tabs feature !!
 	const edit_tab = document.querySelector('.edit-tab');
 	const responses_tab = document.querySelector('.responses-tab');
@@ -176,7 +175,9 @@ if (window.location.pathname === "/surveyEditor") {
 		event.path[2]/*.parentNode*/.remove();
 	}
 }
-else if ( 
+
+// Run those scripts at /privacyPolicy and / and docs
+if ( 
 	window.location.pathname === "/privacyPolicy" 
 						|| 
 	window.location.pathname === "/" 

@@ -10,23 +10,34 @@
 	<!-- ----------------------------- Privacy && Policy ----------------------------- -->
 	<div class="local-container-4 privacy">
 			<h1 style='padding-top: 150px;'><strong class="local-text-black">API reference</strong></h1>
+
+
 			<section class="introduction">
 				<h6>This page explains how to get started with <strong>SurveyApp API</strong> v1, and deal with it</h6>
 				<strong>This is not a public API! so you need to create an accound or log in if you already have one.</strong>
 			</section>
+
+
+
 			<!-- Space -->
 			<br>
 			<br>
 			<!-- Space -->
+
+
 			<section class="get-started">
 				<h4 class="local-text-black">Get started</h4>
 				<h6>First off you have to get an API KEY at <STRONG>Log in > Dashboard > Settings > Your API key</STRONG></h6>
 				<h6>After getting your API KEY, now you are ready to submit your first query!</h6>
 			</section>
+
+
 			<!-- Space -->
 			<br>
 			<br>
 			<!-- Space -->
+
+
 			<section class="endpoints">
 				<h4 class="local-text-black">Endpoints (Routes)</h4>
 				<xmp style="background-color:black;color:white;padding: 5px">surveyapp1.herokuapp.com/api/v1/get/users?limit=2</xmp>
@@ -41,7 +52,8 @@
 				<br>
 				<br>
 				<!-- Space -->
-				<p>This table shows you a list of queries that necessery to include them while you request data from the endpoints</p>
+				<p>This table shows you a list of queries (parameters) that necessery to include them while you request data from the endpoints</p>
+
 				<table class="table">
 					<tr>
 						<td><strong>Query</strong></td>
@@ -52,7 +64,7 @@
 					<tr>
 						<td>api_key</td>
 						<td>String</td>
-						<td>at endpoints all api to grant access to the data.</td>
+						<td>at all api endpoints, to grant access to the data.</td>
 						<td>the query which authorize you to get & modify data from your app.</td>
 					</tr>
 					<tr>
@@ -79,13 +91,76 @@
 				<br>
 				<!-- Space -->
 				<p>List of the available endpoints:</p>
-				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/user?user_id=3cdDC...&api_key=YOUR_API_KEY</xmp>
-				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/users?limit=2&api_key=YOUR_API_KEY</xmp>
-				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
-				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/surveys?limit=2&api_key=YOUR_API_KEY</xmp>
-				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ PUT/   (*1) surveyapp1.herokuapp.com/api/v1/update/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
-				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ DELETE/(*2) surveyapp1.herokuapp.com/api/v1/delete/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
-				<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/   (*3) surveyapp1.herokuapp.com/api/v1/get/responses?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+				<!--  -->
+				<details>
+					<summary>
+					  	Get a specific user:
+					</summary>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/user?user_id=3cdDC...&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<p class="text-left">it works</p>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	Get a list of users:
+					</summary>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/users?limit=2&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<p class="text-left">it works</p>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	Get a survey:
+					</summary>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<p class="text-left">it works</p>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	Get a list of surveys:
+					</summary>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/surveys?limit=2&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<p class="text-left">it works</p>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	Update a specific survey: (Only at your surveys!)
+					</summary>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ PUT/   (*1) surveyapp1.herokuapp.com/api/v1/update/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<p class="text-left">it works</p>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	Delete a specific survey: (Only at your surveys!)
+					</summary>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ DELETE/(*2) surveyapp1.herokuapp.com/api/v1/delete/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<p class="text-left">it works</p>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	Get responses of a survey: (Only at your surveys!)
+					</summary>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/   (*3) surveyapp1.herokuapp.com/api/v1/get/responses?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<p class="text-left">it works</p>
+					</div>
+				</details>
 				<!-- Space -->
 				<br>
 				<!-- Space -->
@@ -97,9 +172,45 @@
 					You allowed to do these actions at just your surveys!
 				
 				</div>
-
 			</section>
+
+
+			<!-- Space -->
+			<br>
+			<br>
+			<!-- Space -->
+
+
+			<section class="change-log">
+				<h4 class="local-text-black">ChangeLog</h4>
+				<!--  -->
+				<details>
+					<summary>
+					  	2.0
+					</summary>
+					<div class="card my-4 p-4">
+						<p class="text-left">it works</p>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	1.0
+					</summary>
+					<div class="card my-4 p-4">
+						<p class="text-left">it works</p>
+					</div>
+				</details>
+			</section>
+
+
+			<!-- Space -->
+			<br>
+			<br>
+			<!-- Space -->
+
 	</div>
+	<%-  include('.././partials/HomePage&PrivacyFooter.ejs')  %>
 </body>
 <%-   include('.././partials/ScriptTags')   %>
 </html>
