@@ -96,17 +96,21 @@
 					<summary>
 					  	Get a specific user:
 					</summary>
+					<!-- Route -->
 					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/user?user_id=3cdDC...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
+						<!-- Method -->
+						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
+						<!-- Description -->
 						<p class="text-left"><strong>Description:</strong></p>
 						<p>
-							Text
+							This is how you can get a specific user:<br>
+							you can set <kbd>user_id</kbd> parameter to specify which user you wanna get, then you must provide an <kbd>api_key</kbd>.
 						</p>
 						<p class="text-left"><strong>Response preview example:</strong></p>
+						<!-- Code -->
 						<pre>
-{
-	"name":"mouad"
-}
+							<%-   include('.././partials/DocumentationContent/userResponse.ejs')   %>
 						</pre>
 					</div>
 				</details>
@@ -115,17 +119,21 @@
 					<summary>
 					  	Get a list of users:
 					</summary>
+					<!-- Route -->
 					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/users?limit=2&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
+						<!-- Method -->
+						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
+						<!-- Description -->
 						<p class="text-left"><strong>Description:</strong></p>
 						<p>
-							Text
+							here is how you you get a list of users!
+							of course you need to specify how many users you want to get by <kb>limit</kb> parmater.
 						</p>
 						<p class="text-left"><strong>Response preview example:</strong></p>
+						<!-- Code -->
 						<pre>
-{
-	"name":"mouad"
-}
+							<%-   include('.././partials/DocumentationContent/usersResponse.ejs')   %>			
 						</pre>
 					</div>
 				</details>
@@ -134,17 +142,20 @@
 					<summary>
 					  	Get a survey:
 					</summary>
+					<!-- Route -->
 					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
+						<!-- Method -->
+						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
+						<!-- Description -->
 						<p class="text-left"><strong>Description:</strong></p>
 						<p>
-							Text
+							you cant get a survey by provide <kbd>survey_id</kbd> parameter within a survey id, then you'll get the response as shown below.
 						</p>
 						<p class="text-left"><strong>Response preview example:</strong></p>
+						<!-- Code -->
 						<pre>
-{
-	"name":"mouad"
-}
+							<%-   include('.././partials/DocumentationContent/surveyResponse.ejs')   %>
 						</pre>
 					</div>
 				</details>
@@ -153,17 +164,20 @@
 					<summary>
 					  	Get a list of surveys:
 					</summary>
+					<!-- Route -->
 					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/surveys?limit=2&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
+						<!-- Method -->
+						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
+						<!-- Description -->
 						<p class="text-left"><strong>Description:</strong></p>
 						<p>
-							Text
+							This link provides you a list of available surveys, and you'll again need to specify the <kbd>limit</kbd> parameter within a number of how many surveys you want!
 						</p>
 						<p class="text-left"><strong>Response preview example:</strong></p>
+						<!-- Code -->
 						<pre>
-{
-	"name":"mouad"
-}
+							<%-   include('.././partials/DocumentationContent/surveysResponse.ejs')   %>
 						</pre>
 					</div>
 				</details>
@@ -172,22 +186,35 @@
 					<summary>
 					  	Update a specific survey: (Only at your surveys!)
 					</summary>
+					<!-- Route -->
 					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ PUT/   (*1) surveyapp1.herokuapp.com/api/v1/update/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
+						<!-- Method -->
+						 <p class="badge badge-info text-left p-2" style="width:80px;">PUT</p>
+						<!-- Description -->
 						<p class="text-left"><strong>Description:</strong></p>
 						<p>
-							Text
+							For update a survey you need to make sure that the survey you wanna update is yours! because you aren't authorized to make changes on the others that hasn't yours!
+							you need to provide us a <kbd>survey_id</kbd> then a survey data within the updated elements as shown below as a body in the POST request,
+						</p>
+						<p>
+							Notes to remember:<br>
+							- You mustn't delete a field because it gonna be romoved.<br>
+							- You mustn't change the _id on the body because it stay same as the provided one in the link.<br>
+							- You mustn't change the type of the options field and the result field to a string or other because this behavior will get your options removed actually.<br>
 						</p>
 						<p class="text-left"><strong>Body data example:</strong></p>
+						<!-- Code -->
 						<pre>
-{
-	"name":"mouad"
-}
+							<%-   include('.././partials/DocumentationContent/surveyBody.ejs')   %>
 						</pre>
 						<p class="text-left"><strong>Response preview example:</strong></p>
+						<!-- Code -->
 						<pre>
 {
-	"name":"mouad"
+    "saved": true,
+    "message": "Saved your work!",
+    "survey_id": "5f4aef284491253b00b7cae3"
 }
 						</pre>
 					</div>
@@ -197,16 +224,23 @@
 					<summary>
 					  	Delete a specific survey: (Only at your surveys!)
 					</summary>
+					<!-- Route -->
 					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ DELETE/(*2) surveyapp1.herokuapp.com/api/v1/delete/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
+						<!-- Method -->
+						<p  class="badge badge-danger text-left p-2" style="width:80px;">DELETE</p>
+						<!-- Description -->
 						<p class="text-left"><strong>Description:</strong></p>
 						<p>
-							Text
+							Again you cannot make changes on other surveys that you don't own,
+							so if you wanna delete a survey, you just need to specify a survey by set <kbd>survey_id</kbd>parameter.
 						</p>
 						<p class="text-left"><strong>Response preview example:</strong></p>
+						<!-- Code -->
 						<pre>
 {
-	"name":"mouad"
+	deleted : true,
+	message : "Survey deleted successfully!"
 }
 						</pre>
 					</div>
@@ -216,17 +250,20 @@
 					<summary>
 					  	Get responses of a survey: (Only at your surveys!)
 					</summary>
+					<!-- Route -->
 					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/   (*3) surveyapp1.herokuapp.com/api/v1/get/responses?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
+						<!-- Method -->
+						<p class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
+						<!-- Description -->
 						<p class="text-left"><strong>Description:</strong></p>
 						<p>
-							Text
+							You can get a full list of undividual responses in this part, to get them you need to provide a <kbd>survey_id</kbd> and you'll get thier responses easily!
 						</p>
 						<p class="text-left"><strong>Response preview example:</strong></p>
+						<!-- Code -->
 						<pre>
-{
-	"name":"mouad"
-}
+							<%-   include('.././partials/DocumentationContent/responsesResponse.ejs')   %>
 						</pre>
 					</div>
 				</details>
