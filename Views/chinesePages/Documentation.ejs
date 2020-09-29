@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SurveyApp | 文件</title>
+	<title>Survey App | 文件</title>
 	<%-   include('.././partials/HeadTags')   %>
 </head>
 <body style='background-color: white;'>
@@ -9,35 +9,310 @@
 	<%-   include('.././partials/chineseHomePage&PrivacyHeader')   %>
 	<!-- ----------------------------- Privacy && Policy ----------------------------- -->
 	<div class="local-container-4 privacy">
-		<h1 style='padding-top: 150px;'><strong class="local-text-black">API reference</strong></h1>
-			<!-- --------------------------------------------- -->
-			<h6>This page explains how to get started with SurveyApp API v1, and deal with it</h6>
-			<strong>This is not a public API! so you need to create an accound or log in if you already have one.</strong>
-			<h5 class="local-text-black">Get started</h5>
-			<h6>First off you have to get an API KEY at <STRONG>Log in > Dashboard > Settings > Your API key</STRONG></h6>
-			<p>
+			<h1 style='padding-top: 150px;'><strong class="local-text-black">API参考</strong></h1>
 
-			</p>
+
+			<section class="introduction">
+				<h6>本页说明如何开始使用<strong>SurveyApp API</strong> v1并进行处理</h6>
+				<strong>这不是公共API！因此，您需要创建一个帐户或登录（如果已经有一个帐户）。</strong>
+			</section>
+
+
+
+			<!-- Space -->
 			<br>
 			<br>
-			<!-- --------------------------------------------- -->
-			<!-- <h5 class="local-text-black">What we collect about you?</h5>
-			<p>
+			<!-- Space -->
+
+
+			<section class="get-started">
+				<h4 class="local-text-black">开始吧</h4>
+				<h6>首先，您必须在登录>仪表板>设置>您的API密钥中获取API密钥</h6>
+				<h6>取得API密钥后，现在就可以提交第一个查询了！</h6>
+			</section>
+
+
+			<!-- Space -->
+			<br>
+			<br>
+			<!-- Space -->
+
+
+			<section class="endpoints">
+				<h4 class="local-text-black">端点（路由）</h4>
+				<xmp style="background-color:black;color:white;padding: 5px">surveyapp1.herokuapp.com/api/v1/get/users?limit=2</xmp>
+				<p>
+					上面的示例表示一个简单的网址，可以获取2个用户（如上述限制）。所有API端点均以Surveyapp1.herokuapp.com（该应用程序的域名）开头，然后是/ api /（描述该api）和/ v1 /（代表该API的当前主要版本），然后是/ get /向API指定是否要获取数据或对其进行修改，最后是/ users字段，该字段描述您想要获取的数据，例如用户或特殊用户或调查数据...
+					<br>这是API URL的基本结构.
+				</p>
+				<p>因此，API URL的结构如下：</p>
+				<xmp style="background-color:black;color:white;padding: 5px">surveyapp1.herokuapp.com/api/version/method/data?query=value&query=value</xmp>
+				<!-- Space -->
+				<br>
+				<br>
+				<!-- Space -->
+				<p>该表向您显示了一个查询（参数）列表，当您从端点请求数据时需要包括这些查询（参数）</p>
+
+				<table class="table">
+					<tr>
+						<td><strong>询问</strong></td>
+						<td><strong>类型</strong></td>
+						<td><strong>类型</strong></td>
+						<td><strong>定义</strong></td>
+					</tr>
+					<tr>
+						<td>api_key</td>
+						<td>串</td>
+						<td>在所有api端点上，以授予对数据的访问权限。</td>
+						<td>授权您从您的应用程序获取和修改数据的查询。</td>
+					</tr>
+					<tr>
+						<td>limit</td>
+						<td>数</td>
+						<td>at endpoints /get/users and /get/surveys.</td>
+						<td>仅获得指定数量的用户或调查。</td>
+					</tr>
+					<tr>
+						<td>user_id</td>
+						<td>串</td>
+						<td>at /get/user.</td>
+						<td>通过用户ID获得用户。</td>
+					</tr>
+					<tr>
+						<td>survey_id</td>
+						<td>串</td>
+						<td>at /get/survey and /update/survey and /delete/survey and /get/responses.</td>
+						<td>用于访问特定调查并进行操作。</td>
+					</tr>
+				</table>
+				<!-- Space -->
+				<br>
+				<br>
+				<!-- Space -->
+				<p>可用端点列表：</p>
+				<!--  -->
+				<details>
+					<summary>
+					  	 获取特定用户：
+					</summary>
+					<!-- Route -->
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/user?user_id=3cdDC...&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<!-- Method -->
+						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
+						<!-- Description -->
+						<p class="text-left"><strong>描述：</strong></p>
+						<p>
+							这是获取特定用户的方式：<br>
+							可以设置user_id参数以指定要获取的用户，然后必须提供一个api_key。
+						</p>
+						<p class="text-left"><strong>响应预览示例：</strong></p>
+						<!-- Code -->
+						<pre>
+							<%-   include('.././partials/DocumentationContent/userResponse.ejs')   %>
+						</pre>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	获取用户列表：
+					</summary>
+					<!-- Route -->
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/users?limit=2&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<!-- Method -->
+						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
+						<!-- Description -->
+						<p class="text-left"><strong>描述：</strong></p>
+						<p>
+							这是您获取用户列表的方式！当然，您需要指定要获得多少用户限制 参数。
+						</p>
+						<p class="text-left"><strong>响应预览示例：</strong></p>
+						<!-- Code -->
+						<pre>
+							<%-   include('.././partials/DocumentationContent/usersResponse.ejs')   %>			
+						</pre>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	进行调查：
+					</summary>
+					<!-- Route -->
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<!-- Method -->
+						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
+						<!-- Description -->
+						<p class="text-left"><strong>描述：</strong></p>
+						<p>
+							您可以通过在调查ID中提供<kbd> survey_id </kbd>参数来获得调查，然后将获得如下所示的响应。
+						</p>
+						<p class="text-left"><strong>响应预览示例：</strong></p>
+						<!-- Code -->
+						<pre>
+							<%-   include('.././partials/DocumentationContent/surveyResponse.ejs')   %>
+						</pre>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	 获取调查清单：
+					</summary>
+					<!-- Route -->
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/surveys?limit=2&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<!-- Method -->
+						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
+						<!-- Description -->
+						<p class="text-left"><strong>描述：</strong></p>
+						<p>
+							该链接为您提供了可用调查的列表，并且您将再次需要limit在想要多少个调查中指定参数！
+						</p>
+						<p class="text-left"><strong>响应预览示例：</strong></p>
+						<!-- Code -->
+						<pre>
+							<%-   include('.././partials/DocumentationContent/surveysResponse.ejs')   %>
+						</pre>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	 更新特定调查：（仅在您的调查中！）
+					</summary>
+					<!-- Route -->
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ PUT/   (*1) surveyapp1.herokuapp.com/api/v1/update/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<!-- Method -->
+						 <p class="badge badge-info text-left p-2" style="width:80px;">PUT</p>
+						<!-- Description -->
+						<p class="text-left"><strong>描述：</strong></p>
+						<p>
+							要更新调查，您需要确保要更新的调查是您自己的！因为您无权对不是您的其他人进行更改！您需要向我们提供，survey_id然后在更新的元素内提供一个调查数据，如下所示，作为POST请求中的正文，
+						</p>
+						<p>
+							注意事项：<br>
+							-您不得删除字段，因为它将被移动。<br>
+							-您不得更改主体上的_id，因为它与链接中提供的_id相同。<br>
+							-您不得将选项字段和结果字段的类型更改为字符串或其他类型，因为此行为实际上会将您的选项删除。<br>
+						</p>
+						<p class="text-left"><strong>身体数据示例：</strong></p>
+						<!-- Code -->
+						<pre>
+							<%-   include('.././partials/DocumentationContent/surveyBody.ejs')   %>
+						</pre>
+						<p class="text-left"><strong>响应预览示例：</strong></p>
+						<!-- Code -->
+						<pre>
+{
+    "saved": true,
+    "message": "Saved your work!",
+    "survey_id": "5f4aef284491253b00b7cae3"
+}
+						</pre>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	删除特定调查：（仅在您的调查中！）
+					</summary>
+					<!-- Route -->
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ DELETE/(*2) surveyapp1.herokuapp.com/api/v1/delete/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<!-- Method -->
+						<p  class="badge badge-danger text-left p-2" style="width:80px;">DELETE</p>
+						<!-- Description -->
+						<p class="text-left"><strong>描述：</strong></p>
+						<p>
+							同样，您无法对您不拥有的其他调查进行更改，因此，如果要删除调查，则只需通过set survey_id参数指定一个调查。
+						</p>
+						<p class="text-left"><strong>响应预览示例：</strong></p>
+						<!-- Code -->
+						<pre>
+{
+	deleted : true,
+	message : "Survey deleted successfully!"
+}
+						</pre>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	 获取调查的答复：（仅在您的调查中！）
+					</summary>
+					<!-- Route -->
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/   (*3) surveyapp1.herokuapp.com/api/v1/get/responses?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<div class="card my-4 p-4">
+						<!-- Method -->
+						<p class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
+						<!-- Description -->
+						<p class="text-left"><strong>描述：</strong></p>
+						<p>
+							您可以在本部分中获得一份完整的完整答复列表，要获得这些答复，您需要提供survey_id，您将轻松获得他们的答复！
+						</p>
+						<p class="text-left"><strong>响应预览示例：</strong></p>
+						<!-- Code -->
+						<pre>
+							<%-   include('.././partials/DocumentationContent/responsesResponse.ejs')   %>
+						</pre>
+					</div>
+				</details>
+				<!-- Space -->
+				<br>
+				<!-- Space -->
+				<div class="alert alert-info">
+
+					<strong>*1〜2〜3</strong><br>
 				
-			</p>
-			<br>
-			<br> -->
-			<!-- --------------------------------------------- -->
-			<!-- <h5 class="local-text-black">What we collect about you?</h5>
-			<p>
+					请勿更新和删除您没有的测量！以及阅读他们的回应。
+					您只允许在调查中执行这些操作！
+				
+				</div>
+			</section>
 
-			</p>
+
+			<!-- Space -->
 			<br>
-			<br> -->
-			<!-- <div class="empty-content"></div>
-			<p>we are commiting to make it released in a few days!</p> -->
+			<br>
+			<!-- Space -->
+
+
+			<section class="change-log">
+				<h4 class="local-text-black">变更日志</h4>
+				<!--  -->
+				<details>
+					<summary>
+					  	2.0
+					</summary>
+					<div class="card my-4 p-4">
+						<p class="text-left">it works</p>
+					</div>
+				</details>
+				<!--  -->
+				<details>
+					<summary>
+					  	1.0
+					</summary>
+					<div class="card my-4 p-4">
+						<p class="text-left">it works</p>
+					</div>
+				</details>
+			</section>
+
+
+			<!-- Space -->
+			<br>
+			<br>
+			<!-- Space -->
+
 	</div>
-	<%-  include('.././partials/HomePage&PrivacyFooter.ejs')  %>
+	<%-  include('.././partials/chineseHomePage&PrivacyFooter.ejs')  %>
 </body>
 <%-   include('.././partials/ScriptTags')   %>
 </html>
