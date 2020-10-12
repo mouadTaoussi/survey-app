@@ -12,7 +12,7 @@
 	<div class="row mt-4">
 	<!-- Side bar -->
 	  <div class="col-3">
-	    <div class="list-group" id="list-tab" role="tablist">
+	    <div class="list-group list-group-dashboard" id="list-tab" role="tablist">
 	      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Your Surveys</a>
 	      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Your Profile</a>
 	      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
@@ -29,8 +29,16 @@
 	  	<!-- tabs section -->
 	    <div class="tab-content" id="nav-tabContent">
 	    <!-- Surveys tab -->
-	      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+	      <div style="position: relative;"class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
 	      	<h3 class="text-left local-mb-4">Your Surveys</h3>
+	      	<!-- <button class="local-btn create-btn local-btn-primary">New survey +</button>
+	      	<style>
+	      		.create-btn  {
+	      			position: absolute;
+	      			top: 0;
+	      			right: 0;
+	      		}
+	      	</style> -->
 	      	<table class="table table-hover">
 	      	  <% if (surveys.length == 0) { %>
 	      	   	<div class="empty-content"></div>

@@ -6,13 +6,26 @@
 </head>
 <body style="">
 <%-include('.././partials/HeaderElement', {avatar:user.avatar} )%>
-<div class="mt-4 mb-4 local-container-8">
+<div id="survey-editor" class="mt-4 mb-4 local-container-8">
+	<style>
+		#survey-editor {
+			position: relative;
+		}
+	</style>
 	<!-- Dynamic alert message -->
 	<%- include('.././partials/alertMessage') %>
 	<ul class="list-group list-group-horizontal-sm">
 	  <li style="cursor:pointer;" class="list-group-item edit-tab active">Edit</li>
 	  <li style="cursor:pointer;" class="list-group-item responses-tab">Responses</li>
 	</ul>
+	<button id="btn-save-changes-top" class="local-btn local-btn-success btn-save-changes">Save Changes</button>
+	<style>
+		#btn-save-changes-top {
+			position: absolute;
+  			top: 12px;
+  			right: 130px;
+		}
+	</style>
 	<!-- <h1>Survey Editor</h1> -->
 	<!-- ---------------------------------------------------------- -->
 	<!-- ---------------------------------------------------------- -->
@@ -167,7 +180,7 @@
 			<% } %>
 			<!-- Description Place -->
 			<!-- Description Place -->
-			<button class="local-btn local-btn-primary local-mt-2 local-mb-2 float-right btn-save-changes">Save Changes</button>
+			<button class="local-btn local-btn-success local-mt-2 local-mb-2 float-right btn-save-changes">Save Changes</button>
 		</div>
 		<!-------------------- Tools ----------------------->
 		<!-------------------- Tools ----------------------->

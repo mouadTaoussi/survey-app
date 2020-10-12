@@ -181,7 +181,11 @@ h1,h2,h3,h5,h6 {
 .options-area {
 	width: 70%;
 }
-
+/* whenever user scrolls down, the list group will stick at the top by 0*/
+.list-group-dashboard {
+	position: sticky;
+	top: 20px;
+}
 /**
 *
 *

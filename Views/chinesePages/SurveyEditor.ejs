@@ -6,13 +6,28 @@
 </head>
 <body style="">
 <%- include('.././partials/chineseHeaderElement',{avatar:user.avatar}) %>
-<div class="mt-4 mb-4 local-container-8">
+<div id="survey-editor" class="mt-4 mb-4 local-container-8">
+	<style>
+		#survey-editor {
+			position: relative;
+		}
+	</style>
 	<!-- Dynamic alert message -->
 	<%- include('.././partials/alertMessage') %>
 	<ul class="list-group list-group-horizontal-sm">
 	  <li style="cursor:pointer;" class="list-group-item edit-tab active">编辑</li>
 	  <li style="cursor:pointer;" class="list-group-item responses-tab">回应</li>
 	</ul>
+	<button id="btn-save-changes-top" class="local-btn local-btn-success btn-save-changes">
+		保存更改
+	</button>
+	<style>
+		#btn-save-changes-top {
+			position: absolute;
+  			top: 12px;
+  			right: 130px;
+		}
+	</style>
 	<!-- <h1>Survey Editor</h1> -->
 	<!-- ---------------------------------------------------------- -->
 	<!-- ---------------------------------------------------------- -->

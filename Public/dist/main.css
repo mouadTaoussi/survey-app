@@ -3,12 +3,12 @@
 @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Ubuntu:wght@400;500&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Cabin&display=swap);
 :root{
-	--primary : /*#052580*/ #1554a7;
+	--primary : #1554a7;
 	--primary-darken : #052580; 
-	--dark :  #2b2b2b;/*rgba(0,0,0,.85);/*#24292e*/
+	--dark :  #2b2b2b;
 	--light : #ededed;
 	--success : #008272;
-	--danger : #ff0000/* #a4373a*/;
+	--danger : #ff0000;
 	--info : #2488d8;
 	--warning : #c19c00;
 }
@@ -71,6 +71,10 @@
 	font-family: 'Ubuntu', sans-serif;
 }
 /* Poppins */
+.poppins {
+	font-family: 'Poppins', sans-serif;
+}
+/* Cabin */
 .poppins {
 	font-family: 'Poppins', sans-serif;
 }
@@ -318,12 +322,12 @@
 /*  Loading spinner  */
 /*  Svgs  */
 :root{
-	--primary : /*#052580*/ #1554a7;
+	--primary : #1554a7;
 	--primary-darken : #052580; 
-	--dark :  #2b2b2b;/*rgba(0,0,0,.85);/*#24292e*/
+	--dark :  #2b2b2b;
 	--light : #ededed;
 	--success : #008272;
-	--danger : #ff0000/* #a4373a*/;
+	--danger : #ff0000;
 	--info : #2488d8;
 	--warning : #c19c00;
 }
@@ -507,7 +511,11 @@ h1,h2,h3,h5,h6 {
 .options-area {
 	width: 70%;
 }
-
+/* whenever user scrolls down, the list group will stick at the top by 0*/
+.list-group-dashboard {
+	position: sticky;
+	top: 20px;
+}
 /**
 *
 *
