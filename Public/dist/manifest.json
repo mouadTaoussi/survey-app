@@ -1,0 +1,21 @@
+{
+  "name": "SurveyApp",
+  "short_name": "SurveyApp",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ededed",
+  "theme_color": "#1554a7",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./logo.png",
+      "type": "image/png",
+      "sizes": "100x100"
+    },
+     {
+      "src": "./linkedin.png",
+      "type": "image/png",
+      "sizes": "277x277"
+    }
+  ]
+}
