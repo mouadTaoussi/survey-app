@@ -1,5 +1,5 @@
 const staticAssets = 'staticV8';
-const dynamicAssets = 'dynamicV2';
+const dynamicAssets = 'dynamicV3';
 const assets = [
 	"index.html",
 	"0f27e9b933cc50abbbba250c5f83aa12.woff2",
@@ -79,17 +79,31 @@ this.addEventListener('fetch',(e)=>{
 	}
 	else {
 		e.respondWith(
-			caches.match(e.request, {
-	       		// ignore query section of the URL based on our variable
-				ignoreSearch: hasQuery,
-	    	}).then((cach)=>{
-				return cach || fetch(e.request).then((response)=>{
-					caches.open(dynamicAssets).then((cach)=>{
-						cach.put(e.request.url, response.clone());
-						return response;
-					})
+			fetch(e.request).then((response)=>{
+				return caches.open(dynamicAssets).then((cach)=>{
+					cach.put(e.request,response.clone());
+					return response;
+				})
+			})
+			.catch((err)=>{
+				return caches.match(e.request).then((cach)=>{
+					return cach;
 				})
 			})
 		)
 	}
 })
+
+
+
+/*caches.match(e.request, {
+		// ignore query section of the URL based on our variable
+	ignoreSearch: hasQuery,
+}).then((cach)=>{
+	return cach || fetch(e.request).then((response)=>{
+		caches.open(dynamicAssets).then((cach)=>{
+			cach.put(e.request.url, response.clone());
+			return response;
+		})
+	})
+})*/

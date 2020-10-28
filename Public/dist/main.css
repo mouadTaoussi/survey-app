@@ -516,6 +516,17 @@ h1,h2,h3,h5,h6 {
 	position: sticky;
 	top: 20px;
 }
+.dashboard-rows {
+	display: grid;
+	grid-template-columns: 1.5fr 5fr;
+	grid-gap: 20px;
+}
+.dashboard-row-content {
+	position: relative;
+}
+#survey-cards {
+	display: none;
+}
 /**
 *
 *
@@ -1058,6 +1069,35 @@ h1,h2,h3,h5,h6 {
 	*
 	*
 	**/
+	.dashboard-rows {
+  		display: grid;
+  		grid-template-columns: 100%;
+  		grid-gap: 20px;
+  	}	
+  	#surveys-table {
+  		display: none;
+  	}
+  	#survey-cards {
+  		display: block;
+  	}
+  	#survey-card {
+  		position: relative;
+  	}
+  	#survey-card-manu {
+  		position: absolute;
+  		top: 15px;
+  		right: 15px;
+  		cursor: pointer;
+  	}
+  	.survey-card-dropdown {
+  		position: absolute;
+  		right: 15px;
+  		top: 30px;
+  		width: 100px;
+  		background:white;
+  		z-index: 999;
+  		display: none;
+  	}
 	/**
 	*
 	*

@@ -219,3 +219,12 @@ function darkTheme(){
 function lightTheme(){
 	// Change the vars of the css
 }
+
+// Show dropdown in the Dashboard
+window.showDropdown = function (event) {
+	if(event.path[1].children[3].style.display == "block") {
+		event.path[1].children[3].style.display = "none"
+	}else {
+		event.path[1].children[3].style.display = "block"
+	}
+}
