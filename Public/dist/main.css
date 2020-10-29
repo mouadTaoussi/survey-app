@@ -345,6 +345,12 @@
 	padding: 10px;
 	transition: all .4s ease-out;
 }
+.display-none {
+	display: none;
+}
+.display-block {
+	display: block;	
+}
 
 body {
 	background-color: #f7f7f7;
@@ -1096,7 +1102,6 @@ h1,h2,h3,h5,h6 {
   		width: 100px;
   		background:white;
   		z-index: 999;
-  		display: none;
   	}
 	/**
 	*

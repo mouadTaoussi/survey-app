@@ -1,6 +1,11 @@
 <header class="local-navbar-2 local-navbar-primary">
 	<div class="local-container-8 header-grid">
-		<div>
+		<div id="show-side-menu">
+			<div onclick="toggleSideMenu()">
+				<svg id="hamburger-menu" width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-justify" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				  <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+				</svg>
+			</div>
 			<div class="header-logo"></div>
 		</div>
 		<ul class="list-menu">
@@ -17,6 +22,21 @@
 		</ul>
 	</div>
 </header>
+<div class="sidebar-smaller-devices local-container-8 shadow hide-sidebar">
+	<div class="side-menu-items">
+		<div id="hide-side-menu" onclick="toggleSideMenu()">
+			<svg width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+			  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+			</svg>
+		</div><br><br>
+		<a class="text-dark" href="/dashboard?lang=kr">계기반</a><br><br>
+		<a class="text-dark" href="/surveyEditor?lang=kr">하나 만들기</a><br><br>
+		<a class="text-dark" href="/auth/logout">로그 아웃</a><br><br>
+		<a class="text-dark" href="/privacyPolicy?lang=kr">Privacy & Policy</a><br><br>
+		<a class="text-dark" href="/dashboard?lang=en">English</a><br><br>
+		<a class="text-dark" href="/dashboard?lang=cn">中文</a><br><br>
+	</div>
+</div>
 <style>
 	.header-grid {
 		padding-top: 8px;
@@ -50,7 +70,29 @@
 	.avatar-and-btn-item {
 		height:35px;display: inline;float: right
 	}
-
+	.sidebar-smaller-devices {
+		position: absolute;
+		top: 0;
+		
+		height: 100vh;
+		width: 70%;
+		background: white;
+		z-index: 999;
+		transition: all .2s ease-out;
+		position: fixed;
+	}
+	.side-menu-items {
+		margin: 15px;
+	}
+	#hamburger-menu {
+		display: none;
+	}
+	.show-sidebar {
+		left: 0%;
+	}
+	.hide-sidebar {
+		left: -70%;
+	}
 	/**********************************/
 	@media only screen and (max-width: 800px){
 		.list-menu {
@@ -60,9 +102,14 @@
 			grid-template-columns: 1fr;
 		}*/
 		.header-logo {
-			margin-top: 10px;
+			margin-top: 5px;
 			width: 170px;
 			height: 23px;
+			display: none;
+		}
+		#hamburger-menu {
+			margin-top: 5px;
+			display: block;
 		}
 	}
 /*	@media only screen and (min-width: 1000px){
@@ -76,3 +123,17 @@
 		}	
 	}*/
 </style>
+<script>
+	function toggleSideMenu(){
+		const sideMenu = document.querySelector('.sidebar-smaller-devices');
+		console.log(sideMenu.style.left)
+		if (sideMenu.classList.contains('show-sidebar')) {
+			sideMenu.classList.add('hide-sidebar');
+			sideMenu.classList.remove('show-sidebar');
+		}
+		else if (sideMenu.classList.contains('hide-sidebar')) {
+			sideMenu.classList.add('show-sidebar');
+			sideMenu.classList.remove('hide-sidebar');
+		}
+	}
+</script>

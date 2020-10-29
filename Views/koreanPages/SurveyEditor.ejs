@@ -7,26 +7,11 @@
 <body style="">
 <%- include('.././partials/koreanHeaderElement',{avatar:user.avatar}) %>
 <div id="survey-editor" class="mt-4 mb-4 local-container-8">
-	<style>
-		#survey-editor {
-			position: relative;
-		}
-	</style>
 	<%- include('.././partials/alertMessage') %>
 	<ul class="list-group list-group-horizontal-sm">
 	  <li style="cursor:pointer;" class="list-group-item edit-tab active">편집하다</li>
 	  <li style="cursor:pointer;" class="list-group-item responses-tab">응답</li>
 	</ul>
-	<button id="btn-save-changes-top" class="local-btn local-btn-success btn-save-changes">
-		변경 사항을 저장하다
-	</button>
-	<style>
-		#btn-save-changes-top {
-			position: absolute;
-  			top: 12px;
-  			right: 130px;
-		}
-	</style>
 	<!-- <h1>Survey Editor</h1> -->
 	<!-- ---------------------------------------------------------- -->
 	<!-- ---------------------------------------------------------- -->

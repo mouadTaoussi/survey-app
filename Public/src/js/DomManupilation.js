@@ -222,9 +222,12 @@ function lightTheme(){
 
 // Show dropdown in the Dashboard
 window.showDropdown = function (event) {
-	if(event.path[1].children[3].style.display == "block") {
-		event.path[1].children[3].style.display = "none"
+	console.log(event.path[1].children[3])
+	if(event.path[1].children[3].classList.contains('display-none') && !event.path[1].children[3].classList.contains('display-block')) {
+		event.path[1].children[3].classList.add('display-block')
+		event.path[1].children[3].classList.remove('display-none')
 	}else {
-		event.path[1].children[3].style.display = "block"
+		event.path[1].children[3].classList.add('display-none')
+		event.path[1].children[3].classList.remove('display-block')
 	}
 }

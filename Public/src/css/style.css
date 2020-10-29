@@ -1,7 +1,7 @@
 @import url('./design.system.css');
 @import url('./colors.css');
 @import url('./fonts.css');
-
+/* Header styles and scripts are not included here ! ! !  there are included at /Views/partials/HeaderElement.ejs */
 /* dynamic alert message */
 .side-alert-message {
 	position: absolute;
@@ -14,6 +14,12 @@
 	right: -320px;
 	padding: 10px;
 	transition: all .4s ease-out;
+}
+.display-none {
+	display: none;
+}
+.display-block {
+	display: block;	
 }
 
 body {
@@ -766,7 +772,6 @@ h1,h2,h3,h5,h6 {
   		width: 100px;
   		background:white;
   		z-index: 999;
-  		display: none;
   	}
 	/**
 	*
