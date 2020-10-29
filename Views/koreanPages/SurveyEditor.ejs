@@ -17,7 +17,35 @@
 	<!-- ---------------------------------------------------------- -->
 	<!-- ---------------------------------------------------------- -->
 	<div class="survey-editor">
-
+		<!-- Tools panel for smaller devices -->
+		<div id="tools-panel-smaller-devices" class="local-shadow local-p-2 my-2">
+			<div id="tools-list-smaller-devices">
+				
+				<p  class="add_new_field tool-item-sd px-2" data-toggle="tooltip" data-placement="left" title="Add new field">
+					Add new field
+				</p>
+			
+				<p  class="tool-item-sd px-2" data-toggle="modal" data-target="#importModal">
+					Import questions
+				</p>
+				<p  class="tool-item-sd px-2" data-toggle="modal" data-target="#shareMethodsModal">
+					Share survey
+				</p>
+				<p class="tool-item-sd px-2" >
+					<% if (survey !== null ) { %>
+						<a href='/response/downloadResults?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>'>
+							Download
+						</a>
+					<%}%>
+					<% if (survey == null ) { %>
+						<a href='#' disabled>
+							Download
+						</a>
+					<%}%>
+					
+				</p>
+			</div>
+		</div>
 		<div class="survey-editor-preview">
 			<% if ( survey !== null ) { %>
 				<div class="desc local-card local-mt-4 local-p-2 local-shadow">

@@ -689,6 +689,20 @@ h1,h2,h3,h5,h6 {
 .survey-description {
 	height: 220px;
 }
+#tools-panel-smaller-devices {
+	background: white;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	overflow: scroll;
+	display: none;
+}
+#tools-list-smaller-devices {
+	width: 140%!important;
+}
+.tool-item-sd {
+	display: inline;
+}
 /**
 *
 *
@@ -880,6 +894,28 @@ h1,h2,h3,h5,h6 {
 	**/
 	.resetPassword {
 		width: 90%;
+	}
+	/**
+	*
+	*
+	* Survey Editor
+	*
+	*
+	**/
+	.options-area {
+		width: 100%;
+	}
+	.btn-save-changes {
+		width: 100%;
+	}
+	.survey-editor-tools {
+		display: none;
+	}
+	.survey-editor {
+		display: block;
+	}
+	#tools-panel-smaller-devices {
+		display: block!important;
 	}
 }
 

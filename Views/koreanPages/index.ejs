@@ -21,7 +21,27 @@
 				<a href="?lang=kr"><button class='local-btn cta-btn local-btn-primary'>시작하다</button></a>
 				<a href="?lang=kr"><button class='local-btn cta-btn local-btn-dark'>더 알아보기</button></a>
 			</div>
-			<div class="show-app"></div>
+			<!-- <div class="show-app"></div> -->
+			<div style="width: 100%;margin-top:100px " class="login local-card shadow">
+				<h1 class='title local-mb-8'>로그인</h1>
+				<form action="/auth/login?lang=kr" method="POST">
+					<input type="email" name="email" class="form-control local-mt-2" placeholder="이메일을 입력하십시오" required autofocus>
+					<input type="password" name="password" class="form-control local-mt-2" placeholder="비밀번호를 입력하십시오" required>
+					<input type="submit" value="로그인" class="local-btn register-btn local-mt-2 local-btn-primary">
+				</form>
+				<a href='/resetPassword?lang=kr' class="mt-2 links">비밀번호를 잊어 버렸습니까?</a>
+				<a href='/register?lang=kr' class="mt-2 links float-right">계정이 없습니까?</a>
+				<p class="text-center">또는:</p>
+				<a href='/auth/google'>
+					<button class="local-btn local-mt-2 google-btn"><i class="fab fa-google mr-2 text-white"></i>Google로 로그인</button>
+				</a>
+				<a href="/auth/github">
+					<button class="local-btn local-mt-2 github-btn"><i class="fab fa-github mr-2 text-white"></i>Github로 로그인</button>
+				</a>
+				<a href='/auth/linkedin'>
+					<button class="local-btn local-mt-2 linkedin-btn"><i class="fab fa-linkedin mr-2 text-white"></i>링크드 인으로 로그인</button>
+				</a>
+			</div>
 		</div>
 	</div>
 	

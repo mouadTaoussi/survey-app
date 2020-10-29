@@ -23,7 +23,28 @@
 					<a href="~"><button class='local-btn cta-btn local-btn-dark'>Learn more</button></a>
 				</div>
 			</div>
-			<div class="show-app"></div>
+			<!-- <div class="show-app"></div> -->
+			<div style="width: 100%;margin-top: 100px " class="login local-card shadow">
+				<h1 class='title local-mb-8'>Log in</h1>
+				<form action="/auth/login?lang=en" method="POST">
+					<input type="email" name="email" class="form-control local-mt-2" placeholder="Enter your email" required autofocus>
+					<input type="password" name="password" class="form-control local-mt-2" placeholder="Enter Your password" required>
+					<!-- <button class="local-btn login-btn local-mt-2 local-btn-primary">登录</button> -->
+					<input type="submit" value='登录' class="local-btn login-btn local-mt-2 local-btn-primary">
+				</form>
+				<a href='/resetPassword?lang=cn' class="mt-2 links">Forgot your password？</a>
+				<a href='/register?lang=cn' class="mt-2 links float-right">Have no account？</a>
+				<p class="text-center">Or:</p>
+				<a href='/auth/google'>
+					<button class="local-btn local-mt-2 google-btn"><i class="fab fa-google mr-2 text-white"></i>Log in with Google</button>
+				</a>
+				<a href="/auth/github">
+					<button class="local-btn local-mt-2 github-btn"><i class="fab fa-github mr-2 text-white"></i>Log in with Github</button>
+				</a>
+				<a href='/auth/linkedin'>
+					<button class="local-btn local-mt-2 linkedin-btn"><i class="fab fa-linkedin mr-2 text-white"></i>Log in with Linkedin</button>
+				</a>
+			</div>
 		</div>
 	</div>
 
