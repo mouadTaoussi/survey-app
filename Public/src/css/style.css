@@ -92,6 +92,15 @@ h1,h2,h3,h5,h6 {
 	height: 60px;
 	margin: 50px auto;
 }
+.landing-page-cards-logo {
+	background-image: url('.././assets/logoLightBg.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain; 
+	width: 240px;
+	height: 60px;
+	margin: 25px 0 25px 0;
+}
 .empty-content {
 	background-image: url('.././assets/undraw_empty_xct9.svg');
 	background-repeat: no-repeat;
@@ -101,6 +110,49 @@ h1,h2,h3,h5,h6 {
 	height: 400px;
 	margin: 50px auto;
 }
+.empty-content {
+	background-image: url('.././assets/undraw_empty_xct9.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain; 
+	width: 400px;
+	height: 400px;
+	margin: 50px auto;
+}
+.empty-content {
+	background-image: url('.././assets/undraw_empty_xct9.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain; 
+	width: 400px;
+	height: 400px;
+	margin: 50px auto;
+}
+.card-data {
+	background-image: url('.././assets/undraw_all_the_data_h4ki.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain; 
+	margin: 0px auto;
+	height: 250px;
+}
+.card-data-trends {
+	background-image: url('.././assets/undraw_data_trends_b0wg.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain; 
+	margin: 0px auto;
+	height: 250px;
+}
+.card-data-segmentation {
+	background-image: url('.././assets/undraw_Segmentation_re_gduq.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain; 
+	margin: 0px auto;
+	height: 250px;
+}
+
 
 /**
 *
@@ -115,7 +167,7 @@ h1,h2,h3,h5,h6 {
 	margin:0 auto;
 	padding: 35px;
 	height: auto;
-	z-index: 999;
+	z-index: 1;
 }
 .changePassword-btn, .google-btn, .github-btn, .linkedin-btn {
 	width: 100%;
@@ -291,7 +343,7 @@ h1,h2,h3,h5,h6 {
 
 }
 :root {
-	--margin-between-landing-pages : 100px;
+	--margin-between-landing-pages : 60px;
 }
 .first-landing-page {
 	display:  grid;
@@ -415,7 +467,7 @@ h1,h2,h3,h5,h6 {
 	margin:0 auto;
 	padding: 35px;
 	height: auto;
-	z-index: 999;
+	z-index: 1;
 }
 .login-btn, .google-btn, .github-btn, .linkedin-btn {
 	width: 100%;
@@ -472,7 +524,7 @@ h1,h2,h3,h5,h6 {
 	margin:0 auto;
 	padding: 35px;
 	height: auto;
-	z-index: 999;
+	z-index: 1;
 }
 .register-btn, .google-btn, .github-btn, .linkedin-btn {
 	width: 100%;
@@ -529,7 +581,7 @@ h1,h2,h3,h5,h6 {
 	margin:0 auto;
 	padding: 35px;
 	height: auto;
-	z-index: 999;
+	z-index: 1;
 }
 .resetPassword-btn, .google-btn, .github-btn, .linkedin-btn {
 	width: 100%;
@@ -732,6 +784,9 @@ h1,h2,h3,h5,h6 {
 
 /*//////////////////////////////////////*/
 @media only screen and (max-width: 800px){
+	.local-shadow {
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1)/*, 0 3px 10px 0 rgba(0, 0, 0, 0.19)**/;
+	}
 	/**
 	*
 	*
@@ -854,6 +909,9 @@ h1,h2,h3,h5,h6 {
 	}
 	.landing-page-btns {
 		margin: 0 auto;
+	}
+	.landing-page-cards-logo {
+		display: none;
 	}
 	/**
 	*
