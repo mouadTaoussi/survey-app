@@ -693,12 +693,8 @@ h1,h2,h3,h5,h6 {
 	background: white;
 	position: sticky;
 	top: 0;
-	z-index: 1;
-	overflow: scroll;
+	/*z-index: 999;*/
 	display: none;
-}
-#tools-list-smaller-devices {
-	width: 140%!important;
 }
 .tool-item-sd {
 	display: inline;
@@ -867,12 +863,13 @@ h1,h2,h3,h5,h6 {
 	*
 	**/
 	.login {
-		width: 90%;
-	}
-	.login {
-		width: 70%;
+		width: 100%;
+		height: 100vh;
 	}
 	.svgs {
+		display: none;
+	}
+	.forms-logo {
 		display: none;
 	}
 	/**
@@ -883,7 +880,8 @@ h1,h2,h3,h5,h6 {
 	*
 	**/
 	.register {
-		width: 90%;
+		width: 100%!important;
+		height: auto;	
 	}
 	/**
 	*
@@ -893,7 +891,9 @@ h1,h2,h3,h5,h6 {
 	*
 	**/
 	.resetPassword {
-		width: 90%;
+		width: 100%!important;
+		height: 100vh;	
+
 	}
 	/**
 	*
@@ -902,6 +902,13 @@ h1,h2,h3,h5,h6 {
 	*
 	*
 	**/
+	.form-control {
+		border:0px;
+		border-bottom: .2px solid rgba(0,0,0,.2);
+	}
+	.survey-title {
+		font-size: 20px;
+	}
 	.options-area {
 		width: 100%;
 	}
@@ -916,6 +923,9 @@ h1,h2,h3,h5,h6 {
 	}
 	#tools-panel-smaller-devices {
 		display: block!important;
+	}
+	#survey_id {
+		display: none;
 	}
 }
 

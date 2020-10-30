@@ -18,33 +18,49 @@
 	<!-- ---------------------------------------------------------- -->
 	<!-- ---------------------------------------------------------- -->
 	<div class="survey-editor">
-		<!-- Tools panel for smaller devices -->
+				<!-- Tools panel for smaller devices -->
 		<div id="tools-panel-smaller-devices" class="local-shadow local-p-2 my-2">
 			<div id="tools-list-smaller-devices">
+				<center>
+					<p class="add_new_field tool-item-sd px-2" data-toggle="tooltip" data-placement="left" title="Add new field">
+						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						  <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+						  <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+						</svg>
+					</p>
 				
-				<p  class="add_new_field tool-item-sd px-2" data-toggle="tooltip" data-placement="left" title="Add new field">
-					Add new field
-				</p>
-			
-				<p  class="tool-item-sd px-2" data-toggle="modal" data-target="#importModal">
-					Import questions
-				</p>
-				<p  class="tool-item-sd px-2" data-toggle="modal" data-target="#shareMethodsModal">
-					Share survey
-				</p>
-				<p class="tool-item-sd px-2" >
-					<% if (survey !== null ) { %>
-						<a href='/response/downloadResults?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>'>
-							Download
-						</a>
-					<%}%>
-					<% if (survey == null ) { %>
-						<a href='#' disabled>
-							Download
-						</a>
-					<%}%>
-					
-				</p>
+					<p  class="tool-item-sd px-2" data-toggle="modal" data-target="#importModal">
+						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-arrow-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						  <path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
+						  <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z"/>
+						  <path fill-rule="evenodd" d="M8 6a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 10.293V6.5A.5.5 0 0 1 8 6z"/>
+						</svg>
+					</p>
+					<p  class="tool-item-sd px-2" data-toggle="modal" data-target="#shareMethodsModal">
+						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-share" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						  <path fill-rule="evenodd" d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+						</svg>
+					</p>
+					<p class="tool-item-sd px-2" >
+						<% if (survey !== null ) { %>
+							<a href='/response/downloadResults?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>'>
+								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								  <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+								  <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+								</svg>
+							</a>
+
+						<%}%>
+						<% if (survey == null ) { %>
+							<a href='#' disabled>
+								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								  <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+								  <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+								</svg>
+							</a>
+						<%}%>
+					</p>
+				</center>
 			</div>
 		</div>
 		<div class="survey-editor-preview">
@@ -63,7 +79,7 @@
 					    class="form-control survey-description local-mt-2"
 					    placeholder="这项调查的说明"
 					 ><%= survey.description %></textarea>
-					 <p class="text-left local-mt-2">调查编号: <strong class="survey_id"><%= survey.id %></strong></p>
+					 <p id="survey_id" class="text-left local-mt-2">调查编号: <strong class="survey_id"><%= survey.id %></strong></p>
 					
 				</div>
 				<div class="questions_list">
@@ -195,7 +211,7 @@
 			<% } %>
 			<!-- Description Place -->
 			<!-- Description Place -->
-			<button class="local-btn local-btn-primary local-mt-2 local-mb-2 float-right btn-save-changes">保存更改</button>
+			<button class="local-btn local-btn-success local-mt-2 local-mb-2 float-right btn-save-changes">保存更改</button>
 		</div>
 		<!-------------------- Tools ----------------------->
 		<!-------------------- Tools ----------------------->
