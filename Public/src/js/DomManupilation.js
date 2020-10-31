@@ -1,3 +1,73 @@
+if (window.location.pathname === "/surveyEditor" || window.location.pathname === "/dashboard") {
+
+	// Show side menu for smaller devices
+	document.querySelectorAll('#toggle-side-menu').forEach((toogle)=>{
+		toogle.addEventListener('click',()=>{
+			console.log('it works!');
+			const sideMenu = document.querySelector('.sidebar-smaller-devices');
+
+			if (sideMenu.classList.contains('show-sidebar')) {
+				sideMenu.classList.add('hide-sidebar');
+				sideMenu.classList.remove('show-sidebar');
+			}
+			else if (sideMenu.classList.contains('hide-sidebar')) {
+				sideMenu.classList.add('show-sidebar');
+				sideMenu.classList.remove('hide-sidebar');
+			}
+
+		})
+
+	})
+}
+
+// Run those scripts at /dashboard
+if ( window.location.pathname === "/dashboard" ){
+	// Show dropdown in the Dashboard
+	window.showDropdown = function (event) {
+		console.log(event.path[1].children[3])
+		if(event.path[1].children[3].classList.contains('display-none') && !event.path[1].children[3].classList.contains('display-block')) {
+			event.path[1].children[3].classList.add('display-block')
+			event.path[1].children[3].classList.remove('display-none')
+		}else {
+			event.path[1].children[3].classList.add('display-none')
+			event.path[1].children[3].classList.remove('display-block')
+		}
+	}
+	// Display Themes
+	function darkTheme(){
+		// Change the vars of the css
+	}
+	function lightTheme(){
+		// Change the vars of the css
+	}
+}
+
+
+// Run those scripts at /privacyPolicy and / and / 
+// console.log('RAN')
+if ( window.location.pathname === "/" || window.location.pathname === "/privacyPolicy" || window.location.pathname === "/docs" ){
+	// Show menu ON smaller devices
+	document.querySelector('.hamburger-menu').addEventListener('click',()=>{
+		console.log('it works!')
+		const menu = document.querySelector('.menu_content_for_smaller_devices');
+
+		// Check the menu transform
+		if (menu.classList.contains('scale')){
+
+			// unDisplay the menu content
+			menu.classList.add('un-scale')
+			menu.classList.remove('scale')
+		}
+		else if (menu.classList.contains('un-scale')){
+
+			// Display the menu content
+			menu.classList.add('scale')
+			menu.classList.remove('un-scale')
+		}
+	})
+}
+
+// Run those scripts at /privacyPolicy and / and /
 if ( window.location.pathname === "/surveyEditor" || window.location.pathname === "/" ) {
 	// Tabs feature !!
 	const edit_tab = document.querySelector('.edit-tab');
@@ -173,61 +243,5 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 	// Delete field
 	window.deleteField = (event)=>{
 		event.path[2]/*.parentNode*/.remove();
-	}
-}
-
-// Run those scripts at /privacyPolicy and / and docs
-if ( 
-	window.location.pathname === "/privacyPolicy" 
-						|| 
-	window.location.pathname === "/" 
-						|| 
-	window.location.pathname === "/docs" 
-	) {
-
-	// Show menu ON smaller devices
-	document.querySelector('.hamburger-menu').addEventListener('click',()=>{
-		// Grab the header
-		const header = document.querySelector('.landing-page-header');
-
-		// Check the header height
-		if (header.style.height != "70px"){
-
-			// Set the height to 70px
-			header.style.height = "70px";
-
-			// unDisplay the menu content
-			document.querySelector('.menu_content_for_smaller_devices').style.display = "none";
-		}
-		else if (header.style.height != "230px") {
-
-			// Diplay the menu content
-			document.querySelector('.menu_content_for_smaller_devices').style.display = "block";
-
-			// Set the height to 230px
-			header.style.height = "230px";	
-		}
-	})
-
-}
-
-
-// Display Themes
-function darkTheme(){
-	// Change the vars of the css
-}
-function lightTheme(){
-	// Change the vars of the css
-}
-
-// Show dropdown in the Dashboard
-window.showDropdown = function (event) {
-	console.log(event.path[1].children[3])
-	if(event.path[1].children[3].classList.contains('display-none') && !event.path[1].children[3].classList.contains('display-block')) {
-		event.path[1].children[3].classList.add('display-block')
-		event.path[1].children[3].classList.remove('display-none')
-	}else {
-		event.path[1].children[3].classList.add('display-none')
-		event.path[1].children[3].classList.remove('display-block')
 	}
 }

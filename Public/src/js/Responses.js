@@ -42,8 +42,8 @@ if ( window.location.pathname === "/surveyEditor" ){
 						// Single response html
 						single_response = `
 						<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
-							<h4>${response.data.data.questions[i].title}</h4>
-							<p>${response.data.data.questions[i].type}</p>
+							<h4 class="response-question">${response.data.data.questions[i].title}</h4>
+							<p class="response-question-type">${response.data.data.questions[i].type}</p>
 							<div style="overflow:scroll; height:250px;" class="paragraphes"></div>
 						</div>`
 
@@ -71,7 +71,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 						.forEach((answer)=>{
 							answer.style.padding         = "8px 0 8px 15px";
 							answer.style.margin          = ".2px"
-							answer.style.backgroundColor = "rgba(0,0,0,.1)";
+							answer.style.backgroundColor = "#eff1f7";
 							// answer.
 						})
 
@@ -80,8 +80,8 @@ if ( window.location.pathname === "/surveyEditor" ){
 						// Single response html
 						single_response = `
 						<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
-							<h4>${response.data.data.questions[i].title}</h4>
-							<p>${response.data.data.questions[i].type}</p>
+							<h4 class="response-question">${response.data.data.questions[i].title}</h4>
+							<p class="response-question-type">${response.data.data.questions[i].type}</p>
 							<div class="chart-area">
 								<canvas id="canvas${i}"></canvas>
 							</div>

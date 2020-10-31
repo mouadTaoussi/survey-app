@@ -18,11 +18,13 @@
 				<p class="description">
 					설문 조사를 만들어 타겟을 발견하면 쉽게 응답을받을 수 있습니다.
 				</p>
-				<a href="?lang=kr"><button class='local-btn cta-btn local-btn-primary'>시작하다</button></a>
-				<a href="?lang=kr"><button class='local-btn cta-btn local-btn-dark'>더 알아보기</button></a>
+				<div style="margin: 0 auto;">
+					<a href="?lang=kr"><button class='local-btn cta-btn local-btn-primary'>시작하다</button></a>
+					<a href="?lang=kr"><button class='local-btn cta-btn local-btn-dark'>더 알아보기</button></a>
+				</div>
 			</div>
 			<!-- <div class="show-app"></div> -->
-			<div style="width: 100%;margin-top:100px " class="login local-card shadow">
+			<div id="login-in-homepage" class="login local-card shadow">
 				<h1 class='title local-mb-8'>로그인</h1>
 				<form action="/auth/login?lang=kr" method="POST">
 					<input type="email" name="email" class="form-control local-mt-2" placeholder="이메일을 입력하십시오" required autofocus>
@@ -52,7 +54,7 @@
 			</strong> -->
 		</h1>
 		<div class="first-landing-page local-container-8">
-			<div class="local-p-4 local-m-2 border">
+			<div class="local-p-4 local-m-2">
 				<div class="card-data-trends"></div>
 				<h4 class="text-center m-4">Surveys</h4>
 				<p class="text-dark">
@@ -64,7 +66,7 @@
 					</a>
 				</center>
 			</div>			
-			<div class="local-p-4 local-m-2 border">
+			<div class="local-p-4 local-m-2">
 				<div class="card-data"></div>
 				<h4 class="text-center m-4">API</h4>
 				<p class="text-dark">
@@ -76,7 +78,7 @@
 					</a>
 				</center>
 			</div>			
-			<div class="local-p-4 local-m-2 border">
+			<div class="local-p-4 local-m-2">
 				<div class="card-data-segmentation"></div>
 				<h4 class="text-center m-4">GraphQL API</h4>
 				<p class="text-dark">

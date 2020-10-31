@@ -1,7 +1,7 @@
 @import url('./design.system.css');
 @import url('./colors.css');
 @import url('./fonts.css');
-/* Header styles and scripts are not included here ! ! !  there are included at /Views/partials/HeaderElement.ejs */
+
 /* dynamic alert message */
 .side-alert-message {
 	position: absolute;
@@ -153,7 +153,39 @@ h1,h2,h3,h5,h6 {
 	height: 250px;
 }
 
-
+/**
+*
+*
+*
+* Index & Privacy Policy
+*
+*
+*
+**/
+.menu_content_for_smaller_devices {
+	background: #fbfbfb;
+	display: block;
+	/*position: absolute; */
+	transition: all 0.2s ease-out 0s; 
+	/*top: 50px;*/
+	width: 90%;
+	border-radius: 3px; 
+	margin: 10px auto!important;
+	padding: 15px;
+	transition: all .3s ease-out;
+}
+.menu-sd-item {
+	margin: 10px 0px 10px 10px;
+	font-weight: 500;
+}
+.scale {
+	transform: scaleY(1);
+	transform-origin:  -42% 133%;
+} 
+.un-scale {
+	transform: scaleY(0);
+	transform-origin:  -42% 133%;
+}
 /**
 *
 *
@@ -214,7 +246,7 @@ h1,h2,h3,h5,h6 {
 /**
 *
 *
-* Dashboard
+* Dashboard & Header
 *
 *
 **/
@@ -300,6 +332,9 @@ h1,h2,h3,h5,h6 {
 *
 *
 **/
+#login-in-homepage {
+	width: 100%;margin-top: 100px;
+}
 .landing-page {
 	background-image: url('.././assets/Background.svg');
 	background-repeat: no-repeat;
@@ -689,7 +724,7 @@ h1,h2,h3,h5,h6 {
 .question_settings {
 	width: 300px;
 	height: 50px;
-	background-color: rgba(0,0,0,.1);
+	background-color: #eff1f7;
 }
 .add-new-option {
 	font-size:13px;
@@ -806,10 +841,26 @@ h1,h2,h3,h5,h6 {
 	/**
 	*
 	*
-	* Dashboard
+	* Dashboard & Header
 	*
 	*
 	**/
+	.list-menu {
+		display: none;
+	}
+	/*.header-grid {
+		grid-template-columns: 1fr;
+	}*/
+	.header-logo {
+		margin-top: 5px;
+		width: 170px;
+		height: 23px;
+		display: none;
+	}
+	#hamburger-menu {
+		margin-top: 5px!important;
+		display: block;
+	}
 	.dashboard-rows {
   		display: grid;
   		grid-template-columns: 100%;
@@ -859,6 +910,9 @@ h1,h2,h3,h5,h6 {
 	*
 	*
 	**/
+	#login-in-homepage {
+		margin-top: 0px;
+	}
 	.first-landing-page {
 		grid-template-columns: 2fr;
 		grid-column-gap: 20px;
@@ -984,6 +1038,9 @@ h1,h2,h3,h5,h6 {
 	}
 	#survey_id {
 		display: none;
+	}
+	.response-question, .response-question-type {
+		font-size: 15px;
 	}
 }
 

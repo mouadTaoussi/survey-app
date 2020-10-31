@@ -1,7 +1,7 @@
 <header class="local-navbar-2 local-navbar-primary">
 	<div class="local-container-8 header-grid">
-		<div id="show-side-menu">
-			<div onclick="toggleSideMenu()">
+		<div id="toggle-side-menu">
+			<div>
 				<svg id="hamburger-menu" width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-justify" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 				  <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
 				</svg>
@@ -24,7 +24,7 @@
 </header>
 <div class="sidebar-smaller-devices local-container-8 shadow hide-sidebar">
 	<div class="side-menu-items">
-		<div id="hide-side-menu" onclick="toggleSideMenu()">
+		<div id="toggle-side-menu">
 			<svg width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 			  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
 			</svg>
@@ -65,7 +65,7 @@
 		right: 0;
 	}
 	.list-item {
-		height:35px;display: inline;float: right;margin-top: 3.6px;
+		height:35px; display: inline;float: right; margin-top: 3.6px;
 	}
 	.avatar-and-btn-item {
 		height:35px;display: inline;float: right
@@ -73,7 +73,6 @@
 	.sidebar-smaller-devices {
 		position: absolute;
 		top: 0;
-		
 		height: 100vh;
 		width: 70%;
 		background: white;
@@ -93,47 +92,24 @@
 	.hide-sidebar {
 		left: -70%;
 	}
-	/**********************************/
-	@media only screen and (max-width: 800px){
-		.list-menu {
-			display: none;
-		}
-		/*.header-grid {
-			grid-template-columns: 1fr;
-		}*/
-		.header-logo {
-			margin-top: 5px;
-			width: 170px;
-			height: 23px;
-			display: none;
-		}
-		#hamburger-menu {
-			margin-top: 5px;
-			display: block;
-		}
-	}
-/*	@media only screen and (min-width: 1000px){
-		.header-grid {
-			padding-top: .5%;
-		}	
-	}
-	@media only screen and (min-width: 2000px){
-		.header-grid {
-			padding-top: .2%;
-		}	
+
+	
+@media only screen and (max-width: 800px) {
+	/*.header-grid {
+		grid-template-columns: 1fr;
 	}*/
-</style>
-<script>
-	function toggleSideMenu(){
-		const sideMenu = document.querySelector('.sidebar-smaller-devices');
-		console.log(sideMenu.style.left)
-		if (sideMenu.classList.contains('show-sidebar')) {
-			sideMenu.classList.add('hide-sidebar');
-			sideMenu.classList.remove('show-sidebar');
-		}
-		else if (sideMenu.classList.contains('hide-sidebar')) {
-			sideMenu.classList.add('show-sidebar');
-			sideMenu.classList.remove('hide-sidebar');
-		}
+	.header-logo {
+		margin-top: 5px;
+		width: 170px;
+		height: 23px;
+		display: none;
 	}
-</script>
+	#hamburger-menu {
+		margin-top: 5px!important;
+		display: block;
+	}
+	.list-menu {
+		display: none;
+	}
+}
+</style>
