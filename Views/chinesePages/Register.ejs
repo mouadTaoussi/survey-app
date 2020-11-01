@@ -12,6 +12,21 @@
 	</a>
 
 	<div class="register local-card shadow">
+		<a href="/?lang=en">
+			<div class='forms-logo forms-logo-sd'></div>
+		</a>
+		<style>
+			.forms-logo-sd {
+				width: 110px;
+				margin: 0;
+				display: none;
+			}
+			@media only screen and (max-width: 800px) {
+				.forms-logo-sd {
+					display: block;
+				}	
+			}
+		</style>
 		<h1 class='title local-mb-8'>寄存器</h1>
 		<% if(errMessage != null) { %>
 			<div class='local-alert danger'><%= errMessage %></div>

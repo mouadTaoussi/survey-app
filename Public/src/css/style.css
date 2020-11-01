@@ -91,6 +91,7 @@ h1,h2,h3,h5,h6 {
 	width: 240px;
 	height: 60px;
 	margin: 50px auto;
+
 }
 .landing-page-cards-logo {
 	background-image: url('.././assets/logoLightBg.svg');
@@ -177,6 +178,7 @@ h1,h2,h3,h5,h6 {
 .menu-sd-item {
 	margin: 10px 0px 10px 10px;
 	font-weight: 500;
+	font-family: 'Poppins', sans-serif;
 }
 .scale {
 	transform: scaleY(1);
@@ -367,7 +369,7 @@ h1,h2,h3,h5,h6 {
 	background-image: url('.././assets/secondBackground.svg');
 	background-repeat: no-repeat;
 	background-position: center;
-	height: auto;
+	height: 600px;
 	background-size: cover; 
 	padding: 5px 0 5px 0;
 }
@@ -427,7 +429,7 @@ h1,h2,h3,h5,h6 {
 .landing-page-header {
 	z-index: 999;
 	height: 70px;
-	background-color: #052580/*#1554a7*/;
+	background-color: var(--primary)/*#1554a7*/;
 	position: fixed;
 	width: 100%;
 	transition: all .2s ease-out; 
