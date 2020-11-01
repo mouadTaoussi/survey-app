@@ -19,8 +19,16 @@
 					Discover your target by creating a surveys for them and then you'll get your responses easily,
 				</p>
 				<div class="landing-page-btns">
-					<a href="/login?lang=en"><button class='local-btn cta-btn local-btn-primary'>Get Started</button></a>
-					<a href="~"><button class='local-btn cta-btn local-btn-dark'>Learn more</button></a>
+					<a href="/login?lang=en">
+						<button 
+						style="color: white; font-size:20px;" 
+						class='local-btn cta-btn local-btn bg-primary'>
+
+						Get Started</button>
+					</a>
+					<a href="#next">
+						<button style="font-size:20px;" class='local-btn cta-btn local-btn-success'>Learn more</button>
+					</a>
 				</div>
 			</div>
 			<!-- <div class="show-app"></div> -->
@@ -29,7 +37,7 @@
 				<form action="/auth/login?lang=en" method="POST">
 					<input type="email" name="email" class="form-control local-mt-2" placeholder="Enter your email" required autofocus>
 					<input type="password" name="password" class="form-control local-mt-2" placeholder="Enter Your password" required>
-					<!-- <button class="local-btn login-btn local-mt-2 local-btn-primary">登录</button> -->
+					<!-- <button  class="local-btn login-btn local-mt-2 local-btn-primary">登录</button> -->
 					<input type="submit" value='Log in' class="local-btn login-btn local-mt-2 local-btn-primary">
 				</form>
 				<a href='/resetPassword?lang=cn' class="mt-2 links">Forgot your password？</a>
@@ -54,9 +62,9 @@
 				What we offer?
 			</strong>
 		</h1> -->
-		<div class="first-landing-page local-container-8">
+		<div id="next" class="first-landing-page local-container-8">
 			<div class="local-p-4 local-m-2 ">
-				<div class="card-data-trends"></div>
+				<div class="card-data-segmentation"></div>
 				<h4 class="text-center m-4">Surveys</h4>
 				<p class="text-dark">
 					You can create & costum & edit your surveys to your target,
@@ -64,7 +72,7 @@
 				</p>
 				<center>
 					<a href="/login?lang=en">
-						<button class="local-btn local-btn-info">Get Started!</button>	
+						<button style="font-size:20px;" class="local-btn local-btn-success">Get Started!</button>	
 					</a>
 				</center>
 			</div>			
@@ -77,19 +85,19 @@
 				</p>
 				<center>
 					<a href="/docs?lang=en">
-						<button class="local-btn local-btn-info">Get Started!</button>	
+						<button style="font-size:20px;" class="local-btn local-btn-success">Get Started!</button>	
 					</a>
 				</center>
 			</div>			
 			<div class="local-p-4 local-m-2 ">
-				<div class="card-data-segmentation"></div>
+				<div class="card-data-trends"></div>
 				<h4 class="text-center m-4">GraphQL API</h4>
 				<p class="text-dark">
 					If you are a passionate about GraphQL world! then this side might be good to get started,
 					you can use GraphQL API to learn the technology as a developer, or might be in your future app if possible.
 				<center>
 					<a href="/docs?lang=en">
-						<button class="local-btn local-btn-info">Get started!</button>	
+						<button style="font-size:20px;" class="local-btn local-btn-success">Get started!</button>	
 					</a>
 				</center>
 			</div>			
@@ -143,8 +151,19 @@
 				</strong>
 			</h1>
 			<center>	
-				<a href="/login?lang=en"><button class="local-btn">Get Started</button></a>
-				<button onclick="window.close()" class="local-btn">Not now</button>
+				<a href="/login?lang=en">
+					<button 
+					style="font-size:20px;" 
+					class="local-btn local-btn-success"
+					>Get Started
+				</button>
+				</a>
+				<button 
+					onclick="window.close()" 
+					style="font-size:20px;" 
+					class="local-btn local-btn-success"
+					>Not now
+				</button>
 			</center>
 		</div>
 	</div>

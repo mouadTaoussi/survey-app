@@ -1,5 +1,5 @@
-const staticAssets = 'staticV8';
-const dynamicAssets = 'dynamicV3';
+const staticAssets = 'staticV1';
+const dynamicAssets = 'dynamicV1';
 const assets = [
 	"index.html",
 	"0f27e9b933cc50abbbba250c5f83aa12.woff2",

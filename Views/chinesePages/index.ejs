@@ -18,8 +18,18 @@
 				<p class="description">
 					通过为他们创建调查来发现目标，然后您将轻松获得答复，
 				</p>
-				<a href="/?lang=cn"><button class='local-btn cta-btn local-btn-primary'>开始使用</button></a>
-				<a href="/?lang=cn"><button class='local-btn cta-btn local-btn-dark'>学到更多</button></a>
+				<div class="landing-page-btns">
+					<a href="/login?lang=cn">
+						<button 
+						style="color: white;
+						font-size: 20px;" 
+						class='local-btn cta-btn local-btn bg-primary'>
+						开始使用</button>
+					</a>
+					<a href="#next">
+						<button style="font-size:20px;" class='local-btn cta-btn local-btn-success'>学到更多</button>
+					</a>
+				</div>
 			</div>
 			<!-- <div class="show-app"></div> -->
 			<div id="login-in-homepage" class="login local-card shadow">
@@ -47,21 +57,21 @@
 	</div>
 
 	<div class="svg-background-first-landing-page">
-		<h1 class="title-area text-center" style='font-size: 44px;margin-top: 30px;'>
+		<!-- <h1 class="title-area text-center" style='font-size: 44px;margin-top: 30px;'>
 			<strong style="color: rgba(0,0,0,.9);">
 				我们提供什么？
 			</strong>
-		</h1>
+		</h1> -->
 		<div class="first-landing-page local-container-8">
 			<div class="local-p-4 local-m-2">
-				<div class="card-data-trends"></div>
+				<div class="card-data-segmentation"></div>
 				<h4 class="text-center m-4">调查</h4>
 				<p class="text-dark">
 					您可以创建＆Costum＆编辑针对目标的调查，同时使用针对特定目标的调查，也可以将调查用作邀请家人和朋友的活动，询问他们关于您的活动的信息，以了解他们的需求！
 				</p>
 				<center>
 					<a href="/login?lang=cn">
-						<button class="local-btn local-btn-info">创建一个新调查</button>	
+						<button style="font-size:20px;" class="local-btn local-btn-success">创建一个新调查</button>	
 					</a>
 				</center>
 			</div>			
@@ -73,18 +83,18 @@
 				</p>
 				<center>
 					<a href="/docs?lang=cn">
-						<button class="local-btn local-btn-info">用那个！</button>	
+						<button style="font-size:20px;" class="local-btn local-btn-success">用那个！</button>	
 					</a>
 				</center>
 			</div>			
 			<div class="local-p-4 local-m-2">
-				<div class="card-data-segmentation"></div>
+				<div class="card-data-trends"></div>
 				<h4 class="text-center m-4">GraphQL API</h4>
 				<p class="text-dark">
 					如果您对GraphQL世界充满热情！那么开始这方面可能会很好，您可以使用GraphQL API作为开发人员来学习该技术，或者如果可能的话，可以在将来的应用程序中使用。
 				<center>
 					<a href="/docs?lang=cn">
-						<button class="local-btn local-btn-info">用那个！</button>	
+						<button style="font-size:20px;" class="local-btn local-btn-success">用那个！</button>	
 					</a>
 				</center>
 			</div>			
@@ -138,9 +148,21 @@
 				</strong>
 			</h1>
 			<center>	
-				<a href="/login?lang=cn"><button class="local-btn">开始使用</button></a>
-				<button class="local-btn">现在不要</button>
+				<a href="/login?lang=cn">
+					<button 
+					style="font-size:20px;" 
+					class="local-btn local-btn-success"
+					>开始使用
+				</button>
+				</a>
+				<button 
+					onclick="window.close()" 
+					style="font-size:20px;" 
+					class="local-btn local-btn-success"
+					>现在不要
+				</button>
 			</center>
+
 		</div>
 	</div>
 

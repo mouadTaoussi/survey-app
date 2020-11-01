@@ -1,9 +1,9 @@
 <svg width="736" height="409" viewBox="0 0 736 409" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect y="6" width="736" height="403" fill="white"/>
-<path d="M0 127H309L269.618 357L0 298V127Z" fill="#052580" fill-opacity="0.67"/>
-<path d="M0 126H309L269.618 356L0 287V126Z" fill="#2A479A"/>
-<path d="M736 113H199L270.633 357L736 279V113Z" fill="#052580" fill-opacity="0.6"/>
-<path opacity="0.6" d="M736 1H199L270.132 357L736 245.644V1Z" fill="#2A479A"/>
+<path d="M0 127H309L269.618 357L0 298V127Z" fill="#1555A8" fill-opacity="0.7"/>
+<path d="M0 126H309L269.618 356L0 287V126Z" fill="#1555A8" fill-opacity="0.56"/>
+<path d="M736 113H199L270.633 357L736 279V113Z" fill="#1555A8" fill-opacity="0.72"/>
+<path opacity="0.6" d="M736 1H199L270.132 357L736 245.644V1Z" fill="#1554A7"/>
 <path d="M0 0H735V210L270 357L0 278V0Z" fill="#1554A7"/>
 <path d="M0 0H735V210L270 357L0 278V0Z" fill="url(#paint0_linear)"/>
 <line x1="401.664" y1="152.712" x2="407.942" y2="125.921" stroke="white" stroke-opacity="0.17"/>
@@ -49,8 +49,8 @@
 <line x1="93.5" y1="113" x2="93.5" y2="236" stroke="white" stroke-opacity="0.35"/>
 <defs>
 <linearGradient id="paint0_linear" x1="367" y1="130" x2="362" y2="441" gradientUnits="userSpaceOnUse">
-<stop stop-color="#052580"/>
-<stop offset="1" stop-color="#052580" stop-opacity="0"/>
+<stop stop-color="#1555A8"/>
+<stop offset="1" stop-color="#1555A8"/>
 </linearGradient>
 </defs>
 </svg>
