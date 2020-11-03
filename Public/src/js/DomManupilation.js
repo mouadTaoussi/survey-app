@@ -110,95 +110,96 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 	var list = document.querySelectorAll('.options-list');      // NodeList for the use below
 
 	// Add new field !! !! !!
-	const add_new_field = document.querySelector('.add_new_field').addEventListener('click',()=>{
+	document.querySelectorAll('.add_new_field').forEach((btn)=>{
+		btn.addEventListener('click',()=>{
+			// Grab the questions list
+			const question_list = document.querySelector('.questions_list');
 
-		// Grab the questions list
-		const question_list = document.querySelector('.questions_list');
+			// Create container
+			const container = document.createElement('div');
+			container.classList.add("single-question", "local-card", "local-mt-2", "local-p-2", "local-shadow");
 
-		// Create container
-		const container = document.createElement('div');
-		container.classList.add("single-question", "local-card", "local-mt-2", "local-p-2", "local-shadow");
+			// Create draggbale button
+			const draggable = document.createElement('div');
+			draggable.classList.add('dragable'); 
+			draggable.innerHTML = "<div></div><div></div><div></div><div></div><div></div><div></div>";
 
-		// Create draggbale button
-		const draggable = document.createElement('div');
-		draggable.classList.add('dragable'); 
-		draggable.innerHTML = "<div></div><div></div><div></div><div></div><div></div><div></div>";
+			// Create the Question input 
+			const question_input = document.createElement('input');
+			question_input.classList.add('form-control', 'mt-2');
+			question_input.required;
+			question_input.placeholder = "Which question you wanna write here?";
 
-		// Create the Question input 
-		const question_input = document.createElement('input');
-		question_input.classList.add('form-control', 'mt-2');
-		question_input.required;
-		question_input.placeholder = "Which question you wanna write here?";
+			// Create the Question attachment files input
+			const files_input = document.createElement('div');
+			const input = document.createElement('input');
+			const label = document.createElement('label');
+			files_input.classList.add("custom-file", "files-attachment");
+			input.classList.add('custom-file-input');
+			input.id = "validatedCustomFile";
+			input.type = "file";
+			input.onchange = getFile;
+			label.classList.add('custom-file-label');
 
-		// Create the Question attachment files input
-		const files_input = document.createElement('div');
-		const input = document.createElement('input');
-		const label = document.createElement('label');
-		files_input.classList.add("custom-file", "files-attachment");
-		input.classList.add('custom-file-input');
-		input.id = "validatedCustomFile";
-		input.type = "file";
-		input.onchange = getFile;
-		label.classList.add('custom-file-label');
+			label.for = "validatedCustomFile";
+			label.innerHTML = "Choose files...";
+			files_input.appendChild(input);
+			files_input.appendChild(label);
 
-		label.for = "validatedCustomFile";
-		label.innerHTML = "Choose files...";
-		files_input.appendChild(input);
-		files_input.appendChild(label);
+			// Create options
+			const options_area = document.createElement('div');
+			const options = document.createElement('ul');
+			const single = document.createElement('li');
+			const option_input = document.createElement('input');
+			const delete_input = document.createElement('i');
+			const add_new_one = document.createElement('p');
+			options_area.classList.add('options-area');
+			options.classList.add('options-list');
+			single.classList.add('option-item');
+			option_input.classList.add("form-control");
+			option_input.type='text';
+			option_input.placeholder = "Option";
+			delete_input.classList.add('delete-option', 'fas', 'fa-times');
+			delete_input.onclick = deleteOption;
+			add_new_one.classList.add('add-new-option', 'p-2');
+			add_new_one.innerHTML = "Add new one +";
+			single.appendChild(option_input);
+			single.appendChild(delete_input);
+			options.appendChild(single);
+			options_area.appendChild(options);
+			options_area.appendChild(add_new_one);
 
-		// Create options
-		const options_area = document.createElement('div');
-		const options = document.createElement('ul');
-		const single = document.createElement('li');
-		const option_input = document.createElement('input');
-		const delete_input = document.createElement('i');
-		const add_new_one = document.createElement('p');
-		options_area.classList.add('options-area');
-		options.classList.add('options-list');
-		single.classList.add('option-item');
-		option_input.classList.add("form-control");
-		option_input.type='text';
-		option_input.placeholder = "Option";
-		delete_input.classList.add('delete-option', 'fas', 'fa-times');
-		delete_input.onclick = deleteOption;
-		add_new_one.classList.add('add-new-option', 'p-2');
-		add_new_one.innerHTML = "Add new one +";
-		single.appendChild(option_input);
-		single.appendChild(delete_input);
-		options.appendChild(single);
-		options_area.appendChild(options);
-		options_area.appendChild(add_new_one);
+			// Create Settings
+			const question_settings = document.createElement('div');
+			question_settings.classList.add('question_settings','p-2');
+			question_settings.innerHTML  = `
+			<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
+			<select style="display: inline;width: 180px;" class='mx-2 form-control'>
+				<option>MultipleChoice</option>
+				<option>OneChoice</option>
+				<option>ShortParagraph</option>
+			</select>
+			`;
 
-		// Create Settings
-		const question_settings = document.createElement('div');
-		question_settings.classList.add('question_settings','p-2');
-		question_settings.innerHTML  = `
-		<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
-		<select style="display: inline;width: 180px;" class='mx-2 form-control'>
-			<option>MultipleChoice</option>
-			<option>OneChoice</option>
-			<option>ShortParagraph</option>
-		</select>
-		`;
+			// Wrap them in the container
+			container.appendChild(draggable);
+			container.appendChild(question_input);
+			container.appendChild(files_input);
+			container.appendChild(options_area);
+			container.appendChild(question_settings);
 
-		// Wrap them in the container
-		container.appendChild(draggable);
-		container.appendChild(question_input);
-		container.appendChild(files_input);
-		container.appendChild(options_area);
-		container.appendChild(question_settings);
+			// Wrap the container or the new single questions in the current question list
+			question_list.appendChild(container);
 
-		// Wrap the container or the new single questions in the current question list
-		question_list.appendChild(container);
+			// Update the NodeList for the use below
+			addoption = document.querySelectorAll('.add-new-option'); /// Static NodeList ! ! !
+			list      = document.querySelectorAll('.options-list'); /// Static NodeList ! ! !
 
-		// Update the NodeList for the use below
-		addoption = document.querySelectorAll('.add-new-option'); /// Static NodeList ! ! !
-		list      = document.querySelectorAll('.options-list'); /// Static NodeList ! ! !
+			// Call the add new option function to make it updated too with the NodeLists above 
+			// whenever the NodeList of the addoption has incremented when the user added one more question field
+			addNewOption(addoption,list);
 
-		// Call the add new option function to make it updated too with the NodeLists above 
-		// whenever the NodeList of the addoption has incremented when the user added one more question field
-		addNewOption(addoption,list);
-
+		})
 	})
 
 	// Init that function for add new option if the user hasn't added one more question field

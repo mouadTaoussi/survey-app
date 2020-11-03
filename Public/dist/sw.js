@@ -40,9 +40,9 @@ this.addEventListener('install',(e)=>{
 	// precach Assets
 	e.waitUntil(
 		caches.open(staticAssets).then((cach)=>{
-			cach.addAll(assets).then(()=>{
-				console.log('precached your assets!');
-			})
+
+		cach.addAll(assets).then(()=>{ console.log('precached your assets!'); });
+		
 		})
 	)
 })
@@ -50,12 +50,16 @@ this.addEventListener('install',(e)=>{
 this.addEventListener('activate',(e)=>{
 	e.waitUntil(
 		caches.keys().then((keys)=>{
-			const keysToDelete = keys.filter((key)=>{ 
-				return key !== staticAssets && key !== dynamicAssets
-			 });
-			for (var i = 0; i < keysToDelete.length; i++) {
-				caches.delete(keysToDelete[i])
-			}
+
+		const keysToDelete = keys.filter((key)=>{ 
+
+		return key !== staticAssets && key !== dynamicAssets
+		});
+
+		for (var i = 0; i < keysToDelete.length; i++) {
+		caches.delete(keysToDelete[i])
+		}
+
 		})
 	)
 })
@@ -75,10 +79,11 @@ this.addEventListener('fetch',(e)=>{
 					||
 		e.request.url.includes('/surveyEditor')
 	){
-		console.log('POST request')
+		e.respondWith(fetch(e.request))
 	}
 	else {
 		e.respondWith(
+			
 			fetch(e.request).then((response)=>{
 				return caches.open(dynamicAssets).then((cach)=>{
 					cach.put(e.request,response.clone());
@@ -87,23 +92,46 @@ this.addEventListener('fetch',(e)=>{
 			})
 			.catch((err)=>{
 				return caches.match(e.request).then((cach)=>{
-					return cach;
+					return cach || caches.match('/');
 				})
 			})
+			
 		)
 	}
 })
 
 
 
-/*caches.match(e.request, {
-		// ignore query section of the URL based on our variable
-	ignoreSearch: hasQuery,
-}).then((cach)=>{
-	return cach || fetch(e.request).then((response)=>{
-		caches.open(dynamicAssets).then((cach)=>{
-			cach.put(e.request.url, response.clone());
-			return response;
-		})
-	})
-})*/
+
+// caches.match(e.request, {
+// 		// ignore query section of the URL based on our variable
+// 	ignoreSearch: hasQuery,
+// }).then((cach)=>{
+// 	return fetch(e.request).then((response)=>{
+// 		caches.open(dynamicAssets).then((cach)=>{
+// 			cach.put(e.request.url, response.clone());
+// 			return response;
+// 		})
+// 	})
+// })
+
+
+
+
+
+
+// Stale while revalidate strategy
+// caches.open(dynamicAssets).then((Cach)=>{
+
+// 	return Cach.match(e.request).then((responseFromCach)=>{
+// 		const responseFromNetwork = fetch(e.request).then((responseFromNetwork)=>{
+// 			// Update current cach while the network is availaable
+// 			Cach.put(e.request,responseFromNetwork.clone());
+// 			return responseFromNetwork;
+// 		})
+// 		return responseFromCach || responseFromNetwork;
+// 	})
+
+// })
+
+
