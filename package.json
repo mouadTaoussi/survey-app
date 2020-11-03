@@ -1,6 +1,6 @@
 {
   "name": "surveyapp",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "An app that let you create surveys and deliver them to your target, to get analyses",
   "main": "index.js",
   "scripts": {
