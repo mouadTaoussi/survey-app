@@ -146,6 +146,11 @@ if ( window.location.pathname === "/surveyEditor" ){
 
 // Submit response // Submit response
 window.submitSurveyResponse = ()=>{
+	// Check if the user already responded
+	if (window.localStorage.getItem(survey_id).submitted) {
+		alert('You Have already submitted your responses!');
+		return;
+	}
 	// Get question ID
 	const urlParams = new URLSearchParams(window.location.search);
 	const survey_id = urlParams.get('survey_id');
@@ -222,7 +227,9 @@ window.submitSurveyResponse = ()=>{
 	})
 	.then((response)=>{
 		// window.displayAlertMessage( response.data.saved, response.data.message );
-		alert("Thank you for giving us your time and submitting your answers!!")
+		alert("Thank you for giving us your time and submitting your answers!!");
+		// Set a value in localstorage that contains a value means the user submitted response
+		window.localStorage.setItem(survey_id,{ submitted: true });
 	})
 	.catch((error)=>{
 		// window.displayAlertMessage( false,"Something went wrong!" );
