@@ -42,6 +42,7 @@ router.get('/processSurveyResponses', async(request,response)=>{
 
 		response.send({
 			processed : processing.processed,
+			responsesNumber : responses.data.length,
 			data :  processing.data 
 		})		
 	}else {

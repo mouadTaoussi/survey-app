@@ -20,13 +20,14 @@ if ( window.location.pathname === "/surveyEditor" ){
 			method : "GET",
 		})
 		.then((response)=>{
-			console.log(response)
 			if ( response.data.processed == false ) {
 				window.displayAlertMessage( response.data.processed, response.data.message );
 			}
 			else {
 				// Get the resposnes list 
 				const responses_area = document.querySelector('.responses');
+				// Put Responses count and display it to the user
+				document.querySelector('.responsesNumber').innerHTML = response.data.responsesNumber;
 
 				// Result of the responses without of MultipleChoice and OneChoice without ShortParagraph
 				// For use them to display charts
