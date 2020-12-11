@@ -151,7 +151,7 @@ window.submitSurveyResponse = ()=>{
 	const survey_id = urlParams.get('survey_id');
 
 	// Check if the user already responded
-	if (window.localStorage.getItem(survey_id) == null) {
+	if (window.localStorage.getItem(survey_id) != null) {
 		alert('You Have already submitted your responses!');
 		return;
 	}
