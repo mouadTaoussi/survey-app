@@ -146,14 +146,15 @@ if ( window.location.pathname === "/surveyEditor" ){
 
 // Submit response // Submit response
 window.submitSurveyResponse = ()=>{
+	// Get question ID
+	const urlParams = new URLSearchParams(window.location.search);
+	const survey_id = urlParams.get('survey_id');
+
 	// Check if the user already responded
 	if (window.localStorage.getItem(survey_id).submitted) {
 		alert('You Have already submitted your responses!');
 		return;
 	}
-	// Get question ID
-	const urlParams = new URLSearchParams(window.location.search);
-	const survey_id = urlParams.get('survey_id');
 
 	// Init the responses object
 	const survey_responses      = {};
