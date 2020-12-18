@@ -399,7 +399,8 @@ h1,h2,h3,h5,h6 {
 }
 .fourth-landing-page,
 .fifth-landing-page,
-.sixth-landing-page {
+.sixth-landing-page,
+.faq-landing-page {
 	margin : var(--margin-between-landing-pages) auto var(--margin-between-landing-pages) auto;
 }
 
@@ -485,6 +486,21 @@ h1,h2,h3,h5,h6 {
 	100% {
 		opacity: 100;
 	}
+}
+.faq-landing-page {
+	/*background-color: black;*/
+	width: 100%;
+	height: auto;
+}
+/* content */
+.faq-row {
+	display: grid;
+	grid-template-columns: 2fr 2fr;
+	grid-gap: 20px;
+}
+/* Question */
+.faqs div {
+
 }
 .landing-page-footer {
 	height: auto;
