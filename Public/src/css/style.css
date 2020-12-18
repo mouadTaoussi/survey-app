@@ -944,6 +944,11 @@ h1,h2,h3,h5,h6 {
 		margin : 40px auto 40px auto;
 
 	}
+	.faq-row {
+		display: grid;
+		grid-template-columns: 2fr;
+		grid-gap: 10px;
+	}
 	.fourth-landing-page ,
 	.fifth-landing-page ,
 	.sixth-landing-page {
