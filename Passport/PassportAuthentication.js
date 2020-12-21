@@ -55,6 +55,10 @@ googleStrategy : function (){
 					console.log(user)
 				}
 				else {
+
+					// Set an API KEY
+					apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+
 					new UserModel(user).save(); done(null,user);
 					console.log('From passwort')
 					console.log(user)
@@ -115,6 +119,9 @@ githubStrategy : function (){
 					new UserModel(user).save(); done(null,user);
 				}
 				else {
+					// Set an API KEY
+					apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+
 					new UserModel(user).save(); done(null,user);		
 				}
 				
@@ -171,6 +178,10 @@ linkedInStrategy : function(){
 					new UserModel(user).save(); done(null,user);	
 				}
 				else {
+					
+					// Set an API KEY
+					apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+
 					new UserModel(user).save(); done(null,user);	
 				}
 				
