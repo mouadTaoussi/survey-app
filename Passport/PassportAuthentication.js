@@ -27,6 +27,7 @@ googleStrategy : function (){
 			email : profile.emails[0].value,
 			avatar : profile.photos[0].value,
 			provider : profile.provider,
+			apiKey : null
 		}
 
 		// check user in database
@@ -47,7 +48,8 @@ googleStrategy : function (){
 					user.email = null;
 
 					// Set an API KEY
-					apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+					user.apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+					// @TODO / ATTACH IT TO THE USER OBJECT
 
 					// Save user
 					new UserModel(user).save(); done(null,user);	
@@ -57,7 +59,8 @@ googleStrategy : function (){
 				else {
 
 					// Set an API KEY
-					apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+					user.apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+					// @TODO / ATTACH IT TO THE USER OBJECT
 
 					new UserModel(user).save(); done(null,user);
 					console.log('From passwort')
@@ -91,6 +94,7 @@ githubStrategy : function (){
 			email : profile.email,
 			avatar : profile.photos[0].value,
 			provider : profile.provider,
+			apiKey : null
 			
 		}
 
@@ -113,14 +117,14 @@ githubStrategy : function (){
 					user.email = null;
 
 					// Set an API KEY
-					apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+					user.apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
 
 					// Save user
 					new UserModel(user).save(); done(null,user);
 				}
 				else {
 					// Set an API KEY
-					apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+					user.apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
 
 					new UserModel(user).save(); done(null,user);		
 				}
@@ -151,6 +155,7 @@ linkedInStrategy : function(){
 			email : profile.emails[0].value,
 			avatar : profile.photos[0].value,
 			provider : profile.provider,
+			apiKey : null
 			
 		}
 		
@@ -172,15 +177,15 @@ linkedInStrategy : function(){
 					user.email = null;
 
 					// Set an API KEY
-					apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+					user.apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
 					
 					// Save user
 					new UserModel(user).save(); done(null,user);	
 				}
 				else {
-					
+
 					// Set an API KEY
-					apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
+					user.apiKey = uuid_apikey.create({ noDashes:true }).apiKey;
 
 					new UserModel(user).save(); done(null,user);	
 				}
