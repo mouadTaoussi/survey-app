@@ -51,15 +51,17 @@ googleStrategy : function (){
 
 					// Save user
 					new UserModel(user).save(); done(null,user);	
-					
+					console.log('From passwort')
+					console.log(user)
 				}
 				else {
 					new UserModel(user).save(); done(null,user);
-	
+					console.log('From passwort')
+					console.log(user)
 				}
 				
 			}
-			catch (err){ done(err); }
+			catch (err){ done(err); console.log("From Passwort");console.log(err) }
 		}
 	}))
 },
