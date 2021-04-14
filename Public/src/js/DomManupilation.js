@@ -131,7 +131,7 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 			question_input.placeholder = "Which question you wanna write here?";
 
 			// Create the Question attachment files input
-			const files_input = document.createElement('div');
+		/*	const files_input = document.createElement('div');
 			const input = document.createElement('input');
 			const label = document.createElement('label');
 			files_input.classList.add("custom-file", "files-attachment");
@@ -144,7 +144,7 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 			label.for = "validatedCustomFile";
 			label.innerHTML = "Choose files...";
 			files_input.appendChild(input);
-			files_input.appendChild(label);
+			files_input.appendChild(label);*/
 
 			// Create options
 			const options_area = document.createElement('div');
@@ -184,7 +184,7 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 			// Wrap them in the container
 			container.appendChild(draggable);
 			container.appendChild(question_input);
-			container.appendChild(files_input);
+			// container.appendChild(files_input);
 			container.appendChild(options_area);
 			container.appendChild(question_settings);
 

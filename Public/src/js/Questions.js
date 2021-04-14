@@ -190,11 +190,6 @@ if (window.location.pathname === "/surveyEditor" ){
 							required
 						>
 						<!-- Files inputs -->
-						<div class="custom-file files-attachment">
-							<input type="file" class="custom-file-input" id="validatedCustomFile" onchange='getFile(event)' placeholder="${response.data.data[i].file}">
-							<label class="custom-file-label" for="validatedCustomFile" >Choose files...</label>
-							<div class="invalid-feedback">Example invalid custom file feedback</div>
-						</div>
 						<!-- Options -->
 						<div class="options-area">
 							<ul class="options-list">
