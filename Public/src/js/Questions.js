@@ -90,28 +90,24 @@ if (window.location.pathname === "/surveyEditor" ){
 
 		// Format the questions and convert them to JSON
 		for (var i = 0; i < questions_list.length; i++) {
-
 			let single_question     = {};
 			let options             = [];
 			single_question.options = [];
+			
+			for (var o = 0; o < questions_list[i].children[2].children[0].children.length; o++) {
 
-			for (var o = 0; o < questions_list[i].children[3].children[0].children.length; o++) {
+				options.push(questions_list[i].children[2].children[0].children[o].children[0].value);
 
-				options.push(questions_list[i].children[3].children[0].children[o].children[0].value);
-				
 			}
 
 			single_question.required = true;
 			single_question.options  = options;
-			single_question.file     = questions_list[i].children[2].children[0].placeholder || null;
+			// single_question.file     = questions_list[i].children[2].children[0].placeholder || null;
 			single_question.title    = questions_list[i].children[1].value;
-			single_question.type     = questions_list[i].children[4].children[1].value;
-		
+			single_question.type     = questions_list[i].children[3].children[1].value;
 			survey.questions.push(single_question);
 
 		}
-		console.log(survey);
-		
 		
 		// Save the questions to the database
 		axios({

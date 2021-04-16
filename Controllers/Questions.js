@@ -117,7 +117,7 @@ class Questions {
 	processSurveyResponses(questions/** Object **/,responses/** Array **/){
 
 		for (var i = 0; i < questions.questions.length; i++) {
-
+			console.log(questions.questions)
 			// Result of an individual question ! ! !
 			const resultOfQuestion = [];
 
@@ -184,6 +184,7 @@ class Questions {
 		}
 
 		// Output the the result attached in questions
+		console.log(questions)
 		return { 
 			processed: true,
 		 	data : questions
