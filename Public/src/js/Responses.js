@@ -1,5 +1,6 @@
 import { Chart } from 'chart.js';
 import axios from 'axios';
+import { Pie } from '@antv/g2plot';
 
 
 if ( window.location.pathname === "/surveyEditor" ){
@@ -84,7 +85,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 							<h4 class="response-question">${response.data.data.questions[i].title}</h4>
 							<p class="response-question-type">${response.data.data.questions[i].type}</p>
 							<div class="chart-area">
-								<canvas id="canvas${i}"></canvas>
+								<div id="canvas${i}"></div>
 							</div>
 						</div>	
 						`
@@ -107,32 +108,61 @@ if ( window.location.pathname === "/surveyEditor" ){
 					// Check if ( results_without_short_paragraph[i] !== undefined ) because we didnt pushed ShortParagraphes
 					if( results_without_short_paragraph[i] !== undefined ) {
 
-						// // Get the responses and display them
-						let ctx = document.querySelector(`#canvas${i}`).getContext("2d");
+						// // // Get the responses and display them
+						// let ctx = document.querySelector(`#canvas${i}`).getContext("2d");
 
-						let data = {
-						    datasets: [{
-						        data: results_without_short_paragraph[i].result,
-						        backgroundColor: [
-						        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-						        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-						        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-						        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-						        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-						        "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-						        ]
-						    }],
-						    // These labels appear in the legend and in the tooltips when hovering different arcs
-						    labels: results_without_short_paragraph[i].options
-						};
-						// For a pie chart
-						let myPieChart = new Chart(ctx, {
-						    type: 'pie',
-						    data: data,
-						    options: {
-						        legend: { position: 'right', labels: {fontColor: 'rgba(0, 0, 0,.60)'}}
-						    }
+						// let data = {
+						//     datasets: [{
+						//         data: results_without_short_paragraph[i].result,
+						//         backgroundColor: [
+						//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+						//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+						//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+						//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+						//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+						//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+						//         ]
+						//     }],
+						//     // These labels appear in the legend and in the tooltips when hovering different arcs
+						//     labels: results_without_short_paragraph[i].options
+						// };
+						// // For a pie chart
+						// let myPieChart = new Chart(ctx, {
+						//     type: 'pie',
+						//     data: data,
+						//     options: {
+						//         legend: { position: 'right', labels: {fontColor: 'rgba(0, 0, 0,.60)'}}
+						//     }
+						// });
+						const data = [
+						  { type: '分类一', value: 27 },
+						  { type: '分类二', value: 25 },
+						  { type: '分类三', value: 18 },
+						  { type: '分类四', value: 15 },
+						  { type: '分类五', value: 10 },
+						  { type: '其他', value: 5 },
+						];
+
+						const piePlot = new Pie(`canvas${i}`, {
+						  appendPadding: 10,
+						  data,
+						  angleField: 'value',
+						  colorField: 'type',
+						  radius: 0.9,
+						  label: {
+						    type: 'inner',
+						    offset: '-30%',
+						    content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
+						    style: {
+						      fontSize: 14,
+						      textAlign: 'center',
+						    },
+						  },
+						  interactions: [{ type: 'element-active' }],
 						});
+
+						piePlot.render();
+
 
 					}else { continue }
 				}
@@ -237,4 +267,17 @@ window.submitSurveyResponse = ()=>{
 		// window.displayAlertMessage( false,"Something went wrong!" );
 		alert('Something went wrong! Try again.')
 	})
+}
+
+function calculatePercentage (datasets){
+	let total; 
+	for (var i = 0; i < datasets.length; i++) {
+		total += datasets[i];
+	}
+}
+function mergeDataWithLabels (){
+
+}
+function renderChart() {
+
 }

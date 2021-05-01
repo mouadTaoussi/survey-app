@@ -10,7 +10,8 @@
   "author": "mouadTaoussi",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.2",
+    "@antv/g2plot": "^2.3.19",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.2",
     "chart.js": "^2.9.3",
     "firebase": "^7.17.2",
