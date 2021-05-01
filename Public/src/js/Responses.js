@@ -108,44 +108,13 @@ if ( window.location.pathname === "/surveyEditor" ){
 					// Check if ( results_without_short_paragraph[i] !== undefined ) because we didnt pushed ShortParagraphes
 					if( results_without_short_paragraph[i] !== undefined ) {
 
-						// // // Get the responses and display them
-						// let ctx = document.querySelector(`#canvas${i}`).getContext("2d");
-
-						// let data = {
-						//     datasets: [{
-						//         data: results_without_short_paragraph[i].result,
-						//         backgroundColor: [
-						//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-						//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-						//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-						//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-						//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-						//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
-						//         ]
-						//     }],
-						//     // These labels appear in the legend and in the tooltips when hovering different arcs
-						//     labels: results_without_short_paragraph[i].options
-						// };
-						// // For a pie chart
-						// let myPieChart = new Chart(ctx, {
-						//     type: 'pie',
-						//     data: data,
-						//     options: {
-						//         legend: { position: 'right', labels: {fontColor: 'rgba(0, 0, 0,.60)'}}
-						//     }
-						// });
-						const data = [
-						  { type: '分类一', value: 27 },
-						  { type: '分类二', value: 25 },
-						  { type: '分类三', value: 18 },
-						  { type: '分类四', value: 15 },
-						  { type: '分类五', value: 10 },
-						  { type: '其他', value: 5 },
-						];
+						// Those functions are used if we are using G2Plot lib instead of ChartJS or FrappeJS
+						const percentageDatasets = calculatePercentage(results_without_short_paragraph[i].result);
+						const mergedData = mergeDataWithLabels(results_without_short_paragraph[i].options,percentageDatasets) 
 
 						const piePlot = new Pie(`canvas${i}`, {
 						  appendPadding: 10,
-						  data,
+						  data: mergedData,
 						  angleField: 'value',
 						  colorField: 'type',
 						  radius: 0.9,
@@ -268,16 +237,100 @@ window.submitSurveyResponse = ()=>{
 		alert('Something went wrong! Try again.')
 	})
 }
-
+/**
+*
+*
+* Algorithms that comes with G2Plot 
+* (ALGORITHM That convert datasets to percentage- ALGORITHM That merge labels and values into json format)
+*
+*
+**/
+// Calculate the percentage of the datasets
 function calculatePercentage (datasets){
-	let total; 
+	// sum of the datasets
+	let total = 0; 
+	// calculate the sum of datasets
 	for (var i = 0; i < datasets.length; i++) {
+		// sum
 		total += datasets[i];
 	}
+	// calculate percentage of datasets
+	for (var i = 0; i < datasets.length; i++) {
+		datasets[i] = Math.floor(datasets[i] / total * 100);
+	}
+	return datasets;
 }
-function mergeDataWithLabels (){
 
+// This function takes the labels and the datasets and put them into json format for be ready to G2Plot lib
+function mergeDataWithLabels (labels,data){
+
+	const results = [];
+
+	for (var i = 0; i < labels.length; i++) {
+		// Merging
+		const labelWithValue = { type : labels[i], value: data[i]};
+		// push
+		results.push(labelWithValue);
+	}
+	// 
+	return results;
 }
-function renderChart() {
+
+function renderChart(index, data) {
+
+	// // // Get the responses and display them
+	// let ctx = document.querySelector(`#canvas${i}`).getContext("2d");
+
+	// let data = {
+	//     datasets: [{
+	//         data: results_without_short_paragraph[i].result,
+	//         backgroundColor: [
+	//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+	//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+	//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+	//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+	//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+	//         "#00b894","#0984e3","#d63031","#f53b57","#ffa801",
+	//         ]
+	//     }],
+	//     // These labels appear in the legend and in the tooltips when hovering different arcs
+	//     labels: results_without_short_paragraph[i].options
+	// };
+	// // For a pie chart
+	// let myPieChart = new Chart(ctx, {
+	//     type: 'pie',
+	//     data: data,
+	//     options: {
+	//         legend: { position: 'right', labels: {fontColor: 'rgba(0, 0, 0,.60)'}}
+	//     }
+	// });
+	// const data = [
+	//   { type: '分类一', value: 27 },
+	//   { type: '分类二', value: 25 },
+	//   { type: '分类三', value: 18 },
+	//   { type: '分类四', value: 15 },
+	//   { type: '分类五', value: 10 },
+	//   { type: '其他', value: 5 },
+	// ];
+
+	// const piePlot = new Pie(`canvas${index}`, {
+	//   appendPadding: 10,
+	//   data,
+	//   angleField: 'value',
+	//   colorField: 'type',
+	//   radius: 0.9,
+	//   label: {
+	//     type: 'inner',
+	//     offset: '-30%',
+	//     content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
+	//     style: {
+	//       fontSize: 14,
+	//       textAlign: 'center',
+	//     },
+	//   },
+	//   interactions: [{ type: 'element-active' }],
+	// });
+
+	// piePlot.render();
 
 }
