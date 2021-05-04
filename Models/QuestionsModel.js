@@ -1,11 +1,11 @@
 const mongoose                        = require('mongoose'); 
-const uuid                            = require('uuid');
+
 
 const Question = new mongoose.Schema({
 	// Something goes here ...
 	// We user custom id for preventing mongodb update it when the userupdates the survey ! ! !
 	_id : {
-		type : String, required: false, default : uuid.v4(),
+		type : String, required: true,
 	},
 	type : String,
 	title : String,

@@ -1,8 +1,15 @@
 const Question                             = require('.././Models/QuestionsModel.js');
+const uuid                                 = require('uuid');
 
 class Questions {
 	async addSurvey(questions){
 		try {
+			// Attach ids for each question
+			// uuid.v4()
+			for (var i = 0; i < questions.questions.length; i++) {
+				questions.questions[i]._id = uuid.v4()
+			}
+
 			const saving = await Question(questions).save();
 
 			return {
@@ -81,6 +88,10 @@ class Questions {
 	async updateSurvey(questions_id,questions){
 
 		try {
+			console.log(questions)
+			// When the user sorts the questions order, then the question_ids changed or diappered
+			// Solution is keep those ids somewhere (front-end might be)
+
 			// Update or save changes
 			const saving = await Question.findByIdAndUpdate(questions_id,questions);
 			
@@ -145,7 +156,7 @@ class Questions {
 						const responseOfTheQuestion = responses[o].responses.filter((response)=>{
 							return response.question_id == questions.questions[i]._id;
 						});
-						
+
 						// Loop over result of single response to compare them within options
 						for (var x = 0; x < responseOfTheQuestion[0].result.length; x++) {
 							
