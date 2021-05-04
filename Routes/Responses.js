@@ -15,7 +15,7 @@ const questionsController = new Questions();
 // Init router
 const router = express.Router();
 
-router.post('/submitResponse',async (request,response)=>{
+router.post('/submitResponse', async (request,response)=>{
 	// Use the appropriate controller
 	// Logic
 	response.json(await responsesController.submitResponses(request.body));

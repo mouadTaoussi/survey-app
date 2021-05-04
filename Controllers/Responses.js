@@ -1,10 +1,19 @@
 const Response                             = require('.././Models/ResponsesModel.js');
+const Questions                            = require('.././Models/QuestionsModel.js');
 
 class Responses {
 	async submitResponses(responses){
 		try {
-			const saving = await Response(responses).save();
+
+			const survey = await Questions.findById(responses.survey_id);
 			
+			// TODO : attach question_id to each appropriate response
+			for (var i = 0; i < responses.responses.length; i++) {
+				responses.responses[i].question_id = survey.questions[i]._id
+			}
+			
+			const saving = await Response(responses).save();
+
 			return {
 				saved : true,
 				message : 'Your responses has been saved!!!'

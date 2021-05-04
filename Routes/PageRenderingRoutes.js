@@ -135,7 +135,6 @@ router.get('/dashboard', validators.checkLanguage, auth.isAuthenticated, auth.is
 	
 	// Use the appropriate controller
 	const surveys = await questionsController.findSurvey( user.id, null );
-
 	// Checking ...
 	if (surveys.found){
 		// render the pages by language specefied

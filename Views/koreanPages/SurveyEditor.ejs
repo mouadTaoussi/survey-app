@@ -78,7 +78,7 @@
 					    class="form-control survey-description local-mt-2"
 					    placeholder="이 설문 조사에 대한 설명"
 					 ><%= survey.description %></textarea>
-					 <p id="survey_id" class="text-left local-mt-2">설문 조사 ID: <strong class="survey_id"><%= survey.id %></strong></p>
+					 <p style="display: none" id="survey_id" class="text-left local-mt-2">설문 조사 ID: <strong class="survey_id"><%= survey.id %></strong></p>
 					
 				</div>
 				<div class="questions_list">
@@ -152,6 +152,7 @@
 				<div class="desc local-card local-mt-4 local-p-2 local-shadow">
 			
 					<input 
+						autofocus 
 					    type="text" 
 					    name="survey-title" 
 					    class="form-control survey-title local-mt-2" 
@@ -162,7 +163,7 @@
 					    class="form-control survey-description local-mt-2"
 					    placeholder="이 설문 조사에 대한 설명"
 					 ></textarea>
-					 <p class="text-left local-mt-2">설문 조사 ID: <strong class="survey_id">---</strong></p>
+					 <p style="display: none" id="survey_id" class="text-left local-mt-2">설문 조사 ID: <strong class="survey_id">---</strong></p>
 					
 				</div>
 				<div class="questions_list">

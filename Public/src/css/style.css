@@ -788,11 +788,13 @@ h1,h2,h3,h5,h6 {
 	
 }
 .survey-title {
-	font-size: 30px;
-	font-family: 'Cabin'
+	font-size: 35px;
+	font-family: 'Cabin';
+	border: 0px!important;
 }
 .survey-description {
 	height: 220px;
+	border: 0!important;
 }
 #tools-panel-smaller-devices {
 	background: white;
@@ -1059,9 +1061,7 @@ h1,h2,h3,h5,h6 {
 	#tools-panel-smaller-devices {
 		display: block!important;
 	}
-	#survey_id {
-		display: none;
-	}
+	#survey_id {}
 	.response-question, .response-question-type {
 		font-size: 15px;
 	}
@@ -1181,6 +1181,7 @@ h1,h2,h3,h5,h6 {
 	.chart-area {
 			width: 100%;height: 100%;margin: 0 auto;
 	}
+	#survey_id {}
 	/**
 	*
 	*

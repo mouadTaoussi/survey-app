@@ -4,6 +4,7 @@ const Response = new mongoose.Schema({
 	// Something goes here ...
 	type : String,
 	title : String,
+	question_id: String, // TODO added questio_id
 	result : mongoose.Schema.Types.Mixed
 })
 

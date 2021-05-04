@@ -1,14 +1,19 @@
 const mongoose                        = require('mongoose'); 
+const uuid                            = require('uuid');
 
 const Question = new mongoose.Schema({
 	// Something goes here ...
+	// We user custom id for preventing mongodb update it when the userupdates the survey ! ! !
+	_id : {
+		type : String, required: false, default : uuid.v4(),
+	},
 	type : String,
 	title : String,
 	file : {type : String},
 	options : [mongoose.Schema.Types.Mixed],
 	required : Boolean,
 	result : [mongoose.Schema.Types.Mixed]
-});
+},{ _id: false });
 
 const Questions = new mongoose.Schema({
 	// Something goes here ...
@@ -20,3 +25,8 @@ const Questions = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('questions',Questions);
+
+// "1bd2930a-97d7-4cc5-a0bf-f8567e2a61f3"
+// "1bd2930a-97d7-4cc5-a0bf-f8567e2a61f3"
+
+
