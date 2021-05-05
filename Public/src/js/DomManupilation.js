@@ -181,12 +181,17 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 			</select>
 			`;
 
+			// Create question id
+			const question_id = document.createElement('p');
+			question_id.style.display = "none";
+
 			// Wrap them in the container
 			container.appendChild(draggable);
 			container.appendChild(question_input);
 			// container.appendChild(files_input);
 			container.appendChild(options_area);
 			container.appendChild(question_settings);
+			container.appendChild(question_id);
 
 			// Wrap the container or the new single questions in the current question list
 			question_list.appendChild(container);

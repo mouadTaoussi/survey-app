@@ -88,9 +88,10 @@ class Questions {
 	async updateSurvey(questions_id,questions){
 
 		try {
-			console.log(questions)
 			// When the user sorts the questions order, then the question_ids changed or diappered
-			// Solution is keep those ids somewhere (front-end might be)
+			// SOLVED! Solution is keep those ids somewhere (front-end might be)
+
+			// TODO Need to generate new ids for new questions in the updatinng process
 
 			// Update or save changes
 			const saving = await Question.findByIdAndUpdate(questions_id,questions,{new : true});

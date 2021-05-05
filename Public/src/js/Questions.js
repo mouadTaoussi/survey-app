@@ -128,14 +128,19 @@ if (window.location.pathname === "/surveyEditor" ){
 				// to prevent adding one more survey and just update it instead
 				// Check : Controllers/Questions.js
 				// 	     : Routes/Questions.js
-				// Attach questions ids to each question to track its position in the question list
-				console.log(response.data.survey.questions)
 				document.querySelector('.survey_id').innerText = response.data.survey_id;
+				
+				// Attach questions ids to each question to track its position (after user sorts questions) in the question list
+				for (var i = 0; i < response.data.survey.questions.length; i++) {
+					questions_list[i].children[4].innerHTML = response.data.survey.questions[i]._id;
+					// TypeError: Failed to set an indexed property on 'HTMLCollection': Indexed property setter is not supported.
+				}
+
 			}
 			
 		})
 		.catch((err)=>{
-			window.displayAlertMessage( false,"Something went wrong!" );
+			window.displayAlertMessage( false,err );
 		})
 	})
 
