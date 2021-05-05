@@ -32,7 +32,7 @@ router.post('/',validators.checkLanguage, auth.isAuthenticated, async (request,r
 		// Response
 		response.json({
 			saved : savingSurveyProcess.saved, message : savingSurveyProcess.message, 
-			survey_id : savingSurveyProcess.survey_id
+			survey_id : savingSurveyProcess.survey_id, survey: savingSurveyProcess.survey
 		})
 	}
 	else {
@@ -47,7 +47,8 @@ router.post('/',validators.checkLanguage, auth.isAuthenticated, async (request,r
 			// Response
 			response.json({
 				saved : savingSurveyProcess.saved, message : savingSurveyProcess.message, 
-				survey_id : savingSurveyProcess.survey_id })	
+				survey_id : savingSurveyProcess.survey_id, survey: savingSurveyProcess.survey
+			})	
  		}
  		else {
  			response.json({ saved : false, message : "You're not authorized to make changes in this survey!" })

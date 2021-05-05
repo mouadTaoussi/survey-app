@@ -100,6 +100,7 @@ if (window.location.pathname === "/surveyEditor" ){
 
 			}
 
+			single_question._id      =  questions_list[i].children[4] == undefined ? undefined : questions_list[i].children[4].innerHTML;
 			single_question.required = true;
 			single_question.options  = options;
 			// single_question.file     = questions_list[i].children[2].children[0].placeholder || null;
@@ -127,6 +128,8 @@ if (window.location.pathname === "/surveyEditor" ){
 				// to prevent adding one more survey and just update it instead
 				// Check : Controllers/Questions.js
 				// 	     : Routes/Questions.js
+				// Attach questions ids to each question to track its position in the question list
+				console.log(response.data.survey.questions)
 				document.querySelector('.survey_id').innerText = response.data.survey_id;
 			}
 			

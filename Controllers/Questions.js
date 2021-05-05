@@ -13,11 +13,11 @@ class Questions {
 			const saving = await Question(questions).save();
 
 			return {
-				saved : true, message : 'Saved your work!', survey_id : saving.id
+				saved : true, message : 'Saved your work!', survey_id : saving.id, survey: saving
 			}
 		}catch(err){
 			return {
-				saved : false, message : 'Something went wrong! Try again.'
+				saved : false, message : 'Something went wrong! Try again.', survey_id: null, survey: null
 			}
 		}
 	}
@@ -93,17 +93,17 @@ class Questions {
 			// Solution is keep those ids somewhere (front-end might be)
 
 			// Update or save changes
-			const saving = await Question.findByIdAndUpdate(questions_id,questions);
+			const saving = await Question.findByIdAndUpdate(questions_id,questions,{new : true});
 			
 			// return
 			return {
-				saved : true, message : 'Saved your work!', survey_id : questions_id
+				saved : true, message : 'Saved your work!', survey_id : questions_id, survey: saving
 			}
 		}
 		catch (err){
 			// return
 			return {
-				saved : false, message : 'Something went wrong! Try again.',
+				saved : false, message : 'Something went wrong! Try again.',survey_id: null, survey: null
 			}
 		}
 		
