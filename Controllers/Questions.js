@@ -91,10 +91,11 @@ class Questions {
 			// When the user sorts the questions order, then the question_ids changed or diappered
 			// SOLVED! Solution is keep those ids somewhere (front-end might be)
 
-			// TODO Need to generate new ids for new questions in the updatinng process
-
+			// generating new ids for new questions in the updatinng process
+			const survey_before_update = await Question.findOne({_id:questions_id});
+			console.log(survey_before_update)
 			// Update or save changes
-			const saving = await Question.findByIdAndUpdate(questions_id,questions,{new : true});
+			const saving = await Question.findByIdAndUpdate(questions_id,questions,{ new : true });
 			
 			// return
 			return {
@@ -104,7 +105,7 @@ class Questions {
 		catch (err){
 			// return
 			return {
-				saved : false, message : 'Something went wrong! Try again.',survey_id: null, survey: null
+				saved : false, message : err.message,survey_id: null, survey: null
 			}
 		}
 		
@@ -158,17 +159,23 @@ class Questions {
 							return response.question_id == questions.questions[i]._id;
 						});
 
-						// Loop over result of single response to compare them within options
-						for (var x = 0; x < responseOfTheQuestion[0].result.length; x++) {
-							
-							if (options[k] === responseOfTheQuestion[0].result[x]){
+						if (responseOfTheQuestion[0] == undefined) {
+							continue;
+						}
+						else {
 
-							resultOfQuestion[k]++; /// Increment by one due to option and result matching
+							// Loop over result of single response to compare them within options
+							for (var x = 0; x < responseOfTheQuestion[0].result.length; x++) {
+								
+								if (options[k] === responseOfTheQuestion[0].result[x]){
 
-							} else { continue; }
+								resultOfQuestion[k]++; /// Increment by one due to option and result matching
+
+								} else { continue; }
+							}
+
 						}
 
-						// }else { continue }
 					}			
 				}
 
@@ -181,13 +188,16 @@ class Questions {
 				// Loop over responses in the database ! ! !
 				for (var o = 0; o < responses.length; o++) {
 					/*1*/// Check the explanation of this checking (responses[o].responses[i] !== undefined) below
-					if (responses[o].responses[i] !== undefined) {
 
-						// TODO Check if the question and the response are same  responses[o].!!responses[i] !!
-						const responseOfTheQuestion = responses[o].responses.filter((response)=>{
-							return response.question_id == questions.questions[i]._id;
-						});
+					// TODO Check if the question and the response are same  responses[o].!!responses[i] !!
+					const responseOfTheQuestion = responses[o].responses.filter((response)=>{
+						return response.question_id == questions.questions[i]._id;
+					});
 
+					if (responseOfTheQuestion[0] == undefined) {
+						continue;
+					} 
+					else {
 						if (responseOfTheQuestion.result[0] !== null){
 
 							// Push resultOfQuestion to the individual quetion 
@@ -195,8 +205,7 @@ class Questions {
 
 						}
 						else { continue }
-					
-					}else { continue }
+					}
 					
 				}
 			}
