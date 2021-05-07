@@ -86,14 +86,20 @@ class Questions {
 		}
 	}
 	async updateSurvey(questions_id,questions){
-
 		try {
 			// When the user sorts the questions order, then the question_ids changed or diappered
 			// SOLVED! Solution is keep those ids somewhere (front-end might be)
 
 			// generating new ids for new questions in the updatinng process
-			const survey_before_update = await Question.findOne({_id:questions_id});
-			console.log(survey_before_update)
+			for (var i = 0; i < questions.questions.length; i++) {
+
+				if (!!questions.questions[i]._id) {
+					continue;
+				}else {
+					questions.questions[i]._id = uuid.v4();
+				}
+			}
+
 			// Update or save changes
 			const saving = await Question.findByIdAndUpdate(questions_id,questions,{ new : true });
 			
