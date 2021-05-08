@@ -62,6 +62,17 @@ window.displayAlertMessage = (messageType,message)=>{
 	}
 }
 
+// Copy link function
+document.querySelector('#copyLinkBtn').addEventListener('click',function(){
+	// Get the box where the text belongs
+	const box = document.querySelector('.inputLink');
+	// Select it!
+	box.select()
+	// Copy it!
+	document.execCommand('copy');
+
+	document.querySelector('#copyLinkBtn').innerHTML = "Copied!";
+})
 
 // Grab Questions list
 const questions_list = document.querySelector('.questions_list');

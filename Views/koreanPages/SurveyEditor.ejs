@@ -277,12 +277,33 @@
 		        <p>소셜 미디어에서 공유 할 수있는 링크 :</p>
 		        
 		        <% if (survey == null ) { %>
-	        		<kbd style='font-size: 10px'>surveyapp1.herokuapp.com/submitResponse?survey_id=</kbd>
+	        		<div class="input-group mb-3">
+					  <input 
+					  	type="text" 
+					  	class="alert-primary form-control" 
+					  	placeholder="Recipient's username" 
+					  	aria-label="Survey link" 
+					  	aria-describedby="button-addon2" 
+					  	value="surveyapp1.herokuapp.com/submitResponse?survey_id=">
+					  <div class="input-group-append">
+					    <button id="copyLinkBtn" class="btn btn-primary" type="button" id="button-addon2">Copy Link</button>
+					  </div>
+					</div>
 	        	<% } else { %>
-	        		<kbd style='font-size: 10px'>surveyapp1.herokuapp.com/submitResponse?survey_id=<%= survey.id %>&lang=kr</kbd>
+	        		<div class="input-group mb-3">
+					  <input 
+					  	type="text" 
+					  	class="alert-primary inputLink form-control" 
+					  	placeholder="Recipient's username" 
+					  	aria-label="Survey link" 
+					  	aria-describedby="button-addon2" 
+					  	value="surveyapp1.herokuapp.com/submitResponse?survey_id=<%= survey.id %>&lang=en">
+					  <div class="input-group-append">
+					    <button id="copyLinkBtn" class="btn btn-primary" type="button" id="button-addon2">Copy Link</button>
+					  </div>
+					</div>
 	        	<%}%>
-		        <p class="my-4"><strong>이 긴 링크가 귀찮다면이 <a href="https://minurl1.herokuapp.com" target="_blank">앱을</a> 통해 짧게 만들 수 있습니다 !</strong></p>
-
+		      
 		        <p>웹 사이트에 포함 할 포함 된 요소 :</p>
 	        	<% if (survey == null ) { %>
 		        	<div class="local-alert info">
