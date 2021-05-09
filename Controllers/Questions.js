@@ -204,10 +204,10 @@ class Questions {
 						continue;
 					} 
 					else {
-						if (responseOfTheQuestion.result[0] !== null){
+						if (responseOfTheQuestion[0].result[0] !== null){
 
 							// Push resultOfQuestion to the individual quetion 
-							questions.questions[i].result.push(responseOfTheQuestion.result[0]);	
+							questions.questions[i].result.push(responseOfTheQuestion[0].result[0]);	
 
 						}
 						else { continue }
