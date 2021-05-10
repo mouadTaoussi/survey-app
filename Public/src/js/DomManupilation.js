@@ -171,14 +171,14 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 
 			// Create Settings
 			const question_settings = document.createElement('div');
-			question_settings.classList.add('question_settings','p-2');
+			question_settings.classList.add('question_settings');
 			question_settings.innerHTML  = `
-			<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
-			<select style="display: inline;width: 180px;" class='mx-2 form-control'>
+			<select style="display: inline;width: 180px;" class='form-control'>
 				<option>MultipleChoice</option>
 				<option>OneChoice</option>
 				<option>ShortParagraph</option>
 			</select>
+			<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
 			`;
 
 			// Create question id

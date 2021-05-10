@@ -695,6 +695,15 @@ h1,h2,h3,h5,h6 {
 *
 *
 **/
+.desc, .single-question, .response {
+	border-left: 3px solid var(--primary);
+	border-radius: 3px;
+}
+.form-control {
+	color: rgba(0,0,0,.7);
+	font-weight: 700;
+	font-family: 'Poppins';
+}
 .survey-editor {
 	display: grid;grid-template-columns: 11fr 1fr;grid-gap: 30px;display:  ;
 }
@@ -742,7 +751,7 @@ h1,h2,h3,h5,h6 {
 .question_settings {
 	width: 300px;
 	height: 50px;
-	background-color: #eff1f7;
+	/*background-color: #eff1f7;*/
 }
 .add-new-option {
 	font-size:13px;
@@ -772,16 +781,16 @@ h1,h2,h3,h5,h6 {
 	cursor: move;
 }
 .dragable div {
-	background-color: rgba(0,0,0,.3);
+	background-color: rgba(0,0,0,.6);
 }
 .single-question {
-	border: 2px solid rgba(0,0,0,0);
+	/*border: 2px solid rgba(0,0,0,0);*/
 }
 .hovered {
-	border: 2px solid rgba(0,0,0,.9);
+	/*border: 2px solid rgba(0,0,0,.9);*/
 }
 .replace {
-	border: 2px solid rgba(0,0,0,.7);
+	/*border: 2px solid rgba(0,0,0,.7);*/
 	/*background-color: rgba(0,0,0,.1);		*/
 }
 .dragging {

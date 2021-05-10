@@ -43,7 +43,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 
 						// Single response html
 						single_response = `
-						<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+						<div class='response local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
 							<h4 class="response-question">${response.data.data.questions[i].title}</h4>
 							<p class="response-question-type">${response.data.data.questions[i].type}</p>
 							<div style="overflow:scroll; height:250px;" class="paragraphes"></div>
@@ -81,7 +81,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 
 						// Single response html
 						single_response = `
-						<div class='local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+						<div class='response local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
 							<h4 class="response-question">${response.data.data.questions[i].title}</h4>
 							<p class="response-question-type">${response.data.data.questions[i].type}</p>
 							<div class="chart-area">

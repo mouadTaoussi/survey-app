@@ -124,13 +124,8 @@
 								<p class="add-new-option p-2">新增一个 +</p>
 							</div>
 							<!-- Settings -->
-							<div class="question_settings p-2">
-								<i 
-								onclick="deleteField(event)" 
-								style="display: inline" 
-								class="delete-field mx-2 far fa-trash-alt"></i>
-								<select style="display: inline;width: 180px;" class='mx-2 form-control'>
-
+							<div class="question_settings">
+								<select style="display: inline;width: 180px;" class='form-control'>
 									<% if (question.type === "MultipleChoice") { %>
 									<%- "<option selected>MultipleChoice</option><option>OneChoice</option><option>ShortParagraph</option>" %>
 									
@@ -143,8 +138,11 @@
 									<% } else { %>
 									<%- "<option>MultipleChoice</option><option>OneChoice</option><option>ShortParagraph</option>" %>
 									<% } %>
-
 								</select>
+								<i 
+								onclick="deleteField(event)" 
+								style="display: inline" 
+								class="delete-field mx-2 far fa-trash-alt"></i>
 							</div>
 							<!-- question id goes here -->
 							<p style="display: none;"><%= question._id%></p>
@@ -201,13 +199,13 @@
 							<p class="add-new-option p-2">新增一个 +</p>
 						</div>
 						<!-- Settings -->
-						<div class="question_settings p-2">
-							<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
-							<select style="display: inline;width: 180px;" class='mx-2 form-control'>
+						<div class="question_settings">
+							<select style="display: inline;width: 180px;" class='form-control'>
 								<option>MultipleChoice</option>
 								<option>OneChoice</option>
 								<option>ShortParagraph</option>
 							</select>
+							<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
 						</div>
 						<!-- question id goes here -->
 						<p style="display: none;"></p>
