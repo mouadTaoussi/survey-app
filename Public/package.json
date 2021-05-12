@@ -13,7 +13,7 @@
     "@antv/g2plot": "^2.3.19",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.2",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "firebase": "^7.17.2",
     "jquery": "^3.5.1",
     "sortablejs": "^1.10.2",
