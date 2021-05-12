@@ -105,7 +105,7 @@ if (window.location.pathname === "/surveyEditor" ){
 			single_question.options  = options;
 			// single_question.file     = questions_list[i].children[2].children[0].placeholder || null;
 			single_question.title    = questions_list[i].children[1].value;
-			single_question.type     = questions_list[i].children[3].children[1].value;
+			single_question.type     = questions_list[i].children[3].children[0].value;
 			survey.questions.push(single_question);
 
 		}
