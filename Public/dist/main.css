@@ -3,6 +3,8 @@
 @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Ubuntu:wght@400;500&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Cabin&display=swap);
 :root{
+	--landing-page-primary :#1633ff;
+	--landing-page-text-color: #031b4e;
 	--primary : #1554a7;
 	--primary-darken : #052580; 
 	--dark :  #2b2b2b;
@@ -323,6 +325,8 @@
 /*  Loading spinner  */
 /*  Svgs  */
 :root{
+	--landing-page-primary :#1633ff;
+	--landing-page-text-color: #031b4e;
 	--primary : #1554a7;
 	--primary-darken : #052580; 
 	--dark :  #2b2b2b;
@@ -669,10 +673,11 @@ h1,h2,h3,h5,h6 {
 	width: 100%;margin-top: 100px;
 }
 .landing-page {
-	background-image: url("data:image/svg+xml,%3Csvg width='737' height='384' viewBox='0 0 737 384' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Crect width='737' height='384' fill='white'/%3E %3Cpath d='M0 0H737V335L0 287V0Z' fill='%231555A8' fill-opacity='0.26'/%3E %3Cpath d='M0 0H737V335L0 279V0Z' fill='%231555A8' fill-opacity='0.46'/%3E %3Cpath d='M0 0H737V335L0 269V0Z' fill='url(%23paint0_linear)'/%3E %3Cdefs%3E %3ClinearGradient id='paint0_linear' x1='368.5' y1='0' x2='368.5' y2='335' gradientUnits='userSpaceOnUse'%3E %3Cstop stop-color='%231555A8'/%3E %3Cstop offset='1' stop-color='%231555A8'/%3E %3C/linearGradient%3E %3C/defs%3E %3C/svg%3E");
+	background-image: url("data:image/svg+xml,%3Csvg width='690' height='673' viewBox='0 0 690 673' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath d='M0 25H690V314L341 453L0 314V25Z' fill='%231633FF' fill-opacity='0.43'/%3E %3Cpath d='M0 12H690V301L341 440L0 301V12Z' fill='%231633FF' fill-opacity='0.79'/%3E %3Cpath d='M0 0H690V289L341 428L0 289V0Z' fill='%231633FF'/%3E %3Cpath d='M667.013 441.264L527.469 495.638L397 442.652L528.637 388.505L667.013 441.264Z' fill='%231633FF'/%3E %3Cpath d='M667.013 452.264L527.469 506.638L397 453.652L528.637 399.506L667.013 452.264Z' fill='%231633FF' fill-opacity='0.79'/%3E %3Cpath d='M667.013 463.264L527.469 517.638L397 464.652L528.637 410.506L667.013 463.264Z' fill='%231633FF' fill-opacity='0.43'/%3E %3Cpath d='M480.013 515.264L340.469 569.638L210 516.652L341.637 462.506L480.013 515.264Z' fill='%231633FF'/%3E %3Cpath d='M480.013 526.264L340.469 580.638L210 527.652L341.637 473.506L480.013 526.264Z' fill='%231633FF' fill-opacity='0.79'/%3E %3Cpath d='M480.013 537.264L340.469 591.638L210 538.652L341.637 484.506L480.013 537.264Z' fill='%231633FF' fill-opacity='0.43'/%3E %3Cpath d='M291.013 441.264L151.469 495.638L21 442.652L152.637 388.505L291.013 441.264Z' fill='%231633FF'/%3E %3Cpath d='M291.013 452.264L151.469 506.638L21 453.652L152.637 399.506L291.013 452.264Z' fill='%231633FF' fill-opacity='0.79'/%3E %3Cpath d='M291.013 463.264L151.469 517.638L21 464.652L152.637 410.506L291.013 463.264Z' fill='%231633FF' fill-opacity='0.43'/%3E %3C/svg%3E");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover; 
+	height: 1000px;
 	/*background-attachment: fixed;*/
 }
 .show-app {
@@ -758,10 +763,15 @@ h1,h2,h3,h5,h6 {
 	width: 70%;
 	height: 70%;
 }
+.card-title {
+	font-weight: bolder;
+	color: var(--landing-page-text-color);
+}
 .landing-page-header {
 	z-index: 999;
 	height: 70px;
-	background-color: var(--primary)/*#1554a7*/;
+	/*background-color: var(--primary)/*#1554a7;*/
+	background-color: var(--landing-page-primary);
 	position: fixed;
 	width: 100%;
 	transition: all .2s ease-out; 

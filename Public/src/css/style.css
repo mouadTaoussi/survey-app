@@ -342,6 +342,7 @@ h1,h2,h3,h5,h6 {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover; 
+	height: 1000px;
 	/*background-attachment: fixed;*/
 }
 .show-app {
@@ -427,10 +428,15 @@ h1,h2,h3,h5,h6 {
 	width: 70%;
 	height: 70%;
 }
+.card-title {
+	font-weight: bolder;
+	color: var(--landing-page-text-color);
+}
 .landing-page-header {
 	z-index: 999;
 	height: 70px;
-	background-color: var(--primary)/*#1554a7*/;
+	/*background-color: var(--primary)/*#1554a7;*/
+	background-color: var(--landing-page-primary);
 	position: fixed;
 	width: 100%;
 	transition: all .2s ease-out; 
