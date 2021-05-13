@@ -84,7 +84,7 @@ h1,h2,h3,h5,h6 {
 	height: 30px;
 }
 .forms-logo {
-	background-image: url('.././assets/logoLightBg.svg');
+	background-image: url('.././assets/logoPrimaryBg.svg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain; 
@@ -129,29 +129,35 @@ h1,h2,h3,h5,h6 {
 	height: 400px;
 	margin: 50px auto;
 }
-.card-data {
-	background-image: url('.././assets/undraw_all_the_data_h4ki.svg');
+.card-api {
+	background-image: url('.././assets/api-svg.svg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain; 
-	margin: 0px auto;
-	height: 250px;
+	/*margin: 0px auto;*/
+	margin-bottom: 20px;
+	height: 80px;
+	width: 100px;
 }
-.card-data-trends {
-	background-image: url('.././assets/undraw_data_trends_b0wg.svg');
+.card-graphql {
+	background-image: url('.././assets/graphql-svg.svg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain; 
-	margin: 0px auto;
-	height: 250px;
+	/*margin: 0px auto;*/
+	margin-bottom: 20px;
+	height: 80px;
+	width: 100px;
 }
-.card-data-segmentation {
-	background-image: url('.././assets/undraw_Segmentation_re_gduq.svg');
+.card-survey {
+	background-image: url('.././assets/survey-svg.svg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain; 
-	margin: 0px auto;
-	height: 250px;
+	/*margin: 0px auto;*/
+	margin-bottom: 20px;
+	height: 80px;
+	width: 100px;
 }
 
 /**
@@ -432,6 +438,20 @@ h1,h2,h3,h5,h6 {
 	font-weight: bolder;
 	color: var(--landing-page-text-color);
 }
+.card-desc {
+	font-size: 17px;
+	color: var(--landing-page-text-color);
+
+}
+.cards-title {
+	font-weight: bolder;
+	font-size: 44px;
+	margin-top: 30px;
+	color: var(--landing-page-text-color);
+}
+.cards-sub-title {
+	color: grey;
+}
 .landing-page-header {
 	z-index: 999;
 	height: 70px;
@@ -482,6 +502,20 @@ h1,h2,h3,h5,h6 {
 .description {
 	color: white;
 }
+.features-tag-title {
+	color: var(--landing-page-primary);
+	font-size: 15px;
+	padding: 0 0 0 0!important;
+	margin: 70px 0 0 0!important;
+}
+.features-title {
+	font-weight: bolder;
+	color: var(--landing-page-text-color);
+}
+.features-desc {
+
+}
+
 @keyframes title {
 	0% {
 		opacity: 0;
@@ -492,6 +526,10 @@ h1,h2,h3,h5,h6 {
 	100% {
 		opacity: 100;
 	}
+}
+.faq-title {
+	font-weight: bolder;	
+	color: var(--landing-page-text-color);
 }
 .faq-landing-page {
 	/*background-color: black;*/
@@ -508,10 +546,21 @@ h1,h2,h3,h5,h6 {
 .faqs div {
 
 }
+.faq-question {
+	font-weight: bolder;
+	color: var(--landing-page-text-color);
+}
+.faq-respsone {
+
+}
 .landing-page-footer {
+	background-color: var(--landing-page-text-color);
 	height: auto;
 	width: 100%;
 	padding: 20px;
+}
+.home-page-footer-list-item {
+	color: white;
 }
 /**
 *
