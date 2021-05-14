@@ -84,7 +84,7 @@ h1,h2,h3,h5,h6 {
 	height: 30px;
 }
 .forms-logo {
-	background-image: url('.././assets/logoPrimaryBg.svg');
+	background-image: url('.././assets/logoPrimaryBgFooter.svg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain; 
@@ -384,7 +384,13 @@ h1,h2,h3,h5,h6 {
 
 }
 .svg-background-sixth-landing-page {
-
+	background-image: url('.././assets/ThirdBackground.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 180px;
+	background-size: cover; 
+	padding: 5px 0 5px 0;
+	padding-top: 40px;
 }
 :root {
 	--margin-between-landing-pages : 60px;
