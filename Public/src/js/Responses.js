@@ -129,15 +129,17 @@ if ( window.location.pathname === "/surveyEditor" ){
 						  },
 						  interactions: [{ type: 'element-active' }],
 						});
+
 						piePlot.update({ 
 							"theme": { 
 								"styleSheet": { 
-									"brandColor": "#B8E1FF", 
-									"paletteQualitative10": ["#B8E1FF", "#9AC5FF", "#7DAAFF", "#5B8FF9", "#3D76DD", "#085EC0", "#0047A5", "#00318A", "#001D70"], 
-									"paletteQualitative20": ["#B8E1FF", "#9AC5FF", "#7DAAFF", "#5B8FF9", "#3D76DD", "#085EC0", "#0047A5", "#00318A", "#001D70"] 
+									"brandColor": "#215B77", 
+									"paletteQualitative10": ["#215B77", "#1B9CD0", "#61C9FF", "#ABDFFF", "#FFDE94", "#FFC741", "#D09C10", "#795B16"], 
+									"paletteQualitative20": ["#215B77", "#227BA2", "#1B9CD0", "#22BAED", "#61C9FF", "#8AD4FF", "#ABDFFF", "#C9E9FF", "#FFE9B8", "#FFDE94", "#FFD470", "#FFC741", "#EDB40A", "#D09C10", "#A37B16", "#795B16"] 
 								} 
 							} 
 						})
+
 						piePlot.render();
 
 

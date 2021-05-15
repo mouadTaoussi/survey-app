@@ -84,7 +84,7 @@ h1,h2,h3,h5,h6 {
 	height: 30px;
 }
 .forms-logo {
-	background-image: url('.././assets/logoPrimaryBg.svg');
+	background-image: url('.././assets/logoLightBg.svg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain; 
@@ -386,7 +386,7 @@ h1,h2,h3,h5,h6 {
 	background-image: url('.././assets/secondBackground.svg');
 	background-repeat: no-repeat;
 	background-position: center;
-	height: 550px;
+	height: 400px;
 	background-size: cover; 
 	padding: 5px 0 5px 0;
 }
