@@ -84,6 +84,16 @@ h1,h2,h3,h5,h6 {
 	height: 30px;
 }
 .forms-logo {
+	background-image: url('.././assets/logoPrimaryBg.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain; 
+	width: 240px;
+	height: 60px;
+	margin: 50px auto;
+
+}
+.footer-logo {
 	background-image: url('.././assets/logoPrimaryBgFooter.svg');
 	background-repeat: no-repeat;
 	background-position: center;
@@ -376,7 +386,7 @@ h1,h2,h3,h5,h6 {
 	background-image: url('.././assets/secondBackground.svg');
 	background-repeat: no-repeat;
 	background-position: center;
-	height: 600px;
+	height: 550px;
 	background-size: cover; 
 	padding: 5px 0 5px 0;
 }

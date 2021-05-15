@@ -129,7 +129,15 @@ if ( window.location.pathname === "/surveyEditor" ){
 						  },
 						  interactions: [{ type: 'element-active' }],
 						});
-
+						piePlot.update({ 
+							"theme": { 
+								"styleSheet": { 
+									"brandColor": "#B8E1FF", 
+									"paletteQualitative10": ["#B8E1FF", "#9AC5FF", "#7DAAFF", "#5B8FF9", "#3D76DD", "#085EC0", "#0047A5", "#00318A", "#001D70"], 
+									"paletteQualitative20": ["#B8E1FF", "#9AC5FF", "#7DAAFF", "#5B8FF9", "#3D76DD", "#085EC0", "#0047A5", "#00318A", "#001D70"] 
+								} 
+							} 
+						})
 						piePlot.render();
 
 

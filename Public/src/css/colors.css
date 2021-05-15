@@ -1,5 +1,7 @@
 :root{
 	--landing-page-primary :#1633ff;
+	--landing-page-primary-dark: #001CDF;
+	--landing-page-primary-darken: #03179E;
 	--landing-page-text-color: #031b4e;
 	--primary : #1554a7;
 	--primary-darken : #052580; 
