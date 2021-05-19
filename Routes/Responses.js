@@ -1,4 +1,5 @@
 const express                         = require('express');
+const puppeteer                       = require('puppeteer');
 const fileSystem                      = require('fs');
 const mime                            = require('mime');
 const path                            = require('path');
@@ -26,7 +27,30 @@ router.get('/processSurveyResponses', async(request,response)=>{
 
 	// Get the queries
 	const {  user_id, survey_id } = request.query;
-	// console.log(request.headers.cookie) 
+
+	// Trying using the puppteer for the first time! (This code is temporary)
+	const cookie = { 
+		name: request.headers.cookie.slice(0,11) , 
+		value: request.headers.cookie.slice(12),
+		domain: 'https://http://surveyapp1.herokuapp.com' 
+	};
+
+	const browser = await puppeteer.launch()
+	const page = await browser.newPage()
+	// Set cookie
+	 // const client = await page.target().createCDPSession();
+
+	// await client.send('Network.enable');
+    // const setCookie = await client.send('Network.setCookie', cookie);
+	await page.setCookie(cookie)
+	// UnhandledPromiseRejectionWarning: Error: Protocol error (Network.deleteCookies): At least one of the url and domain needs to be specified   
+	await page.goto(`http://localhost:5000/surveyEditor?survey_id=${survey_id}&user_id=${user_id}`)
+	await page.screenshot({ path: 'paypal_login2.png' })
+	await browser.close()
+	console.log(cookie)
+	console.log(request.session.cookie)
+	//////////
+
 	// Get the survey
 	const questions = await questionsController.findSurvey( user_id, survey_id );
 
