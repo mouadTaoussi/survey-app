@@ -32,24 +32,48 @@ router.get('/processSurveyResponses', async(request,response)=>{
 	const cookie = { 
 		name: request.headers.cookie.slice(0,11) , 
 		value: request.headers.cookie.slice(12),
-		domain: 'https://http://surveyapp1.herokuapp.com' 
+		domain: 'https://http://surveyapp1.herokuapp.com' ,
+		// expires : 11110,
+		// session : false
+		// Or
+		// expires : undefined,
+		// session : true
+		// See: https://github.com/puppeteer/puppeteer/issues/1350
 	};
-
-	const browser = await puppeteer.launch()
-	const page = await browser.newPage()
+	console.log(request.headers.cookie.slice(12) == "s%3AU_8ZdjcuD2nJ0gu688WT-Tp1e7gCDl2f.ZzZYx8bbuZcYUv%2FoQUg%2FBbpk%2Fa3ZBqHlzcRfXcTYWzs")
+	// Init new browser
+	const browser = await puppeteer.launch();
+	const page = await browser.newPage();
+	const cookies = [
+		{
+		    "domain": "localhost",
+		    "hostOnly": true,
+		    "httpOnly": true,
+		    "name": request.headers.cookie.slice(0,11),
+		    "path": "/",
+		    "sameSite": "unspecified",
+		    "secure": false,
+		    "session": true,
+		    "storeId": "0",
+		    "value": request.headers.cookie.slice(12),
+		    "id": 1
+		}
+	]
 	// Set cookie
-	 // const client = await page.target().createCDPSession();
+	// const client = await page.target().createCDPSession();
 
 	// await client.send('Network.enable');
     // const setCookie = await client.send('Network.setCookie', cookie);
-	await page.setCookie(cookie)
+	await page.setCookie(...cookies);
 	// UnhandledPromiseRejectionWarning: Error: Protocol error (Network.deleteCookies): At least one of the url and domain needs to be specified   
-	await page.goto(`http://localhost:5000/surveyEditor?survey_id=${survey_id}&user_id=${user_id}`)
-	await page.screenshot({ path: 'paypal_login2.png' })
-	await browser.close()
-	console.log(cookie)
-	console.log(request.session.cookie)
-	//////////
+	// console.log(cookie);
+	console.log(await page.cookies())
+	
+	// Seceenshot and save it
+	await page.goto(`http://localhost:5000/surveyEditor?survey_id=${survey_id}&user_id=${user_id}`);
+	await page.screenshot({ path: 'paypal_login2.png' });
+	await browser.close();
+	//////////;
 
 	// Get the survey
 	const questions = await questionsController.findSurvey( user_id, survey_id );

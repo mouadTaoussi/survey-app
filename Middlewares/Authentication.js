@@ -5,6 +5,8 @@ const ResetPasswordToken               = require('.././Models/ResetPasswordToken
 module.exports = {
 	// You know this middleware what could do, so no explanation required !! !! !! 
 	isAuthenticated : async (request,response,next)=>{
+		console.log('MiHi')
+		console.log(request.session)
 		if (request.session.passport){
 			const user = await User.findOne({ 
 				atProviderId : request.session.passport.user.atProviderId 
