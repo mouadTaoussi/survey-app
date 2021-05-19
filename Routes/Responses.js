@@ -26,7 +26,7 @@ router.get('/processSurveyResponses', async(request,response)=>{
 
 	// Get the queries
 	const {  user_id, survey_id } = request.query;
-	console.log(request.headers.cookie) 
+	// console.log(request.headers.cookie) 
 	// Get the survey
 	const questions = await questionsController.findSurvey( user_id, survey_id );
 
