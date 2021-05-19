@@ -4,9 +4,10 @@ const mime                            = require('mime');
 const path                            = require('path');
 const Responses                       = require('.././Controllers/Responses.js');
 const Questions                       = require('.././Controllers/Questions.js');//
-const auth                            = require('.././Middlewares/Authentication.js');
-const validators                      = require('.././Middlewares/Validators.js');
+// const auth                            = require('.././Middlewares/Authentication.js');
+// const validators                      = require('.././Middlewares/Validators.js');
 const databaseConnection              = require('.././Config/DatabaseConnection.js');
+const { isOwenedTheSurvey }           = require('.././Middlewares/Authentication.js');
 
 // Init appropriate controller
 const responsesController = new Responses();
@@ -25,7 +26,7 @@ router.get('/processSurveyResponses', async(request,response)=>{
 
 	// Get the queries
 	const {  user_id, survey_id } = request.query;
-	
+	// console.log(request.headers.cookie) 
 	// Get the survey
 	const questions = await questionsController.findSurvey( user_id, survey_id );
 
@@ -55,7 +56,7 @@ router.get('/processSurveyResponses', async(request,response)=>{
 })
 
 
-
+// Download results JSON
 router.get('/downloadResults',async(request,response)=>{
 	// Get the queries
 	const {  user_id, survey_id } = request.query;
@@ -109,7 +110,8 @@ router.get('/downloadResults',async(request,response)=>{
 })
 
 
-
+// @TODO: Download results CSV
+// @TODO: Download results PDF
 
 
 
