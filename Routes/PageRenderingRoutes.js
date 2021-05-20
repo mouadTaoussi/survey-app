@@ -178,9 +178,6 @@ router.get('/surveyEditor', validators.checkLanguage, auth.isAuthenticated, asyn
 		// Use the appropriate controller
 		const survey = await questionsController.findSurvey( user.id, request.query.survey_id );
 
-		// Find responses
-		// Proccess responses to get the answers results to display them in chart
-		
 		if ( !survey.found ) {
 			response.redirect(`/notFound?lang=${request.lang.langShortcut}`);
 		}
@@ -191,6 +188,21 @@ router.get('/surveyEditor', validators.checkLanguage, auth.isAuthenticated, asyn
 	}
 })
 
+router.get('/resultsFullSceeen', validators.checkLanguage, auth.isAuthenticated, async(request,response)=>{
+	// Get authenticated user
+	const user = request.user;
+		
+	// Checking ...
+	if ( request.query.survey_id == undefined || request.query.user_id == undefined ){
+		// render the pages by language specefied
+		response.redirect(`/notFound?lang=${request.lang.langShortcut}`);
+	}
+	else {  
+
+		// render the pages 
+		response.render(`pages/ResultsFullScreen`);
+	}
+})
 
 router.get('/submitResponse', validators.checkLanguage, async(request,response)=>{
 	// Survey ID

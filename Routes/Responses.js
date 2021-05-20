@@ -29,51 +29,17 @@ router.get('/processSurveyResponses', async(request,response)=>{
 	const {  user_id, survey_id } = request.query;
 
 	// Trying using the puppteer for the first time! (This code is temporary)
-	const cookie = { 
-		name: request.headers.cookie.slice(0,11) , 
-		value: request.headers.cookie.slice(12),
-		domain: 'https://http://surveyapp1.herokuapp.com' ,
-		// expires : 11110,
-		// session : false
-		// Or
-		// expires : undefined,
-		// session : true
-		// See: https://github.com/puppeteer/puppeteer/issues/1350
-	};
-	console.log(request.headers.cookie.slice(12) == "s%3AU_8ZdjcuD2nJ0gu688WT-Tp1e7gCDl2f.ZzZYx8bbuZcYUv%2FoQUg%2FBbpk%2Fa3ZBqHlzcRfXcTYWzs")
-	// Init new browser
-	const browser = await puppeteer.launch();
-	const page = await browser.newPage();
-	const cookies = [
-		{
-		    "domain": "localhost",
-		    "hostOnly": true,
-		    "httpOnly": true,
-		    "name": request.headers.cookie.slice(0,11),
-		    "path": "/",
-		    "sameSite": "unspecified",
-		    "secure": false,
-		    "session": true,
-		    "storeId": "0",
-		    "value": request.headers.cookie.slice(12),
-		    "id": 1
-		}
-	]
-	// Set cookie
-	// const client = await page.target().createCDPSession();
-
-	// await client.send('Network.enable');
-    // const setCookie = await client.send('Network.setCookie', cookie);
-	await page.setCookie(...cookies);
-	// UnhandledPromiseRejectionWarning: Error: Protocol error (Network.deleteCookies): At least one of the url and domain needs to be specified   
-	// console.log(cookie);
-	console.log(await page.cookies())
-	
-	// Seceenshot and save it
-	await page.goto(`http://localhost:5000/surveyEditor?survey_id=${survey_id}&user_id=${user_id}`);
-	await page.screenshot({ path: 'paypal_login2.png' });
-	await browser.close();
-	//////////;
+	// const cookie = { 
+	// 	name: request.headers.cookie.slice(0,11) , 
+	// 	value: request.headers.cookie.slice(12),
+	// 	domain: 'https://http://surveyapp1.herokuapp.com' ,
+	// 	// expires : 11110,
+	// 	// session : false
+	// 	// Or
+	// 	// expires : undefined,
+	// 	// session : true
+	// 	// See: https://github.com/puppeteer/puppeteer/issues/1350
+	// };
 
 	// Get the survey
 	const questions = await questionsController.findSurvey( user_id, survey_id );
@@ -177,3 +143,54 @@ module.exports = router;
 
 // // Ending the process
 // writeStream.end();
+
+// Init new browser
+	// const browser = await puppeteer.launch();
+	// const page = await browser.newPage();
+
+	// // Create cookies
+	// const cookies = [
+	// 	{
+	// 	    "domain": "localhost",
+	// 	    "hostOnly": true,
+	// 	    "httpOnly": true,
+	// 	    "name": request.headers.cookie.slice(0,11),
+	// 	    "path": "/",
+	// 	    "sameSite": "unspecified",
+	// 	    "secure": false,
+	// 	    "session": true,
+	// 	    "storeId": "0",
+	// 	    "value": request.headers.cookie.slice(12),
+	// 	    "id": 1
+	// 	}
+	// ]
+	// const prodCookies = [
+	// 	{
+	// 	    "domain": "surveyapp1.herokuapp.com",
+	// 	    "hostOnly": true,
+	// 	    "httpOnly": true,
+	// 	    "name": "connect.sid",
+	// 	    "path": "/",
+	// 	    "sameSite": "unspecified",
+	// 	    "secure": false,
+	// 	    "session": true,
+	// 	    "storeId": "0",
+	// 	    "value": "s%3AllaKyIphcoCBvAVAc2xhcECmIYDFwn3B.ia4%2Frfenf%2FE%2FkMBd2YYqVvuPgM%2Bok2gtmT%2FWFev3gM0",
+	// 	    "id": 1
+	// 	}
+	// ]
+	// // Set cookie
+	// await page.setCookie(...cookies);
+	
+	// // Seceenshot and save it
+	// await page.goto(`http://localhost:5000/surveyEditor?survey_id=${survey_id}&user_id=${user_id}`);
+	// // await page.screenshot({ path: 'paypal_login2.png' });
+	// // page.pdf() is currently supported only in headless mode.
+	// // @see https://bugs.chromium.org/p/chromium/issues/detail?id=753118
+	// await page.pdf({
+	// 	path: 'hn.pdf',
+	// 	format: 'letter'
+	// });
+	
+	// await browser.close();
+	// //////////;

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Pie } from '@antv/g2plot';
 
 
-if ( window.location.pathname === "/surveyEditor" ){
+if ( window.location.pathname === "/surveyEditor" || window.location.pathname === "/resultsFullSceeen" ){
 	// Get results whenever the user hits response tab in the surveyEditor
 	window.getResults = function(){
 		// Check if the results already received
@@ -21,6 +21,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 			method : "GET",
 		})
 		.then((response)=>{
+			console.log("response")
 			if ( response.data.processed == false ) {
 				window.displayAlertMessage( response.data.processed, response.data.message );
 			}
@@ -36,7 +37,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 
 				// Display responses
 				for (var i = 0; i < response.data.data.questions.length; i++) {
-
+console.log("response0")
 					var single_response; 
 					// Check question type 
 					if (response.data.data.questions[i].type === "ShortParagraph"){
@@ -51,6 +52,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 
 						// Inject the single response to the responses area
 						responses_area.innerHTML += single_response;
+			console.log("response1")
 
 						// Get the area where the paragraphes should be placed
 						const shortParagraphdiv = document.querySelectorAll('.paragraphes');
@@ -67,7 +69,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 							}
 
 						}
-
+console.log("response2")
 						// Apply and Implement sme styles to the answres
 						document.querySelectorAll(".answres")
 						.forEach((answer)=>{
@@ -76,6 +78,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 							answer.style.backgroundColor = "#eff1f7";
 							// answer.
 						})
+			
 
 					}else {
 
@@ -102,8 +105,11 @@ if ( window.location.pathname === "/surveyEditor" ){
 					}
 
 				}
+			console.log("response3")
+
 				// Display Results charts
 				for (var i = 0; i < results_without_short_paragraph.length; i++) {
+			console.log("response4")
 
 					// Check if ( results_without_short_paragraph[i] !== undefined ) because we didnt pushed ShortParagraphes
 					if( results_without_short_paragraph[i] !== undefined ) {
@@ -141,7 +147,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 						})
 
 						piePlot.render();
-
+console.log("response5")
 
 					}else { continue }
 				}
@@ -150,6 +156,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 		.catch((error)=>{
 			window.displayAlertMessage( response.data.processed, response.data.message );
 		})
+		console.log("response6")
 	}
 	
 }
