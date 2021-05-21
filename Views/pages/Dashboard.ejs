@@ -47,7 +47,7 @@
 				<tbody>
 				<% surveys.forEach((survey)=>{%> 
 				  <tr>
-				    <td><a href="/surveyEditor?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>"><%= survey.id %></a></td>
+				    <td><a href="/surveyEditor?survey_id=<%= survey.id %>"><%= survey.id %></a></td>
 				    <td><%= survey.title %></td>
 				    <td>
 				    	<button class="local-btn local-btn-danger" onclick="deleteSurvey(event,'<%= survey.id %>')">Delete</button>
@@ -79,7 +79,7 @@
 					<% surveys.forEach((survey)=>{%> 
 						<div id="survey-card" class="card local-p-2 my-4">
 							<p class="text-left">
-								<a href="/surveyEditor?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>">
+								<a href="/surveyEditor?survey_id=<%= survey.id %>">
 									<%= survey.title || 'No title provided'%>
 								</a>
 							</p>

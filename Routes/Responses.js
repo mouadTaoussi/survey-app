@@ -5,10 +5,9 @@ const mime                            = require('mime');
 const path                            = require('path');
 const Responses                       = require('.././Controllers/Responses.js');
 const Questions                       = require('.././Controllers/Questions.js');//
-// const auth                            = require('.././Middlewares/Authentication.js');
-// const validators                      = require('.././Middlewares/Validators.js');
+const auth                            = require('.././Middlewares/Authentication.js');
+const validators                      = require('.././Middlewares/Validators.js');
 const databaseConnection              = require('.././Config/DatabaseConnection.js');
-const { isOwenedTheSurvey }           = require('.././Middlewares/Authentication.js');
 
 // Init appropriate controller
 const responsesController = new Responses();
@@ -23,10 +22,11 @@ router.post('/submitResponse', async (request,response)=>{
 	response.json(await responsesController.submitResponses(request.body));
 })
 
-router.get('/processSurveyResponses', async(request,response)=>{
-
+router.get('/processSurveyResponses',validators.checkLanguage, auth.isAuthenticated , auth.isOwenedTheSurvey_Api ,async(request,response)=>{
+	// Authenticated user
+	const user = request.user;
 	// Get the queries
-	const {  user_id, survey_id } = request.query;
+	const { survey_id } = request.query;
 
 	// Trying using the puppteer for the first time! (This code is temporary)
 	// const cookie = { 
@@ -42,7 +42,7 @@ router.get('/processSurveyResponses', async(request,response)=>{
 	// };
 
 	// Get the survey
-	const questions = await questionsController.findSurvey( user_id, survey_id );
+	const questions = await questionsController.findSurvey( user.id, survey_id );
 
     // Get thier responses
 	const responses = await responsesController.findResponses( survey_id );
@@ -71,12 +71,14 @@ router.get('/processSurveyResponses', async(request,response)=>{
 
 
 // Download results JSON
-router.get('/downloadResults',async(request,response)=>{
+router.get('/downloadResults', validators.checkLanguage, auth.isAuthenticated, auth.isOwenedTheSurvey_Api, async(request,response)=>{
+	// Authenticated user
+	const user = request.user;
 	// Get the queries
-	const {  user_id, survey_id } = request.query;
+	const { survey_id } = request.query;
 	
 	// Get the survey
-	const questions = await questionsController.findSurvey( user_id, survey_id );
+	const questions = await questionsController.findSurvey( user.id, survey_id );
 
     // Get thier responses
 	const responses = await responsesController.findResponses( survey_id );

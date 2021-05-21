@@ -50,7 +50,7 @@
 				<% surveys.forEach((survey)=>{%> 
 				  <tr>
 				    <td>
-				    	<a href="/surveyEditor?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>&lang=kr">
+				    	<a href="/surveyEditor?survey_id=<%= survey.id %>&lang=kr">
 				    		<%= survey.id %>
 				    	</a>
 				    </td>
@@ -85,7 +85,7 @@
 					<% surveys.forEach((survey)=>{%> 
 						<div id="survey-card" class="card local-p-2 my-4">
 							<p class="text-left">
-								<a href="/surveyEditor?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>&lang=kr">
+								<a href="/surveyEditor?survey_id=<%= survey.id %>&lang=kr">
 									<%= survey.title || 'No title provided'%>
 								</a>
 							</p>

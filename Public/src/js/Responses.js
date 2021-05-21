@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Pie } from '@antv/g2plot';
 
 
-if ( window.location.pathname === "/surveyEditor" || window.location.pathname === "/resultsFullSceeen" ){
+if ( window.location.pathname === "/surveyEditor" || window.location.pathname === "/results" ){
 	// Get results whenever the user hits response tab in the surveyEditor
 	window.getResults = function(){
 		// Check if the results already received
@@ -13,11 +13,11 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 		// Get question ID
 		const urlParams = new URLSearchParams(window.location.search);
 		const survey_id = urlParams.get('survey_id');
-		const user_id = urlParams.get('user_id');
+		// const user_id = urlParams.get('user_id');
 
 		// Get the response results and then display them in the chart
 		axios({
-			url : `/response/processSurveyResponses?survey_id=${survey_id}&user_id=${user_id}`,
+			url : `/response/processSurveyResponses?survey_id=${survey_id}`,
 			method : "GET",
 		})
 		.then((response)=>{
@@ -28,6 +28,7 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 			else {
 				// Get the resposnes list 
 				const responses_area = document.querySelector('.responses');
+
 				// Put Responses count and display it to the user
 				document.querySelector('.responsesNumber').innerHTML = response.data.responsesNumber;
 
@@ -37,7 +38,7 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 
 				// Display responses
 				for (var i = 0; i < response.data.data.questions.length; i++) {
-console.log("response0")
+
 					var single_response; 
 					// Check question type 
 					if (response.data.data.questions[i].type === "ShortParagraph"){
@@ -52,7 +53,6 @@ console.log("response0")
 
 						// Inject the single response to the responses area
 						responses_area.innerHTML += single_response;
-			console.log("response1")
 
 						// Get the area where the paragraphes should be placed
 						const shortParagraphdiv = document.querySelectorAll('.paragraphes');
@@ -69,7 +69,7 @@ console.log("response0")
 							}
 
 						}
-console.log("response2")
+
 						// Apply and Implement sme styles to the answres
 						document.querySelectorAll(".answres")
 						.forEach((answer)=>{
@@ -105,11 +105,9 @@ console.log("response2")
 					}
 
 				}
-			console.log("response3")
 
 				// Display Results charts
 				for (var i = 0; i < results_without_short_paragraph.length; i++) {
-			console.log("response4")
 
 					// Check if ( results_without_short_paragraph[i] !== undefined ) because we didnt pushed ShortParagraphes
 					if( results_without_short_paragraph[i] !== undefined ) {
@@ -147,16 +145,16 @@ console.log("response2")
 						})
 
 						piePlot.render();
-console.log("response5")
+						console.log('rendered');
 
 					}else { continue }
 				}
 			}
 		})
 		.catch((error)=>{
-			window.displayAlertMessage( response.data.processed, response.data.message );
+			console.log(error)
+			alert("something went wrong!" );
 		})
-		console.log("response6")
 	}
 	
 }
