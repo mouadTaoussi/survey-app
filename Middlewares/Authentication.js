@@ -154,7 +154,7 @@ module.exports = {
 	isOwenedTheSurvey_App : async (request,response,next)=>{
 
 		// TAKES THE USER_ID AND THE APIKEY
-		const { user }       = request; 
+		const { user }       = request;
 		const { survey_id }  = request.query;
 
 		// Find the survey from the database
