@@ -6,8 +6,8 @@
  This repository contains the codebase of the survey app
  -->
 <p align="center">
-  <img src="https://github.com/mouadTaoussi/survey-app/blob/downloadingResultsPdf/Screenshots/Web_capture_22-5-2021_22447_localhost.jpeg"/>
+  <img src="https://github.com/mouadTaoussi/survey-app/blob/downloadingResultsPdf/Screenshots/survey.png"/>
 </p>
 <p align="center">
-  <img src="https://github.com/mouadTaoussi/survey-app/blob/downloadingResultsPdf/Screenshots/Web_capture_22-5-2021_22528_localhost.jpeg"/>
+  <img src="https://github.com/mouadTaoussi/survey-app/blob/downloadingResultsPdf/Screenshots/responses.png"/>
 </p>
