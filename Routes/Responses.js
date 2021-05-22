@@ -180,9 +180,18 @@ router.get('/downloadResults/pdf', validators.checkLanguage, auth.isAuthenticate
 	await page.screenshot({ path: 'paypal_login2.png' });
 	// page.pdf() is currently supported only in headless mode.
 	// @see https://bugs.chromium.org/p/chromium/issues/detail?id=753118
+	// await page.waitForNavigation({
+	// 	waitUntil: 'networkidle0',
+	// })
+	await page.waitForSelector('#canvas0', {
+	  visible: true,
+	});
+
 	await page.pdf({
-		path: uuid.v4()+'.pdf',
-		format: 'letter'
+		path: uuid.v4() + '.pdf',
+		format: 'letter',
+		// printBackground: true,
+    	// format: 'A4'
 	});
 	console.log(3)
 	await browser.close();

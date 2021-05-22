@@ -36,10 +36,11 @@
 	      	   	<div class="empty-content"></div>
 	      	  <% } %>
 	      	  <% if (surveys.length > 0) { %>
-				<thead style="background-color:rgba(0,0,0,.1); font-family: 'Poppins';">
+				<thead style=" font-family: 'Poppins';">
 				    <tr>
 				      <th scope="col">Survey ID</th>
 				      <th scope="col">Survey Title</th>
+				      <th scope="col"></th>
 				      <th scope="col"></th>
 				      <th scope="col"></th>
 				    </tr>
@@ -50,12 +51,17 @@
 				    <td><a href="/surveyEditor?survey_id=<%= survey.id %>"><%= survey.id %></a></td>
 				    <td><%= survey.title %></td>
 				    <td>
-				    	<button class="local-btn local-btn-danger" onclick="deleteSurvey(event,'<%= survey.id %>')">Delete</button>
+				    	<a href="/submitResponse?survey_id=<%= survey.id %>" target="_blank">
+				    		<button class="local-btn btn-sm local-btn-info">Preview</button>
+				    	</a>
 				    </td>
 				    <td>
-				    	<a href="/submitResponse?survey_id=<%= survey.id %>" target="_blank">
-				    		<button class="local-btn local-btn-info">Preview</button>
+				    	<a href="/results?survey_id=<%= survey.id %>" target="_blank">
+				    		<button class="local-btn btn-sm local-btn-success">Results</button>
 				    	</a>
+				    </td>
+				    <td>
+				    	<button class="local-btn btn-sm local-btn-danger" onclick="deleteSurvey(event,'<%= survey.id %>')">Delete</button>
 				    </td>
 				  </tr>
 				<% }) %>

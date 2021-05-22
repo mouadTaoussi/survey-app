@@ -44,6 +44,7 @@
 				      <th scope="col">설문 조사 제목</th>
 				      <th scope="col"></th>
 				      <th scope="col"></th>
+				      <th scope="col"></th>
 				    </tr>
 				  </thead>
 				<tbody>
@@ -56,12 +57,17 @@
 				    </td>
 				    <td><%= survey.title || 'No title provided' %></td>
 				    <td>
-				    	<button class="local-btn local-btn-danger" onclick="deleteSurvey(event,'<%= survey.id %>')">지우다</button>
+				    	<a href="/submitResponse?survey_id=<%= survey.id %>&lang=kr" target="_blank">
+				    		<button class="local-btn btn-sm local-btn-info">시사</button>
+				    	</a>
 				    </td>
 				    <td>
-				    	<a href="/submitResponse?survey_id=<%= survey.id %>&lang=kr" target="_blank">
-				    		<button class="local-btn local-btn-info">시사</button>
+				    	<a href="/results?survey_id=<%= survey.id %>" target="_blank">
+				    		<button class="local-btn btn-sm local-btn-success">결과</button>
 				    	</a>
+				    </td>
+				    <td>
+				    	<button class="local-btn btn-sm local-btn-danger" onclick="deleteSurvey(event,'<%= survey.id %>')">지우다</button>
 				    </td>
 				  </tr>
 				<% }) %>

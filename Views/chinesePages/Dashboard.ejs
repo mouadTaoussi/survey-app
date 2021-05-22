@@ -43,6 +43,7 @@
 				      <th scope="col">调查标题</th>
 				      <th scope="col"></th>
 				      <th scope="col"></th>
+				      <th scope="col"></th>
 				    </tr>
 				  </thead>
 				<tbody>
@@ -55,12 +56,17 @@
 				    	</td>
 				    <td><%= survey.title %></td>
 				    <td>
-				    	<button class="local-btn local-btn-danger" onclick="deleteSurvey(event,'<%= survey.id %>')">删除</button>
+				    	<a href="/submitResponse?survey_id=<%= survey.id %>&lang=cn" target="_blank">
+				    		<button class="local-btn btn-sm local-btn-info">预习</button>
+				    	</a>
 				    </td>
 				    <td>
-				    	<a href="/submitResponse?survey_id=<%= survey.id %>&lang=cn" target="_blank">
-				    		<button class="local-btn local-btn-info">预习</button>
+				    	<a href="/results?survey_id=<%= survey.id %>" target="_blank">
+				    		<button class="local-btn btn-sm local-btn-success">结果</button>
 				    	</a>
+				    </td>
+				    <td>
+				    	<button class="local-btn btn-sm local-btn-danger" onclick="deleteSurvey(event,'<%= survey.id %>')">删除</button>
 				    </td>
 				  </tr>
 				<% }) %>
