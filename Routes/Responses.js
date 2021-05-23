@@ -95,27 +95,26 @@ router.get('/downloadResults/json', validators.checkLanguage, auth.isAuthenticat
 	// Checking ...
 	if( responses.found && questions.found && processing.processed ) {
 
+		// Get file location
+		var fileLocation = __dirname + '/SurveyResultsForDownload/' + survey_id + '.txt';
+
 		// Save results as a file
 		fileSystem.appendFileSync(
-			__dirname + '/SurveyResultsForDownload/' + survey_id + '.txt',
-			JSON.stringify(processing.data.questions)
+			fileLocation, JSON.stringify(processing.data.questions)
 		)
 
-		// Get the file location
-		var file = __dirname + '/SurveyResultsForDownload/' + survey_id + '.txt';
-
 		// const filename = path.basename(file);
-		const mimetype = mime.lookup(file);
+		const mimetype = mime.lookup(fileLocation);
 
 		response.setHeader('Content-disposition', 'attachment; filename=' + survey_id);
 		response.setHeader('Content-type', mimetype);
 
 		// // Download the file
-		response.download(file,"your_survey_result_"+survey_id+".txt");
+		response.download(fileLocation,"survey_report_"+survey_id+".txt");
 
 		setTimeout(()=>{
 			// Delete  file
-			fileSystem.unlink(file, function(err) {
+			fileSystem.unlink(fileLocation, function(err) {
 
 				if (err) { return console.error(err); }
 
@@ -161,13 +160,13 @@ router.get('/downloadResults/pdf', validators.checkLanguage, auth.isAuthenticate
 		    "domain": "surveyapp1.herokuapp.com",
 		    "hostOnly": true,
 		    "httpOnly": true,
-		    "name": "connect.sid",
+		    "name": request.headers.cookie.slice(0,11),
 		    "path": "/",
 		    "sameSite": "unspecified",
 		    "secure": false,
 		    "session": true,
 		    "storeId": "0",
-		    "value": "s%3AllaKyIphcoCBvAVAc2xhcECmIYDFwn3B.ia4%2Frfenf%2FE%2FkMBd2YYqVvuPgM%2Bok2gtmT%2FWFev3gM0",
+		    "value": request.headers.cookie.slice(12),
 		    "id": 1
 		}
 	]
@@ -177,7 +176,7 @@ router.get('/downloadResults/pdf', validators.checkLanguage, auth.isAuthenticate
 	// Seceenshot and save it
 	await page.goto(`${WEBSITE_DOMAIN}/results?survey_id=${survey_id}`);
 
-	await page.screenshot({ path: 'paypal_login2.png' });
+	// await page.screenshot({ path: 'paypal_login2.png' });
 	// page.pdf() is currently supported only in headless mode.
 	// @see https://bugs.chromium.org/p/chromium/issues/detail?id=753118
 	// await page.waitForNavigation({
@@ -187,18 +186,42 @@ router.get('/downloadResults/pdf', validators.checkLanguage, auth.isAuthenticate
 	  visible: true,
 	});
 
+	// Get file location
+	var fileLocation = __dirname + '/SurveyResultsForDownload/' + uuid.v4() + '.pdf';
+
+	// Take a screenshot of the report and save it in the right location
 	await page.pdf({
-		path: uuid.v4() + '.pdf',
+		path : fileLocation,
 		format: 'letter',
 		// printBackground: true,
     	// format: 'A4'
 	});
+
 	console.log(3)
+	// Close the browser
 	await browser.close();
 	//////////;
 
 	// Download 
+
+	// const filename = path.basename(file);
+	const mimetype = mime.lookup(fileLocation);
+
+	response.setHeader('Content-disposition', 'attachment; filename=' + survey_id);
+	response.setHeader('Content-type', mimetype);
+
+	// // Download the file
+	response.download(fileLocation,"survey_report_"+survey_id+".pdf");
+
 	// Remove 
+	setTimeout(()=>{
+		// Delete  file
+		fileSystem.unlink(fileLocation, function(err) {
+
+			if (err) { return console.error(err); }
+
+		});
+	},5000)
 	// End
 })
 
