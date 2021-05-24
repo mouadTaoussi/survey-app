@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Pie } from '@antv/g2plot';
 
 
-if ( window.location.pathname === "/surveyEditor" ){
+if ( window.location.pathname === "/surveyEditor" || window.location.pathname === "/results" ){
 	// Get results whenever the user hits response tab in the surveyEditor
 	window.getResults = function(){
 		// Check if the results already received
@@ -13,20 +13,22 @@ if ( window.location.pathname === "/surveyEditor" ){
 		// Get question ID
 		const urlParams = new URLSearchParams(window.location.search);
 		const survey_id = urlParams.get('survey_id');
-		const user_id = urlParams.get('user_id');
+		// const user_id = urlParams.get('user_id');
 
 		// Get the response results and then display them in the chart
 		axios({
-			url : `/response/processSurveyResponses?survey_id=${survey_id}&user_id=${user_id}`,
+			url : `/response/processSurveyResponses?survey_id=${survey_id}`,
 			method : "GET",
 		})
 		.then((response)=>{
+			console.log("response")
 			if ( response.data.processed == false ) {
 				window.displayAlertMessage( response.data.processed, response.data.message );
 			}
 			else {
 				// Get the resposnes list 
 				const responses_area = document.querySelector('.responses');
+
 				// Put Responses count and display it to the user
 				document.querySelector('.responsesNumber').innerHTML = response.data.responsesNumber;
 
@@ -76,6 +78,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 							answer.style.backgroundColor = "#eff1f7";
 							// answer.
 						})
+			
 
 					}else {
 
@@ -102,6 +105,7 @@ if ( window.location.pathname === "/surveyEditor" ){
 					}
 
 				}
+
 				// Display Results charts
 				for (var i = 0; i < results_without_short_paragraph.length; i++) {
 
@@ -141,14 +145,15 @@ if ( window.location.pathname === "/surveyEditor" ){
 						})
 
 						piePlot.render();
-
+						console.log('rendered');
 
 					}else { continue }
 				}
 			}
 		})
 		.catch((error)=>{
-			window.displayAlertMessage( response.data.processed, response.data.message );
+			console.log(error)
+			alert("something went wrong!" );
 		})
 	}
 	

@@ -13,6 +13,13 @@
 	  <li style="cursor:pointer;" class="list-group-item edit-tab active">Edit</li>
 	  <li style="cursor:pointer;" class="list-group-item responses-tab">Responses<i class="responsesNumber badge success text-white local-ml-2"></i></li>
 	</ul>
+	<style>
+		.active {
+			background-color: var(--light)!important;
+			color: rgba(0,0,0,.7)!important;
+			border-color: rgba(0,0,0,.3)!important;
+		}
+	</style>
 	<!-- <h1>Survey Editor</h1> -->
 	<!-- ---------------------------------------------------------- -->
 	<!-- ---------------------------------------------------------- -->
@@ -23,40 +30,26 @@
 			<div id="tools-list-smaller-devices">
 				<center>
 					<p class="add_new_field tool-item-sd px-2" data-toggle="tooltip" data-placement="left" title="Add new field">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						  <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-						  <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-						</svg>
+						<i class="bi bi-plus-square-fill"></i>
 					</p>
-				
-					<p  class="tool-item-sd px-2" data-toggle="modal" data-target="#importModal">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-arrow-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						  <path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
-						  <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z"/>
-						  <path fill-rule="evenodd" d="M8 6a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 10.293V6.5A.5.5 0 0 1 8 6z"/>
-						</svg>
+					<p class="tool-item-sd px-2" data-toggle="modal" data-target="#importModal">
+						<i class="bi bi-file-earmark-arrow-down-fill"></i>
 					</p>
-					<p  class="tool-item-sd px-2" data-toggle="modal" data-target="#shareMethodsModal">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-share" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						  <path fill-rule="evenodd" d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
-						</svg>
+					<p class="tool-item-sd px-2" data-toggle="modal" data-target="#shareMethodsModal">
+						<i class="bi bi-share-fill"></i>
 					</p>
-					<p class="tool-item-sd px-2" >
+					<p class="tool-item-sd px-2" data-toggle="modal" data-target="#downloadResultsModal">
+						<i class="bi bi-cloud-download-fill"></i>
+					</p>
+					<p class="tool-item-sd px-2" data-toggle="tooltip" data-placement="left" title="View Report of that survey">
 						<% if (survey !== null ) { %>
-							<a href='/response/downloadResults?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>'>
-								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								  <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-								  <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-								</svg>
+							<a style="color: black;" href='/results?survey_id=<%= survey.id %>'>
+								<i class="bi bi-pie-chart-fill"></i>
 							</a>
-
 						<%}%>
 						<% if (survey == null ) { %>
-							<a href='#' disabled>
-								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								  <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-								  <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-								</svg>
+							<a style="color: black;" href='#'>
+								<i class="bi bi-pie-chart-fill"></i>
 							</a>
 						<%}%>
 					</p>
@@ -225,39 +218,26 @@
 			<div class="tools-panel local-mt-4  local-shadow local-p-2">
 				<ul class="tools-list">
 					<li data-toggle="tooltip" data-placement="left" title="Add new field" class="add_new_field">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						  <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-						  <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-						</svg>
+						<i class="bi bi-plus-square-fill"></i>
 					</li>
 					<li title="Import another questions" type="button" data-toggle="modal" data-target="#importModal">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-arrow-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						  <path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
-						  <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z"/>
-						  <path fill-rule="evenodd" d="M8 6a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 10.293V6.5A.5.5 0 0 1 8 6z"/>
-						</svg>
+						<i class="bi bi-file-earmark-arrow-down-fill"></i>
 					</li>
 					<li title="Share this survey" type="button" data-toggle="modal" data-target="#shareMethodsModal">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-share" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						  <path fill-rule="evenodd" d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
-						</svg>
+						<i class="bi bi-share-fill"></i>
 					</li>
-					<li type="button">
+					<li type="button" data-toggle="modal" data-target="#downloadResultsModal">
+						<i class="bi bi-cloud-download-fill"></i>
+					</li>
+					<li data-toggle="tooltip" data-placement="left" title="View Report of that survey">
 						<% if (survey !== null ) { %>
-							<a href='/response/downloadResults?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>'>
-								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								  <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-								  <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-								</svg>
+							<a style="color: black;" href='/results?survey_id=<%= survey.id %>'>
+								<i class="bi bi-pie-chart-fill"></i>
 							</a>
-
 						<%}%>
 						<% if (survey == null ) { %>
-							<a href='#' disabled>
-								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								  <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-								  <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-								</svg>
+							<a style="color: black;" href='#'>
+								<i class="bi bi-pie-chart-fill"></i>
 							</a>
 						<%}%>
 					</li>
@@ -265,11 +245,11 @@
 			</div>
 		</div>
 		<!-- shareMethodsModal -->
-		<div class="modal fade" id="shareMethodsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="shareMethodsModal" tabindex="-1" role="dialog" aria-labelledby="shareSurveyLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Share your survey</h5>
+		        <h5 class="modal-title" id="shareSurveyLabel">Share your survey</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
@@ -330,11 +310,11 @@
 		  </div>
 		</div>
 		<!-- importModal -->
-		<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importQuestionsLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Import another questions</h5>
+		        <h5 class="modal-title" id="importQuestionsLabel">Import another questions</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
@@ -349,6 +329,43 @@
 		      <div class="modal-footer">
 		        <button type="button" class="local-btn local-btn-dark" data-dismiss="modal">Close</button>
 		        <button type="button" class="local-btn local-btn-primary" onclick="importQuestions()">Import</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- download results Modal -->
+		<div class="modal fade" id="downloadResultsModal" tabindex="-1" aria-labelledby="downloadResultsLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="downloadResultsLabel">Download a report of that survey</h5>
+		        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		      	<p class="text-left poppins">Download a report of your survey responses at any type below.</p>
+		      	<a href="/response/downloadResults/json?survey_id=<%=survey.id %>">
+					<button type="button" class="download-btn local-btn my-2 local-btn-warning">
+						<i class="bi bi-braces text-white"></i>
+						Download as JSON
+					</button>
+				</a>
+				<br>
+				<a href="/response/downloadResults/pdf?survey_id=<%=survey.id %>">
+			        <button type="button" class="download-btn local-btn my-2 local-btn-danger">
+			        	<i class="bi bi-file-earmark-pdf text-white"></i>
+			        	Download as PDF
+			        </button>
+			    </a>
+		        <br>
+		        <a href="/response/downloadResults/json">
+			        <button type="button" class="download-btn local-btn my-2 local-btn-success" disabled>
+			        	<i class="bi bi-table text-white"></i>
+				        Download as Exel sheets (Not available for now)
+				    </button>
+				</a>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="local-btn btn-secondary" data-dismiss="modal">Close</button>
 		      </div>
 		    </div>
 		  </div>

@@ -170,17 +170,16 @@ router.get('/surveyEditor', validators.checkLanguage, auth.isAuthenticated, asyn
 	const user = request.user;
 		
 	// Checking ...
-	if ( request.query.survey_id == undefined ){
+	if ( request.query.survey_id == undefined || request.query.survey_id == "" ){
 		// render the pages by language specefied
 		response.render(`${request.lang.langPages}/SurveyEditor`,{survey:null, user});
 	}
 	else {  
+		
 		// Use the appropriate controller
+		// Note: /findSurvey/ finds the survey that the user owens so no need to attach <isOwenedTheSurvey_App> middleware
 		const survey = await questionsController.findSurvey( user.id, request.query.survey_id );
 
-		// Find responses
-		// Proccess responses to get the answers results to display them in chart
-		
 		if ( !survey.found ) {
 			response.redirect(`/notFound?lang=${request.lang.langShortcut}`);
 		}
@@ -191,6 +190,10 @@ router.get('/surveyEditor', validators.checkLanguage, auth.isAuthenticated, asyn
 	}
 })
 
+router.get('/results', validators.checkLanguage, auth.isAuthenticated, auth.isOwenedTheSurvey_App, async(request,response)=>{
+	// render the pages 
+	response.render(`pages/ResultsFullScreen`);
+})
 
 router.get('/submitResponse', validators.checkLanguage, async(request,response)=>{
 	// Survey ID

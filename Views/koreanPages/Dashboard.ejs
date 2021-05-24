@@ -38,11 +38,10 @@
 	      	   	<div class="empty-content"></div>
 	      	  <% } %>
 	      	  <% if (surveys.length > 0) { %>
-				<thead style="background-color:rgba(0,0,0,.1); font-family: 'Poppins';">
+				<thead class="poppins">
 				    <tr>
 				      <th scope="col">설문 조사 ID</th>
 				      <th scope="col">설문 조사 제목</th>
-				      <th scope="col"></th>
 				      <th scope="col"></th>
 				    </tr>
 				  </thead>
@@ -50,26 +49,27 @@
 				<% surveys.forEach((survey)=>{%> 
 				  <tr>
 				    <td>
-				    	<a href="/surveyEditor?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>&lang=kr">
+				    	<a href="/surveyEditor?survey_id=<%= survey.id %>&lang=kr">
 				    		<%= survey.id %>
 				    	</a>
 				    </td>
 				    <td><%= survey.title || 'No title provided' %></td>
 				    <td>
-				    	<button class="local-btn local-btn-danger" onclick="deleteSurvey(event,'<%= survey.id %>')">지우다</button>
-				    </td>
-				    <td>
-				    	<a href="/submitResponse?survey_id=<%= survey.id %>&lang=kr" target="_blank">
-				    		<button class="local-btn local-btn-info">시사</button>
+				    	<a class="dashboard-table-button" href="/submitResponse?survey_id=<%= survey.id %>&lang=kr" target="_blank">
+				    		시사
 				    	</a>
+				    	<a class="dashboard-table-button" href="/results?survey_id=<%= survey.id %>&lang=kr" target="_blank">
+				    		결과
+				    	</a>
+				    	<p class="dashboard-table-button text-danger" onclick="deleteSurvey(event,'<%= survey.id %>')">
+					    	지우다
+					    </p>
 				    </td>
 				  </tr>
 				<% }) %>
 				<% } %>
 			    <tr style="background-color:rgba(0,0,0,.20); cursor: pointer">
 			      <td><a class="text-dark" href='/surveyEditor?lang=kr'>새 설문 조사 만들기 +</a></td>
-			      <td></td>
-			      <td></td>
 			      <td></td>
 			      <td></td>
 			    </tr>
@@ -85,7 +85,7 @@
 					<% surveys.forEach((survey)=>{%> 
 						<div id="survey-card" class="card local-p-2 my-4">
 							<p class="text-left">
-								<a href="/surveyEditor?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>&lang=kr">
+								<a href="/surveyEditor?survey_id=<%= survey.id %>&lang=kr">
 									<%= survey.title || 'No title provided'%>
 								</a>
 							</p>

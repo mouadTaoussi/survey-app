@@ -37,11 +37,10 @@
 	      	   	<div class="empty-content"></div>
 	      	  <% } %>
 	      	  <% if (surveys.length > 0) { %>
-				<thead style="background-color:rgba(0,0,0,.1); font-family: 'Poppins';">
+				<thead class="poppins">
 				    <tr>
 				      <th scope="col">调查编号</th>
 				      <th scope="col">调查标题</th>
-				      <th scope="col"></th>
 				      <th scope="col"></th>
 				    </tr>
 				  </thead>
@@ -49,26 +48,27 @@
 				<% surveys.forEach((survey)=>{%> 
 				  <tr>
 				    <td>
-				    	<a href="/surveyEditor?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>&lang=cn">
+				    	<a href="/surveyEditor?survey_id=<%= survey.id %>&lang=cn">
 				    		<%= survey.id %>	
 				    		</a>
 				    	</td>
 				    <td><%= survey.title %></td>
 				    <td>
-				    	<button class="local-btn local-btn-danger" onclick="deleteSurvey(event,'<%= survey.id %>')">删除</button>
-				    </td>
-				    <td>
-				    	<a href="/submitResponse?survey_id=<%= survey.id %>&lang=cn" target="_blank">
-				    		<button class="local-btn local-btn-info">预习</button>
+				    	<a class="dashboard-table-button" href="/submitResponse?survey_id=<%= survey.id %>&lang=cn" target="_blank">
+				    		预习
 				    	</a>
+				    	<a class="dashboard-table-button" href="/results?survey_id=<%= survey.id %>&lang=cn" target="_blank">
+				    		结果
+				    	</a>
+				    	<p class="dashboard-table-button text-danger" onclick="deleteSurvey(event,'<%= survey.id %>')">
+					    	删除
+					    </p>
 				    </td>
 				  </tr>
 				<% }) %>
 				<% } %>
 			    <tr style="background-color:rgba(0,0,0,.20); cursor: pointer">
 			      <td><a class="text-dark" href='/surveyEditor?lang=cn'>建立新的问卷调查+</a></td>
-			      <td></td>
-			      <td></td>
 			      <td></td>
 			      <td></td>
 			    </tr>
@@ -84,7 +84,7 @@
 					<% surveys.forEach((survey)=>{%> 
 						<div id="survey-card" class="card local-p-2 my-4">
 							<p class="text-left">
-								<a href="/surveyEditor?survey_id=<%= survey.id %>&user_id=<%= survey.user_id %>&lang=cn">
+								<a href="/surveyEditor?survey_id=<%= survey.id %>&lang=cn">
 									<%= survey.title || 'No title provided'%>
 								</a>
 							</p>

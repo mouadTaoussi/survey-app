@@ -5,6 +5,8 @@ const ResetPasswordToken               = require('.././Models/ResetPasswordToken
 module.exports = {
 	// You know this middleware what could do, so no explanation required !! !! !! 
 	isAuthenticated : async (request,response,next)=>{
+		// console.log('MiHi')
+		// console.log(request.session)
 		if (request.session.passport){
 			const user = await User.findOne({ 
 				atProviderId : request.session.passport.user.atProviderId 
@@ -123,8 +125,8 @@ module.exports = {
 		}
 		
 	},
-	// Comes after the above middleware <validateAPIKEY> for get the user from it, and check it if ownes the survey
-	isOwenedTheSurvey : async (request,response,next)=>{
+	// Comes after the above middleware <validateAPIKEY>  for get the user from it, and check it if ownes the survey in the api
+	isOwenedTheSurvey_Api : async (request,response,next)=>{
 
 		// TAKES THE USER_ID AND THE APIKEY
 		const { user }       = request; 
@@ -144,6 +146,31 @@ module.exports = {
 			}
 			else {
 				response.status(401).json({message: "You are not authorized to read responses and makeing changes on that survey!"});
+			}
+		}
+
+	},
+	// Comes after the above middleware <isAuthenticated> for get the user from it, and check it if ownes the survey in the application
+	isOwenedTheSurvey_App : async (request,response,next)=>{
+
+		// TAKES THE USER_ID AND THE APIKEY
+		const { user }       = request;
+		const { survey_id }  = request.query;
+
+		// Find the survey from the database
+		const survey = await Questions.findOne({ _id: survey_id }); 
+		
+		// Compare its user_id to the user id 
+		if (survey === null) {
+			response.redirect(`/notFound?lang=${request.lang.langShortcut}`);
+		}
+		else {
+
+			if (survey.user_id == user._id){
+				next();
+			}
+			else {
+				response.redirect(`/notFound?lang=${request.lang.langShortcut}`);
 			}
 		}
 
