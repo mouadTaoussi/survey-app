@@ -644,6 +644,13 @@ h1,h2,h3,h5,h6 {
 #survey-cards {
 	display: none;
 }
+.dashboard-table-button {
+	font-size: 13px;
+	font-weight: 500;
+	display: inline;
+	margin-right: 8px;
+	cursor: pointer;
+}
 /**
 *
 *
@@ -1105,6 +1112,9 @@ h1,h2,h3,h5,h6 {
 *
 *
 **/
+.list-group-horizontal-sm li {
+	width: 50%;
+}
 .desc, .single-question, .response {
 	border-left: 3px solid var(--primary);
 	border-radius: 3px;
@@ -1486,6 +1496,9 @@ h1,h2,h3,h5,h6 {
 	#survey_id {}
 	.response-question, .response-question-type {
 		font-size: 15px;
+	}
+	.list-group-horizontal-sm li {
+		width: 100%;
 	}
 }
 

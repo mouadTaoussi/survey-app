@@ -11,7 +11,8 @@ const validators                      = require('.././Middlewares/Validators.js'
 const databaseConnection              = require('.././Config/DatabaseConnection.js');
 
 // Website domain used to work with puppeteer
-const WEBSITE_DOMAIN = "http://localhost:5000";
+// const WEBSITE_DOMAIN = "http://localhost:5000";
+const WEBSITE_DOMAIN = "https://surveyapp1.herokuapp.com";
 
 // Init appropriate controller
 const responsesController = new Responses();
@@ -31,19 +32,6 @@ router.get('/processSurveyResponses',validators.checkLanguage, auth.isAuthentica
 	const user = request.user;
 	// Get the queries
 	const { survey_id } = request.query;
-
-	// Trying using the puppteer for the first time! (This code is temporary)
-	// const cookie = { 
-	// 	name: request.headers.cookie.slice(0,11) , 
-	// 	value: request.headers.cookie.slice(12),
-	// 	domain: 'https://http://surveyapp1.herokuapp.com' ,
-	// 	// expires : 11110,
-	// 	// session : false
-	// 	// Or
-	// 	// expires : undefined,
-	// 	// session : true
-	// 	// See: https://github.com/puppeteer/puppeteer/issues/1350
-	// };
 
 	// Get the survey
 	const questions = await questionsController.findSurvey( user.id, survey_id );
@@ -171,7 +159,7 @@ router.get('/downloadResults/pdf', validators.checkLanguage, auth.isAuthenticate
 		}
 	]
 	// Set cookie
-	await page.setCookie(...cookies);
+	await page.setCookie(...prodCookies);
 	
 	// Seceenshot and save it
 	await page.goto(`${WEBSITE_DOMAIN}/results?survey_id=${survey_id}`);
@@ -197,7 +185,6 @@ router.get('/downloadResults/pdf', validators.checkLanguage, auth.isAuthenticate
     	// format: 'A4'
 	});
 
-	console.log(3)
 	// Close the browser
 	await browser.close();
 	//////////;
@@ -242,3 +229,16 @@ module.exports = router;
 // // Ending the process
 // writeStream.end();
 
+
+// Trying using the puppteer for the first time! (This code is temporary)
+// const cookie = { 
+// 	name: request.headers.cookie.slice(0,11) , 
+// 	value: request.headers.cookie.slice(12),
+// 	domain: 'https://http://surveyapp1.herokuapp.com' ,
+// 	// expires : 11110,
+// 	// session : false
+// 	// Or
+// 	// expires : undefined,
+// 	// session : true
+// 	// See: https://github.com/puppeteer/puppeteer/issues/1350
+// };

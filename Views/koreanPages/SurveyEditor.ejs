@@ -7,11 +7,19 @@
 <body style="">
 <%- include('.././partials/koreanHeaderElement',{avatar:user.avatar}) %>
 <div id="survey-editor" class="mt-4 mb-4 local-container-4">
+	<!-- Dynamic alert message -->
 	<%- include('.././partials/alertMessage') %>
 	<ul class="list-group list-group-horizontal-sm">
 	  <li style="cursor:pointer;" class="list-group-item edit-tab active">편집하다</li>
 	  <li style="cursor:pointer;" class="list-group-item responses-tab">응답<i class="responsesNumber badge success text-white local-ml-2"></i></li>
 	</ul>
+	<style>
+		.active {
+			background-color: var(--light)!important;
+			color: rgba(0,0,0,.7)!important;
+			border-color: rgba(0,0,0,.3)!important;
+		}
+	</style>
 	<!-- <h1>Survey Editor</h1> -->
 	<!-- ---------------------------------------------------------- -->
 	<!-- ---------------------------------------------------------- -->
@@ -335,29 +343,29 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="downloadResultsLabel">Download a report of that survey</h5>
+		        <h5 class="modal-title" id="downloadResultsLabel">해당 설문 조사 보고서 다운로드 </h5>
 		        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
 		      </div>
 		      <div class="modal-body">
-		      	<p class="text-left poppins">Download a report of your survey responses at any type below.</p>
+		      	<p class="text-left poppins">아래에서 설문 조사 응답 보고서를 다운로드하십시오.</p>
 		      	<a href="/response/downloadResults/json?survey_id=<%= survey.id %>">
 					<button type="button" class="download-btn local-btn my-2 local-btn-warning">
 						<i class="bi bi-braces text-white"></i>
-						Download as JSON
+						JSON으로 다운로드
 					</button>
 				</a>
 				<br>
 				<a href="/response/downloadResults/pdf?survey_id=<%= survey.id %>">
 			        <button type="button" class="download-btn local-btn my-2 local-btn-danger">
 			        	<i class="bi bi-file-earmark-pdf text-white"></i>
-			        	Download as PDF
+			        	PDF로 다운로드
 			        </button>
 			    </a>
 		        <br>
 		        <a href="/response/downloadResults/json?survey_id=<%= survey.id %>">
 			        <button type="button" class="download-btn local-btn my-2 local-btn-success" disabled>
 			        	<i class="bi bi-table text-white"></i>
-				        Download as Exel sheets
+				        엑셀 시트로 다운로드 (현재 사용할 수 없음)
 				    </button>
 				</a>
 		      </div>
