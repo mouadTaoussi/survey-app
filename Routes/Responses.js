@@ -124,7 +124,7 @@ router.get('/downloadResults/pdf', validators.checkLanguage, auth.isAuthenticate
 	const { survey_id } = request.query;
 
 	// Init new browser
-	const browser = await puppeteer.launch({ignoreDefaultArgs: ['--disable-extensions']});
+	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
 
 	// Create cookies
@@ -173,7 +173,7 @@ router.get('/downloadResults/pdf', validators.checkLanguage, auth.isAuthenticate
 	await page.waitForSelector('#canvas0', {
 	  visible: true,
 	});
-
+   
 	// Get file location
 	var fileLocation = __dirname + '/SurveyResultsForDownload/' + uuid.v4() + '.pdf';
 
