@@ -393,12 +393,12 @@ h1,h2,h3,h5,h6 {
 	padding: 5px 0 5px 0;
 }
 .svg-background-fourth-landing-page {
-	/*background: #1554a7;*/
+	background: #001CDF;
 	background-image: url('.././assets/secondBackground.svg');
 	background-repeat: no-repeat;
 	background-position: center;
 	height: 750px;
-	background-size: cover; 
+	background-size: contain; 
 	padding: 5px 0 5px 0;
 }
 .svg-background-fifth-landing-page {
@@ -437,7 +437,6 @@ h1,h2,h3,h5,h6 {
 .faq-landing-page {
 	margin : var(--margin-between-landing-pages) auto var(--margin-between-landing-pages) auto;
 }
-
 .services {
 	display: grid;
 	grid-template-columns: 2fr 2fr;
@@ -592,6 +591,10 @@ h1,h2,h3,h5,h6 {
 }
 .home-page-footer-list-item {
 	color: white;
+}
+.svg-background-fourth-landing-page div h1 {
+	font-size: 60px;
+	margin-top: 300px;
 }
 /**
 *
@@ -1092,6 +1095,21 @@ h1,h2,h3,h5,h6 {
 	}
 	.landing-page-cards-logo {
 		display: none;
+	}
+	.svg-background-sixth-landing-page {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+	.svg-background-sixth-landing-page div h1 {
+		font-size: 30px;
+	}
+	.svg-background-fourth-landing-page {
+		background-image: url('/');
+		height: 200px;
+	}
+	.svg-background-fourth-landing-page div h1 {
+		font-size: 30px;
+		margin-top: 30px;
 	}
 	/**
 	*

@@ -104,6 +104,9 @@
 				document.querySelectorAll('.header-list-item a button').forEach((item)=>{
 					item.style.color = "white";
 				})
+
+				document.querySelector('.hamburger-menu').classList.add('text-white');
+				document.querySelector('.hamburger-menu').classList.remove('text-dark');
 			
 
 			}else if ( window.scrollY > 600 ) {
@@ -117,6 +120,9 @@
 				document.querySelectorAll('.header-list-item a button').forEach((item)=>{
 					item.style.color = "black";
 				})
+
+				document.querySelector('.hamburger-menu').classList.add('text-dark');
+				document.querySelector('.hamburger-menu').classList.remove('text-white');
 			}
 		}
 	}

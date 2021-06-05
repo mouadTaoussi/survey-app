@@ -2,7 +2,7 @@
 	<div class="local-container-8 header-grid">
 
 		<a href="/?lang=kr">
-			<div class="header-brand header-logo-light"></div>
+			<div class="header-brand header-logo-primary"></div>
 		</a>
 
 		<ul class="header-list">
@@ -82,7 +82,9 @@
 				document.querySelectorAll('.header-list-item a button').forEach((item)=>{
 					item.style.color = "white";
 				})
-			
+
+				document.querySelector('.hamburger-menu').classList.add('text-white');
+				document.querySelector('.hamburger-menu').classList.remove('text-dark');
 
 			}else if ( window.scrollY > 600 ) {
 				document.querySelector('.landing-page-header').style.backgroundColor = 'white';
@@ -95,6 +97,9 @@
 				document.querySelectorAll('.header-list-item a button').forEach((item)=>{
 					item.style.color = "black";
 				})
+
+				document.querySelector('.hamburger-menu').classList.add('text-dark');
+				document.querySelector('.hamburger-menu').classList.remove('text-white');
 			}
 		}
 	}
