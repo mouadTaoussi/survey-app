@@ -2,7 +2,7 @@
 	<div class="local-container-8 header-grid">
 
 		<a href="/?lang=cn">
-			<div class="header-brand"></div>
+			<div class="header-brand header-logo-light"></div>
 		</a>
 
 		<ul class="header-list">
@@ -15,22 +15,22 @@
 			</li>
 			<li class="header-list-item">
 				<a href="/login?lang=cn">
-					<button class="local-btn" style="background: inherit;color: white">开始使用</button>
+					<button class="local-btn" style="">开始使用</button>
 				</a>
 			</li>
 			<li class="header-list-item">
 				<a href="/login?lang=cn">
-					<button class="local-btn" style="background: inherit;color: white">登录</button>
+					<button class="local-btn" style="">登录</button>
 				</a>
 			</li>
 			<li class="header-list-item">
 				<a href="/register?lang=cn">
-					<button class="local-btn" style="background: inherit;color: white">寄存器</button>
+					<button class="local-btn" style="">寄存器</button>
 				</a>
 			</li>
 			<!-- <li class="header-list-item">
 				<a href="/privacyPolicy?lang=cn">
-					<button class="local-btn" style="background: inherit;color: white">这个怎么运作？</button>
+					<button class="local-btn" style="">这个怎么运作？</button>
 				</a>
 			</li> -->
 			<li>
@@ -66,3 +66,45 @@
 		<br>
 	</div>
 </header>
+<script>
+	window.setInterval(()=>{
+	//Implement animation when in the home page
+	if (window.location.pathname == "/" || window.location.pathname === "/privacyPolicy" || window.location.pathname === "/docs") {
+		window.onscroll = ()=>{
+			if (window.scrollY == 0 ){
+				document.querySelector('.landing-page-header').style.backgroundColor = 'transparent';
+				document.querySelector('.landing-page-header').style.boxShadow = '';
+				// document.querySelector('.landing-page-header').style.transform = "all .2s ease-out";
+				// document.querySelector('.landing-page-header').classList.remove('shadow');
+				
+				document.querySelector('.header-brand').classList.remove('header-logo-light');
+				document.querySelector('.header-brand').classList.add('header-logo-primary');
+				
+				document.querySelectorAll('.header-list-item a button').forEach((item)=>{
+					item.style.color = "white";
+				})
+			
+
+			}else if ( window.scrollY > 600 ) {
+				document.querySelector('.landing-page-header').style.backgroundColor = 'white';
+				document.querySelector('.landing-page-header').style.boxShadow = '0 0.5rem 1rem rgba(0, 0, 0, 0.15)';
+				// document.querySelector('.landing-page-header').classList.add('shadow');
+				
+				document.querySelector('.header-brand').classList.add('header-logo-light');
+				document.querySelector('.header-brand').classList.remove('header-logo-primary');
+				
+				document.querySelectorAll('.header-list-item a button').forEach((item)=>{
+					item.style.color = "black";
+				})
+			}
+		}
+	}
+	// Dont implement it 
+	else if (window.location.pathname == "/login" || window.location.pathname == "/register" || window.location.pathname == "/resetPassword" )  {
+		return;
+	
+	}else {
+		return;
+	}
+},10)
+</script>

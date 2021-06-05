@@ -76,12 +76,17 @@ h1,h2,h3,h5,h6 {
 	margin-top: 2px;
 }
 .header-brand {
-	background-image: url('.././assets/logoPrimaryBg.svg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain; 
 	width: 180px;
 	height: 30px;
+}
+.header-logo-primary {
+	background-image: url('.././assets/logoPrimaryBg.svg');
+}
+.header-logo-light {
+	background-image: url('.././assets/logoLightBgHomePage.svg');
 }
 .forms-logo {
 	background-image: url('.././assets/logoLightBg.svg');
@@ -91,7 +96,6 @@ h1,h2,h3,h5,h6 {
 	width: 240px;
 	height: 60px;
 	margin: 50px auto;
-
 }
 .footer-logo {
 	background-image: url('.././assets/logoPrimaryBgFooter.svg');
@@ -491,6 +495,10 @@ h1,h2,h3,h5,h6 {
 	display: inline;
 	float: right;
 	font-weight: 500;
+}
+.header-list-item a button {
+	color: white;
+	background-color: inherit;
 }
 .hamburger-menu {
 	position: absolute;
