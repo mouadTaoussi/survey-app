@@ -343,26 +343,32 @@
 		      </div>
 		      <div class="modal-body">
 		      	<p class="text-left poppins">下载以下任何类型的调查答复报告。</p>
-		      	<a href="/response/downloadResults/json?survey_id=<%= survey.id %>">
-					<button type="button" class="download-btn local-btn my-2 local-btn-warning">
-						<i class="bi bi-braces text-white"></i>
-						下载为JSON
-					</button>
-				</a>
-				<br>
-				<a href="/response/downloadResults/pdf?survey_id=<%= survey.id %>">
-			        <button type="button" class="download-btn local-btn my-2 local-btn-danger">
-			        	<i class="bi bi-file-earmark-pdf text-white"></i>
-			        	下载为PDF
-			        </button>
-			    </a>
-		        <br>
-		        <a href="/response/downloadResults/pdf?survey_id=<%= survey.id %>">
-			        <button type="button" class="download-btn local-btn my-2 local-btn-success" disabled>
-			        	<i class="bi bi-table text-white"></i>
-				        下载为exel表格 (暂时不可用)
-				    </button>
-				</a>
+	      	   	<% if ( survey !== null ) { %>
+		      		<a href="/response/downloadResults/json?survey_id=<%=survey.id %>">
+						<button type="button" class="download-btn local-btn my-2 local-btn-warning">
+							<i class="bi bi-braces text-white"></i>
+							下载为JSON
+						</button>
+					</a>
+					<br>
+					<a href="/response/downloadResults/pdf?survey_id=<%=survey.id %>">
+				        <button type="button" class="download-btn local-btn my-2 local-btn-danger">
+				        	<i class="bi bi-file-earmark-pdf text-white"></i>
+				        	下载为PDF
+				        </button>
+				    </a>
+			        <br>
+			        <a href="/response/downloadResults/json">
+				        <button type="button" class="download-btn local-btn my-2 local-btn-success" disabled>
+				        	<i class="bi bi-table text-white"></i>
+					       下载为exel表格 (暂时不可用)
+					    </button>
+					</a>
+		      	<% } else { %>
+		      		<div class="local-alert info">
+		        		Save your survey to get embedded link!
+		        	</div>
+		      	<% } %>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="local-btn btn-secondary" data-dismiss="modal">Close</button>

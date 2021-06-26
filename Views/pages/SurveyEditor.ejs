@@ -343,26 +343,33 @@
 		      </div>
 		      <div class="modal-body">
 		      	<p class="text-left poppins">Download a report of your survey responses at any type below.</p>
-		      	<a href="/response/downloadResults/json?survey_id=<%=survey.id %>">
-					<button type="button" class="download-btn local-btn my-2 local-btn-warning">
-						<i class="bi bi-braces text-white"></i>
-						Download as JSON
-					</button>
-				</a>
-				<br>
-				<a href="/response/downloadResults/pdf?survey_id=<%=survey.id %>">
-			        <button type="button" class="download-btn local-btn my-2 local-btn-danger">
-			        	<i class="bi bi-file-earmark-pdf text-white"></i>
-			        	Download as PDF
-			        </button>
-			    </a>
-		        <br>
-		        <a href="/response/downloadResults/json">
-			        <button type="button" class="download-btn local-btn my-2 local-btn-success" disabled>
-			        	<i class="bi bi-table text-white"></i>
-				        Download as Exel sheets (Not available for now)
-				    </button>
-				</a>
+		      	<% if ( survey !== null ) { %>
+		      		<a href="/response/downloadResults/json?survey_id=<%=survey.id %>">
+						<button type="button" class="download-btn local-btn my-2 local-btn-warning">
+							<i class="bi bi-braces text-white"></i>
+							Download as JSON
+						</button>
+					</a>
+					<br>
+					<a href="/response/downloadResults/pdf?survey_id=<%=survey.id %>">
+				        <button type="button" class="download-btn local-btn my-2 local-btn-danger">
+				        	<i class="bi bi-file-earmark-pdf text-white"></i>
+				        	Download as PDF
+				        </button>
+				    </a>
+			        <br>
+			        <a href="/response/downloadResults/json">
+				        <button type="button" class="download-btn local-btn my-2 local-btn-success" disabled>
+				        	<i class="bi bi-table text-white"></i>
+					        Download as Exel sheets (Not available for now)
+					    </button>
+					</a>
+		      	<% } else { %>
+		      		<div class="local-alert info">
+		        		Save your survey to get embedded link!
+		        	</div>
+		      	<% } %>
+		      	
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="local-btn btn-secondary" data-dismiss="modal">Close</button>
