@@ -9,7 +9,10 @@
   <img src="https://github.com/mouadTaoussi/checkwebsite/blob/master/wc-front-end/src/assets/DashboardPreview.svg"/>
 </p> -->
 
-<h1 align="center">Create Surveys and get responses about it</h1>
+<!-- <h1 align="center">Create Surveys and get responses about it</h1> -->
+<h6 align="center">
+	<strong>Create Surveys and get responses about them😎</strong>
+</h6>
 
 # Get Up and running in local env
 
