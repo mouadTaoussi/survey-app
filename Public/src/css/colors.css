@@ -3,8 +3,8 @@
 	--landing-page-primary-dark: #001CDF;
 	--landing-page-primary-darken: #03179E;
 	--landing-page-text-color: #031b4e;
-	--primary : #1554a7;
-	--primary-darken : #052580; 
+	--primary : #1633ff/*, #1554a7*/;
+	--primary-darken : #001CDF/*, #052580*/;  
 	--dark :  #2b2b2b;
 	--light : #ededed;
 	--success : #008272;
