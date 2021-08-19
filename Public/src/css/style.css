@@ -44,7 +44,7 @@
 }
 
 body {
-	background-color: #f7f7f7;
+	/*background-color: #f7f7f7;*/ /* Light background */
 	color: var(--dark);
 }
 h1,h2,h3,h5,h6 {

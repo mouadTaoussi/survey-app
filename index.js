@@ -1,5 +1,4 @@
 const express                         = require('express');
-// const ejs                             = require('ejs'); 
 const path                            = require('path');
 const passport                        = require('passport'); 
 const express_graphql                 = require('express-graphql');
@@ -8,7 +7,6 @@ const body_parser                     = require('body-parser');
 const helmet                          = require('helmet');
 const xss                             = require('xss');
 const dotenv                          = require('dotenv');
-const morgan                          = require('morgan');
 const redis                           = require('redis');
 const RedisStore                      = require('connect-redis')(express_sessions);
 const databaseConnection              = require('./Config/DatabaseConnection.js');
@@ -67,11 +65,6 @@ app.use(helmet());
 
 // Init xss
 app.use(xss);
-
-// // Init logging
-// if (process.env.NODE_ENV === 'development') {
-//   app.use(morgan('dev'))
-// }
 
 // Init port && Start the server
 const PORT = process.env.PORT || process.env.NODE_PORT;
