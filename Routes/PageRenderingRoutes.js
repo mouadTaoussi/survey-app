@@ -23,21 +23,21 @@ const router = express.Router();
 router.get('/',validators.checkLanguage, auth.isLoggedin, (request,response)=>{
 
 	// render the pages by language specefied
-	response.render(`${request.lang.langPages}/index`);
+	response.render(`${request.lang.views_lang}/index`);
 	
 })
 
 router.get('/privacyPolicy',validators.checkLanguage,(request,response)=>{
 	
 	// render the pages by language specefied
-	response.render(`${request.lang.langPages}/PrivacyAndPolicy`);
+	response.render(`${request.lang.views_lang}/PrivacyAndPolicy`);
 
 })
 
 router.get('/docs',validators.checkLanguage,(request,response)=>{
 	
 	// render the pages by language specefied
-	response.render(`${request.lang.langPages}/Documentation`);
+	response.render(`${request.lang.views_lang}/Documentation`);
 
 })
 
@@ -47,15 +47,15 @@ router.get('/login',validators.checkLanguage,auth.isLoggedin,(request,response)=
 	
 	if (loggedIn == undefined) {
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/Login`,{ errMessage: null });
+		response.render(`${request.lang.views_lang}/Login`,{ errMessage: null });
 	}
 	else if(loggedIn == 'false'){
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/Login`,{ errMessage: message });
+		response.render(`${request.lang.views_lang}/Login`,{ errMessage: message });
 	}
 	else {
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/Login`,{ errMessage: null });
+		response.render(`${request.lang.views_lang}/Login`,{ errMessage: null });
 	}
 })
 
@@ -66,15 +66,15 @@ router.get('/register',validators.checkLanguage,auth.isLoggedin,(request,respons
 
 	if (registered == undefined) {
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/Register`,{ errMessage: null });
+		response.render(`${request.lang.views_lang}/Register`,{ errMessage: null });
 	}
 	else if (registered == 'false'){
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/Register`,{ errMessage: message });
+		response.render(`${request.lang.views_lang}/Register`,{ errMessage: message });
 	}
 	else {
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/Register`,{ errMessage: null });
+		response.render(`${request.lang.views_lang}/Register`,{ errMessage: null });
 	}
 })
 
@@ -85,15 +85,15 @@ router.get('/resetPassword',validators.checkLanguage,auth.isLoggedin,(request,re
 
 	if (sent == undefined) {
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/ResetPassword`,{ errMessage: null });
+		response.render(`${request.lang.views_lang}/ResetPassword`,{ errMessage: null });
 	}
 	else if (sent == 'false'){
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/ResetPassword`,{ errMessage: message });
+		response.render(`${request.lang.views_lang}/ResetPassword`,{ errMessage: message });
 	}
 	else {
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/ResetPassword`,{ errMessage: null });
+		response.render(`${request.lang.views_lang}/ResetPassword`,{ errMessage: null });
 	}
 })
 
@@ -102,7 +102,7 @@ router.get('/emailSent',validators.checkLanguage,auth.isLoggedin,(request,respon
 	// Get the email
 	const { to } = request.query;
 	// Check the provided language
-	response.render(`${request.lang.langPages}/EmailSent`,{email:to});
+	response.render(`${request.lang.views_lang}/EmailSent`,{email:to});
 })
 
 
@@ -115,15 +115,15 @@ router.get('/changePassword',validators.checkLanguage, auth.isLoggedin, auth.isT
 	// Check if errors  happen
 	if (changed == undefined) {
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/ChangePassword`,{ errMessage: null,email:email,token:token });
+		response.render(`${request.lang.views_lang}/ChangePassword`,{ errMessage: null,email:email,token:token });
 	}
 	else if (changed == 'false'){
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/ChangePassword`,{ errMessage: message,email:email,token:token });
+		response.render(`${request.lang.views_lang}/ChangePassword`,{ errMessage: message,email:email,token:token });
 	}
 	else {
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/ChangePassword`,{ errMessage: null,email:email,token:token });
+		response.render(`${request.lang.views_lang}/ChangePassword`,{ errMessage: null,email:email,token:token });
 	}
 	
 })
@@ -138,7 +138,7 @@ router.get('/dashboard', validators.checkLanguage, auth.isAuthenticated, auth.is
 	// Checking ...
 	if (surveys.found){
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/Dashboard` , { surveys: surveys.data, user: user, infos: request.info });
+		response.render(`${request.lang.views_lang}/Dashboard` , { surveys: surveys.data, user: user, infos: request.info });
 	}
 	else {
 		response.redirect(`/serverError?lang=${request.lang.langShortcut}`)
@@ -156,7 +156,7 @@ router.get('/embedded',validators.checkLanguage,async(request,response)=>{
 	// Checking ...
 	if ( getSurvey.found ){
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/EmbeddedPage`, { survey: getSurvey.data });
+		response.render(`${request.lang.views_lang}/EmbeddedPage`, { survey: getSurvey.data });
 	}
 	else {
 		response.redirect(`/notFound?lang=${request.lang.langShortcut}`);
@@ -172,7 +172,7 @@ router.get('/surveyEditor', validators.checkLanguage, auth.isAuthenticated, asyn
 	// Checking ...
 	if ( request.query.survey_id == undefined || request.query.survey_id == "" ){
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/SurveyEditor`,{survey:null, user});
+		response.render(`${request.lang.views_lang}/SurveyEditor`,{survey:null, user});
 	}
 	else {  
 		
@@ -185,7 +185,7 @@ router.get('/surveyEditor', validators.checkLanguage, auth.isAuthenticated, asyn
 		}
 		else {
 			// render the pages by language specefied
-			response.render(`${request.lang.langPages}/SurveyEditor`,{survey:survey.data, user});
+			response.render(`${request.lang.views_lang}/SurveyEditor`,{survey:survey.data, user});
 		}
 	}
 })
@@ -205,7 +205,7 @@ router.get('/submitResponse', validators.checkLanguage, async(request,response)=
 	// Checking ...
 	if ( getSurvey.found ){
 		// render the pages by language specefied
-		response.render(`${request.lang.langPages}/SubmitSurveyResponse`, { survey: getSurvey.data });
+		response.render(`${request.lang.views_lang}/SubmitSurveyResponse`, { survey: getSurvey.data });
 	}
 	else {
 		response.redirect(`/notFound?lang=${request.lang.langShortcut}`);
@@ -216,7 +216,7 @@ router.get('/submitResponse', validators.checkLanguage, async(request,response)=
 router.get('/thankYou',validators.checkLanguage,(request,response)=>{
 	
 	// render the pages by language specefied
-	response.render(`${request.lang.langPages}/ThankYou`);
+	response.render(`${request.lang.views_lang}/ThankYou`);
 
 })
 
@@ -227,7 +227,7 @@ router.get('/serverError',validators.checkLanguage,auth.isAuthenticated,(request
 	// Get authenticated user
 	const user = request.user;
 	// render the pages by language specefied
-	response.render(`${request.lang.langPages}/FiveOO`,{user:user});
+	response.render(`${request.lang.views_lang}/FiveOO`,{user:user});
 	
 })
 

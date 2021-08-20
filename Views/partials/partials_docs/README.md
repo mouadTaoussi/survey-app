@@ -1,0 +1,1 @@
+### This folder includes files that are used as partials (API Responses) in the docs !!

@@ -12,19 +12,20 @@ module.exports = {
 		const query = req.query;
 		// Check which language defined
 		if (query.lang === 'en' || query.lang === 'english'){
-			req.lang = { langPages : 'pages', langShortcut: 'en'};
+			req.lang = { views_lang : 'views_en', langShortcut: 'en'};
 			next();
 		}
 		else if (query.lang === 'kr' || query.lang === 'korean'){
-			req.lang = { langPages : 'koreanPages', langShortcut: 'kr'};
+			req.lang = { views_lang : 'views_kr', langShortcut: 'kr'};
 			next();
 		}
 		else if (query.lang === 'cn' || query.lang === 'chinese'){
-			req.lang = { langPages : 'chinesePages', langShortcut: 'cn'};
+			req.lang = { views_lang : 'views_cn', langShortcut: 'cn'};
 			next();
 		}
 		else {
-			req.lang = { langPages : 'pages', langShortcut: 'en'};
+			// Default
+			req.lang = { views_lang : 'views_en', langShortcut: 'en'};
 			next();
 		}
 	}

@@ -12,8 +12,7 @@ module.exports = {
 				atProviderId : request.session.passport.user.atProviderId 
 			});
 			request.user = user;
-			console.log('From middleware:')
-			console.log(user)
+			
 			next();
 		}
 		else if (request.session.local){
