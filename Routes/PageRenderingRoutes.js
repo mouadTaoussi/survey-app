@@ -235,8 +235,8 @@ router.get('/serverError',validators.checkLanguage,auth.isAuthenticated,(request
 router.get('*',validators.checkLanguage,auth.isAuthenticated,(request,response)=>{
 	// Get authenticated user
 	const user = request.user;
-
-	response.render('pages/forOFor',{user:user});
+	// render the pages by language specefied// render the pages by language specefied
+	response.render(`${request.lang.views_lang}/forOFor`,{user:user});
 })
 
 
