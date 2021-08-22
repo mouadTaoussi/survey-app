@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/mouadTaoussi/survey-app/blob/master/Screenshots/newestLogo.jpg"/>
+  <img src="https://github.com/mouadTaoussi/survey-app/blob/master/Public/src/assets/logoLightBg.svg"/>
   <!-- <img src="https://github.com/mouadTaoussi/survey-app/blob/master/Public/src/assets/logoShowCase.jpg"/> -->
 </p>
 <h6 align="center">
