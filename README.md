@@ -2,19 +2,11 @@
   <img src="https://github.com/mouadTaoussi/survey-app/blob/master/Screenshots/newestLogo.jpg"/>
   <!-- <img src="https://github.com/mouadTaoussi/survey-app/blob/master/Public/src/assets/logoShowCase.jpg"/> -->
 </p>
-<!-- <p align="center">
-  <img src="https://github.com/mouadTaoussi/checkwebsite/blob/master/wc-front-end/src/assets/LogoPreview.png"/>
-</p>
-<p align="center">
-  <img src="https://github.com/mouadTaoussi/checkwebsite/blob/master/wc-front-end/src/assets/DashboardPreview.svg"/>
-</p> -->
-
-<!-- <h1 align="center">Create Surveys and get responses about it</h1> -->
 <h6 align="center">
 	<strong>Create Surveys and get responses about them😎</strong>
 </h6>
 
-# Get Up and running in local env
+## Get Up and running in local env
 
 ### Clone the repo
 
