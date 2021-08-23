@@ -3,10 +3,4 @@ Public/node_modules
 Desktop/node_modules
 Desktop/release_builds ## development:noted  => production:removed
 Config/.env
-
-firebase.example.js
-survey.example.html
-survey.example.js
-survey.example.json
 ProblemsNeedToBeFixed
-survey.editor.html
