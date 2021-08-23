@@ -1,7 +1,5 @@
-<p align="center">
-  <!-- <img src="https://github.com/mouadTaoussi/survey-app/blob/master/Public/src/assets/logoLightBg.svg"/> -->
-  <img src="https://github.com/mouadTaoussi/survey-app/blob/master/Public/src/assets/logoShowCase.jpg"/>
-</p>
+<!-- <img src="https://github.com/mouadTaoussi/survey-app/blob/master/Public/src/assets/logoLightBg.svg"/> -->
+<img src="https://github.com/mouadTaoussi/survey-app/blob/master/Public/src/assets/logoShowCase.jpg"/>
 <h4 align="center">
 	<strong>Create Surveys and get responses about them😎</strong>
 </h4>
