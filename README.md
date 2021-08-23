@@ -1,6 +1,6 @@
 <p align="center">
   <!-- <img src="https://github.com/mouadTaoussi/survey-app/blob/master/Public/src/assets/logoLightBg.svg"/> -->
-  <img height="200" src="https://github.com/mouadTaoussi/survey-app/blob/master/Public/src/assets/logoShowCase.jpg"/>
+  <img src="https://github.com/mouadTaoussi/survey-app/blob/master/Public/src/assets/logoShowCase.jpg"/>
 </p>
 <h4 align="center">
 	<strong>Create Surveys and get responses about them😎</strong>
