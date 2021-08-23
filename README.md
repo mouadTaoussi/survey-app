@@ -10,7 +10,7 @@
 <h3 align="center">
   <a href="https://github.com/mouadTaoussi/survey-app/blob/master/CONTRIBUTING.md">Contribute</a>
   <span> · </span>
-  <a href="https://github.com/mouadTaoussi/survey-app/blob/master/CODE_OF_CONDUCT.md">Documentation</a>
+  <a href="https://github.com/mouadTaoussi/survey-app/blob/master/CODE_OF_CONDUCT.md">Code of conduct</a>
 </h3>
 
 ---
