@@ -50,5 +50,4 @@ When you find an issue in the app, any kind, follow the same way above but with 
 Labels should be **bug** and labels related to the issue listed in the labels section. 
 
 ### Licence
-The project is under [MIT License](https://github.com/mouadTaoussi/survey-app/blob/master/LICENSE.md)
-
+The project is under [MIT License](https://github.com/mouadTaoussi/survey-app/blob/master/LICENSE)
