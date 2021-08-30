@@ -144,7 +144,6 @@ class Questions {
 				questions.questions[i].type === 'OneChoice' 
 				)
 			{
-				// centwi == twin center
 				// Get all options of an individual question ! ! !
 				const options = questions.questions[i].options;
 
