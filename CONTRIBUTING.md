@@ -1,3 +1,22 @@
+## Files structure
+
+> We are about to change the files structure to a more good one for modern file structures
+
+| Website&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Description |
+| ----------------------- | ------------------ |
+| [Api](https://github.com/mouadTaoussi/webcheck/tree/main/wc-front-end)| The Restful API |
+| [Config](https://github.com/mouadTaoussi/webcheck/tree/main/src)| Back-end API, Written in Typescript |
+| [Controllers](https://github.com/mouadTaoussi/webcheck/tree/main/dist)| The controllers that handle the HTTP requests |
+| [Desktop](https://github.com/mouadTaoussi/webcheck/tree/main/dist)| Desktop version, ElectronJS |
+| [Grahpql](https://github.com/mouadTaoussi/webcheck/tree/main/dist)| GraphQL API (not available yet) |
+| [Middlewares](https://github.com/mouadTaoussi/webcheck/tree/main/dist)| Middlewares of the Back-end API |
+| [Models](https://github.com/mouadTaoussi/webcheck/tree/main/dist)| Models of the Back-end API |
+| [Passport](https://github.com/mouadTaoussi/webcheck/tree/main/dist)| Authentication Oauth2.0 |
+| [Public](https://github.com/mouadTaoussi/webcheck/tree/main/dist)| Front-end code |
+| [Resources](https://github.com/mouadTaoussi/webcheck/tree/main/dist)|  |
+| [Routes](https://github.com/mouadTaoussi/webcheck/tree/main/dist)| Routes of the Back-end API |
+| [Views](https://github.com/mouadTaoussi/webcheck/tree/main/dist)| EJS views |
+
 ## Init the project in local env
 
 ### Clone the repo
