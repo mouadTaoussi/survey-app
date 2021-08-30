@@ -20,16 +20,16 @@ All depends to create surveys then collect responses from your target (eg: clien
 You can now use an aternative **Open source** application that fit your needs if you ever caring about your **data** and **personnel data**.
 ### Technologies
 #### Back-End side
-- NodeJS / ExpressJS : Back-end API
-- MongoDB / Mongoose / RedisLab : Data Storage / Auth Cookies
-- Nodemailer : Reset Password
-- PassportJS : Oauth 2.0
-- Puppeteer : Survey Responses report (PDF)
+- **NodeJS / ExpressJS** : Back-end API
+- **MongoDB / Mongoose / RedisLab** : Data Storage / Auth Cookies
+- **Nodemailer** : Reset Password
+- **PassportJS** : Oauth 2.0
+- **Puppeteer** : Survey Responses report (PDF)
 #### Front-End side
-- Bootstrap : Initial styles
-- Webpack : Front-end bundle
-- [AntVG2Plot](https://g2plot.antv.vision/) : Responses in Charts
-- [SortableJS](https://sortablejs.github.io/Sortable/) Sorting questions
+- **Bootstrap** : Initial styles
+- **Webpack** : Front-end bundle
+- **[AntVG2Plot](https://g2plot.antv.vision/)** : Responses in Charts
+- **[SortableJS](https://sortablejs.github.io/Sortable/)** : Sorting questions
 
 ### Contributing
 If you found yourself about to give something to the project (eg: more orianted to open source, improve the app...) we are welcoming you! 😊<br />
