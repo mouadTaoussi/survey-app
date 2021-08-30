@@ -18,6 +18,10 @@
 ### What is SurveyApp ?
 All depends to create surveys then collect responses from your target (eg: clients-students...etc) represented in graphes describing the responses for easier understanding!
 You can now use an aternative **Open source** application that fit your needs if you ever caring about your **data** and **personnel data**.
+
+### How it works ?
+If you are intresting about learning how the application collect and proccess responses in order to give the user a full report of responses represented in graphs, you can read [this](https://github.com/mouadTaoussi/survey-app/blob/master/HOW_IT_WORKS.md)
+
 ### Technologies
 #### Back-End side
 - **NodeJS / ExpressJS** : Back-end API
