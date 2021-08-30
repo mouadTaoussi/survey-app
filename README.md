@@ -50,7 +50,7 @@ If you have an idea needs to be implemented in **SurveyApp**, First Open up new 
 
 #### Reporting an issue
 When you find an issue in the app, any kind, follow the same way above but with some changes:
-Labels should be **bug** and labels related to the issue listed in the labels section. 
+Labels should be **bug** and other labels related to the issue listed in the labels section. 
 
 ### Code of conduct 
 Please read the [code of conduct](https://github.com/mouadTaoussi/survey-app/blob/main/CODE_OF_CONDUCT.md)
