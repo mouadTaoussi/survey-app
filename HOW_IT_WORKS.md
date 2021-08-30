@@ -1,1 +1,3 @@
+### How SurveyApp collects responses data and calculates and procces them to make them readable into graphes?
 
+...
