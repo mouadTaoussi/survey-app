@@ -161,7 +161,7 @@ class Questions {
 							continue;
 						}
 						else {
-							// Loop over result of single response to compare them within options
+							// Loop over result of single response to compare them within options of the current question
 							for (var x = 0; x < responseOfTheQuestion[0].result.length; x++) {
 								
 								if (options[k] === responseOfTheQuestion[0].result[x]){
@@ -171,7 +171,7 @@ class Questions {
 								} else { continue; }
 							}
 						}
-					}			
+					}
 				}
 				// Push resultOfQuestion to the individual question 
 				questions.questions[i].result = resultOfQuestion;
