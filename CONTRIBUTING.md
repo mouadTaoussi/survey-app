@@ -1,3 +1,22 @@
+## Files structure
+
+> We are about to change the files structure to a more good one for modern file structures
+
+| Website&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Description |
+| ----------------------- | ------------------ |
+| [Api](https://github.com/mouadTaoussi/survey-app/tree/master/Api)| The Restful API |
+| [Config](https://github.com/mouadTaoussi/survey-app/tree/master/Config)| Config files |
+| [Controllers](https://github.com/mouadTaoussi/survey-app/tree/master/Controllers)| The controllers that handle the HTTP requests |
+| [Desktop](https://github.com/mouadTaoussi/survey-app/tree/master/Desktop)| Desktop version, ElectronJS |
+| [Grahpql](https://github.com/mouadTaoussi/survey-app/tree/master/Graphql)| GraphQL API (not available yet) |
+| [Middlewares](https://github.com/mouadTaoussi/survey-app/tree/master/Middlewares)| Middlewares of the Back-end API |
+| [Models](https://github.com/mouadTaoussi/survey-app/tree/master/Models)| Models of the Back-end API |
+| [Passport](https://github.com/mouadTaoussi/survey-app/tree/master/Passport)| Authentication Oauth2.0 of the Back-end API |
+| [Public](https://github.com/mouadTaoussi/survey-app/tree/master/Public)| Front-end code |
+| [Resources](https://github.com/mouadTaoussi/survey-app/tree/master/Resources)| |
+| [Routes](https://github.com/mouadTaoussi/survey-app/tree/master/Routes)| Routes of the Back-end API |
+| [Views](https://github.com/mouadTaoussi/survey-app/tree/master/Views)| EJS views for the Front-end |
+
 ## Init the project in local env
 
 ### Clone the repo
