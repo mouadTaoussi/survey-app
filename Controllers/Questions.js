@@ -137,39 +137,30 @@ class Questions {
 		for (var i = 0; i < questions.questions.length; i++) {
 			// Result of an individual question ! ! !
 			const resultOfQuestion = [];
-			
 			if ( 
 				questions.questions[i].type === 'MultipleChoice' 
 									|| 
 				questions.questions[i].type === 'OneChoice' 
 				)
 			{
-				// centwi == twin center
 				// Get all options of an individual question ! ! !
 				const options = questions.questions[i].options;
-
 				// Loop over options to compare them within response results
 				for (var k = 0; k < options.length; k++) {
 					// Push initial zeros in the resultOfQuestions array for
 					// increment some of them if option and result got matched
 					resultOfQuestion.push(0);
-
 					// Loop over responses in the database ! ! !
 					for (var o = 0; o < responses.length ; o++) {
-						/*1*/// Check the explanation of this checking (responses[o].responses[i] !== undefined)  below
-						// if (responses[o].responses[i] !== undefined) {
-
-						// TODO Check if the question and the response are same  responses[o].!!responses[i] !!
-
+						// Find the responses of each question
 						const responseOfTheQuestion = responses[o].responses.filter((response)=>{
 							return response.question_id == questions.questions[i]._id;
 						});
-
+                        // Might be the question is removed so no longer we can find it's responses
 						if (responseOfTheQuestion[0] == undefined) {
 							continue;
 						}
 						else {
-
 							// Loop over result of single response to compare them within options
 							for (var x = 0; x < responseOfTheQuestion[0].result.length; x++) {
 								
@@ -179,27 +170,21 @@ class Questions {
 
 								} else { continue; }
 							}
-
 						}
-
 					}			
 				}
-
 				// Push resultOfQuestion to the individual question 
 				questions.questions[i].result = resultOfQuestion;
 			}
 			else if ( questions.questions[i].type === 'ShortParagraph' ){
-
 				var shortParagraphes = [];
 				// Loop over responses in the database ! ! !
 				for (var o = 0; o < responses.length; o++) {
-					/*1*/// Check the explanation of this checking (responses[o].responses[i] !== undefined) below
-
-					// TODO Check if the question and the response are same  responses[o].!!responses[i] !!
+					// Find the responses of each question
 					const responseOfTheQuestion = responses[o].responses.filter((response)=>{
 						return response.question_id == questions.questions[i]._id;
 					});
-
+                    // Might be the question is removed so no longer we can find it's responses
 					if (responseOfTheQuestion[0] == undefined) {
 						continue;
 					} 
@@ -211,8 +196,7 @@ class Questions {
 
 						}
 						else { continue }
-					}
-					
+					}	
 				}
 			}
 		}
@@ -237,120 +221,3 @@ class Questions {
 /// so if we compare questions with responses as normal we gonna get undefined
 /// to the added question due to existance of response in the previous responses	
 module.exports = Questions;
-
-// // Check if question type wheather if multiple choice or one choice or short paragraph
-// if ( questions.questions[i].type === 'OneChoice' ){
-// 	// Get all options of an individual question ! ! !
-// 	const options = questions.questions[i].options;
-
-// 	// Loop over options to compare them within response results
-// 	for (var k = 0; k < options.length; k++) {
-// 		// Push initial zeros in the resultOfQuestions array for
-// 		// increment some of them if option and result got matched 
-// 		resultOfQuestion.push(0);
-
-// 		// Loop over responses in the database ! ! !
-// 		for (var o = 0; o < responses.length; o++) {
-// 			/*1*/// Check the explanation of this checking (responses[o].responses[i] !== undefined)  below
-// 			if (responses[o].responses[i] !== undefined) {
-
-// 			if (options[k] === responses[o].responses[i].result[0]){
-
-// 			resultOfQuestion[k]++; /// Increment by one du to option and result matching
-
-// 			} 
-// 			else { continue; }
-
-// 			}
-// 			else { continue }
-// 		}			
-// 	}
-
-// 	// Push resultOfQuestion to the individual quetion 
-// 	questions.questions[i].result = resultOfQuestion;
-
-// }
-/*else */	
-
-
-
-// for (var i = 0; i < questions.questions.length; i++) {
-// 	// Result of an individual question ! ! !
-// 	const resultOfQuestion = [];
-
-	
-// 	if ( 
-// 		questions.questions[i].type === 'MultipleChoice' 
-// 							|| 
-// 		questions.questions[i].type === 'OneChoice' 
-// 		)
-// 	{
-
-// 		// Get all options of an individual question ! ! !
-// 		const options = questions.questions[i].options;
-
-// 		// Loop over options to compare them within response results
-// 		for (var k = 0; k < options.length; k++) {
-// 			// Push initial zeros in the resultOfQuestions array for
-// 			// increment some of them if option and result got matched
-// 			resultOfQuestion.push(0);
-
-// 			// Loop over responses in the database ! ! !
-// 			for (var o = 0; o < responses.length; o++) {
-// 				/*1*/// Check the explanation of this checking (responses[o].responses[i] !== undefined)  below
-// 				if (responses[o].responses[i] !== undefined) {
-
-// 				// TODO Check if the question and the response are same  responses[o].!!responses[i] !!
-
-// 				// Loop over result of single response to compare them within options
-// 				for (var x = 0; x < responses[o].responses[i].result.length; x++) {
-					
-// 					if (options[k] === responses[o].responses[i].result[x]){
-
-// 					resultOfQuestion[k]++; /// Increment by one due to option and result matching
-
-// 					} else { continue; }
-// 				}
-
-// 				}else { continue }
-				
-// 			}			
-// 		}
-
-// 		// Push resultOfQuestion to the individual question 
-// 		questions.questions[i].result = resultOfQuestion;
-// 	}
-// 	else if ( questions.questions[i].type === 'ShortParagraph' ){
-
-// 		var shortParagraphes = [];
-// 		// Loop over responses in the database ! ! !
-// 		for (var o = 0; o < responses.length; o++) {
-// 			/*1*/// Check the explanation of this checking (responses[o].responses[i] !== undefined) below
-// 			if (responses[o].responses[i] !== undefined) {
-				
-// 			// TODO Check if the question and the response are same  responses[o].!!responses[i] !!
-
-// 			if (responses[o].responses[i].result[0] !== null){
-
-// 				// Push resultOfQuestion to the individual quetion 
-// 				questions.questions[i].result.push(responses[o].responses[i].result[0]);	
-
-// 			}
-// 			else { continue }
-			
-// 			}else { continue }
-			
-// 		}
-// 	}
-// }
-
-
-
-
-
-
-
-
-
-
-
