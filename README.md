@@ -21,6 +21,7 @@ You can now use an aternative **Open source** application that fit your needs if
 
 ### How it works ?
 If you are intresting about learning how the application collect and proccess responses in order to give the user a full report of responses represented in graphs, you can read [this algorithm that responsible about that Job](https://github.com/mouadTaoussi/survey-app/blob/master/Controllers/Questions.js#L136-L226), it is provided by comments making you understand each block.
+**Note: if you cannot understand any part of the code, you can open new issue attached with the ``question`` label, and request help for better understanding!**
 
 ### Technologies
 #### Back-End side
