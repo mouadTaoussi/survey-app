@@ -156,7 +156,7 @@ class Questions {
 						const responseOfTheQuestion = responses[o].responses.filter((response)=>{
 							return response.question_id == questions.questions[i]._id;
 						});
-                        // Might be the question is removed so no longer we can find it's responses
+						// Might be the question is removed so no longer we can find it's responses
 						if (responseOfTheQuestion[0] == undefined) {
 							continue;
 						}
@@ -184,7 +184,7 @@ class Questions {
 					const responseOfTheQuestion = responses[o].responses.filter((response)=>{
 						return response.question_id == questions.questions[i]._id;
 					});
-                    // Might be the question is removed so no longer we can find it's responses
+					// Might be the question is removed so no longer we can find it's responses
 					if (responseOfTheQuestion[0] == undefined) {
 						continue;
 					} 
