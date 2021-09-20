@@ -563,10 +563,6 @@ h1,h2,h3,h5,h6 {
 	font-weight: bolder;
 	color: var(--landing-page-text-color);
 }
-.features-desc {
-
-}
-
 @keyframes title {
 	0% {
 		opacity: 0;
@@ -578,32 +574,84 @@ h1,h2,h3,h5,h6 {
 		opacity: 100;
 	}
 }
+.faqs {
+	height: 800px;
+	display: grid;
+	grid-template-columns: 2fr 2fr 2fr;
+	grid-gap: 15px;
+	margin-top: 30px;
+}
+.faqs div {
+	height: 200px;
+}
 .faq-title {
 	font-weight: bolder;	
 	color: var(--landing-page-text-color);
 }
 .faq-landing-page {
-	/*background-color: black;*/
 	width: 100%;
 	height: auto;
-}
-/* content */
-.faq-row {
-	display: grid;
-	grid-template-columns: 2fr 2fr;
-	grid-gap: 20px;
-}
-/* Question */
-.faqs div {
-
 }
 .faq-question {
 	font-weight: bolder;
 	color: var(--landing-page-text-color);
 }
-.faq-respsone {
-
+/* iSOMETRIC LOGO */
+#blueDark { /* Move by 10% */
+	transform: translateY(0%);
+	transition: .1s all linear;
+	animation-name: blueDark;
+	animation-duration: 4s;
+	animation-delay: 1s;
+	animation-timing-function: 4s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
+#blueLight { /* Move by 10% */
+	transform: translateY(0%);
+	transition: .1s all linear;
+	animation-name: blueLight;
+	animation-duration: 4s;
+	animation-delay: 1s;
+	animation-timing-function: 4s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+@keyframes blueDark {
+	0% {
+		transform: translateY(0%);
+	}
+	20% {
+		transform: translateY(0%);
+	}
+	30% {
+		transform: translateY(0%);
+	}
+	50% {
+		transform: translateY(10%);
+	}
+	100% {
+		transform: translateY(10%);
+	}
+}
+@keyframes blueLight {
+	0% {
+		transform: translateY(0%);
+	}
+	20% {
+		transform: translateY(0%);
+	}
+	30% {
+		transform: translateY(0%);
+	}
+	50% {
+		transform: translateY(10%);
+	}
+	100% {
+		transform: translateY(20%);
+	}
+}
+/* iSOMETRIC LOGO */
 .landing-page-footer {
 	background-color: var(--landing-page-text-color);
 	height: auto;
@@ -963,6 +1011,34 @@ h1,h2,h3,h5,h6 {
 
 
 /*//////////////////////////////////////*/
+@media only screen and (max-width: 1000px){ 
+	/**
+	*
+	*
+	* Index (Home Page)
+	*
+	*
+	**/
+	.header-grid {
+		padding-top: 17px;
+		grid-template-columns: 4fr .5fr;
+		grid-gap: 20px;
+	}
+	.hamburger-menu {
+		display: block!important;
+	}
+	.header-list-item {
+		display: none;
+	}
+	.faqs {
+		height: auto;
+		display: grid;
+		grid-template-columns: 2fr;
+	}
+	.isometric-logo {
+		display: none;
+	}
+}
 @media only screen and (max-width: 800px){
 	.local-shadow {
 		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1)/*, 0 3px 10px 0 rgba(0, 0, 0, 0.19)**/;
@@ -1051,7 +1127,7 @@ h1,h2,h3,h5,h6 {
 	/**
 	*
 	*
-	* Index
+	* Index (Home Page)
 	*
 	*
 	**/
@@ -1071,11 +1147,6 @@ h1,h2,h3,h5,h6 {
 		margin : 40px auto 40px auto;
 
 	}
-	.faq-row {
-		display: grid;
-		grid-template-columns: 2fr;
-		grid-gap: 10px;
-	}
 	.fourth-landing-page ,
 	.fifth-landing-page ,
 	.sixth-landing-page {
@@ -1083,17 +1154,6 @@ h1,h2,h3,h5,h6 {
 	}
 	.services {
 		grid-template-columns: 2fr;
-	}
-	.header-grid {
-		padding-top: 17px;
-		grid-template-columns: 4fr .5fr;
-		grid-gap: 20px;
-	}
-	.hamburger-menu {
-		display: block!important;
-	}
-	.header-list-item {
-		display: none;
 	}
 	.content {
 		display: grid;
