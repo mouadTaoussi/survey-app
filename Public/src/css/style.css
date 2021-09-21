@@ -597,6 +597,11 @@ h1,h2,h3,h5,h6 {
 	color: var(--landing-page-text-color);
 }
 /* iSOMETRIC LOGO */
+#isometric-logo {
+	margin-top: -30px;
+	height: 100%;
+	width: 80%;
+}
 #blueDark { /* Move by 10% */
 	transform: translateY(0%);
 	transition: .1s all linear;
