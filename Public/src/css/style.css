@@ -53,10 +53,18 @@ h1,h2,h3,h5,h6 {
 	/*font-family: 'Ubuntu', sans-serif;*/
 }
 
-.header-brand {
+/*.header-brand {
 	position: absolute;
 	left: 50px;
+}*/
+.header-static {
+	position: relative;
 }
+.header-brand {
+	position: absolute;
+	left: -10px;
+}
+
 .svg-one {
 	background-image: url('.././assets/undraw_my_password_d6kg.svg');
 	background-repeat: no-repeat;
@@ -540,8 +548,8 @@ h1,h2,h3,h5,h6 {
 .text-area, .show-app {
 	height: 100vh;
 }
-
 .main-title {
+	font-size: 55px;
 	color: white;
 	animation-name: title;
 	animation-duration: 1.5s;
