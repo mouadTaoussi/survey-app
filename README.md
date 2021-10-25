@@ -46,11 +46,11 @@ If you have an idea needs to be implemented in **SurveyApp**, First Open up new 
 
 ##### Guidlines to respect:
 - Open up new issue if it doesn't aleardy exists,
-<!-- - If any similar PR already exists, mention it, -->
 - Less commits, no more than 10
 - No useless comments
 - Code should be readable
 - respect the code standards
+<!-- - If any similar PR already exists, mention it, -->
 
 #### Reporting an issue
 When you find an issue in the app, any kind, follow the same way above but with some changes:
