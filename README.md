@@ -42,7 +42,7 @@ If you found yourself about to give something to the project (eg: more orianted 
 Before start, I invite you read the [contributing](https://github.com/mouadTaoussi/survey-app/blob/master/CONTRIBUTING.md) for easier set-up and understanding the codebase!<br />
 then read the [code of conduct](https://github.com/mouadTaoussi/survey-app/blob/master/CODE_OF_CONDUCT.md) to keep in mind our community standards
 #### Submitting a PR
-If you have an idea needs to be implemented in **SurveyApp**, First Open up new issue with label of **enhancement** and, create a branch in your copy of the repo, then start work on the feature, if you decided work on it.
+If you have an idea needs to be implemented in **SurveyApp**, First Open up new issue with label of **enhancement** and, create a branch in your copy of the repo, then start work on the feature, if you want.
 
 ##### Guidlines to respect:
 - Open up new issue if it doesn't aleardy exists,
