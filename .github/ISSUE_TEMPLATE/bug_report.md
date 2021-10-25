@@ -29,7 +29,7 @@ If applicable, add screenshots to help explain your problem.
  - Browser [e.g. chrome, safari]
  - Version [e.g. 22]
 
-**Contribute:
+**Contribute:**
 <!-- Yes -->
 <!-- No -->
 
