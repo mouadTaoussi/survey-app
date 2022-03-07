@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "@antv/g2plot": "^2.3.19",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "bootstrap": "^4.5.2",
     "chart.js": "^2.9.4",
     "firebase": "^7.17.2",

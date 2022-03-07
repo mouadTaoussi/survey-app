@@ -29,5 +29,9 @@ If applicable, add screenshots to help explain your problem.
  - Browser [e.g. chrome, safari]
  - Version [e.g. 22]
 
+**Contribute:**
+<!-- Yes -->
+<!-- No -->
+
 **Additional context**
 Add any other context about the problem here.
