@@ -319,9 +319,6 @@ h1,h2,h3,h5,h6 {
 	top: 230px;
 	left: 190px;
 }
-.options-area {
-	width: 70%;
-}
 /* whenever user scrolls down, the list group will stick at the top by 0*/
 .list-group-dashboard {
 	position: sticky;
@@ -856,9 +853,7 @@ h1,h2,h3,h5,h6 {
 *
 *
 **/
-.options-area {
-	width: 20%;
-}
+
 /**
 *
 *
@@ -912,6 +907,9 @@ h1,h2,h3,h5,h6 {
 .modal {
 	border-radius: 0!important;
 }
+.options-area {
+	width: 50%;
+}
 .options-list {
 	list-style: none;
 	padding-left: 0!important;
@@ -921,26 +919,24 @@ h1,h2,h3,h5,h6 {
 }
 .option-item {
 	display: inline-flex!important;
+	width: 100%;
 }
 .question_settings {
 	width: 300px;
 	height: 50px;
-	/*background-color: #eff1f7;*/
 }
-.add-new-option {
-	font-size:13px;
-	width: 90%;
+
+.delete-option {
 	cursor: pointer;
-	transition: all .2 ease-out;
+	padding: 10px;
+	background: var(--info); /* dodgerblue */
+    color: white;
 }
-.add-new-option:hover {
-	background-color: rgba(0,0,0,.1);
-}
-.delete-option, delete-field {
-	transition: all .2 ease-out;
-	border-radius: 40%;	
+.delete-field {
 	cursor: pointer;
-	padding: 8px;
+	padding: 10px;
+	background: var(--danger);
+    color: white;
 }
 .delete-option:hover,delete-field:hover {
 	background-color: rgba(0,0,0,.1);
