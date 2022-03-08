@@ -1268,7 +1268,7 @@ h1,h2,h3,h5,h6 {
 .delete-option {
 	cursor: pointer;
 	padding: 10px;
-	background: var(--info); /* dodgerblue */
+	background: var(--danger); /* dodgerblue */
     color: white;
 }
 .delete-field {
@@ -1277,7 +1277,7 @@ h1,h2,h3,h5,h6 {
 	background: var(--danger);
     color: white;
 }
-.delete-option:hover,delete-field:hover {
+.delete-option:hover, .delete-field:hover {
 	background-color: rgba(0,0,0,.1);
 }
 .dragable {

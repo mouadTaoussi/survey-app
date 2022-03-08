@@ -1,3 +1,4 @@
+
 if (window.location.pathname === "/surveyEditor" || window.location.pathname === "/dashboard") {
 
 	// Show side menu for smaller devices
@@ -140,7 +141,6 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 			input.type = "file";
 			input.onchange = getFile;
 			label.classList.add('custom-file-label');
-
 			label.for = "validatedCustomFile";
 			label.innerHTML = "Choose files...";
 			files_input.appendChild(input);
@@ -161,8 +161,8 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 			option_input.placeholder = "Option";
 			delete_input.classList.add('delete-option', 'fas', 'fa-times');
 			delete_input.onclick = deleteOption;
-			add_new_one.classList.add('add-new-option', 'p-2');
-			add_new_one.innerHTML = "Add new one +";
+			add_new_one.classList.add('add-new-option', 'btn', 'btn-warning', 'btn-sm');
+			add_new_one.innerHTML = "add option";
 			single.appendChild(option_input);
 			single.appendChild(delete_input);
 			options.appendChild(single);
