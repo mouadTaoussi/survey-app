@@ -1227,15 +1227,14 @@ h1,h2,h3,h5,h6 {
 }
 .tools-list li {
 	margin: 3px 3px 3px 3px;
-	/*background-color: red;*/
-	border-radius: 43%;
+	/*border-radius: 43%;*/
 	padding: 5px;
 	width: 27px;
 	height: 27px;
 	transition: all .2s ease-out ; 
 }
-.tools-list li:hover {
-	background-color: rgba(0,0,0,.2)
+.tools-list li i:hover {
+	color: rgba(0,0,0,.2)
 }
 .responses {
 	display: none;
