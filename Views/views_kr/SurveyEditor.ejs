@@ -296,13 +296,17 @@
 		        		링크를 삽입하려면 설문 조사를 저장하세요!
 		        	</div>
 	        	<% } else { %>
-<xmp style="">
-<iframe 
-  src="surveyapp1.herokuapp.com/embedded?survey_id=<%=survey.id %>&lang=kr" 
-  width="100%" 
-  height="245px">
-</iframe>
-</xmp> 
+	        	<section class="embedded-code">
+	        		<pre>
+						<code>
+  &lt;iframe 
+    src="surveyapp1.herokuapp.com/embedded?survey_id=<%=survey.id %>&lang=kr" 
+    width="100%" 
+    height="245px"&gt;
+  &lt;/iframe&gt;
+						</code>
+	        		</pre>
+	        	</section>
 	        	<%}%>
 
 		      </div>

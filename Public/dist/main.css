@@ -1236,6 +1236,13 @@ h1,h2,h3,h5,h6 {
 .tools-list li i:hover {
 	color: rgba(0,0,0,.2)
 }
+.embedded-code {
+	background-color: #212529;
+	border-radius: 4px;
+}
+pre {
+	color: #dc3545;
+}
 .responses {
 	display: none;
 }
