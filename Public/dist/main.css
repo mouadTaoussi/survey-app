@@ -1237,7 +1237,7 @@ h1,h2,h3,h5,h6 {
 	color: rgba(0,0,0,.2)
 }
 .embedded-code {
-	background-color: #212529;
+	background-color: rgba(0,0,0,.1);
 	border-radius: 4px;
 }
 pre {
@@ -1274,13 +1274,13 @@ pre {
 .delete-option {
 	cursor: pointer;
 	padding: 10px;
-	background: var(--danger); /* dodgerblue */
+	background: var(--info); /* dodgerblue */
     color: white;
 }
 .delete-field {
 	cursor: pointer;
 	padding: 10px;
-	background: var(--danger);
+	background: var(--info);
     color: white;
 }
 .delete-option:hover, .delete-field:hover {
