@@ -7,7 +7,7 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 	// Get results whenever the user hits response tab in the surveyEditor
 	window.getResults = function(){
 		// Check if the results already received
-		if ( document.querySelector('.responses').children.length > 0 ) {
+		if ( document.querySelector('.responses').children.length > 0 && !document.querySelector('.responses .empty-content')) {
 			return "already received results";
 		}
 		// Get question ID
@@ -150,6 +150,8 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 					}else { continue }
 				}
 			}
+			// Reomove the empty content svg
+			document.querySelector('.responses').children[0].remove();
 		})
 		.catch((error)=>{
 			console.log(error)
