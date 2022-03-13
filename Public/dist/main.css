@@ -648,6 +648,10 @@ h1,h2,h3,h5,h6 {
 .user-profile-inputs {
 	background-color: inherit;
 }
+.avatar-container {
+	position: relative;
+	width: 200px;
+}
 .avatar-input {
 	background-color: white;
 	width: 40px;
@@ -655,8 +659,8 @@ h1,h2,h3,h5,h6 {
 	border-radius: 50%;
 	border: .4px solid rgba(0,0,0,.20);
 	position: absolute;
-	top: 230px;
-	left: 190px;
+    bottom: 5px;
+    right: -20px;
 }
 /* whenever user scrolls down, the list group will stick at the top by 0*/
 .list-group-dashboard {

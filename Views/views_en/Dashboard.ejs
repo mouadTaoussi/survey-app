@@ -104,14 +104,15 @@
 	      <!-- user account -->
 	      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
 	      	<h3 class="text-left local-mb-4">Your Account</h3>
-	      	<img src="<%= user.avatar %>" class="logo-of-user local-mb-4" width="200" height="200">
-	      	<div class="avatar-input">
-	
-			    <label for="avatar" class="btn"><i class="far fa-edit"></i></label>
-			    <input id="avatar" style="visibility:hidden;" type="file" onchange="getAvatar(event)">
+	      	<section class="avatar-container">
+		      	<img src="<%= user.avatar %>" class="logo-of-user local-mb-4" width="200" height="200">
+		      	<div class="avatar-input">
+		
+				    <label for="avatar" class="btn"><i class="far fa-edit"></i></label>
+				    <input id="avatar" style="visibility:hidden;" type="file" onchange="getAvatar(event)">
 
-		    </div>
-		    <br>
+			    </div>
+	      	</section>
 		    <br>
 		    <div style='background-color: white;' class="user_form local-p-4 shadow local-mb-4">
 			    <label for="user_id">Your ID:</label>
