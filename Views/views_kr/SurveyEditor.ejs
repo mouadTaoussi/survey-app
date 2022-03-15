@@ -260,7 +260,7 @@
 		        </button>
 		      </div>
 		      <div class="modal-body">
-		        <p>소셜 미디어에서 공유 할 수있는 링크 :</p>
+		        <p>소셜 미디어에서 공유하기 위한 Http 링크:</p>
 		        
 		        <% if (survey == null ) { %>
 	        		<div class="input-group mb-3">
@@ -290,7 +290,7 @@
 					</div>
 	        	<%}%>
 		      
-		        <p>웹 사이트에 포함 할 포함 된 요소 :</p>
+		        <p>웹사이트에 포함할 임베디드 요소:</p>
 	        	<% if (survey == null ) { %>
 		        	<div class="local-alert info">
 		        		링크를 삽입하려면 설문 조사를 저장하세요!
@@ -330,9 +330,9 @@
 		      <div class="modal-body">
 		        <p>아래에 가져올 설문 ID를 붙여 넣으세요:</p>
 		        <strong style='font-size: 13px;line-height: 3px'>
-		        	NB : <kbd> survey_id </kbd>가 아래와 같이 관련되어 있다면 링크에서 설문 조사 ID를 얻을 수 있습니다!</strong><br>
+		        	주의: http 링크 바의 링크에서 설문조사 ID를 얻을 수 있습니다.</strong><br>
 		        <!-- <img  class="local-mt-2" src="./previewID.png" width="100%"> -->
-		        <kbd style='font-size: 10px'>/surveyEditor?survey_id=5f4aef5b4491253b00b7cae</kbd>
+		        <!-- <kbd style='font-size: 10px'>/surveyEditor?survey_id=5f4aef5b4491253b00b7cae</kbd> -->
 		        <input type="text" class="import_survey_id form-control local-mt-2" placeholder="Survey ID">
 		      </div>
 		      <div class="modal-footer">

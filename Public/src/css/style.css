@@ -939,13 +939,13 @@ pre {
 .delete-option {
 	cursor: pointer;
 	padding: 10px;
-	background: var(--info); /* dodgerblue */
+	background: rgba(0,0,0,.2); /* dodgerblue */
     color: white;
 }
 .delete-field {
 	cursor: pointer;
 	padding: 10px;
-	background: var(--info);
+	background: rgba(0,0,0,.2);
     color: white;
 }
 .delete-option:hover, .delete-field:hover {
