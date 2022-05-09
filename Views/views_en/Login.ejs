@@ -7,11 +7,11 @@
 <body>
 <div class="">
 
-	<a href="/?lang=en">
+	<a href="/">
 		<div class='forms-logo'></div>
 	</a>
 	<div class="login local-card shadow">
-		<a href="/?lang=en">
+		<a href="/">
 			<div class='forms-logo forms-logo-sd'></div>
 		</a>
 		<style>
@@ -30,7 +30,7 @@
 		<% if(errMessage != null) { %>
 			<div class='local-alert danger'><%= errMessage %></div>
 		<% } %>
-		<form action="/auth/login?lang=en" method="POST">
+		<form action="/auth/login" method="POST">
 			<input type="email" name="email" class="form-control local-mt-2" placeholder="Enter your Email" required autofocus>
 			<input type="password" name="password" class="form-control local-mt-2" placeholder="Enter your Password" required>
 			<input type="submit" value="Log in" class="local-btn register-btn local-mt-2 local-btn-primary">
@@ -50,9 +50,9 @@
 	</div>
 	<center>
 		<ul class="footer-list local-mt-4">
-			<li class='footer-list-item'>Terms of service</li>
-			<li class='footer-list-item'><a href='/privacyPolicy?lang=en'>Privacy & policy</a></li>
-			<li class='footer-list-item'><a href='/privacyPolicy?lang=en'>How it works?</a></li>
+			<li class='footer-list-item'><a href='/'>Home page</li>
+			<li class='footer-list-item'><a href='/privacyPolicy'>Privacy & policy</a></li>
+			<li class='footer-list-item'><a href='/docs'>API</a></li>
 		</ul>
 	</center>
 	<div class="svgs">

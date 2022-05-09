@@ -192,7 +192,7 @@ router.get('/surveyEditor', validators.checkLanguage, auth.isAuthenticated, asyn
 
 router.get('/results', validators.checkLanguage, auth.isAuthenticated, auth.isOwenedTheSurvey_App, async(request,response)=>{
 	// render the pages 
-	response.render(`pages/ResultsFullScreen`);
+	response.render(`${request.lang.views_lang}/ResultsFullScreen`);
 })
 
 router.get('/submitResponse', validators.checkLanguage, async(request,response)=>{

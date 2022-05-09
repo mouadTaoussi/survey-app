@@ -67,7 +67,7 @@ if (window.location.pathname === "/surveyEditor" ){
 		// Check the foundOne if true or false
 		if(!foundOne){ alert('This file type is not allowed!'); }
 	}
-
+	// @TODO  issue wheen saving an Imported survey
 	// Save questions (survey) // Update questions (survey)
 	document.querySelector('.btn-save-changes').addEventListener('click',()=>{
 	 	
