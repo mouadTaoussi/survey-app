@@ -105,7 +105,7 @@
 <script>
 	window.setInterval(()=>{
 	//Implement animation when in the home page
-	if (window.location.pathname == "/" || window.location.pathname === "/privacyPolicy" || window.location.pathname === "/docs") {
+	if (window.location.pathname == "/" ) {
 		window.onscroll = ()=>{
 			if (window.scrollY == 0 ){
 				document.querySelector('.landing-page-header').style.backgroundColor = 'transparent';
@@ -140,6 +140,21 @@
 				document.querySelector('.hamburger-menu').classList.remove('text-white');
 			}
 		}
+	}else if (window.location.pathname === "/privacyPolicy" || window.location.pathname === "/docs") {
+			document.querySelector('.landing-page-header').style.backgroundColor = 'white';
+			document.querySelector('.landing-page-header').style.boxShadow = '';
+			// document.querySelector('.landing-page-header').style.transform = "all .2s ease-out";
+			// document.querySelector('.landing-page-header').classList.remove('shadow');
+			
+			document.querySelector('.header-brand').classList.add('header-logo-light');
+			document.querySelector('.header-brand').classList.remove('header-logo-primary');
+			
+			document.querySelectorAll('.header-list-item a button').forEach((item)=>{
+				item.style.color = "black";
+			})
+
+			document.querySelector('.hamburger-menu').classList.add('text-white');
+			document.querySelector('.hamburger-menu').classList.remove('text-dark');
 	}
 	// Dont implement it 
 	else if (window.location.pathname == "/login" || window.location.pathname == "/register" || window.location.pathname == "/resetPassword" )  {
