@@ -38,11 +38,10 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 
 				// Display responses
 				for (var i = 0; i < response.data.data.questions.length; i++) {
-
 					var single_response; 
 					// Check question type 
 					if (response.data.data.questions[i].type === "ShortParagraph"){
-
+						console.log('shortp')
 						// Single response html
 						single_response = `
 						<div class='response local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
@@ -50,7 +49,7 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 							<p class="response-question-type">${response.data.data.questions[i].type}</p>
 							<div style="overflow:scroll; height:250px;" class="paragraphes"></div>
 						</div>`
-
+						
 						// Inject the single response to the responses area
 						responses_area.innerHTML += single_response;
 
@@ -80,8 +79,8 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 						})
 			
 
-					}else {
-
+					}
+					else {
 						// Single response html
 						single_response = `
 						<div class='response local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
@@ -90,8 +89,12 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 							<div class="chart-area">
 								<div id="canvas${i}"></div>
 							</div>
-						</div>	
+						</div>
 						`
+						// Inject the single response to the responses area
+						console.log(responses_area)
+						console.log(i)
+						responses_area.innerHTML += single_response;
 
 						// Push just MultipleChoice and OneChoice results t use them below in charts
 						// We didn't used array.push(v) because there are ShortParagraph, we wont use in the charts
@@ -100,8 +103,6 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 							options :  response.data.data.questions[i].options
 						})
 
-						// Inject the single response to the responses area
-						responses_area.innerHTML += single_response;
 					}
 
 				}
@@ -151,7 +152,9 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 				}
 			}
 			// Reomove the empty content svg
-			document.querySelector('.responses').children[0].remove();
+			document.querySelector('.responses .empty-content').remove();
+
+			// document.querySelector('.responses').children[0].remove();
 		})
 		.catch((error)=>{
 			console.log(error)

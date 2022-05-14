@@ -11,7 +11,161 @@
 	</div>
 </body>
 <%-   include('.././partials/ScriptTags')   %>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
 <script>
+	window.getFResults = function(){
+		// Check if the results already received
+		if ( document.querySelector('.responses').children.length > 0 && !document.querySelector('.responses .empty-content')) {
+			return "already received results";
+		}
+		// Get question ID
+		const urlParams = new URLSearchParams(window.location.search);
+		const survey_id = urlParams.get('survey_id');
+		// const user_id = urlParams.get('user_id');
+
+		// Get the response results and then display them in the chart
+		axios({
+			url : `/response/processSurveyResponses?survey_id=${survey_id}`,
+			method : "GET",
+		})
+		.then((response)=>{
+			console.log("response")
+			if ( response.data.processed == false ) {
+				window.displayAlertMessage( response.data.processed, response.data.message );
+			}
+			else {
+				// Get the resposnes list 
+				const responses_area = document.querySelector('.responses');
+
+				// Put Responses count and display it to the user
+				document.querySelector('.responsesNumber').innerHTML = response.data.responsesNumber;
+
+				// Result of the responses without of MultipleChoice and OneChoice without ShortParagraph
+				// For use them to display charts
+				var results_without_short_paragraph = [];
+
+				// Display responses    @ERROR / first question's response is not shown
+				for (var i = 0; i < response.data.data.questions.length; i++) {
+
+					var single_response; 
+					// Check question type 
+					if (response.data.data.questions[i].type === "ShortParagraph"){
+
+						// Single response html
+						single_response = `
+						<div class='response local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+							<h4 class="response-question">${response.data.data.questions[i].title}</h4>
+							<p class="response-question-type">${response.data.data.questions[i].type}</p>
+							<div style="overflow:scroll; height:250px;" class="paragraphes"></div>
+						</div>`
+
+						// Inject the single response to the responses area
+						responses_area.innerHTML += single_response;
+
+						// Get the area where the paragraphes should be placed
+						const shortParagraphdiv = document.querySelectorAll('.paragraphes');
+
+						for ( var io = 0; io < response.data.data.questions[i].result.length; io++ ) {
+
+							if (response.data.data.questions[i].result[io] === '') {
+								// Ignore th empty paragraph response
+								continue
+							}
+							else {
+								// Taking th last paragraph type response for inject paragraphes for it!!!
+								shortParagraphdiv[shortParagraphdiv.length-1].innerHTML += `<p class="answres">${response.data.data.questions[i].result[io]}</p><br>`;	
+							}
+
+						}
+
+						// Apply and Implement sme styles to the answres
+						document.querySelectorAll(".answres")
+						.forEach((answer)=>{
+							answer.style.padding         = "8px 0 8px 15px";
+							answer.style.margin          = ".2px"
+							answer.style.backgroundColor = "#eff1f7";
+							// answer.
+						})
+			
+
+					}else {
+
+						// Single response html
+						single_response = `
+						<div class='response local-card local-mt-4 local-mb-2 local-pt-4 local-pb-4 local-shadow'>
+							<h4 class="response-question">${response.data.data.questions[i].title}</h4>
+							<p class="response-question-type">${response.data.data.questions[i].type}</p>
+							<div class="chart-area">
+								<div id="canvas${i}"></div>
+							</div>
+						</div>	
+						`
+
+						// Push just MultipleChoice and OneChoice results t use them below in charts
+						// We didn't used array.push(v) because there are ShortParagraph, we wont use in the charts
+						results_without_short_paragraph[i] = ({
+							result  :  response.data.data.questions[i].result,
+							options :  response.data.data.questions[i].options
+						})
+
+						// Inject the single response to the responses area
+						responses_area.innerHTML += single_response;
+					}
+
+				}
+
+				// Display Results charts
+				for (var i = 0; i < results_without_short_paragraph.length; i++) {
+
+					// Check if ( results_without_short_paragraph[i] !== undefined ) because we didnt pushed ShortParagraphes
+					if( results_without_short_paragraph[i] !== undefined ) {
+
+						// Those functions are used if we are using G2Plot lib instead of ChartJS or FrappeJS
+						const percentageDatasets = calculatePercentage(results_without_short_paragraph[i].result);
+						const mergedData = mergeDataWithLabels(results_without_short_paragraph[i].options,percentageDatasets) 
+
+						const piePlot = new Pie(`canvas${i}`, {
+						  appendPadding: 10,
+						  data: mergedData,
+						  angleField: 'value',
+						  colorField: 'type',
+						  radius: 0.9,
+						  label: {
+						    type: 'inner',
+						    offset: '-30%',
+						    content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
+						    style: {
+						      fontSize: 14,
+						      textAlign: 'center',
+						    },
+						  },
+						  interactions: [{ type: 'element-active' }],
+						});
+
+						piePlot.update({ 
+							"theme": { 
+								"styleSheet": { 
+									"brandColor": "#215B77", 
+									"paletteQualitative10": ["#215B77", "#1B9CD0", "#61C9FF", "#ABDFFF", "#FFDE94", "#FFC741", "#D09C10", "#795B16"], 
+									"paletteQualitative20": ["#215B77", "#227BA2", "#1B9CD0", "#22BAED", "#61C9FF", "#8AD4FF", "#ABDFFF", "#C9E9FF", "#FFE9B8", "#FFDE94", "#FFD470", "#FFC741", "#EDB40A", "#D09C10", "#A37B16", "#795B16"] 
+								} 
+							} 
+						})
+
+						piePlot.render();
+						console.log('rendered');
+
+					}else { continue }
+				}
+			}
+			// Reomove the empty content svg
+			document.querySelector('.responses').children[0].remove();
+		})
+		.catch((error)=>{
+			console.log(error)
+			alert("something went wrong!" );
+		})
+	}
 	window.getResults();
 </script>
 </html>
