@@ -140,6 +140,8 @@ if (window.location.pathname === "/surveyEditor" ){
 			
 		})
 		.catch((err)=>{
+			// @ERROR cannot save impprted survey
+			console.log(err)
 			window.displayAlertMessage( false,err );
 		})
 	})
@@ -163,7 +165,7 @@ if (window.location.pathname === "/surveyEditor" ){
 				// Displaying questions in questiion list
 				window.displayAlertMessage( response.data.found,response.data.message );
 				// Create options
-				var options = [];
+				var options;
 
 				
 				// Loop over questions to display each one of them!!!
@@ -171,12 +173,12 @@ if (window.location.pathname === "/surveyEditor" ){
 
 					for (var io = 0; io < response.data.data[i].options.length; io++) {
 					
-						options.push(`
+						options += `
 							<li class="option-item">
 								<input type="text" placeholder="Option" class="form-control" value="${response.data.data[i].options[io]}" required>
 								<i onclick="deleteOption(event)" class="delete-option fas fa-times"></i>
 							</li>
-						`)
+						`
 
 					}
 					const single_question =  `
@@ -197,7 +199,7 @@ if (window.location.pathname === "/surveyEditor" ){
 						<!-- Options -->
 						<div class="options-area">
 							<ul class="options-list">
-								` + options + `
+								` + options  + `
 							</ul>
 							<p class="add-new-option p-2">Add new one +</p>
 						</div>
