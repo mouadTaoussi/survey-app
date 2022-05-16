@@ -129,7 +129,7 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 			const question_input = document.createElement('input');
 			question_input.classList.add('form-control', 'mt-2');
 			question_input.required;
-			question_input.placeholder = "Which question you wanna write here?";
+			question_input.placeholder = "Type your question here";
 
 			// Create the Question attachment files input
 		/*	const files_input = document.createElement('div');
@@ -203,7 +203,7 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 			// Call the add new option function to make it updated too with the NodeLists above 
 			// whenever the NodeList of the addoption has incremented when the user added one more question field
 			addNewOption(addoption,list);
-
+			window.updateNodeList();
 		})
 	})
 
@@ -213,6 +213,17 @@ if ( window.location.pathname === "/surveyEditor" || window.location.pathname ==
 	// }
 	addNewOption(addoption,list);
 	
+	window.updateNodeList = () => {
+		// Update the NodeList for the use below
+		addoption = document.querySelectorAll('.add-new-option'); /// Static NodeList ! ! !
+		list      = document.querySelectorAll('.options-list'); /// Static NodeList ! ! !
+
+		// Call the add new option function to make it updated too with the NodeLists above 
+		// whenever the NodeList of the addoption has incremented when the user added one more question field
+		addNewOption(addoption,list);
+
+	}
+
 	function addNewOption(addoption,list){
 		for (let i = 0; i < addoption.length; i++) {
 		addoption[i].addEventListener('click',()=>{

@@ -31,14 +31,14 @@ app.set('views', path.join(__dirname, '/Views'));
 const mongoDatabase = databaseConnection.mongodbConnection();
 
 // Init redis connection
-const redisDatabase = databaseConnection.redisConnection();
+// const redisDatabase = databaseConnection.redisConnection();
 
 // Init sessions
 app.use(express_sessions({
 	secret : process.env.EXPRESS_SESSION_KEY,
 	resave : false,
 	saveUninitialized : true,
-	store: new RedisStore({ host: process.env.REDIS_LABS_HOST, port: process.env.REDIS_LABS_PORT, client: redisDatabase }),
+	// store: new RedisStore({ host: process.env.REDIS_LABS_HOST, port: process.env.REDIS_LABS_PORT, client: redisDatabase }),
 }))
 
 // Init Passport

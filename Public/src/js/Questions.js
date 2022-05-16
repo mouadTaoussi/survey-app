@@ -191,7 +191,7 @@ if (window.location.pathname === "/surveyEditor" ){
 						<!-- Quetsion or title -->
 						<input 
 							class="form-control mt-2" 
-							placeholder='Which question you wanna write here?'
+							placeholder='Type your question here'
 							value="${response.data.data[i].title}" 
 							required
 						>
@@ -201,25 +201,25 @@ if (window.location.pathname === "/surveyEditor" ){
 							<ul class="options-list">
 								` + options  + `
 							</ul>
-							<p class="add-new-option p-2">Add new one +</p>
+							<p class="add-new-option btn btn-warning btn-sm">Add option</p>
 						</div>
 						<!-- Settings -->
-						<div class="question_settings p-2">
-							<i 
-							onclick="deleteField(event)" 
-							style="display: inline" 
-							class="delete-field mx-2 far fa-trash-alt"></i>
-							<select style="display: inline;width: 180px;" class='mx-2 form-control'>
+						<div class="question_settings">
+							<select style="display: inline;width: 180px;" class='form-control'>
 								<option ${ response.data.data[i].type == "MultipleChoice" ? selected : nothing }>MultipleChoice</option>
 								<option ${ response.data.data[i].type == "OneChoice" ? selected : nothing } >OneChoice</option>
 								<option ${ response.data.data[i].type == "ShortParagraph" ? selected : nothing }>ShortParagraph</option>
 							</select>
+							<i onclick="deleteField(event)" style="display: inline" class="delete-field mx-2 far fa-trash-alt"></i>
 						</div>
 					</div>`
 
 					// Push that single question to the question list
 					questions_list.innerHTML += single_question;
 					options = [];
+
+					// Update nodelist that contains buttons of <add option> when we import questions 
+					window.updateNodeList();
 				}
 			})
 			.catch((err)=>{
