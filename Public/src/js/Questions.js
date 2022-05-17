@@ -142,7 +142,7 @@ if (window.location.pathname === "/surveyEditor" ){
 		.catch((err)=>{
 			// @ERROR cannot save impprted survey
 			console.log(err)
-			window.displayAlertMessage( false,err );
+			// window.displayAlertMessage( false,err );
 		})
 	})
 
