@@ -4,6 +4,7 @@ const fileSystem                      = require('fs');
 const mime                            = require('mime');
 const path                            = require('path');
 const uuid                            = require('uuid');
+var   jsonFormat                            = require('format-json');
 const Responses                       = require('.././Controllers/Responses.js');
 const Questions                       = require('.././Controllers/Questions.js');//
 const auth                            = require('.././Middlewares/Authentication.js');
@@ -88,7 +89,7 @@ router.get('/downloadResults/json', validators.checkLanguage, auth.isAuthenticat
 
 		// Save results as a file
 		fileSystem.appendFileSync(
-			fileLocation, JSON.stringify(processing.data.questions)
+			fileLocation, jsonFormat.diffy(processing.data.questions)
 		)
 
 		// const filename = path.basename(file);
