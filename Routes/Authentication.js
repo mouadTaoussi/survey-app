@@ -12,14 +12,14 @@ const authController = new Authentication();
 const router = express.Router();
 
 // Oauth routes to get user logged in!
-router.get('/google', validators.checkLanguage ,auth.isLoggedin, passport.authenticate('google',{scope:['profile','email']}));
-router.get('/github', validators.checkLanguage ,auth.isLoggedin, passport.authenticate('github',{scope:['profile','email']}));
-router.get('/linkedin', validators.checkLanguage ,auth.isLoggedin, passport.authenticate('linkedin'));
+router.get('/google', validators.checkLanguage , auth.isLoggedin, passport.authenticate('google',{scope:['profile','email']}));
+router.get('/github', validators.checkLanguage , auth.isLoggedin, passport.authenticate('github',{scope:['profile','email']}));
+router.get('/linkedin', validators.checkLanguage , auth.isLoggedin, passport.authenticate('linkedin'));
 
 // Callbacks or Oauth services to get user redirected to!
-router.get('/google/callback',passport.authenticate('google',{failureRedirect : '/',successRedirect : '/dashboard'}));
-router.get('/github/callback',passport.authenticate('github',{failureRedirect : '/',successRedirect : '/dashboard'}));
-router.get('/linkedin/callback',passport.authenticate('linkedin',{failureRedirect : '/',successRedirect : '/dashboard'}));
+router.get('/google/callback', passport.authenticate('google',{failureRedirect : '/',successRedirect : '/dashboard'}));
+router.get('/github/callback', passport.authenticate('github',{failureRedirect : '/',successRedirect : '/dashboard'}));
+router.get('/linkedin/callback', passport.authenticate('linkedin',{failureRedirect : '/',successRedirect : '/dashboard'}));
 
 // Local Authentication Strategy
 router.post('/login', validators.checkLanguage, auth.isLoggedin, async(request,response)=>{
