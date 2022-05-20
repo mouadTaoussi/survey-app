@@ -20,7 +20,7 @@ window.displayAlertMessage = (messageType,message)=>{
 	 **/
 	if (messageType){
 		// Play the success ringtone
-		document.querySelector("#ringtone-message-success").play(); 
+		// document.querySelector("#ringtone-message-success").play(); 
 		// Display message alert after one second because the sound starts a bit slowly
 		window.setTimeout(()=>{
 			// Set the message color
@@ -40,7 +40,7 @@ window.displayAlertMessage = (messageType,message)=>{
 		},8000)
 	}else {
 		// Play the success ringtone
-		document.querySelector("#ringtone-message-danger").play(); 
+		// document.querySelector("#ringtone-message-danger").play(); 
 		// Display message alert after one second because the sound starts a bit slowly
 		window.setTimeout(()=>{
 			// Set the message color

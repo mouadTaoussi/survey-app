@@ -53,13 +53,13 @@
 
 			<section class="endpoints">
 				<h4 class="local-text-black">끝점 (경로)</h4>
-				<xmp style="background-color:black;color:white;padding: 5px">surveyapp1.herokuapp.com/api/v1/get/users?limit=2</xmp>
+				<xmp style="background-color:black;color:white;padding: 5px">yoursurveyapp.herokuapp.com/api/v1/get/users?limit=2</xmp>
 				<p>
-					위의 예는 위에서 제한 한대로 2 명의 사용자를 확보하기위한 간단한 URL을 나타냅니다. 모든 API 엔드 포인트 는 앱의 도메인 이름 인 surveyapp1.herokuapp.com으로 시작하고 그 뒤에 api를 설명하는 / api /와이 API의 현재 주 버전을 나타내는 / v1 /가 있습니다. 데이터를 가져 오거나 수정할지 여부를 API에 지정하는 get /, 마지막으로 사용자 또는 특정 사용자 또는 설문 조사와 같이 얻고 자하는 데이터를 설명하는 / users 필드 ...
+					위의 예는 위에서 제한 한대로 2 명의 사용자를 확보하기위한 간단한 URL을 나타냅니다. 모든 API 엔드 포인트 는 앱의 도메인 이름 인 yoursurveyapp.herokuapp.com으로 시작하고 그 뒤에 api를 설명하는 / api /와이 API의 현재 주 버전을 나타내는 / v1 /가 있습니다. 데이터를 가져 오거나 수정할지 여부를 API에 지정하는 get /, 마지막으로 사용자 또는 특정 사용자 또는 설문 조사와 같이 얻고 자하는 데이터를 설명하는 / users 필드 ...
 					<br> 이것은 API URL의 기본 구조입니다.
 				</p>
 				<p>따라서 API URL의 구조는 다음과 같습니다.</p>
-				<xmp style="background-color:black;color:white;padding: 5px">surveyapp1.herokuapp.com/api/version/method/data?query=value&query=value</xmp>
+				<xmp style="background-color:black;color:white;padding: 5px">yoursurveyapp.herokuapp.com/api/version/method/data?query=value&query=value</xmp>
 				<!-- Space -->
 				<br>
 				<br>
@@ -109,7 +109,7 @@
 					  	 특정 사용자 얻기 :
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/user?user_id=3cdDC...&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        yoursurveyapp.herokuapp.com/api/v1/get/user?user_id=3cdDC...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
@@ -132,7 +132,7 @@
 					  	사용자 목록 가져 오기 :
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/users?limit=2&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        yoursurveyapp.herokuapp.com/api/v1/get/users?limit=2&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
@@ -154,7 +154,7 @@
 					  	설문 조사 받기 :
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        yoursurveyapp.herokuapp.com/api/v1/get/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
@@ -176,7 +176,7 @@
 					  	설문 조사 목록 받기 :
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/surveys?limit=2&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        yoursurveyapp.herokuapp.com/api/v1/get/surveys?limit=2&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
@@ -198,7 +198,7 @@
 					  	 특정 설문 조사 업데이트 : (당신의 설문 조사에서만!)
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ PUT/   (*1) surveyapp1.herokuapp.com/api/v1/update/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ PUT/   (*1) yoursurveyapp.herokuapp.com/api/v1/update/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						 <p class="badge badge-info text-left p-2" style="width:80px;">PUT</p>
@@ -236,7 +236,7 @@
 					  	 특정 설문 조사 삭제 : (당신의 설문 조사에서만!)
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ DELETE/(*2) surveyapp1.herokuapp.com/api/v1/delete/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ DELETE/(*2) yoursurveyapp.herokuapp.com/api/v1/delete/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						<p  class="badge badge-danger text-left p-2" style="width:80px;">DELETE</p>
@@ -261,7 +261,7 @@
 					  	 설문 조사 응답 받기 : (당신의 설문 조사에서만!)
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/   (*3) surveyapp1.herokuapp.com/api/v1/get/responses?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/   (*3) yoursurveyapp.herokuapp.com/api/v1/get/responses?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						<p class="badge badge-primary text-left p-2" style="width:80px;">GET</p>

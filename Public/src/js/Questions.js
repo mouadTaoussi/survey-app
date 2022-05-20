@@ -67,9 +67,12 @@ if (window.location.pathname === "/surveyEditor" ){
 		// Check the foundOne if true or false
 		if(!foundOne){ alert('This file type is not allowed!'); }
 	}
-	// @TODO  issue wheen saving an Imported survey
 	// Save questions (survey) // Update questions (survey)
-	document.querySelector('.btn-save-changes').addEventListener('click',()=>{
+	document.querySelector('.btn-save-changes').addEventListener('click', saveSurveyChanges);
+	// auto save feature 
+	setInterval(saveSurveyChanges('SurveyApp auto saved your work!'), 15000)
+
+	function saveSurveyChanges (message = null){
 	 	
 		// Init survey output
 		let survey = {};
@@ -123,7 +126,7 @@ if (window.location.pathname === "/surveyEditor" ){
 			}
 			else {
 
-				window.displayAlertMessage(response.data.saved,response.data.message);
+				window.displayAlertMessage(response.data.saved, message || response.data.message);
 				// Attach that id in the the html element to use it whenever user hit save 
 				// to prevent adding one more survey and just update it instead
 				// Check : Controllers/Questions.js
@@ -144,8 +147,7 @@ if (window.location.pathname === "/surveyEditor" ){
 			console.log(err)
 			// window.displayAlertMessage( false,err );
 		})
-	})
-
+	}
 	// Importing another questions
 	window.importQuestions = function(){
 		// Get the survey id wanted to be imported as well as questions list to put the imported questions to
@@ -233,7 +235,7 @@ if (window.location.pathname === "/surveyEditor" ){
 // Delete questions (survey)
 window.deleteSurvey = function(event,survey_id){
 	// Makeing sure that the user wants t delete the current survey
-	const confirmation = window.confirm('Are you really want to delete this survey?');
+	const confirmation = window.confirm('Do you want to delete this survey?');
 
 	if (confirmation == false) return 'Canelled';
 

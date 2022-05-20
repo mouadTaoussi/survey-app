@@ -55,14 +55,14 @@
 
 			<section class="endpoints">
 				<h4 class="local-text-black">Endpoints (Routes)</h4>
-				<xmp style="background-color:black;color:white;padding: 5px">surveyapp1.herokuapp.com/api/v1/get/users?limit=2</xmp>
+				<xmp style="background-color:black;color:white;padding: 5px">yoursurveyapp.herokuapp.com/api/v1/get/users?limit=2</xmp>
 				<p>
 					this above example represents a simple url to get 2 users as limited above.
-					all of the API endpoints start by <strong>surveyapp1.herokuapp.com</strong> which is the domain name of the app, then after it there is /api/ that describes the api and the /v1/ which represents the current major version of this API, then /get/ that specify to the API whether you want to get data or modify it, and finally /users field that describes which data you wanna get such as users or a spesific user or surveys ...
+					all of the API endpoints start by <strong>yoursurveyapp.herokuapp.com</strong> which is the domain name of the app, then after it there is /api/ that describes the api and the /v1/ which represents the current major version of this API, then /get/ that specify to the API whether you want to get data or modify it, and finally /users field that describes which data you wanna get such as users or a spesific user or surveys ...
 					This is the basic structure of the API URL
 				</p>
 				<p>so the structure of API URLs would be like:</p>
-				<xmp style="background-color:black;color:white;padding: 5px">surveyapp1.herokuapp.com/api/version/method/data?query=value&query=value</xmp>
+				<xmp style="background-color:black;color:white;padding: 5px">yoursurveyapp.herokuapp.com/api/version/method/data?query=value&query=value</xmp>
 				<!-- Space -->
 				<br>
 				<br>
@@ -112,7 +112,7 @@
 					  	Get a specific user:
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/user?user_id=3cdDC...&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        yoursurveyapp.herokuapp.com/api/v1/get/user?user_id=3cdDC...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
@@ -135,7 +135,7 @@
 					  	Get a list of users:
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/users?limit=2&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        yoursurveyapp.herokuapp.com/api/v1/get/users?limit=2&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
@@ -158,7 +158,7 @@
 					  	Get a survey:
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        yoursurveyapp.herokuapp.com/api/v1/get/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
@@ -180,7 +180,7 @@
 					  	Get a list of surveys:
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        surveyapp1.herokuapp.com/api/v1/get/surveys?limit=2&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/        yoursurveyapp.herokuapp.com/api/v1/get/surveys?limit=2&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						<p  class="badge badge-primary text-left p-2" style="width:80px;">GET</p>
@@ -202,7 +202,7 @@
 					  	Update a specific survey: (Only at your surveys!)
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ PUT/   (*1) surveyapp1.herokuapp.com/api/v1/update/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ PUT/   (*1) yoursurveyapp.herokuapp.com/api/v1/update/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						 <p class="badge badge-info text-left p-2" style="width:80px;">PUT</p>
@@ -240,7 +240,7 @@
 					  	Delete a specific survey: (Only at your surveys!)
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ DELETE/(*2) surveyapp1.herokuapp.com/api/v1/delete/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ DELETE/(*2) yoursurveyapp.herokuapp.com/api/v1/delete/survey?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						<p  class="badge badge-danger text-left p-2" style="width:80px;">DELETE</p>
@@ -266,7 +266,7 @@
 					  	Get responses of a survey: (Only at your surveys!)
 					</summary>
 					<!-- Route -->
-					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/   (*3) surveyapp1.herokuapp.com/api/v1/get/responses?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
+					<xmp style="background-color:black;color:white;padding: 5px">HTTP/1.0/ GET/   (*3) yoursurveyapp.herokuapp.com/api/v1/get/responses?survey_id=2eeDV...&api_key=YOUR_API_KEY</xmp>
 					<div class="card my-4 p-4">
 						<!-- Method -->
 						<p class="badge badge-primary text-left p-2" style="width:80px;">GET</p>

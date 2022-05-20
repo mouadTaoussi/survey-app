@@ -4,7 +4,7 @@ const fileSystem                      = require('fs');
 const mime                            = require('mime');
 const path                            = require('path');
 const uuid                            = require('uuid');
-var   jsonFormat                            = require('format-json');
+var   jsonFormat                      = require('format-json');
 const Responses                       = require('.././Controllers/Responses.js');
 const Questions                       = require('.././Controllers/Questions.js');//
 const auth                            = require('.././Middlewares/Authentication.js');
@@ -13,7 +13,7 @@ const databaseConnection              = require('.././Config/DatabaseConnection.
 
 // Website domain used to work with puppeteer
 // const WEBSITE_DOMAIN = "http://localhost:5000";
-const WEBSITE_DOMAIN = "https://surveyapp1.herokuapp.com";
+const WEBSITE_DOMAIN = process.env.HOST_NAME;
 
 // Init appropriate controller
 const responsesController = new Responses();
@@ -146,7 +146,7 @@ router.get('/downloadResults/pdf', validators.checkLanguage, auth.isAuthenticate
 	]
 	const prodCookies = [
 		{
-		    "domain": "surveyapp1.herokuapp.com",
+		    "domain": WEBSITE_DOMAIN,
 		    "hostOnly": true,
 		    "httpOnly": true,
 		    "name": request.headers.cookie.slice(0,11),
