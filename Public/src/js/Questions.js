@@ -70,10 +70,10 @@ if (window.location.pathname === "/surveyEditor" ){
 	// Save questions (survey) // Update questions (survey)
 	document.querySelector('.btn-save-changes').addEventListener('click', saveSurveyChanges);
 	// auto save feature 
-	setInterval(saveSurveyChanges('SurveyApp auto saved your work!'), 15000)
+	setInterval(()=>{ saveSurveyChanges('SurveyApp auto saved your work!') }, 65000);
 
 	function saveSurveyChanges (message = null){
-	 	
+	 	console.log(1)
 		// Init survey output
 		let survey = {};
 
