@@ -70,7 +70,7 @@ if (window.location.pathname === "/surveyEditor" ){
 	// Save questions (survey) // Update questions (survey)
 	document.querySelector('.btn-save-changes').addEventListener('click', saveSurveyChanges);
 	// auto save feature 
-	setInterval(()=>{ saveSurveyChanges('SurveyApp auto saved your work!') }, 65000);
+	setInterval(()=>{ saveSurveyChanges('SurveyApp auto saved your work! 😎') }, 65000);
 
 	function saveSurveyChanges (message = null){
 	 	console.log(1)
@@ -125,8 +125,9 @@ if (window.location.pathname === "/surveyEditor" ){
 				window.displayAlertMessage(response.data.saved,response.data.message);
 			}
 			else {
+				const savedMessage =  message != null ? message : response.data.message;
 
-				window.displayAlertMessage(response.data.saved, message || response.data.message);
+				window.displayAlertMessage(response.data.saved, savedMessage);
 				// Attach that id in the the html element to use it whenever user hit save 
 				// to prevent adding one more survey and just update it instead
 				// Check : Controllers/Questions.js
