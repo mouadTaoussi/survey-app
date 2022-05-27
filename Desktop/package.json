@@ -1,6 +1,6 @@
 {
   "name": "survey-app-desktop",
-  "version": "1.0.0",
+  "version": "1.7.0",
   "description": "This is the desktop version on the survey app",
   "main": "./src/Main.js",
   "scripts": {

@@ -1393,9 +1393,9 @@ pre {
 		display: grid;
 		grid-template-columns: 2fr;
 	}
-	.isometric-logo {
+	/*.isometric-logo {
 		display: none;
-	}
+	}*/
 }
 @media only screen and (max-width: 800px){
 	.local-shadow {
@@ -1530,7 +1530,7 @@ pre {
 		text-align: center;
 	}
 	.landing-page-btns {
-		margin: 0 auto;
+		text-align: center;
 	}
 	.landing-page-cards-logo {
 		display: none;
@@ -1644,6 +1644,9 @@ pre {
 	*
 	*
 	**/
+	#login-in-homepage {
+	    display: none;
+	}
 	.first-landing-page {
 		grid-template-columns: 2fr;
 		grid-column-gap: 20px;

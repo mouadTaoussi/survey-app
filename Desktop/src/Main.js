@@ -8,7 +8,7 @@ const config = require('./Config.js')
 process.env.NODE_ENV = 'development';
 
 // Set url 
-const startUrl = isDevelopment ? config.APP_DEV_URL : config.APP_REMOTE_HOME_URL;
+const startUrl = isDevelopment ? config.APP_DEV_URL : config.APP_REMOTE_URL;
 
 const { app, BrowserWindow, Menu, ipcMain } = electron;
 
@@ -23,7 +23,7 @@ app.on('ready', function(){
       height: config.WINDOW_MIN_HEIGHT,
       icon : config.ICON,
       frame: false,
-      title : "Hello Back!",
+      title : "SurveyApp",
       resizable : false,
       // transprent: true,
       minimizable: false,
