@@ -12,7 +12,6 @@ const validators                      = require('.././Middlewares/Validators.js'
 const databaseConnection              = require('.././Config/DatabaseConnection.js');
 
 // Website domain used to work with puppeteer
-// const WEBSITE_DOMAIN = "http://localhost:5000";
 const WEBSITE_DOMAIN = process.env.HOST_NAME;
 
 // Init appropriate controller
