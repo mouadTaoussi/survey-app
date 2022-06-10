@@ -457,7 +457,7 @@ h1,h2,h3,h5,h6 {
 :root {
 	--margin-between-landing-pages : 60px;
 }
-.showcase-section {
+.cards-section {
 	display:  grid;
 	grid-template-columns: 2fr 2fr 2fr;
 	grid-column-gap: 20px;
@@ -1164,7 +1164,7 @@ pre {
 	#login-in-homepage {
 		margin-top: 0px;
 	}
-	.showcase-section {
+	.cards-section {
 		grid-template-columns: 2fr;
 		grid-column-gap: 20px;
 		margin : 40px auto 40px auto;
@@ -1319,7 +1319,7 @@ pre {
 	#login-in-homepage {
 	    display: none;
 	}
-	.showcase-section {
+	.cards-section {
 		grid-template-columns: 2fr;
 		grid-column-gap: 20px;
 		margin : 40px auto 40px auto;

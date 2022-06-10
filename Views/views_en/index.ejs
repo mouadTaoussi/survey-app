@@ -56,14 +56,14 @@
 		</div>
 	</div>
 
-	<div class="svg-background-showcase-section">
+	<div class="cards">
 		<center>
 			<h1 class="title-area text-center cards-title">
 				Create surveys and share them
 			</h1>
 			<p class="cards-sub-title poppins">Helps you by collecting enough data about your audience</p>
 		</center>
-		<div id="next" class="showcase-section container">
+		<div id="next" class="cards-section container">
 			<div class="local-p-4 local-m-2 ">
 				<div class="card-survey"></div>
 				<h3 class="card-title text-left">Surveys</h3>
@@ -156,13 +156,37 @@
 	</div>
 	<div class="desktop-app-page">
 		<div class="container my-2">
-			<div>sdvsdvndlfkjn</div>
 			<div class="isometric-drawing-computer"></div>
+			<div class="desktop-app-text-area">
+				<h2 class="title-area text-left features-title poppins">Get the same experience on our Desktop app!</h2>
+				<p class="text-dark poppins features-desc">
+					Download the desktop app to create & launch your surveys, as well as collect responses from your audience from it.
+				</p>
+				<a href="https://github.com/mouadTaoussi/survey-app/releases/download/1.7/survey-app-desktop-win32-ia32.rar"><button class="local-btn local-btn-success">Download (v1.7)</button></a>
+			</div>
 		</div>
 	</div>
 	<style>
 		.desktop-app-page {
-			height: 
+			height: 100vh;
+			width: 100%;
+			/*position: relative;*/
+		}
+		.desktop-app-page .container {
+			display: grid;
+			grid-template-columns: 45% 45%;
+			grid-gap: 8%;
+			height: 100%;
+
+		}
+		.desktop-app-text-area {
+			position: relative;
+			top: 35%;
+		}
+		.isometric-drawing-computer {
+			width: 100%;
+			/*height: 80%;*/
+			/*background: black;*/
 		}
 		
 	</style>
