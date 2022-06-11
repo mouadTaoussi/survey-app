@@ -2,6 +2,10 @@
 @import url('./colors.css');
 @import url('./fonts.css');
 
+:root {
+	--margin-between-sections : 60px;
+}
+
 /*add custom scroll bar*/
 /* width */
 ::-webkit-scrollbar {
@@ -454,14 +458,12 @@ h1,h2,h3,h5,h6 {
 	padding: 5px 0 5px 0;
 	padding-top: 40px;
 }
-:root {
-	--margin-between-landing-pages : 60px;
-}
+
 .cards-section {
 	display:  grid;
 	grid-template-columns: 2fr 2fr 2fr;
 	grid-column-gap: 20px;
-	margin : var(--margin-between-landing-pages) auto var(--margin-between-landing-pages) auto;
+	margin : var(--margin-between-sections) auto var(--margin-between-sections) auto;
 }
 .preview-feature-section,
 .preview-feature-section-2
@@ -469,14 +471,15 @@ h1,h2,h3,h5,h6 {
 	display:  grid;
 	grid-template-columns: 2fr 2fr;
 	grid-column-gap: 30px;
-	margin : var(--margin-between-landing-pages) auto var(--margin-between-landing-pages) auto;
+	margin : var(--margin-between-sections) auto var(--margin-between-sections) auto;
 
 }
 .showcase-section-2,
 .fifth-landing-page,
+.desktop-app-section,
 .conclusion-section,
 .faqs-section {
-	margin : var(--margin-between-landing-pages) auto var(--margin-between-landing-pages) auto;
+	margin : var(--margin-between-sections) auto var(--margin-between-sections) auto;
 }
 .services {
 	display: grid;
@@ -583,6 +586,28 @@ h1,h2,h3,h5,h6 {
 	font-weight: bolder;
 	color: var(--landing-page-text-color);
 }
+
+.desktop-app-section {
+	height: 600px;
+	width: 100%;
+	/*position: relative;*/
+}
+.desktop-app-section .container {
+	display: grid;
+	grid-template-columns: 45% 45%;
+	grid-gap: 8%;
+	height: 100%;
+}
+.desktop-app-text-area {
+	position: relative;
+	top: 100px;
+}
+.isometric-drawing-computer {
+	width: 100%;
+	/*height: 80%;*/
+	/*background: black;*/
+}
+
 @keyframes title {
 	0% {
 		opacity: 0;
@@ -1369,6 +1394,13 @@ pre {
 	}
 	.landing-page-btns {
 		margin: 0 auto;
+	}
+	.desktop-app-section .container {
+		display: grid;
+		grid-template-columns: 100%;
+	}
+	.desktop-app-section .isometric-drawing-computer {
+		display: none;
 	}
 	/**
 	*
