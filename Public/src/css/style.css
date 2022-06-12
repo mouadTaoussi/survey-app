@@ -442,7 +442,7 @@ h1,h2,h3,h5,h6 {
 	background-image: url('.././assets/secondBackground.svg');
 	background-repeat: no-repeat;
 	background-position: center;
-	height: 750px;
+	height: 550px;
 	background-size: contain; 
 	padding: 5px 0 5px 0;
 }
@@ -713,8 +713,13 @@ h1,h2,h3,h5,h6 {
 }
 .svg-background-showcase-section-2 div h1 {
 	font-size: 60px;
-	margin-top: 300px;
+	
 }
+.svg-background-showcase-section-2 div {
+	position: relative;
+	top: 100px;
+}
+
 /**
 *
 *
