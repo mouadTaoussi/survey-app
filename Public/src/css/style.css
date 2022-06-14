@@ -580,13 +580,15 @@ h1,h2,h3,h5,h6 {
 	color: var(--landing-page-primary);
 	font-size: 15px;
 	padding: 0 0 0 0!important;
-	margin: 70px 0 0 0!important;
+	margin: 0 0 0 0!important;
 }
 .features-title {
 	font-weight: bolder;
 	color: var(--landing-page-text-color);
 }
-
+.product-feature-description-area {
+	padding-top: 50px;
+}
 .desktop-app-section {
 	height: 600px;
 	width: 100%;
@@ -1246,7 +1248,7 @@ pre {
 	}
 	.svg-background-showcase-section-2 {
 		background-image: url('/');
-		height: 200px;
+		/* height: 200px; */
 	}
 	.svg-background-showcase-section-2 div h1 {
 		font-size: 30px;
@@ -1399,6 +1401,9 @@ pre {
 	}
 	.landing-page-btns {
 		margin: 0 auto;
+	}
+	.desktop-app-section {
+		height: auto;
 	}
 	.desktop-app-section .container {
 		display: grid;
