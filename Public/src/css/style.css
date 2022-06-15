@@ -586,7 +586,8 @@ h1,h2,h3,h5,h6 {
 	font-weight: bolder;
 	color: var(--landing-page-text-color);
 }
-.product-feature-description-area {
+.product-feature-description-area,
+.desktop-app-text-area {
 	padding-top: 50px;
 }
 .desktop-app-section {
