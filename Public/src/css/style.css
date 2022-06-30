@@ -1420,6 +1420,9 @@ pre {
 	.desktop-app-text-area {
 		position: static;
 	}
+	.isometric-logo {
+		display: none;
+	}
 	/**
 	*
 	*
