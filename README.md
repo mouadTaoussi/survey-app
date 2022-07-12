@@ -16,7 +16,7 @@
 ---
 
 ### What is SurveyApp ?
-All depends to create surveys then collects responses from your target (eg: clients-students...etc) represented in graphes describing the responses, for easier understanding!
+it depends to create surveys then collects responses from your target (eg: clients-students...etc) represented in graphes describing the responses, for easier understanding!
 You can now use an aternative **Open source** application that fit your needs if you ever caring about your **data** and **personnel data**.
 
 ### How it works ?
@@ -45,7 +45,7 @@ then read the [code of conduct](https://github.com/mouadTaoussi/survey-app/blob/
 If you have an idea needs to be implemented in **SurveyApp**, First Open up new issue with label of **enhancement** and, create a branch in your copy of the repo, then start work on the feature, if you want.
 
 ##### Guidlines to respect:
-- Open up new issue if it doesn't aleardy exists,
+- Open new issue if it doesn't aleardy exists,
 - Less commits, no more than 10
 - No useless comments
 - Code should be readable
