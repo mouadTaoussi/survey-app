@@ -29,6 +29,6 @@
     "style-loader": "^1.2.1",
     "svg-url-loader": "^6.0.0",
     "url-loader": "^4.1.0",
-    "webfonts-loader": "^5.2.2"
+    "webfonts-loader": "^7.5.2"
   }
 }
