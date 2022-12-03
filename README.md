@@ -4,7 +4,7 @@
 </p>
 
 <h4 align="center">
-	<strong>Create Surveys and get responses about them😎</strong>
+	<strong>Create Surveys and Collect data of them😎</strong>
 </h4>
 
 <h3 align="center">
