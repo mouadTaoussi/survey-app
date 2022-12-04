@@ -22,7 +22,7 @@ You can now use an aternative **Open source** application that fit your needs if
 ### How it works ?
 If you are intresting about learning how the application collects and handles responses in order to give the user full report of responses represented in graphs, see [this algorithm that responsible about that Job](https://github.com/mouadTaoussi/survey-app/blob/master/Controllers/Questions.js#L136-L226), it is provided with comments to understand each block of code.
 
-**Note: if you couldn't understand any part of the code, you can open new issue attached with the ``question`` label, and request help for better understanding!**
+**Note: if you couldn't understand any part of the code, Please open up new issue attached with the ``question`` label, to get help for better understanding!**
 
 ### Technologies
 #### Back-End side
