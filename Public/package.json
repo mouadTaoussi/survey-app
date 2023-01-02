@@ -18,17 +18,17 @@
     "jquery": "^3.5.1",
     "sortablejs": "^1.10.2",
     "uuid": "^8.3.0",
-    "webpack": "^4.44.1"
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
-    "babel-loader": "^7.1.5",
-    "css-loader": "^3.6.0",
+    "babel-loader": "^9.1.0",
+    "css-loader": "^6.7.3",
     "file-loader": "^6.0.0",
-    "mini-css-extract-plugin": "^0.9.0",
+    "mini-css-extract-plugin": "^2.7.2",
     "style-loader": "^1.2.1",
     "svg-url-loader": "^6.0.0",
     "url-loader": "^4.1.0",
-    "webfonts-loader": "^5.2.2"
+    "webfonts-loader": "^8.0.0"
   }
 }
