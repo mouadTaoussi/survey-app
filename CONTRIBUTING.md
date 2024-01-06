@@ -34,10 +34,10 @@ cd survey-app
 npm install
 ```
 
-### Create ``.env`` file and add those elements within your credentiels below:
+### Create ``.env`` file and add those credentiels below:
 
 ```
-touch Config/.env
+touch Config/.env && nano Config/.env
 ```
 ```
 NODE_ENV = development
